@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>EMAAVY — A New Leap in Call Intelligence</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+  --green:#AAFF45;
+  --green-dim:#7acc2e;
+  --bg:#040A04;
+  --surface:#0a120a;
+  --surface2:#0f1a0f;
+  --text:#f0f7f0;
+  --muted:#6b8c6b;
+  --border:rgba(170,255,69,0.12);
+}
+
+html,body{height:100%;overflow-x:hidden;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;}
+
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:999;opacity:0.35;
+}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.25rem 3rem;
+  background:rgba(4,10,4,0.7);
+  backdrop-filter:blur(12px);
+  border-bottom:0.5px solid var(--border);
+}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.35rem;letter-spacing:-0.02em;color:var(--text);}
+.logo span{color:var(--green);}
+.nav-links{display:flex;gap:2.5rem;align-items:center;}
+.nav-links a{font-size:0.875rem;color:var(--muted);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s;}
+.nav-links a:hover{color:var(--text);}
+.nav-right{display:flex;gap:1rem;align-items:center;}
+.btn-ghost{background:none;border:0.5px solid var(--border);color:var(--muted);padding:0.5rem 1.25rem;border-radius:100px;font-size:0.8rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.btn-ghost:hover{color:var(--text);border-color:rgba(170,255,69,0.3);}
+.btn-primary{background:var(--green);color:#040A04;border:none;padding:0.55rem 1.35rem;border-radius:100px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:'Syne',sans-serif;letter-spacing:0.01em;transition:all 0.2s;}
+.btn-primary:hover{background:#bfff6e;transform:scale(1.03);}
+
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:8rem 2rem 4rem;position:relative;text-align:center;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;width:700px;height:700px;
+  background:radial-gradient(circle,rgba(120,255,40,0.12) 0%,transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-55%);pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(170,255,69,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(170,255,69,0.04) 1px,transparent 1px);
+  background-size:60px 60px;pointer-events:none;
+  mask-image:radial-gradient(ellipse 70% 60% at 50% 50%,transparent 30%,black 100%);
+}
+
+.badge{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  background:rgba(170,255,69,0.08);border:0.5px solid rgba(170,255,69,0.25);
+  border-radius:100px;padding:0.35rem 1rem;margin-bottom:2rem;
+  font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--green);
+  animation:fadeUp 0.8s ease both;
+}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(0.8);}}
+
+.hero-tag{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(3rem,7vw,5.5rem);
+  line-height:1.0;letter-spacing:-0.04em;color:var(--text);margin-bottom:1.5rem;
+  animation:fadeUp 0.8s 0.1s ease both;max-width:820px;
+}
+.hero-tag .accent{color:var(--green);display:block;}
+.hero-tag .stroke{-webkit-text-stroke:1px rgba(170,255,69,0.5);color:transparent;}
+
+.hero-sub{
+  font-size:1.0625rem;color:var(--muted);max-width:480px;
+  line-height:1.7;margin-bottom:2.5rem;font-weight:300;
+  animation:fadeUp 0.8s 0.2s ease both;
+}
+
+.cta-row{display:flex;gap:1rem;justify-content:center;align-items:center;margin-bottom:4rem;animation:fadeUp 0.8s 0.3s ease both;}
+.btn-hero{
+  background:var(--green);color:#040A04;border:none;
+  padding:0.85rem 2rem;border-radius:100px;
+  font-size:0.9rem;font-weight:700;cursor:pointer;font-family:'Syne',sans-serif;letter-spacing:0.01em;
+  display:flex;align-items:center;gap:0.5rem;transition:all 0.25s;
+  box-shadow:0 0 30px rgba(170,255,69,0.3);
+}
+.btn-hero:hover{background:#bfff6e;transform:translateY(-2px);box-shadow:0 0 50px rgba(170,255,69,0.45);}
+.btn-hero svg{transition:transform 0.2s;}
+.btn-hero:hover svg{transform:translateX(3px);}
+.btn-watch{
+  background:none;border:0.5px solid var(--border);color:var(--muted);
+  padding:0.85rem 1.75rem;border-radius:100px;font-size:0.875rem;cursor:pointer;
+  font-family:'DM Sans',sans-serif;display:flex;align-items:center;gap:0.5rem;transition:all 0.2s;
+}
+.btn-watch:hover{color:var(--text);border-color:rgba(170,255,69,0.3);}
+.play-icon{width:18px;height:18px;border-radius:50%;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;}
+
+.stats-row{
+  display:flex;gap:0;align-items:center;
+  background:rgba(255,255,255,0.02);border:0.5px solid var(--border);
+  border-radius:16px;padding:0;overflow:hidden;margin-bottom:3.5rem;
+  animation:fadeUp 0.8s 0.35s ease both;
+}
+.stat-item{padding:1rem 2rem;text-align:center;position:relative;}
+.stat-item:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;bottom:20%;width:0.5px;background:var(--border);}
+.stat-num{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;color:var(--green);}
+.stat-lbl{font-size:0.72rem;color:var(--muted);margin-top:2px;letter-spacing:0.04em;}
+
+.waveform-wrap{
+  width:100%;max-width:860px;
+  background:rgba(10,18,10,0.9);border:0.5px solid rgba(170,255,69,0.15);
+  border-radius:20px;padding:1.5rem 2rem 1.25rem;position:relative;overflow:hidden;
+  animation:fadeUp 0.8s 0.45s ease both;
+  box-shadow:0 40px 80px rgba(0,0,0,0.6),0 0 0 0.5px rgba(170,255,69,0.08);
+}
+.waveform-wrap::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 40% at 50% 100%,rgba(170,255,69,0.06),transparent);
+  pointer-events:none;
+}
+.waveform-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem;}
+.wf-left{display:flex;align-items:center;gap:0.75rem;}
+.wf-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 1.5s infinite;}
+.wf-label{font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);}
+.wf-live{font-size:0.7rem;color:var(--muted);background:rgba(170,255,69,0.06);border:0.5px solid var(--border);padding:0.2rem 0.6rem;border-radius:100px;}
+.wf-controls{display:flex;align-items:center;gap:0.75rem;}
+.wf-btn{background:none;border:0.5px solid var(--border);color:var(--muted);width:28px;height:28px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:10px;transition:all 0.2s;}
+.wf-btn:hover{color:var(--green);border-color:rgba(170,255,69,0.3);}
+canvas#waveCanvas{width:100%;height:80px;display:block;}
+.wf-footer{display:flex;align-items:center;justify-content:space-between;margin-top:0.75rem;}
+.wf-time{font-size:0.72rem;color:var(--muted);font-variant-numeric:tabular-nums;font-family:'DM Sans',sans-serif;}
+.wf-progress{flex:1;margin:0 1rem;height:2px;background:rgba(170,255,69,0.1);border-radius:100px;position:relative;overflow:hidden;}
+.wf-progress-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--green-dim));border-radius:100px;width:0%;transition:width 0.1s linear;}
+.wf-tag{font-size:0.68rem;color:var(--muted);background:rgba(255,255,255,0.03);border:0.5px solid var(--border);padding:0.2rem 0.6rem;border-radius:100px;}
+.ticker{margin-top:1rem;padding-top:1rem;border-top:0.5px solid var(--border);display:flex;gap:0.75rem;align-items:flex-start;}
+.ticker-label{font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);padding-top:2px;flex-shrink:0;}
+.ticker-text{font-size:0.8rem;color:rgba(240,247,240,0.7);line-height:1.5;font-style:italic;}
+.ticker-text span{color:var(--green);}
+
+.scroll-hint{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:0.5rem;
+  color:var(--muted);font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;
+  animation:fadeIn 1s 1s both;
+}
+.scroll-line{width:1px;height:40px;background:linear-gradient(var(--green),transparent);animation:scrollAnim 2s infinite;}
+@keyframes scrollAnim{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+
+.features-row{
+  display:flex;gap:1px;background:var(--border);
+  border:0.5px solid var(--border);border-radius:16px;overflow:hidden;
+  margin:0 3rem;animation:fadeUp 1s 0.5s ease both;
+}
+.feat{flex:1;background:var(--bg);padding:2rem 1.5rem;transition:background 0.2s;}
+.feat:hover{background:var(--surface);}
+.feat-icon{width:36px;height:36px;border-radius:10px;background:rgba(170,255,69,0.08);border:0.5px solid rgba(170,255,69,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:16px;}
+.feat-title{font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:700;color:var(--text);margin-bottom:0.4rem;}
+.feat-desc{font-size:0.78rem;color:var(--muted);line-height:1.6;}
+.feat-num{font-family:'Syne',sans-serif;font-size:0.65rem;color:rgba(170,255,69,0.4);margin-bottom:0.75rem;letter-spacing:0.08em;}
+
+.ticker-bar{
+  overflow:hidden;white-space:nowrap;border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);
+  padding:0.6rem 0;margin-top:3rem;background:rgba(170,255,69,0.02);
+}
+.ticker-inner{display:inline-flex;gap:3rem;animation:tickerScroll 20s linear infinite;}
+.ticker-item{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:0.75rem;}
+.ticker-item span{color:var(--green);}
+@keyframes tickerScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">EMAAVY<span>.</span></div>
+  <div class="nav-links">
+    <a href="#">Features</a>
+    <a href="#">Pricing</a>
+    <a href="#">Docs</a>
+  </div>
+  <div class="nav-right">
+    <button class="btn-ghost">Log in</button>
+    <button class="btn-primary">Get Started →</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="badge">
+    <div class="badge-dot"></div>
+    Live Call Intelligence Platform
+  </div>
+
+  <h1 class="hero-tag">
+    Every call.<br>
+    <span class="accent">Fully decoded.</span>
+    <span class="stroke">Nothing missed.</span>
+  </h1>
+
+  <p class="hero-sub">
+    From the first word to the final second — every call recorded, transcribed, and turned into signal your team can act on. Instantly.
+  </p>
+
+  <div class="cta-row">
+    <button class="btn-hero">
+      Start Free
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="#040A04" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="btn-watch">
+      <div class="play-icon">▶</div>
+      See it live
+    </button>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-item"><div class="stat-num">99.4<span style="font-size:0.8rem">%</span></div><div class="stat-lbl">Transcription accuracy</div></div>
+    <div class="stat-item"><div class="stat-num">&lt;0.5<span style="font-size:0.8rem">s</span></div><div class="stat-lbl">Real-time latency</div></div>
+    <div class="stat-item"><div class="stat-num">22</div><div class="stat-lbl">Indian languages</div></div>
+    <div class="stat-item"><div class="stat-num">10M<span style="font-size:0.8rem">+</span></div><div class="stat-lbl">Calls processed</div></div>
+  </div>
+
+  <div class="waveform-wrap">
+    <div class="waveform-header">
+      <div class="wf-left">
+        <div class="wf-dot"></div>
+        <div class="wf-label">Live Waveform</div>
+        <div class="wf-live">● REC</div>
+      </div>
+      <div class="wf-controls">
+        <button class="wf-btn">⏮</button>
+        <button class="wf-btn" id="playBtn">▶</button>
+        <button class="wf-btn">⏭</button>
+      </div>
+    </div>
+    <canvas id="waveCanvas"></canvas>
+    <div class="wf-footer">
+      <div class="wf-time" id="currentTime">00:00</div>
+      <div class="wf-progress"><div class="wf-progress-fill" id="progressFill"></div></div>
+      <div class="wf-time">03:42</div>
+      <div class="wf-tag" style="margin-left:1rem">Hindi · Priya</div>
+    </div>
+    <div class="ticker">
+      <div class="ticker-label">Transcript</div>
+      <div class="ticker-text" id="transcriptText">
+        "<span>Haanji!</span> Hi hi, am I speaking with Armaan? So amazing yaar — I'm Priya calling from <span>Warehouse by Mudita</span>..."
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<div class="features-row">
+  <div class="feat">
+    <div class="feat-num">01 —</div>
+    <div class="feat-icon">🎙</div>
+    <div class="feat-title">Real-Time Transcription</div>
+    <div class="feat-desc">Every word captured as it's spoken. Indian accents, Hinglish, regional dialects — all handled natively.</div>
+  </div>
+  <div class="feat">
+    <div class="feat-num">02 —</div>
+    <div class="feat-icon">🤖</div>
+    <div class="feat-title">AI Voice Agents</div>
+    <div class="feat-desc">Deploy Priya, your AI outbound agent. She calls, convinces, and converts — 24/7, zero attrition.</div>
+  </div>
+  <div class="feat">
+    <div class="feat-num">03 —</div>
+    <div class="feat-icon">📊</div>
+    <div class="feat-title">Call Intelligence</div>
+    <div class="feat-desc">Sentiment, intent, drop-off moments — every call dissected into data your team can act on.</div>
+  </div>
+  <div class="feat">
+    <div class="feat-num">04 —</div>
+    <div class="feat-icon">⚡</div>
+    <div class="feat-title">Campaign Automation</div>
+    <div class="feat-desc">Upload your contact list, launch in one click. Personalised outreach at population scale.</div>
+  </div>
+</div>
+
+<div class="ticker-bar">
+  <div class="ticker-inner">
+    <div class="ticker-item"><span>✦</span> Real-time transcription</div>
+    <div class="ticker-item"><span>✦</span> AI outbound calling</div>
+    <div class="ticker-item"><span>✦</span> 22 Indian languages</div>
+    <div class="ticker-item"><span>✦</span> Campaign automation</div>
+    <div class="ticker-item"><span>✦</span> Call intelligence</div>
+    <div class="ticker-item"><span>✦</span> Sub-500ms latency</div>
+    <div class="ticker-item"><span>✦</span> Sentiment analysis</div>
+    <div class="ticker-item"><span>✦</span> Real-time transcription</div>
+    <div class="ticker-item"><span>✦</span> AI outbound calling</div>
+    <div class="ticker-item"><span>✦</span> 22 Indian languages</div>
+    <div class="ticker-item"><span>✦</span> Campaign automation</div>
+    <div class="ticker-item"><span>✦</span> Call intelligence</div>
+    <div class="ticker-item"><span>✦</span> Sub-500ms latency</div>
+    <div class="ticker-item"><span>✦</span> Sentiment analysis</div>
+  </div>
+</div>
+
+<script>
+const canvas = document.getElementById('waveCanvas');
+const ctx = canvas.getContext('2d');
+let bars = [];
+let playing = false;
+let progress = 0;
+const totalDuration = 222;
+
+function initBars() {
+  const W = canvas.parentElement.offsetWidth - 64;
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = W * dpr;
+  canvas.height = 80 * dpr;
+  canvas.style.width = W + 'px';
+  canvas.style.height = '80px';
+  ctx.scale(dpr, dpr);
+  const count = Math.floor(W / 5);
+  bars = Array.from({length: count}, () => Math.random() * 0.7 + 0.1);
+}
+
+function drawBars(t) {
+  const W = parseInt(canvas.style.width);
+  const H = 80;
+  ctx.clearRect(0, 0, W, H);
+  const count = bars.length;
+  const barW = 2.5;
+  const gap = 2;
+  const step = barW + gap;
+  const progressIdx = Math.floor(progress * count);
+  for(let i = 0; i < count; i++) {
+    const x = i * step;
+    const amp = bars[i];
+    const wobble = playing ? Math.sin(t * 0.003 + i * 0.3) * 0.08 : 0;
+    const h = (amp + wobble) * H * 0.8;
+    const y = (H - h) / 2;
+    ctx.fillStyle = i < progressIdx ? '#AAFF45' : 'rgba(170,255,69,0.18)';
+    ctx.beginPath();
+    ctx.roundRect(x, y, barW, h, 2);
+    ctx.fill();
+  }
+}
+
+function animate(ts) {
+  drawBars(ts);
+  if(playing) {
+    progress += 1 / (totalDuration * 60);
+    if(progress >= 1) progress = 0;
+    const secs = Math.floor(progress * totalDuration);
+    const m = Math.floor(secs / 60);
+    const s = secs % 60;
+    document.getElementById('currentTime').textContent = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+    document.getElementById('progressFill').style.width = (progress * 100) + '%';
+  }
+  requestAnimationFrame(animate);
+}
+
+initBars();
+requestAnimationFrame(animate);
+
+document.getElementById('playBtn').addEventListener('click', function() {
+  playing = !playing;
+  this.textContent = playing ? '⏸' : '▶';
+});
+
+window.addEventListener('resize', initBars);
+
+const lines = [
+  '"<span>Haanji!</span> Hi hi, am I speaking with Armaan? So amazing yaar — I\'m Priya from <span>Warehouse by Mudita</span>..."',
+  '"We\'re doing this <span>insane exclusive</span> showcase — Masaba, Manish Malhotra, Sabyasachi — all under one roof!"',
+  '"It\'s not a mall, it\'s not a mela — it\'s a <span>very curated experience</span>. Very not-for-everyone, yaar."',
+  '"Should I send you the confirmation on <span>WhatsApp</span>? We do limited slots — registering today locks your spot."',
+  '"<span>Absolutely no worries</span>, yaar — let me just drop you the details. You\'ll want to come once you see the lineup!"',
+];
+let lineIdx = 0;
+document.getElementById('transcriptText').style.transition = 'opacity 0.3s';
+setInterval(() => {
+  lineIdx = (lineIdx + 1) % lines.length;
+  const el = document.getElementById('transcriptText');
+  el.style.opacity = '0';
+  setTimeout(() => { el.innerHTML = lines[lineIdx]; el.style.opacity = '1'; }, 300);
+}, 4000);
+</script>
+
+</body>
+</html>
