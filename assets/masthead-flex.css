@@ -1,0 +1,422 @@
+/**
+ * EMAAVY masthead — same bar on landing and all subpages.
+ */
+body {
+  --masthead-h-full: 72px;
+  --masthead-h-compact: 64px;
+  --masthead-h: var(--masthead-h-full);
+  --nav-offset: 16px;
+  --masthead-nav-item-h: 36px;
+}
+
+body .masthead {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  width: 100%;
+  height: auto !important;
+  min-height: var(--masthead-h-compact);
+  z-index: 100;
+  pointer-events: auto;
+  transform: none !important;
+  transition: box-shadow 0.3s ease;
+}
+
+body .masthead.masthead--away {
+  transform: none !important;
+}
+
+body .masthead.scrolled .masthead-beam {
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+}
+
+body .masthead-beam {
+  overflow: visible;
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid #e2e8f0;
+  backdrop-filter: blur(12px);
+}
+
+body .masthead.compact .masthead-beam {
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+/* ─── One row: logo · nav · actions (hamburger hidden on desktop) ─── */
+body .masthead-inner {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: clamp(0.5rem, 1.5vw, 1rem) !important;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.5rem clamp(0.75rem, 2vw, 1.5rem) !important;
+  min-height: calc(
+    var(--masthead-h-full) -
+      var(--masthead-progress, 0) * (var(--masthead-h-full) - var(--masthead-h-compact))
+  ) !important;
+  height: auto !important;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
+  transition: min-height 0.15s ease, padding 0.15s ease;
+}
+
+body .logo-mega--nav-only {
+  flex: 0 0 auto;
+  display: inline-flex !important;
+  align-items: center !important;
+  align-self: center !important;
+  line-height: 0;
+  margin: 0;
+}
+
+body .logo-mega--nav-only .logo-mega-mark,
+body .masthead .logo-mega-mark {
+  display: block;
+  height: clamp(34px, 4vw, 44px);
+  width: auto;
+  max-width: min(110px, 20vw);
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+body .masthead.compact .logo-mega-mark {
+  height: clamp(30px, 3.5vw, 38px);
+}
+
+/* Nav track — all items on one baseline */
+body .masthead-nav {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  align-content: center !important;
+  justify-content: flex-start;
+  gap: 0.125rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  min-height: var(--masthead-nav-item-h);
+}
+
+body .masthead-nav::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  body .masthead-nav {
+    justify-content: center;
+    overflow-x: visible;
+  }
+}
+
+/* Plain links */
+body .masthead-nav > a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: var(--masthead-nav-item-h) !important;
+  min-height: var(--masthead-nav-item-h) !important;
+  padding: 0 0.55rem !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  color: #475569 !important;
+  text-decoration: none !important;
+  border-radius: 6px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+  flex-shrink: 0;
+  white-space: nowrap;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+body .masthead-nav > a::before {
+  display: none !important;
+}
+
+/* Dropdown triggers — same box as plain links */
+body .masthead-nav > .nav-dropdown {
+  display: inline-flex !important;
+  align-items: center !important;
+  align-self: center !important;
+  flex-shrink: 0;
+  height: var(--masthead-nav-item-h);
+  margin: 0;
+  padding: 0;
+  position: relative;
+  vertical-align: middle;
+}
+
+body .masthead-nav .nav-dropdown-split {
+  display: inline-flex !important;
+  align-items: center !important;
+  align-self: center !important;
+  height: var(--masthead-nav-item-h) !important;
+  gap: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 6px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  vertical-align: middle;
+}
+
+body .masthead-nav .nav-integrations-link,
+body .masthead-nav .nav-dropdown-caret {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: var(--masthead-nav-item-h) !important;
+  min-height: var(--masthead-nav-item-h) !important;
+  padding: 0 0.45rem !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  color: #475569 !important;
+  border-radius: 6px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+body .masthead-nav .nav-dropdown-caret {
+  font-size: 0.6rem !important;
+  padding: 0 0.35rem 0 0.15rem !important;
+  min-width: 1.25rem;
+}
+
+body .masthead-nav > a:hover,
+body .masthead-nav .nav-integrations-link:hover,
+body .masthead-nav .nav-dropdown-caret:hover,
+body .masthead-nav .nav-dropdown.open .nav-integrations-link,
+body .masthead-nav .nav-dropdown.open .nav-dropdown-caret {
+  color: #0f172a !important;
+  background: #f1f5f9 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+body .masthead-nav > a.active,
+body .masthead-nav .nav-integrations-link.active {
+  color: #18345d !important;
+  background: #f0f4f8 !important;
+}
+
+body .masthead-nav:has(a:hover),
+body .masthead-nav:has(.nav-dropdown:hover) {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* CTAs — same vertical center as nav */
+body .masthead-actions {
+  flex: 0 0 auto;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  align-self: center !important;
+  gap: 0.4rem !important;
+  margin-left: auto !important;
+  padding: 0 !important;
+  min-height: var(--masthead-nav-item-h);
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  overflow: visible !important;
+  position: relative;
+  z-index: 5;
+}
+
+/* CTAs — same size/behavior as Log In; Book a Demo is filled primary */
+body .masthead-actions a.masthead-cta,
+body .masthead-actions a.btn-nav-login,
+body .masthead-actions a.btn-nav-demo,
+body .masthead-actions a.masthead-login,
+body .masthead-actions a.masthead-go {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: var(--masthead-nav-item-h) !important;
+  min-height: var(--masthead-nav-item-h) !important;
+  min-width: 5.25rem !important;
+  padding: 0 0.85rem !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  font-family: inherit !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  box-sizing: border-box;
+  white-space: nowrap;
+  flex-shrink: 0 !important;
+  position: relative !important;
+  z-index: 2 !important;
+  -webkit-text-fill-color: currentColor !important;
+  background-clip: border-box !important;
+  animation: none !important;
+}
+
+body .masthead-actions a.masthead-cta::before,
+body .masthead-actions a.masthead-cta::after {
+  display: none !important;
+  content: none !important;
+}
+
+body .masthead-actions a.masthead-cta--login,
+body .masthead-actions a.masthead-login,
+body .masthead-actions a.btn-nav-login {
+  color: #475569 !important;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: none !important;
+}
+
+body .masthead-actions a.masthead-cta--login:hover,
+body .masthead-actions a.masthead-login:hover,
+body .masthead-actions a.btn-nav-login:hover {
+  color: #0f172a !important;
+  background: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+}
+
+body .masthead-actions a.masthead-cta--demo,
+body .masthead-actions a.masthead-go,
+body .masthead-actions a.btn-nav-demo {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #4a658b 0%, #18345d 100%) !important;
+  border: 1px solid transparent !important;
+  box-shadow: none !important;
+}
+
+body .masthead-actions a.masthead-cta--demo:hover,
+body .masthead-actions a.masthead-go:hover,
+body .masthead-actions a.btn-nav-demo:hover {
+  color: #ffffff !important;
+  background: #18345d !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Mobile drawer — both buttons visible and tappable */
+body .mobile-nav-actions .btn-nav-login,
+body .mobile-nav-actions .btn-nav-demo {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  text-decoration: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  -webkit-text-fill-color: currentColor !important;
+  box-sizing: border-box;
+}
+
+body .mobile-nav-actions .btn-nav-login {
+  color: #475569 !important;
+  background: #fff !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+body .mobile-nav-actions .btn-nav-demo {
+  color: #fff !important;
+  background: linear-gradient(135deg, #4a658b 0%, #18345d 100%) !important;
+  border: none !important;
+}
+
+body .nav-hamburger {
+  display: none !important;
+  flex: 0 0 auto;
+  align-self: center;
+}
+
+/* Desktop: keep full bar visible (override inline 1024 hide) */
+@media (min-width: 861px) {
+  body .masthead-nav {
+    display: flex !important;
+  }
+
+  body .masthead-actions {
+    display: flex !important;
+  }
+
+  body .nav-hamburger {
+    display: none !important;
+  }
+}
+
+@media (max-width: 860px) {
+  body .masthead-nav,
+  body .masthead-actions {
+    display: none !important;
+  }
+
+  body .nav-hamburger {
+    display: flex !important;
+    margin-left: auto !important;
+  }
+}
+
+body .logo-mega--nav-only .logo-mega-maavy,
+body .logo-mega--nav-only .logo-tag,
+body .logo-mega-maavy,
+body .logo-tag {
+  display: none !important;
+}
+
+body[data-page="home"] .hero {
+  padding: calc(var(--masthead-h, 72px) + 1.25rem) clamp(1rem, 3vw, 3rem) 3rem clamp(1rem, 2vw, 2rem) !important;
+  min-height: min(100vh, 900px);
+}
+
+@media (max-width: 1024px) {
+  body[data-page="home"] .hero {
+    padding: calc(var(--masthead-h, 72px) + 1rem) 1.25rem 3rem !important;
+    min-height: auto;
+  }
+}
+
+body[data-page="home"] .hub-zone,
+body[data-page="home"] #how-it-works,
+body[data-page="home"] #integrations,
+body[data-page="home"] #agents,
+body[data-page="home"] #campaigns,
+body[data-page="home"] #features,
+body[data-page="home"] #case-studies,
+body[data-page="home"] #journey,
+body[data-page="home"] #faq,
+body[data-page="home"] #book-demo {
+  scroll-margin-top: calc(var(--masthead-h, 72px) + 1rem);
+}

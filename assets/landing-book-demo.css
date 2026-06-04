@@ -1,0 +1,18 @@
+/* Landing — Book a Demo section: page scroll only, no nested scroll */
+body[data-page="home"] #book-demo {
+  scroll-margin-top: calc(var(--masthead-h, 72px) + 1rem);
+  overflow: visible;
+  padding: 6rem 2rem 5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+body[data-page="home"] #book-demo .demo-form {
+  overflow: visible;
+  max-height: none;
+  height: auto;
+}
+
+body[data-page="home"] #book-demo .demo-form.reveal.in {
+  transform: none;
+}

@@ -1,0 +1,203 @@
+/**
+ * EMAAVY brand theme — matches landing page (slate navy, not bright blue).
+ * Loaded on all subpages after site.css.
+ */
+:root {
+  --void: #ffffff;
+  --ice: #18345d;
+  --bolt: #4a658b;
+  --deep: #18345d;
+  --dim: #64748b;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --surface: #ffffff;
+  --surface-muted: #f8fafc;
+  --surface-accent: #f0f4f8;
+  --accent: #4a658b;
+  --accent-hover: #18345d;
+  --brand-light: #4a658b;
+  --brand-dark: #18345d;
+  --brand-grad: linear-gradient(135deg, #4a658b 0%, #18345d 100%);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-body: #334155;
+  --border-brand: rgba(74, 101, 139, 0.15);
+  --shadow-brand: rgba(24, 52, 93, 0.12);
+}
+
+body:not([data-page="home"]) {
+  color: var(--text-secondary);
+  background: var(--void);
+}
+
+body:not([data-page="home"]) a {
+  color: var(--brand-light);
+}
+
+body:not([data-page="home"]) a:hover {
+  color: var(--brand-dark);
+}
+
+/* ─── Page chrome ─── */
+body:not([data-page="home"]) .page-hero {
+  background: linear-gradient(180deg, var(--surface-accent) 0%, var(--void) 100%);
+  border-bottom: 1px solid var(--border);
+}
+
+body:not([data-page="home"]) .page-hero.compact {
+  background: linear-gradient(180deg, var(--surface-accent) 0%, var(--void) 100%);
+}
+
+body:not([data-page="home"]) .page-kicker {
+  background: var(--surface-muted);
+  color: var(--brand-light);
+  border: 1px solid var(--border);
+}
+
+body:not([data-page="home"]) .page-hero h1,
+body:not([data-page="home"]) .section-title {
+  color: var(--text-primary);
+}
+
+body:not([data-page="home"]) .page-section.alt {
+  background: linear-gradient(180deg, var(--surface-muted), var(--void));
+}
+
+body:not([data-page="home"]) .breadcrumb a {
+  color: var(--brand-light);
+}
+
+body:not([data-page="home"]) .breadcrumb a:hover {
+  color: var(--brand-dark);
+}
+
+/* ─── Buttons ─── */
+body:not([data-page="home"]) .btn-primary {
+  background: var(--brand-grad);
+  color: #fff;
+  box-shadow: none;
+}
+
+body:not([data-page="home"]) .btn-primary:hover {
+  background: var(--brand-dark);
+  box-shadow: 0 8px 24px var(--shadow-brand);
+}
+
+body:not([data-page="home"]) .btn-outline {
+  border: 2px solid var(--border-strong);
+  color: var(--brand-light);
+}
+
+body:not([data-page="home"]) .btn-outline:hover {
+  background: var(--surface-accent);
+  border-color: var(--brand-light);
+  color: var(--brand-dark);
+}
+
+body:not([data-page="home"]) .btn-nav-demo {
+  background: var(--brand-grad) !important;
+}
+
+body:not([data-page="home"]) .btn-nav-demo:hover {
+  background: var(--brand-dark) !important;
+}
+
+/* ─── Cards & stats ─── */
+body:not([data-page="home"]) .glow-card {
+  border-color: var(--border-brand);
+}
+
+body:not([data-page="home"]) .glow-card:hover {
+  border-color: var(--brand-light);
+  box-shadow: 0 20px 50px var(--shadow-brand);
+}
+
+body:not([data-page="home"]) .card-icon {
+  background: var(--surface-accent);
+  border-color: var(--border-brand);
+}
+
+body:not([data-page="home"]) .card-tag {
+  color: var(--brand-light);
+}
+
+body:not([data-page="home"]) .stat-box {
+  background: var(--surface-accent);
+  border-color: var(--border-brand);
+}
+
+body:not([data-page="home"]) .stat-box b {
+  color: var(--brand-light);
+}
+
+body:not([data-page="home"]) .feature-list li::before {
+  color: var(--brand-light);
+}
+
+/* ─── Footer ─── */
+body:not([data-page="home"]) .site-footer {
+  background: var(--surface-muted);
+  border-top: 1px solid var(--border);
+}
+
+body:not([data-page="home"]) .footer-links a:hover {
+  color: var(--brand-light);
+}
+
+/* ─── Nav (masthead + legacy site-nav) ─── */
+body:not([data-page="home"]) .site-nav a.active,
+body:not([data-page="home"]) .site-nav .nav-dropdown-trigger.active {
+  color: var(--brand-dark) !important;
+  background: var(--surface-accent) !important;
+}
+
+body:not([data-page="home"]) .site-nav a:hover,
+body:not([data-page="home"]) .site-nav .nav-integrations-link:hover,
+body:not([data-page="home"]) .site-nav .nav-dropdown-caret:hover {
+  color: var(--text-primary) !important;
+  background: #f1f5f9 !important;
+}
+
+body:not([data-page="home"]) .nav-dropdown-caret:hover {
+  color: var(--brand-light);
+}
+
+body:not([data-page="home"]) .site-nav .nav-dropdown-split > a.active + .nav-dropdown-caret,
+body:not([data-page="home"]) .site-nav .nav-dropdown.open .nav-dropdown-split > a {
+  color: var(--brand-dark) !important;
+  background: var(--surface-accent) !important;
+}
+
+body:not([data-page="home"]) .masthead .dropdown-section a:hover,
+body:not([data-page="home"]) .masthead .dropdown-link-grid a:hover {
+  color: var(--brand-light) !important;
+  background: var(--surface-accent) !important;
+}
+
+body:not([data-page="home"]) .mobile-nav-drawer a:hover,
+body:not([data-page="home"]) .mobile-nav-drawer a.active {
+  color: var(--brand-dark);
+  background: var(--surface-accent);
+}
+
+body:not([data-page="home"]) .masthead .nav-dropdown-menu-kicker {
+  background: var(--surface-muted);
+  border-color: var(--border);
+  color: var(--dim);
+}
+
+/* ─── Home-style sections reused on subpages ─── */
+body:not([data-page="home"]) .home-hero h1 .accent {
+  background: linear-gradient(135deg, var(--brand-light), var(--brand-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+body:not([data-page="home"]) .home-orb {
+  background: var(--brand-grad);
+  box-shadow: 0 0 60px rgba(74, 101, 139, 0.35);
+}
+
+body:not([data-page="home"]) .explore-grid a:hover {
+  border-color: var(--brand-light);
+}

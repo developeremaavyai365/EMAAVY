@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — EMAAVY</title>
+  <meta name="description" content="Contact EMAAVY — email, WhatsApp, schedule a call, or send a message. Our team responds within 24 hours." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Contact Us — EMAAVY" />
+  <meta property="og:description" content="Contact EMAAVY — sales, support, and partnership inquiries." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/nav.css" />
+<link rel="stylesheet" href="../assets/masthead-flex.css" />
+
+  <link rel="stylesheet" href="../assets/site.css" />
+<link rel="stylesheet" href="../assets/emaavy-theme.css" />
+
+  <link rel="stylesheet" href="../assets/contact-page.css" />
+</head>
+<body class="contact-page" data-base="../" data-route="contact">
+  <div id="site-nav-root"></div>
+
+  <main class="page-main contact-page-main" id="contact">
+    <div class="contact-shell">
+      <header class="contact-header reveal">
+        <span class="contact-kicker">Contact</span>
+        <h1>Get in touch</h1>
+        <p class="contact-lead">
+          Sales, support, or partnerships — choose a channel below or send us a note. We respond within one business day.
+        </p>
+      </header>
+
+      <nav class="contact-channels reveal" aria-label="Contact channels">
+        <a class="contact-channel" href="mailto:hello@emaavy.ai">
+          <span class="contact-channel-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 4h16v16H4z"/><path d="m4 7 8 6 8-6"/></svg>
+          </span>
+          <span class="contact-channel-text">
+            <strong>Email</strong>
+            <span>hello@emaavy.ai</span>
+          </span>
+        </a>
+        <a class="contact-channel" href="https://wa.me/919999999999" target="_blank" rel="noopener">
+          <span class="contact-channel-icon contact-channel-icon--wa" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+          </span>
+          <span class="contact-channel-text">
+            <strong>WhatsApp</strong>
+            <span>Chat with our team</span>
+          </span>
+        </a>
+        <a class="contact-channel" href="https://calendly.com/emaavy" target="_blank" rel="noopener">
+          <span class="contact-channel-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          </span>
+          <span class="contact-channel-text">
+            <strong>Schedule</strong>
+            <span>30-minute intro call</span>
+          </span>
+        </a>
+      </nav>
+
+      <div class="contact-rule reveal" aria-hidden="true"></div>
+
+      <section class="contact-message reveal" aria-labelledby="contact-form-title">
+        <div class="contact-message-head">
+          <h2 id="contact-form-title">Send a message</h2>
+          <p>We'll route your note to the right team — no ticket numbers, no hold music.</p>
+        </div>
+
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="contact-field">
+            <label for="contactName">Your name</label>
+            <input id="contactName" type="text" name="name" placeholder="Alex Rivera" autocomplete="name" required />
+          </div>
+          <div class="contact-field">
+            <label for="contactEmail">Work email</label>
+            <input id="contactEmail" type="email" name="email" placeholder="you@company.com" autocomplete="email" required />
+          </div>
+          <div class="contact-field">
+            <label for="contactTopic">Topic</label>
+            <select id="contactTopic" name="topic" required>
+              <option value="" disabled selected>Select a topic</option>
+              <option value="sales">Sales &amp; pricing</option>
+              <option value="support">Product support</option>
+              <option value="partnerships">Partnerships</option>
+              <option value="enterprise">Enterprise</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div class="contact-field">
+            <label for="contactMessage">Message</label>
+            <textarea id="contactMessage" name="message" rows="5" placeholder="Tell us how we can help…" required></textarea>
+          </div>
+          <button type="submit" class="contact-submit">Send message</button>
+        </form>
+
+        <p class="contact-note">
+          Prefer a live walkthrough?
+          <a href="../book-demo.html">Book a demo</a>
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <div id="contactToast" class="contact-toast" role="status" aria-live="polite"></div>
+
+  <div id="site-footer-root"></div>
+  <script src="../assets/routes.js"></script>
+  <script src="../assets/components.js"></script>
+  <script src="../assets/nav.js"></script>
+  <script src="../assets/contact-page.js"></script>
+</body>
+</html>

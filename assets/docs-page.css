@@ -1,0 +1,748 @@
+/* Documentation page — extracted from home stylesheet */
+:root {
+  --void: #ffffff;
+  --ink: #f8fafc;
+  --panel: #f1f5f9;
+  --ice: #18345d;
+  --bolt: #4a658b;
+  --deep: #18345d;
+  --violet: #4a658b;
+  --dim: #64748b;
+  --border: #e2e8f0;
+  --glass: rgba(255, 255, 255, 0.92);
+}
+
+.docs-page-main {
+  padding-top: calc(var(--masthead-h, 88px) + 2rem);
+  padding-bottom: 4rem;
+  background: #fff;
+}
+.docs-page-main .cap-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+.shell > section,
+.shell > .cap-section {
+  scroll-margin-top: 100px !important;}
+.platform-stats { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 640px; margin: 2.5rem auto 0;}
+.platform-stat { text-align: center; padding: 1rem 0.75rem; border-radius: 16px; border: 1px solid rgba(74, 101, 139, 0.14); background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(8px); box-shadow: 0 6px 20px rgba(74, 101, 139, 0.06); transition: border-color 0.45s ease, box-shadow 0.45s ease;}
+.platform-stat:hover { border-color: rgba(74, 101, 139, 0.35); box-shadow: 0 0 24px rgba(74, 101, 139, 0.18), 0 8px 28px rgba(74, 101, 139, 0.1);}
+.platform-stat b { display: block; font-family: 'Clash Display', sans-serif; font-size: 1.35rem; color: #18345D; margin-bottom: 0.2rem;}
+.platform-stat span { font-size: 0.72rem; color: #64748b; letter-spacing: 0.04em;}
+.platform-stats { grid-template-columns: 1fr;}
+.bento-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bolt); margin-bottom: 1rem;}
+.section-kicker { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #4A658B; background: linear-gradient(135deg, #e4ebf3, #f0f4f8); border: 1px solid rgba(37,99,235,0.25); border-radius: 999px; padding: 0.35rem 0.85rem; margin-bottom: 0.85rem; box-shadow: 0 0 20px rgba(37,99,235,0.12);}
+.section-kicker::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #4A658B; box-shadow: 0 0 10px #4A658B; animation: signalPing 2s infinite;}
+.hiw-steps { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.15rem;}
+.hiw-steps::before{display:none!important;content:none!important}
+.hiw-step { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 1.65rem 1.25rem 1.35rem; border-radius: 22px; background: rgba(255, 255, 255, 0.9); border: 2px solid rgba(74, 101, 139, 0.16); box-shadow: 0 10px 32px rgba(74, 101, 139, 0.08); cursor: pointer; transition: border-color 0.5s ease, box-shadow 0.5s ease; isolation: isolate; overflow: hidden;}
+.hiw-step-glow { position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(circle at 50% 0%, rgba(74, 101, 139, 0.1) 0%, transparent 68%); opacity: 0.3; pointer-events: none; z-index: 0; animation: snapGlowIdle 5.5s ease-in-out infinite;}
+.hiw-step:nth-child(1) .hiw-step-glow { animation-delay: 0s;}
+.hiw-step:nth-child(2) .hiw-step-glow { animation-delay: 0.7s;}
+.hiw-step:nth-child(3) .hiw-step-glow { animation-delay: 1.4s;}
+.hiw-step:nth-child(4) .hiw-step-glow { animation-delay: 2.1s;}
+.hiw-step::before{display:none!important;content:none!important}
+.hiw-step:hover, .hiw-step:focus-visible { border-color: rgba(74, 101, 139, 0.55); box-shadow: 0 0 32px rgba(74, 101, 139, 0.32), 0 0 64px rgba(74, 101, 139, 0.14), 0 16px 40px rgba(74, 101, 139, 0.1); outline: none;}
+.hiw-step:hover::before, .hiw-step:focus-visible::before { opacity: 1;}
+.hiw-step:hover .hiw-step-glow, .hiw-step:focus-visible .hiw-step-glow { opacity: 0.8; animation-play-state: paused;}
+.hiw-step-num { position: relative; z-index: 1; width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-family: 'Clash Display', sans-serif; font-weight: 700; font-size: 1.15rem; color: #fff; background: linear-gradient(135deg, #4A658B, #18345D); border: 2px solid rgba(255, 255, 255, 0.35); box-shadow: 0 0 22px rgba(74, 101, 139, 0.45); transition: box-shadow 0.5s ease;}
+.hiw-step:hover .hiw-step-num, .hiw-step:focus-visible .hiw-step-num { box-shadow: 0 0 32px rgba(74, 101, 139, 0.65), 0 0 56px rgba(59, 130, 246, 0.25);}
+.hiw-step-icon { position: relative; z-index: 1; width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.45rem; margin-bottom: 0.85rem; background: linear-gradient(145deg, #e4ebf3, #f0f4f8); border: 1px solid rgba(74, 101, 139, 0.2); box-shadow: 0 0 18px rgba(74, 101, 139, 0.12); transition: box-shadow 0.5s ease;}
+.hiw-step:hover .hiw-step-icon, .hiw-step:focus-visible .hiw-step-icon { box-shadow: 0 0 26px rgba(74, 101, 139, 0.38);}
+.hiw-step h4 { position: relative; z-index: 1; font-family: 'Clash Display', sans-serif; font-size: 1.08rem; color: #0f172a; margin-bottom: 0.5rem; transition: color 0.5s ease;}
+.hiw-step:hover h4, .hiw-step:focus-visible h4 { color: #18345D;}
+.hiw-step p { position: relative; z-index: 1; font-size: 0.86rem; color: #475569; line-height: 1.6; margin: 0 0 1rem;}
+.hiw-step-tag { position: relative; z-index: 1; margin-top: auto; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #4A658B; background: rgba(219, 234, 254, 0.9); border: 1px solid rgba(74, 101, 139, 0.2); border-radius: 999px; padding: 0.28rem 0.65rem; box-shadow: 0 0 12px rgba(74, 101, 139, 0.1); transition: box-shadow 0.5s ease, background 0.5s ease;}
+.hiw-step:hover .hiw-step-tag, .hiw-step:focus-visible .hiw-step-tag { background: #e4ebf3; box-shadow: 0 0 18px rgba(74, 101, 139, 0.25);}
+.hiw-step-hint { position: relative; z-index: 1; margin-top: 0.65rem; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #64748b; opacity: 0; transition: opacity 0.5s ease, color 0.5s ease;}
+.hiw-step:hover .hiw-step-hint, .hiw-step:focus-visible .hiw-step-hint { opacity: 1; color: #4A658B;}
+.hiw-steps::before{display:none!important;content:none!important}
+.features-head { position: relative; z-index: 1; text-align: center; margin-bottom: 2.75rem;}
+.features-head h2 { font-family: 'Clash Display', sans-serif; font-size: clamp(2rem, 5vw, 3.2rem); letter-spacing: -0.03em; color: #0f172a; margin-bottom: 0.75rem; text-shadow: 0 0 40px rgba(74, 101, 139, 0.1);}
+.features-head p { color: #475569; max-width: 540px; margin: 0 auto; line-height: 1.75; font-size: 1rem;}
+.telephony-head .section-kicker { background: rgba(74, 101, 139, 0.1); border-color: rgba(74, 101, 139, 0.28); color: #18345D; box-shadow: 0 0 20px rgba(74, 101, 139, 0.12);}
+.int-head .section-kicker { background: var(--int-accent-soft); border-color: var(--int-accent-border); color: var(--int-accent-dark); box-shadow: 0 0 20px var(--int-accent-soft);}
+/* Docs section */ #docs { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto;}
+.template-head .section-kicker, .workflow-head .section-kicker, .platform-marquee-head .section-kicker { background: rgba(74, 101, 139, 0.08); border-color: rgba(74, 101, 139, 0.22); color: #4A658B;}
+.hiw-step p, .workflow-node p, .pack-tagline, .pack-features li { color: #334155 !important; font-size: 0.9rem !important; line-height: 1.65 !important;}
+.int-head .section-kicker, .telephony-head .section-kicker { background: var(--surface-muted) !important; border-color: var(--border) !important; color: var(--accent) !important; box-shadow: none !important;}
+.section-kicker::before, .signal-chip-glow, .hiw-step-glow, .feature-card-glow, .h-card-glow, .workflow-node-glow, .workflow-node-scanline, .workflow-pulse, .platform-hub-glow, .platform-hub-ring, .signal-dot::after, .section-kicker::before { display: none !important; animation: none !important;}
+.int-shell::before, #how-it-works::before, .cap-section::before, .template-shell::before, .workflow-shell::before, .platform-shell::before, .nav-dropdown-menu::before, .page-section::before { animation: none !important;}
+/* ═══ GLITCH-FREE LANDING — hide line artifacts & overlays ═══ */
+.scanlines,
+.grain,
+.ambient,
+.masthead-scan,
+.hero-glow-layer,
+.hero-showcase::before,
+.hero-showcase-device::before,
+.hero-showcase-header::after,
+.hero-showcase-shimmer,
+.hero-showcase-vignette,
+.hero-showcase-livefx,
+#how-it-works .hiw-mesh,
+#how-it-works .hiw-mesh-lines,
+.hiw-steps::before,
+.hiw-step::before,
+.hiw-step::after,
+.feature-card::after,
+.int-card::before,
+.h-card::after,
+.bento::after,
+.template-card::after,
+.nav-dropdown-menu::before,
+.int-shell::before,
+.telephony-shell::before,
+.template-shell::before,
+.workflow-shell::before,
+.platform-shell::before,
+.cap-section::before,
+#how-it-works::before,
+.template-shell::before,
+.nav-dropdown-menu-glow,
+.section-kicker::before,
+.signal-chip-glow,
+.hiw-step-glow,
+.feature-card-glow,
+.h-card-glow,
+.workflow-node-scanline,
+.workflow-node-glow,
+.workflow-pulse,
+.platform-hub-glow,
+.platform-hub-ring,
+.platform-marquee-pill-glow,
+.platform-chip-glow,
+.hero-eyebrow::before,
+#integrations .telephony-scanline,
+#integrations .telephony-hero-scanline,
+#integrations .int-scanline,
+#integrations .int-card-scanline,
+.template-card-scanline {
+  display: none !important;
+  animation: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;}
+/* Kill animated top accent bars (1–4px lines on sections) */
+.int-shell::before,
+.telephony-shell::before,
+.template-shell::before,
+.workflow-shell::before,
+.platform-shell::before,
+.cap-section::before,
+#how-it-works::before,
+.template-shell::before {
+  content: none !important;
+  height: 0 !important;}
+/* Consistent section spacing */
+.cap-section,
+#how-it-works.hiw-stage,
+#integrations {
+  margin-bottom: 4rem !important;}
+/* Platform stats — no blue glow lines */
+.platform-stat,
+.cap-section .platform-stat {
+  backdrop-filter: none !important;
+  box-shadow: none !important;}
+.platform-stat:hover,
+.cap-section .platform-stat:hover {
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06) !important;}
+#how-it-works .hiw-glow,
+#how-it-works .hiw-step-glow {
+  display: none !important;}
+#how-it-works .section-kicker,
+#how-it-works .hiw-head .section-kicker {
+  display: inline-flex !important;
+  font-size: 0.68rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: #64748b !important;
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 6px !important;
+  padding: 0.35rem 0.85rem !important;
+  margin-bottom: 0.85rem !important;}
+#how-it-works .section-kicker::before,
+#how-it-works .hiw-head .section-kicker::before {
+  display: none !important;}
+/* ═══ ELEGANT FEATURES — refined shell (HIW cards below) ═══ */
+.cap-section {
+  position: relative !important;
+  overflow: visible !important;
+  width: min(1200px, calc(100% - 2rem)) !important;
+  margin: 0 auto 4rem !important;
+  padding: 3rem clamp(1.25rem, 4vw, 2.5rem) 2.5rem !important;
+  border-radius: 12px !important;
+  border: 1px solid #e2e8f0 !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
+  isolation: auto !important;
+  scroll-margin-top: 100px !important;}
+.cap-section::before,
+.features-glow,
+.features-grid-bg,
+.feature-card-glow {
+  display: none !important;}
+.features-head {
+  position: relative !important;
+  z-index: 1 !important;
+  text-align: center !important;
+  margin-bottom: 2.5rem !important;}
+.cap-section .section-kicker,
+.features-head .section-kicker {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  font-size: 0.68rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: #64748b !important;
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 6px !important;
+  padding: 0.35rem 0.85rem !important;
+  margin-bottom: 0.85rem !important;
+  box-shadow: none !important;}
+.cap-section .section-kicker::before,
+.features-head .section-kicker::before {
+  display: none !important;}
+.features-head h2 {
+  font-family: 'Clash Display', sans-serif !important;
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  color: #0f172a !important;
+  margin-bottom: 0.5rem !important;
+  text-shadow: none !important;}
+.features-head p {
+  color: #64748b !important;
+  max-width: 540px !important;
+  margin: 0 auto !important;
+  line-height: 1.65 !important;
+  font-size: 0.95rem !important;}
+/* ═══ PLATFORM CAPABILITIES — landing promo ═══ */
+.cap-section--promo {
+  padding: clamp(2.5rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 2.5rem) 2rem !important;}
+.capabilities-promo-copy .section-kicker {
+  margin-bottom: 0.85rem !important;}
+.cap-section--promo .features-head {
+  display: none !important;}
+.telephony-promo-copy .section-kicker {
+  margin-bottom: 0.85rem !important;}
+/* ═══ FEATURES — HIW card system (legacy / other cap-sections) ═══ */
+.cap-section .features-grid,
+.cap-section .hiw-steps {
+  position: relative !important;
+  z-index: 1 !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 0.75rem !important;}
+.cap-section .hiw-steps::before,
+.hiw-steps::before {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+  height: 0 !important;}
+.cap-section .hiw-step {
+  position: relative !important;
+  z-index: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 1.35rem 1.1rem 1.15rem !important;
+  border-radius: 8px !important;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  overflow: visible !important;
+  isolation: auto !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;}
+.cap-section .hiw-step::before,
+.hiw-step::before {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+  height: 0 !important;}
+.cap-section .hiw-step:hover,
+.cap-section .hiw-step:focus-visible {
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06) !important;
+  outline: none !important;
+  transform: none !important;}
+.cap-section .hiw-step-num {
+  position: relative !important;
+  z-index: 1 !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto 0.85rem !important;
+  font-family: 'Clash Display', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  color: #ffffff !important;
+  background: #4A658B !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: background 0.2s ease !important;}
+.cap-section .hiw-step:hover .hiw-step-num,
+.cap-section .hiw-step:focus-visible .hiw-step-num {
+  background: #18345D !important;}
+.cap-section .hiw-step-icon {
+  display: none !important;}
+.cap-section .hiw-step h4 {
+  position: relative !important;
+  z-index: 1 !important;
+  font-family: 'Clash Display', sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: #0f172a !important;
+  margin-bottom: 0.45rem !important;
+  transition: color 0.2s ease !important;}
+.cap-section .hiw-step:hover h4,
+.cap-section .hiw-step:focus-visible h4 {
+  color: #4A658B !important;}
+.cap-section .hiw-step p {
+  position: relative !important;
+  z-index: 1 !important;
+  font-size: 0.85rem !important;
+  color: #64748b !important;
+  line-height: 1.6 !important;
+  margin: 0 0 0.85rem !important;}
+.cap-section .hiw-step-tag {
+  position: relative !important;
+  z-index: 1 !important;
+  margin-top: auto !important;
+  font-size: 0.6rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #64748b !important;
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 4px !important;
+  padding: 0.25rem 0.55rem !important;
+  box-shadow: none !important;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease !important;}
+.cap-section .hiw-step:hover .hiw-step-tag,
+.cap-section .hiw-step:focus-visible .hiw-step-tag {
+  background: #f0f4f8 !important;
+  border-color: #cbd5e1 !important;
+  color: #4A658B !important;}
+.cap-section .hiw-step-hint {
+  position: relative !important;
+  z-index: 1 !important;
+  margin-top: 0.55rem !important;
+  font-size: 0.6rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: #94a3b8 !important;
+  opacity: 1 !important;
+  transition: color 0.2s ease !important;}
+.cap-section .hiw-step:hover .hiw-step-hint,
+.cap-section .hiw-step:focus-visible .hiw-step-hint {
+  color: #64748b !important;}
+.cap-section .hiw-step.reveal {
+  opacity: 0 !important;
+  transform: translateY(24px) !important;}
+.cap-section .hiw-step.reveal.in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;}
+.cap-section .hiw-steps .hiw-step.reveal:nth-child(1) { transition-delay: 0.04s !important;}
+.cap-section .hiw-steps .hiw-step.reveal:nth-child(2) { transition-delay: 0.09s !important;}
+.cap-section .hiw-steps .hiw-step.reveal:nth-child(3) { transition-delay: 0.14s !important;}
+.cap-section .hiw-steps .hiw-step.reveal:nth-child(4) { transition-delay: 0.19s !important;}
+.cap-section .hiw-steps .hiw-step.reveal:nth-child(5) { transition-delay: 0.24s !important;}
+.cap-section .hiw-steps .hiw-step.reveal:nth-child(6) { transition-delay: 0.29s !important;}
+.cap-section .platform-stats {
+  position: relative !important;
+  z-index: 1 !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 1rem !important;
+  max-width: 640px !important;
+  margin: 2rem auto 0 !important;
+  padding: 0 !important;}
+.cap-section .platform-stat {
+  text-align: center !important;
+  padding: 1rem 0.75rem !important;
+  border-radius: 8px !important;
+  border: 1px solid #e2e8f0 !important;
+  background: #f8fafc !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;}
+.cap-section .platform-stat:hover {
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06) !important;}
+.cap-section .platform-stat b {
+  display: block !important;
+  font-family: 'Clash Display', sans-serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 600 !important;
+  color: #4A658B !important;
+  margin-bottom: 0.25rem !important;}
+.cap-section .platform-stat span {
+  font-size: 0.75rem !important;
+  color: #64748b !important;}
+.template-head .section-kicker {
+  display: inline-flex !important;
+  align-items: center !important;
+  font-size: 0.68rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: #64748b !important;
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 6px !important;
+  padding: 0.35rem 0.85rem !important;
+  margin-bottom: 0.85rem !important;
+  box-shadow: none !important;}
+.template-head .section-kicker::before {
+  display: none !important;}
+.h-scroll-header .section-kicker {
+  display: inline-flex !important;
+  align-items: center !important;
+  font-size: 0.68rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: #64748b !important;
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 6px !important;
+  padding: 0.35rem 0.85rem !important;
+  margin-bottom: 0.85rem !important;
+  box-shadow: none !important;}
+.h-scroll-header .section-kicker::before {
+  display: none !important;}
+.workflow-head .section-kicker {
+  display: inline-flex !important;
+  align-items: center !important;
+  font-size: 0.68rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: #64748b !important;
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 6px !important;
+  padding: 0.35rem 0.85rem !important;
+  margin-bottom: 0.85rem !important;
+  box-shadow: none !important;}
+.workflow-head .section-kicker::before {
+  display: none !important;}
+.proof-wall .platform-marquee-head .section-kicker {
+  display: inline-flex !important;
+  align-items: center !important;
+  font-size: 0.68rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: #64748b !important;
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 6px !important;
+  padding: 0.35rem 0.85rem !important;
+  margin-bottom: 0.85rem !important;
+  box-shadow: none !important;}
+.proof-wall .platform-marquee-head .section-kicker::before {
+  display: none !important;}
+.proof-wall .platform-stats {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 0.65rem !important;
+  max-width: 640px !important;
+  margin: 0 auto !important;}
+.proof-wall .platform-stat {
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  background: #f8fafc !important;
+  padding: 0.85rem 0.75rem !important;
+  text-align: center !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;}
+.proof-wall .platform-stat b {
+  font-family: 'Clash Display', sans-serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  color: #4A658B !important;}
+.proof-wall .platform-stat span {
+  font-size: 0.72rem !important;
+  color: #64748b !important;}
+.proof-wall .platform-stats {
+    grid-template-columns: 1fr !important;}
+#integrations .int-hub-head .section-kicker {
+  display: inline-flex !important;
+  font-size: 0.68rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: #64748b !important;
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 6px !important;
+  padding: 0.35rem 0.85rem !important;
+  margin-bottom: 0.85rem !important;
+  box-shadow: none !important;}
+#integrations .int-hub-head .section-kicker::before {
+  display: none !important;}
+#integrations .telephony-head .section-kicker,
+#integrations .int-head .section-kicker {
+  display: inline-flex !important;
+  font-size: 0.65rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #64748b !important;
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 6px !important;
+  padding: 0.35rem 0.75rem !important;
+  box-shadow: none !important;}
+#integrations .hiw-steps,
+#integrations .int-cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+  gap: 0.75rem !important;}
+#integrations .int-shell--tts .hiw-steps,
+#integrations .int-shell--tts .int-cards-grid {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+  max-width: none !important;}
+#integrations .int-card,
+#integrations .hiw-step {
+  padding: 1.15rem !important;
+  border-radius: 10px !important;
+  border: 1px solid #e2e8f0 !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;}
+#integrations .hiw-steps,
+  #integrations .int-cards-grid {
+    grid-template-columns: 1fr !important;}
+/* ═══ INTEGRATIONS — HIW card system (exact match) ═══ */
+#integrations .hiw-steps {
+  position: relative !important;
+  z-index: 1 !important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+  gap: 0.75rem !important;
+  margin-top: 1rem !important;}
+#integrations .hiw-steps::before,
+#integrations .hiw-step::before {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+  height: 0 !important;}
+#integrations .hiw-step {
+  position: relative !important;
+  z-index: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 1.35rem 1.1rem 1.15rem !important;
+  border-radius: 8px !important;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  overflow: visible !important;
+  isolation: auto !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;}
+#integrations .hiw-step::before {
+  display: none !important;}
+#integrations .hiw-step:hover,
+#integrations .hiw-step:focus-visible {
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06) !important;
+  outline: none !important;
+  transform: none !important;}
+#integrations .hiw-step-num {
+  position: relative !important;
+  z-index: 1 !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto 0.85rem !important;
+  font-family: 'Clash Display', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.72rem !important;
+  color: #ffffff !important;
+  background: #4A658B !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: background 0.2s ease !important;
+  overflow: hidden !important;
+  padding: 0 !important;}
+#integrations .hiw-step-num img {
+  width: 22px !important;
+  height: 22px !important;
+  max-width: 26px !important;
+  object-fit: contain !important;
+  filter: brightness(0) invert(1) !important;}
+#integrations .hiw-step-num .brand-mark {
+  font-family: 'Clash Display', sans-serif !important;
+  font-size: 0.7rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  line-height: 1 !important;}
+#integrations .hiw-step:hover .hiw-step-num,
+#integrations .hiw-step:focus-visible .hiw-step-num {
+  background: #18345D !important;}
+#integrations .hiw-step-icon {
+  display: none !important;}
+#integrations .hiw-step h4 {
+  position: relative !important;
+  z-index: 1 !important;
+  font-family: 'Clash Display', sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: #0f172a !important;
+  margin-bottom: 0.45rem !important;
+  transition: color 0.2s ease !important;}
+#integrations .hiw-step:hover h4,
+#integrations .hiw-step:focus-visible h4 {
+  color: #4A658B !important;}
+#integrations .hiw-step p {
+  position: relative !important;
+  z-index: 1 !important;
+  font-size: 0.85rem !important;
+  color: #64748b !important;
+  line-height: 1.6 !important;
+  margin: 0 0 0.85rem !important;}
+#integrations .hiw-step-tag {
+  position: relative !important;
+  z-index: 1 !important;
+  margin-top: auto !important;
+  font-size: 0.6rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: #64748b !important;
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 4px !important;
+  padding: 0.25rem 0.55rem !important;
+  box-shadow: none !important;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease !important;}
+#integrations .hiw-step:hover .hiw-step-tag,
+#integrations .hiw-step:focus-visible .hiw-step-tag {
+  background: #f0f4f8 !important;
+  border-color: #cbd5e1 !important;
+  color: #4A658B !important;}
+#integrations .hiw-step-hint {
+  position: relative !important;
+  z-index: 1 !important;
+  margin-top: 0.55rem !important;
+  font-size: 0.6rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: #94a3b8 !important;
+  opacity: 1 !important;
+  transition: color 0.2s ease !important;}
+#integrations .hiw-step:hover .hiw-step-hint,
+#integrations .hiw-step:focus-visible .hiw-step-hint {
+  color: #64748b !important;}
+#integrations .hiw-step.reveal {
+  opacity: 0 !important;
+  transform: translateY(24px) !important;}
+#integrations .hiw-step.reveal.in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;}
+#integrations .hiw-steps .hiw-step.reveal:nth-child(1) { transition-delay: 0.04s !important;}
+#integrations .hiw-steps .hiw-step.reveal:nth-child(2) { transition-delay: 0.09s !important;}
+#integrations .hiw-steps .hiw-step.reveal:nth-child(3) { transition-delay: 0.14s !important;}
+#integrations .hiw-steps .hiw-step.reveal:nth-child(4) { transition-delay: 0.19s !important;}
+#integrations .hiw-steps .hiw-step.reveal:nth-child(5) { transition-delay: 0.24s !important;}
+#integrations .hiw-steps .hiw-step.reveal:nth-child(6) { transition-delay: 0.29s !important;}
+#integrations .hiw-steps .hiw-step.reveal:nth-child(7) { transition-delay: 0.34s !important;}
+#integrations .hiw-steps .hiw-step.reveal:nth-child(8) { transition-delay: 0.39s !important;}
+#integrations .hiw-steps .hiw-step.reveal:nth-child(n+9) { transition-delay: 0.44s !important;}
+#integration-llm .hiw-steps,
+#integration-stt .hiw-steps,
+#integration-telephony .hiw-steps {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;}
+section,
+.page-section,
+.int-shell,
+.hiw-step,
+.h-card,
+.template-shell,
+.workflow-shell,
+.platform-shell,
+.price-card,
+.contact-card,
+.book-demo-shell,
+.detail-drawer,
+.nav-dropdown-menu,
+.masthead-beam,
+.hero-showcase-device,
+.hero-showcase-footer {
+  background-color: #ffffff !important;}
+,
+.int-shell,
+.hiw-step,
+.h-card,
+.template-shell,
+.workflow-shell,
+.platform-shell,
+.price-card,
+.contact-card,
+.page-section,
+.nav-dropdown-menu,
+.hero-showcase-device {
+  border-color: #e2e8f0 !important;}
+.section-kicker {
+  color: #4A658B !important;}
+.section-kicker::before{display:none!important;content:none!important}
+.platform-stat b {
+  color: #4A658B !important;}
+/* Decorative overlay elements (real DOM, not pseudo) */
+body[data-page="home"] [class*="scanline"],
+body[data-page="home"] [class*="-glow"]:not(.hero-showcase-live-badge),
+body[data-page="home"] .scanlines,
+body[data-page="home"] .grain,
+body[data-page="home"] .ambient,
+body[data-page="home"] .masthead-scan,
+body[data-page="home"] .hero-kicker-line,
+body[data-page="home"] .hiw-step-icon,
+body[data-page="home"] .nav-dropdown-menu-glow,
+body[data-page="home"] .feature-card-glow,
+body[data-page="home"] .hiw-step-glow,
+body[data-page="home"] .h-card-glow,
+body[data-page="home"] .template-card-glow,
+body[data-page="home"] .template-card-scanline,
+body[data-page="home"] .workflow-node-scanline,
+body[data-page="home"] .workflow-node-glow,
+body[data-page="home"] .int-card-glow,
+body[data-page="home"] .int-card-scanline,
+body[data-page="home"] .telephony-scanline,
+body[data-page="home"] .telephony-hero-scanline,
+body[data-page="home"] .int-scanline,
+body[data-page="home"] .platform-hub-glow,
+body[data-page="home"] .platform-hub-ring,
+body[data-page="home"] .platform-chip-glow,
+body[data-page="home"] .platform-marquee-pill-glow,
+body[data-page="home"] .signal-chip-glow {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;}

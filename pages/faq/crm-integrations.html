@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CRM and stack connectivity — FAQ — EMAAVY</title>
+  <meta name="description" content="Connect EMAAVY to Salesforce, HubSpot, Zoho, Slack, WhatsApp, calendars, and any system that accepts webhooks — with event-driven updates from live call in…" />
+  <meta name="robots" content="index, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/nav.css" />
+<link rel="stylesheet" href="../../assets/masthead-flex.css" />
+
+  <link rel="stylesheet" href="../../assets/site.css" />
+<link rel="stylesheet" href="../../assets/emaavy-theme.css" />
+
+</head>
+<body data-base="../../" data-route="faq-crm-integrations">
+  <div id="site-nav-root"></div>
+  <main class="page-main int-category-page">
+    <section class="page-hero telephony-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span aria-hidden="true"> / </span>
+          <a href="../../index.html#faq">FAQ</a>
+          <span aria-hidden="true"> / </span>
+          <span>CRM and stack connectivity</span>
+        </nav>
+        <span class="page-kicker">Integrations · CRM</span>
+        <h1>CRM and stack connectivity</h1>
+        <p class="telephony-hero-lead">Connect EMAAVY to Salesforce, HubSpot, Zoho, Slack, WhatsApp, calendars, and any system that accepts webhooks — with event-driven updates from live call intelligence, not end-of-day CSV imports.</p>
+        <div class="stat-row telephony-hero-stats"><div class="stat-box"><b>6+</b><span>Native tools</span></div><div class="stat-box"><b>REST</b><span>API</span></div><div class="stat-box"><b>Real-time</b><span>Events</span></div></div>
+        <div class="capabilities-jump telephony-jump">
+          <a href="#answer">Short answer</a>
+          <a href="#deep-dive">Deep dive</a>
+          <a href="#related">Related</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="container">
+        <div class="int-layer-nav"><a href="go-live.html" class="int-layer-pill">How fast can we go live?</a><a href="voice-models.html" class="int-layer-pill">Can we use our own voice models?</a><a href="compliance.html" class="int-layer-pill">Compliance and audit logs</a><a href="pricing-scale.html" class="int-layer-pill">How pricing scales with usage</a><a href="crm-integrations.html" class="int-layer-pill">CRM and stack connectivity</a><a href="enterprise-support.html" class="int-layer-pill">Enterprise support</a></div>
+      </div>
+    </section>
+
+    <section id="answer" class="page-section alt">
+      <div class="container">
+        <article class="capability-block faq-answer-hero">
+          <div class="capability-block-inner">
+            <div class="capability-meta">
+              <span class="capability-num">05</span>
+              <span class="capability-tag">Short answer</span>
+            </div>
+            <div class="capability-content">
+              <h2>At a glance</h2>
+              <p class="capability-lead">Native connectors and webhooks push call outcomes, transcripts, sentiment, and intent scores into your CRM and ops tools the moment a call ends — or mid-call for high-priority triggers.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="deep-dive" class="page-section">
+      <div class="container">
+        <article class="capability-block faq-deep-block">
+          <div class="capability-block-inner">
+            <div class="capability-meta">
+              <span class="capability-num">01</span>
+              <span class="capability-tag">Deep dive</span>
+            </div>
+            <div class="capability-content">
+              <h2>Native connectors</h2>
+              <p class="capability-lead">Salesforce and HubSpot mappings update leads, log activities, create tasks, and advance deal stages based on intent thresholds. Cal.com and Google Calendar book meetings from live conversations. WhatsApp sends confirmations and links post-call.</p>
+            </div>
+          </div>
+        </article>        <article class="capability-block faq-deep-block">
+          <div class="capability-block-inner">
+            <div class="capability-meta">
+              <span class="capability-num">02</span>
+              <span class="capability-tag">Deep dive</span>
+            </div>
+            <div class="capability-content">
+              <h2>Webhooks and custom APIs</h2>
+              <p class="capability-lead">Subscribe to call.started, call.scored, call.ended, and custom keyword events. Payloads include transcript excerpts, scores, and campaign metadata. HMAC verification and retries make production integrations reliable.</p>
+            </div>
+          </div>
+        </article>        <article class="capability-block faq-deep-block">
+          <div class="capability-block-inner">
+            <div class="capability-meta">
+              <span class="capability-num">03</span>
+              <span class="capability-tag">Deep dive</span>
+            </div>
+            <div class="capability-content">
+              <h2>Zoho and regional stacks</h2>
+              <p class="capability-lead">Zoho CRM and regional tools connect via the same REST surface and partner recipes. Solutions engineering documents field mapping for APAC deployments where HubSpot penetration is lower.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-section alt">
+      <div class="container">
+        <div class="card-grid cols-2">
+          <div class="glow-card">
+            <h3>What teams typically ask</h3>
+            <ul class="faq-list"><li>Can we write to custom CRM objects?</li><li>Do you support bi-directional sync?</li><li>How fast do webhooks fire after hang-up?</li></ul>
+          </div>
+          <div class="glow-card">
+            <h3>How EMAAVY handles it</h3>
+            <ul class="faq-list"><li>Integrations hub — telephony, LLM, STT, TTS, and tools layers documented per provider.</li><li>Sandbox webhooks for staging environments.</li><li>Field mapping templates for Salesforce and HubSpot common objects.</li><li>API reference for custom ERP or data warehouse pipelines.</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="related" class="page-section">
+      <div class="container">
+        <h2 class="section-title" style="margin-bottom:1rem">Related topics</h2>
+        <div class="int-layer-nav"><a href="go-live.html" class="int-layer-pill">How fast can we go live?</a><a href="compliance.html" class="int-layer-pill">Compliance and audit logs</a><a href="pricing-scale.html" class="int-layer-pill">How pricing scales with usage</a></div>
+        <div class="cta-row" style="margin-top:2rem">
+          <a href="../faq.html" class="btn-outline">All FAQ topics</a>
+          <a href="../../book-demo.html" class="btn-primary">Book a demo →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer-root"></div>
+  <script src="../../assets/routes.js"></script>
+  <script src="../../assets/components.js"></script>
+  <script src="../../assets/nav.js"></script>
+</body>
+</html>

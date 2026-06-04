@@ -1,0 +1,63 @@
+.btn-magnetic { position: relative; padding: 1rem 2rem; border-radius: 4px; font-weight: 600; font-size: 0.9rem; cursor: pointer; border: none; font-family: inherit; transition: transform 0.15s ease-out;}
+
+.btn-fill { background: var(--white); color: var(--void); clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));}
+
+.btn-fill:hover { box-shadow: 0 0 40px rgba(255,255,255,0.2);}
+
+.btn-line { background: transparent; color: var(--ice); border: 1px solid rgba(56, 189, 248, 0.35); clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);}
+
+.float-card { position: relative; width: 100%; height: 100%; border-radius: 20px; overflow: hidden; border: 2px solid rgba(37, 99, 235, 0.2); box-shadow: 0 20px 50px rgba(37, 99, 235, 0.14), 0 8px 24px rgba(15, 23, 42, 0.08); transition: box-shadow 0.45s ease, border-color 0.45s ease;}
+
+.float-card-inner { width: 100%; height: 100%; position: relative; border-radius: inherit; overflow: hidden; transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);}
+
+.float-card img { width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1); will-change: transform;}
+
+.float-card:hover img { transform: scale(1.04);}
+
+.float-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, rgba(15, 23, 42, 0.55) 100%); pointer-events: none; z-index: 2;}
+
+.float-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #2563eb, #60a5fa, #818cf8); z-index: 3; opacity: 0.85;}
+
+.float-card .cap { position: absolute; bottom: 14px; left: 14px; right: 14px; z-index: 4; display: inline-flex; align-items: center; gap: 0.45rem; width: fit-content; max-width: calc(100% - 28px); padding: 0.4rem 0.8rem; border-radius: 999px; background: rgba(255, 255, 255, 0.94); border: 1px solid rgba(37, 99, 235, 0.22); backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(37, 99, 235, 0.18); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #1d4ed8; transition: border-color 0.45s ease, box-shadow 0.45s ease;}
+
+.float-card .cap-icon { font-size: 0.85rem; line-height: 1;}
+
+.fc-1 .float-card-inner { animation: floatInner1 8s ease-in-out infinite;}
+
+.fc-2 .float-card-inner { animation: floatInner2 9s ease-in-out infinite;}
+
+.fc-3 .float-card-inner { animation: floatInner3 7s ease-in-out infinite;}
+
+.float-card:hover .float-card-inner { animation-play-state: paused; transform: translateY(0) translateX(0);}
+
+.cta-split-copy .btn-magnetic { align-self: flex-start; background: linear-gradient(135deg, var(--bolt), var(--deep)); color: var(--white); padding: 1.1rem 2.5rem; border-radius: 100px; box-shadow: 0 0 50px rgba(56, 189, 248, 0.35);}
+
+.hero-actions .btn-magnetic { border-radius: 999px; clip-path: none; transition: transform 0.15s ease-out, box-shadow 0.35s, border-color 0.35s, background 0.35s, color 0.35s;}
+
+.hero-actions .btn-fill { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #3b82f6 100%); color: #fff !important; box-shadow: 0 0 24px rgba(37,99,235,0.4), 0 4px 20px rgba(37,99,235,0.2); animation: heroBtnPulse 3s ease-in-out infinite;}
+
+.hero-actions .btn-fill:hover { box-shadow: 0 0 32px rgba(37,99,235,0.65), 0 0 64px rgba(37,99,235,0.32), inset 0 0 18px rgba(255,255,255,0.2);}
+
+.hero-actions .btn-line { border: 2px solid rgba(37,99,235,0.3); background: rgba(255,255,255,0.65); backdrop-filter: blur(10px); color: #1d4ed8;}
+
+.hero-actions .btn-line:hover { border-color: #2563eb; color: #2563eb; background: rgba(239,246,255,0.92); box-shadow: 0 0 28px rgba(37,99,235,0.38), 0 0 56px rgba(37,99,235,0.16), inset 0 0 16px rgba(255,255,255,0.5);}
+
+.float-card:hover { border-color: rgba(37,99,235,0.55); box-shadow: 0 24px 60px rgba(37,99,235,0.22), 0 0 36px rgba(37,99,235,0.42), 0 0 72px rgba(59,130,246,0.22);}
+
+.float-card:hover .float-card-inner { animation-play-state: paused; transform: translateY(0) translateX(0);}
+
+.float-card:hover .cap { border-color: #2563eb; box-shadow: 0 0 20px rgba(37,99,235,0.35);}
+
+.btn-fill, .masthead-go, .btn-nav-demo { background: var(--accent) !important; box-shadow: none !important; border-radius: 8px !important;}
+
+.btn-fill:hover, .masthead-go:hover { background: var(--accent-hover) !important; box-shadow: 0 4px 12px rgba(30, 64, 175, 0.2) !important;}
+
+.btn-line, .masthead-login { border-radius: 8px !important; box-shadow: none !important;}
+
+.float-card { box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08) !important;}
+
+.float-card .cap { background: rgba(255,255,255,0.95) !important; font-weight: 600;}
+
+.hero-scroll-tag, .hero-actions .btn-fill, .masthead-go, .hero h1 .inner.glow { animation: none !important;}
+
+.float-card-inner, .fc-1 .float-card-inner, .fc-2 .float-card-inner, .fc-3 .float-card-inner { animation: none !important;}

@@ -1,0 +1,101 @@
+/* ─── Cinematic product moments — staggered filmstrip ─── */ .h-scroll-section { position: relative; overflow: hidden; padding: 0 0 3rem; margin-bottom: 1rem;}
+
+.cinematic-inner { position: relative; width: min(1400px, calc(100% - 2.5rem)); margin: 0 auto; padding: 3.5rem clamp(1.25rem, 3vw, 2rem) 2.5rem; border-radius: 32px; border: 2px solid rgba(37, 99, 235, 0.18); background: radial-gradient(ellipse 65% 50% at 80% 0%, rgba(37, 99, 235, 0.1) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 10% 80%, rgba(96, 165, 250, 0.08) 0%, transparent 50%), linear-gradient(175deg, #f8fbff 0%, #ffffff 50%, #eff6ff 100%); box-shadow: 0 20px 60px rgba(37, 99, 235, 0.1); isolation: isolate;}
+
+.cinematic-inner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #2563eb, #60a5fa, #818cf8, #2563eb); background-size: 200% 100%; animation: snapBarSlide 5s linear infinite; border-radius: 32px 32px 0 0; z-index: 2;}
+
+.cinematic-glow { position: absolute; border-radius: 50%; filter: blur(75px); pointer-events: none; z-index: 0;}
+
+.cinematic-glow-a { width: min(380px, 44vw); height: min(380px, 44vw); top: -15%; right: -5%; background: rgba(37, 99, 235, 0.16); animation: snapGlowDrift 14s ease-in-out infinite;}
+
+.cinematic-glow-b { width: min(280px, 34vw); height: min(280px, 34vw); bottom: 0; left: -4%; background: rgba(129, 140, 248, 0.12); animation: snapGlowDrift 18s ease-in-out infinite reverse;}
+
+.h-scroll-header { position: relative; z-index: 1; text-align: center; margin-bottom: 1.75rem;}
+
+.h-scroll-header h2 { font-family: 'Clash Display', sans-serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 700; letter-spacing: -0.03em; color: #0f172a; line-height: 1.12; max-width: none; margin-bottom: 0.65rem; text-shadow: 0 0 40px rgba(37, 99, 235, 0.1);}
+
+.h-scroll-header p { color: #475569; max-width: 480px; margin: 0 auto; font-size: 1rem; line-height: 1.7;}
+
+.h-scroll-wrap { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(0.5rem, 1vw, 0.75rem); align-items: end; overflow: visible; padding: 0;}
+
+.h-scroll-wrap::before { content: ''; position: absolute; top: 32%; left: 4%; right: 4%; height: 2px; background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.3) 8%, rgba(37, 99, 235, 0.3) 92%, transparent); box-shadow: 0 0 12px rgba(37, 99, 235, 0.25); pointer-events: none; z-index: 0;}
+
+.h-card { position: relative; width: 100%; border-radius: 20px; overflow: hidden; border: 2px solid rgba(37, 99, 235, 0.2); box-shadow: 0 12px 36px rgba(37, 99, 235, 0.1); cursor: pointer; isolation: isolate; transition: border-color 0.5s ease, box-shadow 0.5s ease; aspect-ratio: 3 / 4;}
+
+.h-card:nth-child(2) { aspect-ratio: 3 / 3.55; margin-bottom: 0.75rem;}
+
+.h-card:nth-child(3) { aspect-ratio: 3 / 4.35;}
+
+.h-card:nth-child(4) { aspect-ratio: 3 / 3.6; margin-bottom: 0.65rem;}
+
+.h-card:nth-child(5) { aspect-ratio: 3 / 4;}
+
+.h-card-glow { position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(circle at 50% 100%, rgba(37, 99, 235, 0.2) 0%, transparent 60%); opacity: 0.35; pointer-events: none; z-index: 1; animation: snapGlowIdle 5s ease-in-out infinite;}
+
+.h-card:nth-child(1) .h-card-glow { animation-delay: 0s;}
+
+.h-card:nth-child(2) .h-card-glow { animation-delay: 0.6s;}
+
+.h-card:nth-child(3) .h-card-glow { animation-delay: 1.2s;}
+
+.h-card:nth-child(4) .h-card-glow { animation-delay: 1.8s;}
+
+.h-card:nth-child(5) .h-card-glow { animation-delay: 2.4s;}
+
+.h-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #2563eb, #60a5fa, #818cf8); z-index: 4; opacity: 0.65; transition: opacity 0.5s ease; pointer-events: none;}
+
+.h-card-media { position: absolute; inset: 0; overflow: hidden; z-index: 0;}
+
+.h-card-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15, 23, 42, 0.42) 0%, transparent 34%); pointer-events: none; z-index: 1;}
+
+.h-card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);}
+
+.h-card:hover .h-card-media img, .h-card:focus-visible .h-card-media img { transform: scale(1.05);}
+
+.h-card:hover, .h-card:focus-visible { border-color: rgba(37, 99, 235, 0.55); box-shadow: 0 0 36px rgba(37, 99, 235, 0.35), 0 0 72px rgba(37, 99, 235, 0.16), 0 20px 56px rgba(37, 99, 235, 0.14); outline: none;}
+
+.h-card:hover::after, .h-card:focus-visible::after { opacity: 1;}
+
+.h-card:hover .h-card-glow, .h-card:focus-visible .h-card-glow { opacity: 0.9; animation-play-state: paused;}
+
+.h-card-num { position: absolute; top: 0.65rem; right: 0.75rem; z-index: 3; font-family: 'Clash Display', sans-serif; font-size: clamp(1.75rem, 2.5vw, 2.5rem); font-weight: 700; line-height: 1; color: rgba(255, 255, 255, 0.38); text-shadow: 0 0 28px rgba(37, 99, 235, 0.55), 0 2px 10px rgba(15, 23, 42, 0.75), 0 0 1px rgba(15, 23, 42, 0.85); pointer-events: none;}
+
+.h-card-content { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; padding: 1rem 0.85rem; background: linear-gradient(0deg, rgba(15, 23, 42, 0.88) 0%, rgba(15, 23, 42, 0.38) 48%, transparent 72%); pointer-events: none;}
+
+.h-card-tag { display: inline-block; width: fit-content; margin-bottom: 0.5rem; padding: 0.28rem 0.65rem; border-radius: 999px; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; background: rgba(37, 99, 235, 0.75); border: 1px solid rgba(255, 255, 255, 0.25); box-shadow: 0 0 16px rgba(37, 99, 235, 0.45);}
+
+.h-card h3 { font-family: 'Clash Display', sans-serif; font-size: clamp(0.88rem, 1.05vw, 1.08rem); color: #fff !important; margin-bottom: 0.25rem; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3); transition: color 0.5s ease; line-height: 1.2;}
+
+.h-card:hover h3, .h-card:focus-visible h3 { color: #dbeafe !important;}
+
+.h-card p { font-size: clamp(0.68rem, 0.75vw, 0.78rem); color: rgba(255, 255, 255, 0.82) !important; line-height: 1.45; margin: 0;}
+
+.h-card-hint { position: absolute; bottom: 0.85rem; right: 0.85rem; z-index: 3; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255, 255, 255, 0.5); opacity: 0; transition: opacity 0.5s ease, color 0.5s ease; pointer-events: none;}
+
+.h-card:hover .h-card-hint, .h-card:focus-visible .h-card-hint { opacity: 1; color: #93c5fd;}
+
+@media (max-width: 1100px) { .h-scroll-wrap { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0.75rem;}
+
+.h-scroll-wrap::before { display: none;}
+
+.h-card { grid-column: span 2; margin-bottom: 0 !important; aspect-ratio: 3 / 4 !important;}
+
+.h-card:nth-child(4) { grid-column: 2 / span 2;}
+
+.h-card:nth-child(5) { grid-column: 4 / span 2;}
+
+@media (max-width: 640px) { .h-scroll-wrap { grid-template-columns: repeat(2, minmax(0, 1fr));}
+
+.h-card { grid-column: span 1 !important;}
+
+.h-card:nth-child(5) { grid-column: 1 / -1 !important; max-width: 280px; margin: 0 auto; width: 100%;}
+
+.cinematic-inner { width: calc(100% - 1.5rem); padding: 2.5rem 1rem 2rem; border-radius: 24px;}
+
+.h-card .h-card-content p { color: rgba(255, 255, 255, 0.88) !important; font-size: 0.84rem !important; line-height: 1.55 !important;}
+
+/* ═══ ENTERPRISE PROFESSIONAL THEME ═══ */ .scanlines, .grain, .ambient, .masthead-scan, .logo-radar, .logo-ghost, .int-scanline, .int-card-scanline, .telephony-scanline, .telephony-hero-scanline, .template-card-scanline, .int-glow, .int-card-glow, .int-visual-panel-glow, .int-card-spark, .telephony-hero-spark, .telephony-hero-ring, .template-spark, .template-glow, .nav-dropdown-menu-glow, .hero-glow-layer, .telephony-glow, .telephony-hero-glow, .telephony-vobiz-orb, .platform-marquee-pill-glow, .platform-chip-glow, .signal-band-glow, .signal-band-grid, .cinematic-glow, .workflow-glow, .features-glow, .orbit-ring, .template-orbit-ring, .hero-orb-cluster canvas, #ctaParticles { display: none !important;}
+
+.int-shell, .telephony-shell, .template-lab-shell, .workflow-shell, .features-shell, .cinematic-inner, .signal-band { border-radius: 12px !important; border: 1px solid var(--border) !important; background: var(--surface) !important; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.04) !important;}
+
+.signal-chip-glow, .hiw-step-glow, .feature-card-glow, .h-card-glow, .workflow-node-glow, .workflow-node-scanline, .workflow-pulse, .platform-hub-glow, .platform-hub-ring, .signal-dot::after, .section-kicker::before { display: none !important; animation: none !important;}

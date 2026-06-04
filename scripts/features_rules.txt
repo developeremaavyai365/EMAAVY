@@ -1,0 +1,147 @@
+.price-card.featured { grid-column: span 2; max-width: 100%;}
+
+.price-card.featured { grid-column: span 1;}
+
+.price-card.featured { border-color: rgba(56, 189, 248, 0.45); background: linear-gradient(165deg, rgba(29, 78, 216, 0.25) 0%, rgba(15, 23, 42, 0.85) 45%, var(--glass) 100%); box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.2), 0 32px 80px rgba(37, 99, 235, 0.2); transform: scale(1.03); z-index: 3; min-height: 520px;}
+
+.price-card.featured:hover { transform: scale(1.03) translateY(-12px);}
+
+.price-card.featured::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: conic-gradient(from 0deg, transparent, rgba(56, 189, 248, 0.08), transparent 30%); animation: priceSpin 8s linear infinite; pointer-events: none;}
+
+.pack-features { list-style: none; flex: 1; margin-bottom: 1.5rem; position: relative; z-index: 2;}
+
+.pack-features li { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.82rem; color: rgba(248, 250, 252, 0.85); padding: 0.45rem 0; border-bottom: 1px solid rgba(37,99,235,0.08); opacity: 0; transform: translateX(-8px); transition: opacity 0.4s, transform 0.4s;}
+
+.price-card.in .pack-features li { opacity: 1; transform: translateX(0);}
+
+.pack-features li:nth-child(1) { transition-delay: 0.05s;}
+
+.pack-features li:nth-child(2) { transition-delay: 0.1s;}
+
+.pack-features li:nth-child(3) { transition-delay: 0.15s;}
+
+.pack-features li:nth-child(4) { transition-delay: 0.2s;}
+
+.pack-features li:nth-child(5) { transition-delay: 0.25s;}
+
+.pack-features li:nth-child(6) { transition-delay: 0.3s;}
+
+.pack-features li:last-child { border-bottom: none;}
+
+.price-card.featured .feat-check { background: var(--bolt); color: var(--void); border-color: var(--bolt);}
+
+.pack-features li.muted { color: var(--dim); font-size: 0.75rem;}
+
+/* ─── Features section ─── */ #features { scroll-margin-top: 100px;}
+
+h1, h2, h3, h4, .pack-name, .feature-card h3, .cs-card h3 { color: #0f172a !important;}
+
+/* ─── Platform Capabilities — premium glow grid ─── */ #features { position: relative; overflow: hidden; width: min(1400px, calc(100% - 2.5rem)); margin: 0 auto 3rem; padding: 4rem clamp(1.25rem, 3vw, 2rem) 3.5rem; border-radius: 32px; border: 2px solid rgba(37, 99, 235, 0.18); background: radial-gradient(ellipse 60% 45% at 100% 0%, rgba(37, 99, 235, 0.09) 0%, transparent 55%), radial-gradient(ellipse 55% 40% at 0% 100%, rgba(96, 165, 250, 0.07) 0%, transparent 50%), linear-gradient(160deg, #ffffff 0%, #f8fbff 40%, #eff6ff 100%); box-shadow: 0 28px 72px rgba(37, 99, 235, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.95); isolation: isolate;}
+
+#features::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #2563eb, #60a5fa, #818cf8, #38bdf8, #2563eb); background-size: 200% 100%; animation: snapBarSlide 5s linear infinite; z-index: 2;}
+
+.features-glow { position: absolute; border-radius: 50%; filter: blur(75px); pointer-events: none; z-index: 0;}
+
+.features-glow-a { width: min(400px, 46vw); height: min(400px, 46vw); top: -20%; right: -8%; background: rgba(37, 99, 235, 0.15); animation: snapGlowDrift 15s ease-in-out infinite;}
+
+.features-glow-b { width: min(320px, 38vw); height: min(320px, 38vw); bottom: -18%; left: -6%; background: rgba(129, 140, 248, 0.12); animation: snapGlowDrift 19s ease-in-out infinite reverse;}
+
+.features-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(37, 99, 235, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(37, 99, 235, 0.035) 1px, transparent 1px); background-size: 36px 36px; mask-image: radial-gradient(ellipse 85% 75% at 50% 45%, black 15%, transparent 72%); pointer-events: none; z-index: 0;}
+
+.features-head { position: relative; z-index: 1; text-align: center; margin-bottom: 2.75rem;}
+
+.features-head h2 { font-family: 'Clash Display', sans-serif; font-size: clamp(2rem, 5vw, 3.2rem); letter-spacing: -0.03em; color: #0f172a; margin-bottom: 0.75rem; text-shadow: 0 0 40px rgba(37, 99, 235, 0.1);}
+
+.features-head p { color: #475569; max-width: 540px; margin: 0 auto; line-height: 1.75; font-size: 1rem;}
+
+.features-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.15rem;}
+
+.feature-card { position: relative; display: flex; flex-direction: column; align-items: flex-start; padding: 1.75rem 1.5rem 1.4rem; border-radius: 22px; background: rgba(255, 255, 255, 0.9); border: 2px solid rgba(37, 99, 235, 0.16); box-shadow: 0 10px 32px rgba(37, 99, 235, 0.08); cursor: pointer; overflow: hidden; isolation: isolate; transition: border-color 0.5s ease, box-shadow 0.5s ease;}
+
+.feature-card-glow { position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(circle at 30% 0%, rgba(37, 99, 235, 0.11) 0%, transparent 65%); opacity: 0.3; pointer-events: none; z-index: 0; animation: snapGlowIdle 5.5s ease-in-out infinite;}
+
+.feature-card:nth-child(1) .feature-card-glow { animation-delay: 0s;}
+
+.feature-card:nth-child(2) .feature-card-glow { animation-delay: 0.5s;}
+
+.feature-card:nth-child(3) .feature-card-glow { animation-delay: 1s;}
+
+.feature-card:nth-child(4) .feature-card-glow { animation-delay: 1.5s;}
+
+.feature-card:nth-child(5) .feature-card-glow { animation-delay: 2s;}
+
+.feature-card:nth-child(6) .feature-card-glow { animation-delay: 2.5s;}
+
+.feature-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #2563eb, #60a5fa, #818cf8); opacity: 0.55; transition: opacity 0.5s ease; pointer-events: none; z-index: 2;}
+
+.feature-card:hover, .feature-card:focus-visible { border-color: rgba(37, 99, 235, 0.55); box-shadow: 0 0 32px rgba(37, 99, 235, 0.32), 0 0 64px rgba(37, 99, 235, 0.14), 0 16px 40px rgba(37, 99, 235, 0.1); outline: none;}
+
+.feature-card:hover::after, .feature-card:focus-visible::after { opacity: 1;}
+
+.feature-card:hover .feature-card-glow, .feature-card:focus-visible .feature-card-glow { opacity: 0.85; animation-play-state: paused;}
+
+.feature-icon { position: relative; z-index: 1; width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.55rem; margin-bottom: 1.1rem; background: linear-gradient(145deg, #dbeafe, #eff6ff); border: 1px solid rgba(37, 99, 235, 0.22); box-shadow: 0 0 20px rgba(37, 99, 235, 0.14); transition: box-shadow 0.5s ease;}
+
+.feature-card:hover .feature-icon, .feature-card:focus-visible .feature-icon { box-shadow: 0 0 28px rgba(37, 99, 235, 0.42), 0 0 48px rgba(59, 130, 246, 0.18);}
+
+.feature-card h3 { position: relative; z-index: 1; font-family: 'Clash Display', sans-serif; font-size: 1.12rem; color: #0f172a; margin-bottom: 0.5rem; transition: color 0.5s ease;}
+
+.feature-card:hover h3, .feature-card:focus-visible h3 { color: #1d4ed8;}
+
+.feature-card p { position: relative; z-index: 1; flex: 1; margin: 0;}
+
+.feature-tag { position: relative; z-index: 1; display: inline-block; margin-top: 1rem; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #2563eb; background: rgba(219, 234, 254, 0.9); border: 1px solid rgba(37, 99, 235, 0.2); border-radius: 999px; padding: 0.3rem 0.7rem; box-shadow: 0 0 12px rgba(37, 99, 235, 0.1); transition: box-shadow 0.5s ease, background 0.5s ease;}
+
+.feature-card:hover .feature-tag, .feature-card:focus-visible .feature-tag { background: #dbeafe; box-shadow: 0 0 18px rgba(37, 99, 235, 0.25);}
+
+.feature-card-hint { position: relative; z-index: 1; margin-top: 0.7rem; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #64748b; opacity: 0; transition: opacity 0.5s ease, color 0.5s ease;}
+
+.feature-card:hover .feature-card-hint, .feature-card:focus-visible .feature-card-hint { opacity: 1; color: #2563eb;}
+
+@media (max-width: 900px) { .features-grid { grid-template-columns: 1fr 1fr;}
+
+#features { width: calc(100% - 2rem); padding: 3rem 1.25rem 2.5rem;}
+
+@media (max-width: 560px) { .features-grid { grid-template-columns: 1fr;}
+
+.telephony-features { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;}
+
+.telephony-feature { position: relative; padding: 0.9rem 0.85rem; border-radius: 16px; background: rgba(255, 255, 255, 0.78); border: 1px solid rgba(37, 99, 235, 0.12); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.06); overflow: hidden; transition: border-color 0.45s ease, box-shadow 0.45s ease;}
+
+.telephony-feature-glow { position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.1) 0%, transparent 65%); opacity: 0.35; pointer-events: none; animation: snapGlowIdle 5.5s ease-in-out infinite;}
+
+.telephony-feature:nth-child(2) .telephony-feature-glow { animation-delay: 0.5s;}
+
+.telephony-feature:nth-child(3) .telephony-feature-glow { animation-delay: 1s;}
+
+.telephony-feature:nth-child(4) .telephony-feature-glow { animation-delay: 1.5s;}
+
+.telephony-feature:hover { border-color: rgba(37, 99, 235, 0.35); box-shadow: 0 0 24px rgba(37, 99, 235, 0.14), 0 10px 28px rgba(37, 99, 235, 0.08);}
+
+.telephony-feature:hover .telephony-feature-glow { animation-play-state: paused; opacity: 0.75;}
+
+.telephony-feature-icon { position: relative; z-index: 1; font-size: 1.1rem; margin-bottom: 0.35rem;}
+
+.telephony-feature b { position: relative; z-index: 1; display: block; font-family: 'Clash Display', sans-serif; font-size: 0.82rem; color: #0f172a; margin-bottom: 0.2rem;}
+
+.telephony-feature span { position: relative; z-index: 1; font-size: 0.68rem; color: #64748b; line-height: 1.45;}
+
+.telephony-features { grid-template-columns: 1fr;}
+
+.feature-card p, .hiw-step p, .workflow-node p, .pack-tagline, .pack-features li { color: #334155 !important; font-size: 0.9rem !important; line-height: 1.65 !important;}
+
+/* ═══ ENTERPRISE PROFESSIONAL THEME ═══ */ .scanlines, .grain, .ambient, .masthead-scan, .logo-radar, .logo-ghost, .int-scanline, .int-card-scanline, .telephony-scanline, .telephony-hero-scanline, .template-card-scanline, .int-glow, .int-card-glow, .int-visual-panel-glow, .int-card-spark, .telephony-hero-spark, .telephony-hero-ring, .template-spark, .template-glow, .nav-dropdown-menu-glow, .hero-glow-layer, .telephony-glow, .telephony-hero-glow, .telephony-vobiz-orb, .platform-marquee-pill-glow, .platform-chip-glow, .signal-band-glow, .signal-band-grid, .cinematic-glow, .workflow-glow, .features-glow, .orbit-ring, .template-orbit-ring, .hero-orb-cluster canvas, #ctaParticles { display: none !important;}
+
+.int-shell, .telephony-shell, .template-lab-shell, .workflow-shell, .features-shell, .cinematic-inner, .signal-band { border-radius: 12px !important; border: 1px solid var(--border) !important; background: var(--surface) !important; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.04) !important;}
+
+.int-card, .telephony-hero, .telephony-feature, .signal-chip, .feature-card { border-radius: 10px !important; border: 1px solid var(--border) !important; background: var(--surface) !important; box-shadow: none !important; transition: border-color 0.2s ease, box-shadow 0.2s ease !important;}
+
+.int-card:hover, .int-card:focus-visible, .telephony-hero:hover, .signal-chip:hover, .feature-card:hover { border-color: var(--border-strong) !important; box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06) !important; transform: none !important;}
+
+.signal-chip-glow, .hiw-step-glow, .feature-card-glow, .h-card-glow, .workflow-node-glow, .workflow-node-scanline, .workflow-pulse, .platform-hub-glow, .platform-hub-ring, .signal-dot::after, .section-kicker::before { display: none !important; animation: none !important;}
+
+.signal-band::before, .int-shell::before, #how-it-works::before, #features::before, .template-shell::before, .workflow-shell::before, .platform-shell::before, .nav-dropdown-menu::before, .page-section::before { animation: none !important;}
+
+.hiw-step-icon, .feature-icon, .signal-chip-icon-wrap, .workflow-node-icon, .telephony-feature-icon { display: flex !important; align-items: center; justify-content: center; font-family: 'Clash Display', sans-serif; font-weight: 700; font-size: 0.75rem !important; color: #1e40af !important; background: #f8fafc !important; border: 1px solid #e2e8f0 !important; box-shadow: none !important;}
+
+.price-card.featured::after { display: none;}

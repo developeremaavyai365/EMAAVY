@@ -1,0 +1,201 @@
+/* ─── Powered by the best — constellation hub ─── */ .proof-wall { padding: 1rem 0 5rem; scroll-margin-top: 100px;}
+
+.platform-shell { position: relative; width: min(1200px, calc(100% - 2.5rem)); margin: 0 auto; padding: 3rem clamp(1.25rem, 3vw, 2.5rem) 2.75rem; border-radius: 32px; border: 2px solid rgba(37, 99, 235, 0.18); background: radial-gradient(ellipse 50% 42% at 50% 0%, rgba(37, 99, 235, 0.12) 0%, transparent 58%), radial-gradient(ellipse 40% 35% at 10% 90%, rgba(96, 165, 250, 0.08) 0%, transparent 50%), radial-gradient(ellipse 40% 35% at 90% 80%, rgba(129, 140, 248, 0.08) 0%, transparent 50%), linear-gradient(180deg, #f8fbff 0%, #ffffff 55%, #eff6ff 100%); box-shadow: 0 24px 64px rgba(37, 99, 235, 0.1); isolation: isolate; overflow: hidden;}
+
+.platform-shell::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #2563eb, #60a5fa, #818cf8, #2563eb); background-size: 200% 100%; animation: snapBarSlide 5s linear infinite; border-radius: 32px 32px 0 0; z-index: 4;}
+
+.platform-glow { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0;}
+
+.platform-glow-a { width: min(400px, 50vw); height: min(400px, 50vw); top: -18%; left: 50%; transform: translateX(-50%); background: rgba(37, 99, 235, 0.14); animation: snapGlowDrift 16s ease-in-out infinite;}
+
+.platform-glow-b { width: min(220px, 30vw); height: min(220px, 30vw); bottom: -5%; right: 5%; background: rgba(129, 140, 248, 0.1); animation: snapGlowDrift 20s ease-in-out infinite reverse;}
+
+.platform-marquee-head { position: relative; z-index: 2; text-align: center; max-width: 640px; margin: 0 auto 2.5rem;}
+
+.platform-marquee-head h3 { font-family: 'Clash Display', sans-serif; font-size: clamp(1.75rem, 3.5vw, 2.5rem); color: #0f172a; letter-spacing: -0.03em; line-height: 1.12; margin-bottom: 0.6rem; text-shadow: 0 0 40px rgba(37, 99, 235, 0.08);}
+
+.platform-marquee-head p { color: #475569; font-size: 1rem; line-height: 1.7;}
+
+.platform-constellation { position: relative; z-index: 2; width: 100%;}
+
+.platform-orbit-layout { position: relative; width: min(960px, 100%); min-height: clamp(440px, 52vw, 580px); margin: 0 auto;}
+
+.platform-orbit-backdrop { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; z-index: 0;}
+
+.platform-orbit-backdrop .platform-hub { position: relative; width: 120px; height: 120px;}
+
+.platform-orbit-ellipse { position: absolute; width: 78%; height: 72%; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 1px dashed rgba(37, 99, 235, 0.16); border-radius: 50%; animation: platformRingSpin 45s linear infinite;}
+
+.platform-orbit-ellipse-b { width: 62%; height: 58%; border-color: rgba(96, 165, 250, 0.12); animation-direction: reverse; animation-duration: 55s;}
+
+.platform-orbit-cards { position: absolute; inset: 0; z-index: 2;}
+
+.platform-orbit-cards .platform-chip { position: absolute; width: clamp(118px, 14vw, 148px);}
+
+.platform-orbit-cards .platform-chip[data-orbit="1"] { top: 0; left: 50%; transform: translateX(-50%);}
+
+.platform-orbit-cards .platform-chip[data-orbit="2"] { top: 7%; right: 8%;}
+
+.platform-orbit-cards .platform-chip[data-orbit="3"] { top: 50%; right: 0; transform: translateY(-50%);}
+
+.platform-orbit-cards .platform-chip[data-orbit="4"] { bottom: 7%; right: 8%;}
+
+.platform-orbit-cards .platform-chip[data-orbit="5"] { bottom: 0; left: 50%; transform: translateX(-50%);}
+
+.platform-orbit-cards .platform-chip[data-orbit="6"] { bottom: 7%; left: 8%;}
+
+.platform-orbit-cards .platform-chip[data-orbit="7"] { top: 50%; left: 0; transform: translateY(-50%);}
+
+.platform-orbit-cards .platform-chip[data-orbit="8"] { top: 7%; left: 8%;}
+
+.platform-hub { position: relative; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;}
+
+.platform-hub-glow { position: absolute; inset: -30px; border-radius: 50%; background: radial-gradient(circle, rgba(37, 99, 235, 0.28) 0%, transparent 68%); animation: snapGlowIdle 4s ease-in-out infinite; pointer-events: none;}
+
+.platform-hub-ring { position: absolute; border-radius: 50%; border: 1px dashed rgba(37, 99, 235, 0.18); pointer-events: none;}
+
+.platform-hub-ring-a { inset: -18px; animation: platformRingSpin 28s linear infinite;}
+
+.platform-hub-ring-b { inset: -42px; border-color: rgba(96, 165, 250, 0.15); animation: platformRingSpin 38s linear infinite reverse;}
+
+.platform-hub-ring-c { inset: -68px; border: 1px solid rgba(37, 99, 235, 0.08); animation: platformRingSpin 50s linear infinite;}
+
+.platform-hub-core { position: relative; z-index: 2; width: 88px; height: 88px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Clash Display', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; color: #fff; background: linear-gradient(135deg, #2563eb, #1d4ed8); border: 3px solid rgba(255, 255, 255, 0.85); box-shadow: 0 0 40px rgba(37, 99, 235, 0.55), 0 0 80px rgba(37, 99, 235, 0.2); animation: platformHubPulse 4s ease-in-out infinite;}
+
+.platform-spokes { position: absolute; inset: -80px; pointer-events: none; z-index: 0;}
+
+.platform-spokes line { stroke: rgba(37, 99, 235, 0.12); stroke-width: 1; stroke-dasharray: 4 6; animation: platformSpokeDash 12s linear infinite;}
+
+.platform-partners { display: none;}
+
+.platform-chip { position: relative; border-radius: 18px; cursor: default; isolation: isolate;}
+
+.platform-chip-glow { position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(circle at 50% 100%, rgba(37, 99, 235, 0.16) 0%, transparent 65%); opacity: 0.28; pointer-events: none; z-index: 0; animation: snapGlowIdle 5s ease-in-out infinite;}
+
+.platform-chip:nth-child(1) .platform-chip-glow { animation-delay: 0s;}
+
+.platform-chip:nth-child(2) .platform-chip-glow { animation-delay: 0.4s;}
+
+.platform-chip:nth-child(3) .platform-chip-glow { animation-delay: 0.8s;}
+
+.platform-chip:nth-child(4) .platform-chip-glow { animation-delay: 1.2s;}
+
+.platform-chip:nth-child(5) .platform-chip-glow { animation-delay: 1.6s;}
+
+.platform-chip:nth-child(6) .platform-chip-glow { animation-delay: 2s;}
+
+.platform-chip:nth-child(7) .platform-chip-glow { animation-delay: 2.4s;}
+
+.platform-chip:nth-child(8) .platform-chip-glow { animation-delay: 2.8s;}
+
+.platform-chip-inner { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.55rem; padding: 1.35rem 1rem 1.15rem; border: 2px solid rgba(37, 99, 235, 0.16); border-radius: inherit; background: rgba(255, 255, 255, 0.88); backdrop-filter: blur(10px); box-shadow: 0 10px 32px rgba(37, 99, 235, 0.08); transition: border-color 0.5s ease, box-shadow 0.5s ease; overflow: hidden;}
+
+.platform-chip-inner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #2563eb, #60a5fa, #818cf8); opacity: 0.45; transition: opacity 0.5s ease;}
+
+.platform-chip:hover .platform-chip-inner, .platform-chip:focus-visible .platform-chip-inner { border-color: rgba(37, 99, 235, 0.5); box-shadow: 0 0 28px rgba(37, 99, 235, 0.28), 0 0 56px rgba(37, 99, 235, 0.1), 0 16px 40px rgba(37, 99, 235, 0.12); outline: none;}
+
+.platform-chip:hover .platform-chip-inner::before, .platform-chip:focus-visible .platform-chip-inner::before { opacity: 1;}
+
+.platform-chip:hover .platform-chip-glow, .platform-chip:focus-visible .platform-chip-glow { opacity: 0.85; animation-play-state: paused;}
+
+.platform-chip-logo { width: 52px; height: 52px; border-radius: 14px; background: #fff; border: 1px solid rgba(37, 99, 235, 0.12); display: flex; align-items: center; justify-content: center; overflow: hidden; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.08);}
+
+.platform-chip-logo img { max-height: 30px; max-width: 36px; object-fit: contain; transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);}
+
+.platform-chip:hover .platform-chip-logo img, .platform-chip:focus-visible .platform-chip-logo img { transform: scale(1.1);}
+
+.platform-chip-name { font-family: 'Clash Display', sans-serif; font-size: 0.82rem; font-weight: 600; color: #0f172a; letter-spacing: -0.01em;}
+
+.platform-chip-tag { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #2563eb; padding: 0.2rem 0.5rem; border-radius: 999px; background: rgba(37, 99, 235, 0.08); border: 1px solid rgba(37, 99, 235, 0.15);}
+
+.platform-stats { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 640px; margin: 2.5rem auto 0;}
+
+.platform-stat { text-align: center; padding: 1rem 0.75rem; border-radius: 16px; border: 1px solid rgba(37, 99, 235, 0.14); background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(8px); box-shadow: 0 6px 20px rgba(37, 99, 235, 0.06); transition: border-color 0.45s ease, box-shadow 0.45s ease;}
+
+.platform-stat:hover { border-color: rgba(37, 99, 235, 0.35); box-shadow: 0 0 24px rgba(37, 99, 235, 0.18), 0 8px 28px rgba(37, 99, 235, 0.1);}
+
+.platform-stat b { display: block; font-family: 'Clash Display', sans-serif; font-size: 1.35rem; color: #1d4ed8; margin-bottom: 0.2rem;}
+
+.platform-stat span { font-size: 0.72rem; color: #64748b; letter-spacing: 0.04em;}
+
+/* ─── Platform marquee zone (dual rails) ─── */ .platform-marquee-zone { position: relative; z-index: 2; margin-top: 2.75rem; padding-top: 2rem; border-top: 1px solid rgba(37, 99, 235, 0.12);}
+
+.platform-marquee-zone::before { content: ''; position: absolute; top: -1px; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.35), transparent); box-shadow: 0 0 12px rgba(37, 99, 235, 0.25);}
+
+.platform-marquee-label { text-align: center; margin-bottom: 1.35rem;}
+
+.platform-marquee-kicker { display: inline-block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #2563eb; padding: 0.35rem 0.75rem; border-radius: 999px; background: rgba(37, 99, 235, 0.08); border: 1px solid rgba(37, 99, 235, 0.18); box-shadow: 0 0 18px rgba(37, 99, 235, 0.12); margin-bottom: 0.5rem;}
+
+.platform-marquee-label p { color: #64748b; font-size: 0.88rem; line-height: 1.55;}
+
+.platform-marquee-row { position: relative; overflow: hidden; margin-bottom: 0.85rem; padding: 0.35rem 0; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);}
+
+.platform-marquee-row::before, .platform-marquee-row::after { content: ''; position: absolute; top: 0; bottom: 0; width: 48px; z-index: 2; pointer-events: none;}
+
+.platform-marquee-row::before { left: 0; background: linear-gradient(90deg, rgba(248, 251, 255, 0.95), transparent);}
+
+.platform-marquee-row::after { right: 0; background: linear-gradient(270deg, rgba(248, 251, 255, 0.95), transparent);}
+
+.platform-marquee-track { display: flex; width: max-content; gap: 0.85rem; animation: platformMarqueeLeft 32s linear infinite;}
+
+.platform-marquee-row-b .platform-marquee-track { animation-name: platformMarqueeRight; animation-duration: 36s;}
+
+.platform-marquee-row:hover .platform-marquee-track { animation-play-state: paused;}
+
+.platform-marquee-pill { position: relative; display: flex; align-items: center; gap: 0.65rem; padding: 0.65rem 1rem 0.65rem 0.65rem; border-radius: 14px; border: 2px solid rgba(37, 99, 235, 0.16); background: rgba(255, 255, 255, 0.92); box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08); white-space: nowrap; isolation: isolate; transition: border-color 0.45s ease, box-shadow 0.45s ease;}
+
+.platform-marquee-pill-glow { position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(circle at 50% 100%, rgba(37, 99, 235, 0.14) 0%, transparent 70%); opacity: 0.35; pointer-events: none; animation: snapGlowIdle 5s ease-in-out infinite;}
+
+.platform-marquee-pill:hover { border-color: rgba(37, 99, 235, 0.45); box-shadow: 0 0 24px rgba(37, 99, 235, 0.25), 0 0 48px rgba(37, 99, 235, 0.1), 0 12px 32px rgba(37, 99, 235, 0.12);}
+
+.platform-marquee-pill:hover .platform-marquee-pill-glow { opacity: 0.85; animation-play-state: paused;}
+
+.platform-marquee-pill-logo { position: relative; z-index: 1; width: 40px; height: 40px; border-radius: 10px; background: #fff; border: 1px solid rgba(37, 99, 235, 0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);}
+
+.platform-marquee-pill-logo img { max-height: 24px; max-width: 28px; object-fit: contain;}
+
+.platform-marquee-pill-text { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 0.1rem;}
+
+.platform-marquee-pill-text b { font-family: 'Clash Display', sans-serif; font-size: 0.82rem; font-weight: 600; color: #0f172a; letter-spacing: -0.01em;}
+
+.platform-marquee-pill-text span { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #2563eb;}
+
+.platform-marquee-pill-status { position: relative; z-index: 1; width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 10px rgba(34, 197, 94, 0.65); flex-shrink: 0; animation: platformStatusPulse 2.5s ease-in-out infinite;}
+
+@media (max-width: 900px) { .platform-orbit-layout { min-height: auto; padding-bottom: 0.5rem;}
+
+.platform-orbit-backdrop { position: relative; min-height: 200px; margin-bottom: 1.25rem;}
+
+.platform-orbit-ellipse, .platform-orbit-ellipse-b { display: none;}
+
+.platform-orbit-cards { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.85rem; max-width: 420px; margin: 0 auto;}
+
+.platform-orbit-cards .platform-chip, .platform-orbit-cards .platform-chip[data-orbit] { position: relative; top: auto !important; left: auto !important; right: auto !important; bottom: auto !important; transform: none !important; width: 100%;}
+
+.platform-hub-ring-c { display: none;}
+
+.platform-spokes { display: none;}
+
+@media (max-width: 520px) { .platform-shell { padding: 2.5rem 1rem 2rem; border-radius: 24px;}
+
+.platform-stats { grid-template-columns: 1fr;}
+
+.platform-orbit-cards { grid-template-columns: 1fr 1fr; gap: 0.65rem;}
+
+.platform-chip-inner { padding: 1rem 0.65rem 0.9rem;}
+
+.platform-marquee-pill { padding: 0.55rem 0.85rem 0.55rem 0.55rem; gap: 0.5rem;}
+
+.platform-marquee-pill-text b { font-size: 0.75rem;}
+
+/* Template lab — deck overrides handled in base block above */ /* Platform constellation — styles in base proof-wall block */ /* Bento matrix spacing + underline */ .bento-section { padding: 5rem 2rem 6rem;}
+
+.template-head .section-kicker, .workflow-head .section-kicker, .platform-marquee-head .section-kicker { background: rgba(37, 99, 235, 0.08); border-color: rgba(37, 99, 235, 0.22); color: #2563eb;}
+
+.platform-orbit { display: none;}
+
+/* ═══ ENTERPRISE PROFESSIONAL THEME ═══ */ .scanlines, .grain, .ambient, .masthead-scan, .logo-radar, .logo-ghost, .int-scanline, .int-card-scanline, .telephony-scanline, .telephony-hero-scanline, .template-card-scanline, .int-glow, .int-card-glow, .int-visual-panel-glow, .int-card-spark, .telephony-hero-spark, .telephony-hero-ring, .template-spark, .template-glow, .nav-dropdown-menu-glow, .hero-glow-layer, .telephony-glow, .telephony-hero-glow, .telephony-vobiz-orb, .platform-marquee-pill-glow, .platform-chip-glow, .signal-band-glow, .signal-band-grid, .cinematic-glow, .workflow-glow, .features-glow, .orbit-ring, .template-orbit-ring, .hero-orb-cluster canvas, #ctaParticles { display: none !important;}
+
+.signal-chip-glow, .hiw-step-glow, .feature-card-glow, .h-card-glow, .workflow-node-glow, .workflow-node-scanline, .workflow-pulse, .platform-hub-glow, .platform-hub-ring, .signal-dot::after, .section-kicker::before { display: none !important; animation: none !important;}
+
+.signal-band::before, .int-shell::before, #how-it-works::before, #features::before, .template-shell::before, .workflow-shell::before, .platform-shell::before, .nav-dropdown-menu::before, .page-section::before { animation: none !important;}
