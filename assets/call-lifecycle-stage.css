@@ -1,0 +1,479 @@
+/* ─── Agents role detail pages ─── */
+.clc-stage-page {
+  --clc-ink: #0f172a;
+  --clc-muted: #475569;
+  --clc-soft: #64748b;
+  --clc-border: #e2e8f0;
+  --clc-surface: #ffffff;
+  --clc-panel: #f8fafc;
+  --clc-accent: #4a658b;
+  --clc-deep: #18345d;
+  --clc-glow: rgba(74, 101, 139, 0.14);
+}
+
+.clc-stage-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(2.75rem, 6vw, 4.5rem) 0 clamp(2rem, 4vw, 3rem);
+  background:
+    radial-gradient(ellipse 70% 55% at 85% 0%, rgba(74, 101, 139, 0.16), transparent 55%),
+    linear-gradient(180deg, #f2f6fa 0%, #ffffff 100%);
+  border-bottom: 1px solid var(--clc-border);
+}
+
+.clc-stage-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  align-items: center;
+}
+
+.clc-stage-hero .breadcrumb {
+  margin-bottom: 1rem;
+}
+
+.clc-stage-hero .breadcrumb a {
+  color: var(--clc-accent);
+}
+
+.clc-stage-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clc-deep);
+  background: var(--clc-surface);
+  border: 1px solid var(--clc-border);
+  border-radius: 999px;
+  margin-bottom: 0.85rem;
+}
+
+.clc-stage-kicker::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--clc-accent);
+}
+
+.clc-stage-hero h1 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.06;
+  color: var(--clc-ink);
+  margin: 0 0 0.85rem;
+}
+
+.clc-stage-lead {
+  font-size: clamp(1rem, 1.4vw, 1.1rem);
+  line-height: 1.7;
+  color: var(--clc-muted);
+  max-width: 52ch;
+  margin: 0 0 1.5rem;
+}
+
+.clc-stage-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 1.5rem;
+}
+
+.clc-stage-stat {
+  padding: 0.65rem 1rem;
+  border-radius: 12px;
+  background: var(--clc-surface);
+  border: 1px solid var(--clc-border);
+  box-shadow: 0 4px 14px var(--clc-glow);
+}
+
+.clc-stage-stat b {
+  display: block;
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.1rem;
+  color: var(--clc-deep);
+  margin-bottom: 0.1rem;
+}
+
+.clc-stage-stat span {
+  font-size: 0.72rem;
+  color: var(--clc-soft);
+}
+
+.clc-stage-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.clc-stage-hero-card {
+  padding: 1.75rem 1.5rem;
+  border-radius: 20px;
+  border: 1px solid var(--clc-border);
+  background: linear-gradient(160deg, #ffffff 0%, #f0f4f8 100%);
+  box-shadow: 0 24px 56px rgba(15, 23, 42, 0.08);
+  text-align: center;
+}
+
+.clc-stage-hero-logo {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 1rem;
+  border-radius: 20px;
+  background: var(--clc-panel);
+  border: 1px solid var(--clc-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clc-stage-hero-logo img {
+  max-width: 52px;
+  max-height: 52px;
+  object-fit: contain;
+}
+
+.clc-stage-hero-logo .brand-mark,
+.clc-stage-hero-logo .clc-stage-num {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--clc-deep);
+}
+
+.clc-stage-hero-region {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--clc-deep);
+  background: rgba(74, 101, 139, 0.1);
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.clc-stage-hero-card p {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--clc-soft);
+  margin: 0;
+}
+
+.clc-stage-section {
+  padding: clamp(2.25rem, 4.5vw, 3.5rem) 0;
+}
+
+.clc-stage-section.alt {
+  background: var(--clc-panel);
+  border-top: 1px solid var(--clc-border);
+  border-bottom: 1px solid var(--clc-border);
+}
+
+.clc-stage-section-head {
+  max-width: 640px;
+  margin-bottom: 1.75rem;
+}
+
+.clc-stage-section-head h2 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(1.35rem, 2.8vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--clc-ink);
+  margin-bottom: 0.55rem;
+}
+
+.clc-stage-section-head p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--clc-muted);
+  margin: 0;
+}
+
+.clc-stage-prose {
+  max-width: 72ch;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--clc-muted);
+}
+
+.clc-stage-prose p + p {
+  margin-top: 1rem;
+}
+
+.clc-stage-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2rem);
+  align-items: start;
+}
+
+.clc-stage-benefits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.clc-stage-benefits li {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  background: var(--clc-surface);
+  border: 1px solid var(--clc-border);
+}
+
+.clc-stage-benefits li::before {
+  content: '✓';
+  flex-shrink: 0;
+  width: 1.35rem;
+  height: 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--clc-accent), var(--clc-deep));
+  border-radius: 50%;
+}
+
+.clc-stage-benefits strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--clc-ink);
+  margin-bottom: 0.15rem;
+}
+
+.clc-stage-benefits span {
+  font-size: 0.82rem;
+  color: var(--clc-soft);
+  line-height: 1.5;
+}
+
+.clc-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.85rem;
+}
+
+.clc-feature-card {
+  padding: 1.2rem 1.15rem;
+  border-radius: 14px;
+  background: var(--clc-surface);
+  border: 1px solid var(--clc-border);
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.clc-feature-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 28px var(--clc-glow);
+}
+
+.clc-feature-card h3 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--clc-ink);
+  margin-bottom: 0.35rem;
+}
+
+.clc-feature-card p {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--clc-soft);
+  margin: 0;
+}
+
+.cs-outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+}
+
+.cs-outcome-card {
+  padding: 1.35rem 1.2rem;
+  border-radius: 14px;
+  background: var(--clc-surface);
+  border: 1px solid var(--clc-border);
+}
+
+.cs-outcome-card h3 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--clc-deep);
+  margin-bottom: 0.4rem;
+}
+
+.cs-outcome-card p {
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--clc-soft);
+  margin: 0;
+}
+
+.clc-impl-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+  counter-reset: clc-impl;
+}
+
+.clc-impl-steps li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: 1.15rem 1.25rem;
+  border-radius: 14px;
+  background: var(--clc-surface);
+  border: 1px solid var(--clc-border);
+}
+
+.clc-impl-steps li::before {
+  counter-increment: clc-impl;
+  content: counter(clc-impl, decimal-leading-zero);
+  font-family: 'Clash Display', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--clc-accent);
+  background: rgba(74, 101, 139, 0.1);
+  border-radius: 8px;
+  padding: 0.35rem 0.5rem;
+  line-height: 1;
+}
+
+.clc-impl-steps strong {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--clc-ink);
+  margin-bottom: 0.2rem;
+}
+
+.clc-impl-steps p {
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--clc-soft);
+  margin: 0;
+}
+
+.clc-stage-nav-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.clc-stage-nav-strip a {
+  padding: 0.5rem 0.95rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--clc-accent);
+  text-decoration: none;
+  background: var(--clc-surface);
+  border: 1px solid var(--clc-border);
+  border-radius: 999px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.clc-stage-nav-strip a:hover,
+.clc-stage-nav-strip a.is-current {
+  color: var(--clc-deep);
+  border-color: var(--clc-accent);
+  background: rgba(74, 101, 139, 0.08);
+}
+
+.clc-stage-nav-strip a.is-current {
+  pointer-events: none;
+}
+
+.clc-stage-cta {
+  text-align: center;
+  padding: clamp(2.5rem, 5vw, 3.5rem) 0 clamp(3rem, 6vw, 4rem);
+}
+
+.clc-stage-cta h2 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-weight: 600;
+  color: var(--clc-ink);
+  margin-bottom: 0.5rem;
+}
+
+.clc-stage-cta p {
+  color: var(--clc-muted);
+  margin-bottom: 1.25rem;
+}
+
+.clc-stage-page .btn-primary {
+  background: linear-gradient(135deg, var(--clc-accent), var(--clc-deep));
+}
+
+@media (max-width: 900px) {
+  .clc-stage-hero-grid,
+  .clc-stage-split {
+    grid-template-columns: 1fr;
+  }
+  .cs-outcome-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .cs-outcome-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.clc-stack-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+.clc-stack-pill {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--clc-deep);
+  background: rgba(74, 101, 139, 0.08);
+  border: 1px solid var(--clc-border);
+  border-radius: 999px;
+}
+.clc-outcomes-list {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+  max-width: 72ch;
+}
+.clc-outcomes-list li {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--clc-muted);
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--clc-accent);
+}
+.clc-feature-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.85rem; }
+.clc-feature-card {
+  padding: 1.2rem 1.15rem;
+  border-radius: 14px;
+  background: var(--clc-surface);
+  border: 1px solid var(--clc-border);
+}
+.clc-feature-card h3 {
+  font-family: Clash Display, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--clc-ink);
+  margin-bottom: 0.35rem;
+}
+.clc-feature-card p { font-size: 0.82rem; line-height: 1.55; color: var(--clc-soft); margin: 0; }

@@ -7,14 +7,14 @@ window.EMAAVY_ROUTES = {
   landingPage: 'index.html',
 
   mainNav: [
-    { id: 'how-it-works', label: 'How It Works', path: 'pages/how-it-works.html' },
-    { id: 'integrations', label: 'Integrations', path: 'pages/integrations/index.html', dropdown: 'integrations' },
-    { id: 'agents', label: 'Agents', path: 'pages/agents/index.html', dropdown: 'agents' },
+    { id: 'how-it-works', label: 'How It Works', path: 'index.html#how-it-works' },
+    { id: 'integrations', label: 'Integrations', path: 'index.html#integrations', dropdown: 'integrations' },
+    { id: 'agents', label: 'Agents', path: 'index.html#agents', dropdown: 'agents' },
     { id: 'campaigns', label: 'Campaigns', path: 'index.html#campaigns' },
-    { id: 'features', label: 'Flows', path: 'pages/features.html' },
-    { id: 'case-studies', label: 'Case Studies', path: 'pages/case-studies.html' },
-    { id: 'journey', label: 'Call lifecycle', path: 'pages/call-lifecycle/index.html', dropdown: 'lifecycle' },
-    { id: 'faq', label: 'FAQ', path: 'pages/faq.html', dropdown: 'faq' },
+    { id: 'features', label: 'Flows', path: 'index.html#features' },
+    { id: 'case-studies', label: 'Case Studies', path: 'index.html#case-studies' },
+    { id: 'journey', label: 'Call lifecycle', path: 'index.html#journey', dropdown: 'lifecycle' },
+    { id: 'faq', label: 'FAQ', path: 'index.html#faq', dropdown: 'faq' },
     { id: 'pricing', label: 'Pricing', path: 'pages/pricing.html' },
     { id: 'documentation', label: 'Documentation', path: 'pages/documentation.html' },
     { id: 'contact', label: 'Contact Us', path: 'pages/contact.html' },
@@ -38,13 +38,13 @@ window.EMAAVY_ROUTES = {
     telephony: [
       { id: 'telephony', label: 'Telephony layer', path: 'pages/integrations/telephony.html' },
       { id: 'vobiz', label: 'Vobiz', path: 'pages/integrations/vobiz.html' },
-      { id: 'twilio', label: 'Twilio', path: 'pages/integrations/telephony.html#twilio' },
-      { id: 'plivo', label: 'Plivo', path: 'pages/integrations/telephony.html#plivo' },
-      { id: 'vonage', label: 'Vonage', path: 'pages/integrations/telephony.html#vonage' },
-      { id: 'exotel', label: 'Exotel', path: 'pages/integrations/telephony.html#exotel' },
-      { id: 'knowlarity', label: 'Knowlarity', path: 'pages/integrations/telephony.html#knowlarity' },
-      { id: 'telnyx', label: 'Telnyx', path: 'pages/integrations/telephony.html#telnyx' },
-      { id: 'bandwidth', label: 'Bandwidth', path: 'pages/integrations/telephony.html#bandwidth' },
+      { id: 'twilio', label: 'Twilio', path: 'pages/integrations/twilio.html' },
+      { id: 'plivo', label: 'Plivo', path: 'pages/integrations/plivo.html' },
+      { id: 'vonage', label: 'Vonage', path: 'pages/integrations/vonage.html' },
+      { id: 'exotel', label: 'Exotel', path: 'pages/integrations/exotel.html' },
+      { id: 'knowlarity', label: 'Knowlarity', path: 'pages/integrations/knowlarity.html' },
+      { id: 'telnyx', label: 'Telnyx', path: 'pages/integrations/telnyx.html' },
+      { id: 'bandwidth', label: 'Bandwidth', path: 'pages/integrations/bandwidth.html' },
     ],
     llm: [
       { id: 'llms', label: 'LLM layer', path: 'pages/integrations/llms.html' },
@@ -56,14 +56,14 @@ window.EMAAVY_ROUTES = {
     ],
     stt: [
       { id: 'stt', label: 'STT layer', path: 'pages/integrations/stt.html' },
+      { id: 'deepgram', label: 'Deepgram', path: 'pages/integrations/deepgram.html' },
+      { id: 'sarvam', label: 'Sarvam AI', path: 'pages/integrations/sarvam.html' },
       { id: 'assemblyai', label: 'AssemblyAI', path: 'pages/integrations/assemblyai.html' },
       { id: 'azure-stt', label: 'Azure Speech', path: 'pages/integrations/azure-stt.html' },
-      { id: 'deepgram', label: 'Deepgram', path: 'pages/integrations/deepgram.html' },
-      { id: 'elevenlabs-stt', label: 'ElevenLabs STT', path: 'pages/integrations/elevenlabs-stt.html' },
-      { id: 'gladia', label: 'Gladia', path: 'pages/integrations/gladia.html' },
       { id: 'google-stt', label: 'Google STT', path: 'pages/integrations/google-stt.html' },
       { id: 'openai-stt', label: 'OpenAI Whisper', path: 'pages/integrations/openai-stt.html' },
-      { id: 'sarvam', label: 'Sarvam AI', path: 'pages/integrations/sarvam.html' },
+      { id: 'elevenlabs-stt', label: 'ElevenLabs STT', path: 'pages/integrations/elevenlabs-stt.html' },
+      { id: 'gladia', label: 'Gladia', path: 'pages/integrations/gladia.html' },
       { id: 'smallest', label: 'Smallest AI', path: 'pages/integrations/smallest.html' },
     ],
     tts: [
@@ -74,12 +74,12 @@ window.EMAAVY_ROUTES = {
     tools: [
       { id: 'tools', label: 'Tools layer', path: 'pages/integrations/tools.html' },
       { id: 'webhooks', label: 'Webhooks', path: 'pages/integrations/webhooks.html' },
+      { id: 'salesforce', label: 'Salesforce', path: 'pages/integrations/salesforce.html' },
+      { id: 'hubspot', label: 'HubSpot', path: 'pages/integrations/hubspot.html' },
       { id: 'calcom', label: 'Cal.com', path: 'pages/integrations/calcom.html' },
       { id: 'google-calendar', label: 'Google Calendar', path: 'pages/integrations/google-calendar.html' },
       { id: 'whatsapp', label: 'WhatsApp', path: 'pages/integrations/whatsapp.html' },
       { id: 'slack', label: 'Slack', path: 'pages/integrations/slack.html' },
-      { id: 'salesforce', label: 'Salesforce', path: 'pages/integrations/salesforce.html' },
-      { id: 'hubspot', label: 'HubSpot', path: 'pages/integrations/hubspot.html' },
     ],
   },
 
@@ -106,20 +106,13 @@ window.EMAAVY_ROUTES = {
     { id: 'enterprise-support', label: 'Enterprise support', path: 'pages/faq/enterprise-support.html' },
   ],
 
-  agents: [
-    { id: 'workforce', label: 'AI Workforce', path: 'pages/agents/workforce.html' },
-    { id: 'sales-agent', label: 'Sales Agent', path: 'pages/agents/sales-agent.html' },
-    { id: 'support-agent', label: 'Support Agent', path: 'pages/agents/support-agent.html' },
-    { id: 'outbound-agent', label: 'Campaign Agent', path: 'pages/agents/outbound-agent.html' },
-  ],
-
-  integrationGroups: [
-    { key: 'telephony', title: 'Telephony' },
-    { key: 'llm', title: 'LLMs' },
-    { key: 'stt', title: 'STT' },
-    { key: 'tts', title: 'TTS' },
-    { key: 'tools', title: 'Tools' },
-  ],
+      agents: [
+      { id: 'workforce', label: 'AI Workforce', path: 'pages/agents/workforce.html' },
+      { id: 'sales-agent', label: 'Sales Agent', path: 'pages/agents/sales-agent.html' },
+      { id: 'support-agent', label: 'Support Agent', path: 'pages/agents/support-agent.html' },
+      { id: 'outbound-agent', label: 'Outbound Agent', path: 'pages/agents/outbound-agent.html' },
+      { id: 'inbound-agent', label: 'Inbound Agent', path: 'pages/agents/inbound-agent.html' },
+    ],
 
   spaHref(routeId) {
     if (routeId === 'home') return '#/';

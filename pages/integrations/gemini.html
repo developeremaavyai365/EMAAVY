@@ -3,49 +3,128 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gemini Flash Integration — EMAAVY</title>
-  <meta name="description" content="Connect Gemini Flash with EMAAVY. Ultra-low-latency inference for real-time intent detection during live calls." />
+  <title>Gemini — EMAAVY</title>
+  <meta name="description" content="Google Gemini and EMAAVY — ultra-fast inference for live intent detection and real-time voice agent loops." />
   <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Gemini Flash Integration — EMAAVY" />
-  <meta property="og:description" content="Connect Gemini Flash with EMAAVY. Ultra-low-latency inference for real-time intent detection during live calls." />
+  <meta property="og:title" content="Gemini — EMAAVY" />
+  <meta property="og:description" content="Google Gemini and EMAAVY — ultra-fast inference for live intent detection and real-time voice agent loops." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../assets/nav.css" />
-<link rel="stylesheet" href="../../assets/masthead-flex.css" />
-
+  <link rel="stylesheet" href="../../assets/masthead-flex.css" />
   <link rel="stylesheet" href="../../assets/site.css" />
-<link rel="stylesheet" href="../../assets/emaavy-theme.css" />
+  <link rel="stylesheet" href="../../assets/emaavy-theme.css" />
 
-
+  <link rel="stylesheet" href="../../assets/llm-partner.css" />
 </head>
 <body data-base="../../" data-route="integration-gemini">
   <div id="site-nav-root"></div>
-  <main class="page-main">
-    <section class="page-hero compact">
-      <div class="container">
-        <span class="page-kicker">LLM</span>
-        <h1>Gemini Flash</h1>
-        <p>Ultra-low-latency inference for real-time intent detection during live calls.</p>
+  <main class="page-main llm-partner-page">
+    <section class="llm-partner-hero">
+      <div class="container llm-partner-hero-grid">
+        <div class="llm-partner-hero-copy">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span aria-hidden="true"> / </span>
+            <a href="../../index.html#integrations">Integrations</a>
+            <span aria-hidden="true"> / </span>
+            <a href="llms.html">LLMs</a>
+            <span aria-hidden="true"> / </span>
+            <span>Gemini</span>
+          </nav>
+          <span class="llm-partner-kicker">LLMs · Real-time</span>
+          <h1>Gemini Flash</h1>
+          <p class="llm-partner-lead">Gemini Flash brings Google-scale infrastructure and millisecond-class inference to EMAAVY — perfect for intent detection, slot filling, and agent replies when latency beats raw reasoning depth.</p>
+          <div class="llm-partner-stats"><div class="llm-partner-stat"><b>Flash</b><span>Low latency</span></div><div class="llm-partner-stat"><b>Multimodal</b><span>Ready</span></div><div class="llm-partner-stat"><b>Google</b><span>Cloud</span></div></div>
+          <div class="llm-partner-hero-actions">
+            <a href="../../book-demo.html" class="btn-primary">Connect Gemini</a>
+            <a href="llms.html" class="btn-outline">All models</a>
+          </div>
+        </div>
+        <aside class="llm-partner-hero-card" aria-label="Gemini overview">
+          <div class="llm-partner-hero-logo"><img src="https://cdn.simpleicons.org/google/4285F4" alt="" width="52" height="52" loading="lazy" /></div>
+          <span class="llm-partner-hero-region">Google · Real-time</span>
+          <p>Powered through EMAAVY — per-agent routing, mid-call escalation, and live CRM extraction.</p>
+        </aside>
       </div>
     </section>
-    <section class="page-section">
+
+    <section class="llm-partner-section">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../index.html">Home</a> › <a href="../../pages/integrations/index.html">Integrations</a> › <span>Gemini Flash</span></nav>
-        <div class="stat-row">
-          <div class="stat-box"><b><200ms</b><span>Inference</span></div>
-          <div class="stat-box"><b>Live</b><span>Intent scoring</span></div>
-        </div>
-        <ul class="feature-list">
-          <li>Real-time intent classification</li>
-          <li>Live keyword detection</li>
-          <li>Streaming architecture</li>
-          <li>Cost-efficient at scale</li>
-        </ul>
+        <header class="llm-partner-section-head">
+          <h2>What Gemini is built for</h2>
+          <p>Choosing the right model family shapes conversion, compliance, and cost on every call.</p>
+        </header>
+        <div class="llm-partner-prose"><p>Google Gemini is a family of multimodal models spanning ultra-fast Flash variants to larger Pro tiers. Flash models are optimized for high-throughput, low-latency workloads — exactly the profile live voice agents need on every conversational turn.</p><p>Organizations already on Google Cloud can keep billing, VPC, and IAM patterns while EMAAVY orchestrates which Gemini variant handles classification versus response generation per call segment.</p></div>
+      </div>
+    </section>
+
+    <section class="llm-partner-section alt">
+      <div class="container llm-partner-split">
+        <header class="llm-partner-section-head">
+          <h2>How EMAAVY uses Gemini</h2>
+          <p>One orchestration layer — swap models by agent, campaign, or intent without rebuilding voice infrastructure.</p>
+        </header>
+        <ul class="llm-partner-benefits"><li><div><strong>Live intent scoring</strong><span>Classify buyer intent on every utterance without blocking TTS.</span></div></li><li><div><strong>Flash for loops</strong><span>Default Flash models on high-QPS outbound campaigns.</span></div></li><li><div><strong>Pro on escalation</strong><span>Swap to heavier Gemini when scripts require deeper reasoning.</span></div></li><li><div><strong>Workspace synergy</strong><span>Optional hooks for Calendar, Docs, and internal knowledge bases.</span></div></li></ul>
+      </div>
+    </section>
+
+    <section class="llm-partner-section">
+      <div class="container">
+        <header class="llm-partner-section-head">
+          <h2>Key capabilities</h2>
+          <p>What teams enable when Gemini drives EMAAVY voice agents.</p>
+        </header>
+        <div class="llm-feature-grid"><article class="llm-feature-card"><h3>Gemini Flash</h3><p>Optimized for real-time voice turn latency.</p></article><article class="llm-feature-card"><h3>Intent classifiers</h3><p>Parallel scoring pipelines during active calls.</p></article><article class="llm-feature-card"><h3>Multimodal future</h3><p>Room for visual context in advanced agent flows.</p></article><article class="llm-feature-card"><h3>Google Cloud IAM</h3><p>Enterprise security and region pinning.</p></article><article class="llm-feature-card"><h3>Cost efficiency</h3><p>Lower per-token cost on classification-heavy programs.</p></article><article class="llm-feature-card"><h3>Streaming API</h3><p>Token streams aligned with EMAAVY voice pacing.</p></article></div>
+      </div>
+    </section>
+
+    <section class="llm-partner-section alt">
+      <div class="container">
+        <header class="llm-partner-section-head">
+          <h2>Ideal use cases</h2>
+          <p>Where Gemini and EMAAVY deliver the strongest combined outcomes.</p>
+        </header>
+        <div class="llm-use-grid"><article class="llm-use-card"><h3>High-QPS outbound</h3><p>Dialer campaigns needing fast turn-taking.</p></article><article class="llm-use-card"><h3>Intent routing</h3><p>Pre-qualify leads before expensive flagship model time.</p></article><article class="llm-use-card"><h3>Google-native stacks</h3><p>Teams standardized on GCP and Workspace.</p></article></div>
+      </div>
+    </section>
+
+    <section class="llm-partner-section">
+      <div class="container">
+        <header class="llm-partner-section-head">
+          <h2>Getting connected</h2>
+          <p>From API credentials to production traffic on EMAAVY.</p>
+        </header>
+        <ol class="llm-setup-steps"><li><div><strong>Enable Gemini API</strong><p>Connect Google Cloud project and API credentials.</p></div></li><li><div><strong>Set Flash defaults</strong><p>Assign Flash to greeting and qualification agents.</p></div></li><li><div><strong>Define escalation rules</strong><p>Promote to Pro/Ultra analogs on intent triggers.</p></div></li><li><div><strong>Load test latency</strong><p>Benchmark turn time against SLA targets.</p></div></li></ol>
+      </div>
+    </section>
+
+    <section class="llm-partner-section alt">
+      <div class="container">
+        <header class="llm-partner-section-head">
+          <h2>Explore other models</h2>
+          <p>Mix providers by campaign — EMAAVY keeps transcripts, scoring, and CRM sync consistent.</p>
+        </header>
+        <nav class="llm-partner-nav-strip" aria-label="LLM partners">
+          <a href="openai.html">OpenAI</a>
+          <a href="claude.html">Claude</a>
+          <a href="gemini.html" class="is-current">Gemini</a>
+          <a href="qwen.html">Qwen</a>
+          <a href="grok.html">Grok</a>
+          <a href="llms.html">All LLMs</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="llm-partner-cta">
+      <div class="container">
+        <h2>Ready to connect Gemini?</h2>
+        <p>Book a walkthrough — we will map model routing, extraction schemas, and a live agent demo.</p>
         <div class="cta-row">
-          <a href="../../book-demo.html" class="btn-primary">Connect Gemini Flash →</a>
-          <a href="../../pages/integrations/index.html" class="btn-outline">All integrations</a>
+          <a href="../../book-demo.html" class="btn-primary">Book a demo</a>
+          <a href="llms.html" class="btn-outline">LLM overview</a>
         </div>
       </div>
     </section>

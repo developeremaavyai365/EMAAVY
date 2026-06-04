@@ -1,0 +1,598 @@
+/* ─── Agents hub — elegant layer page ─── */
+.clc-page {
+  --clc-ink: #0f172a;
+  --clc-muted: #475569;
+  --clc-soft: #64748b;
+  --clc-border: #e2e8f0;
+  --clc-surface: #ffffff;
+  --clc-panel: #f8fafc;
+  --clc-accent: #4a658b;
+  --clc-deep: #18345d;
+  --clc-glow: rgba(74, 101, 139, 0.12);
+}
+
+.clc-page .page-hero.telephony-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(3rem, 7vw, 5rem) 0 clamp(2.5rem, 5vw, 3.5rem);
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 0%, rgba(74, 101, 139, 0.14), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 90% 20%, rgba(24, 52, 93, 0.08), transparent 50%),
+    linear-gradient(180deg, #f4f7fb 0%, #ffffff 72%);
+  border-bottom: 1px solid var(--clc-border);
+}
+
+.clc-page .page-hero.telephony-hero::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(74, 101, 139, 0.35), transparent);
+}
+
+.clc-page .breadcrumb a {
+  color: var(--clc-accent);
+}
+
+.clc-page .page-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.38rem 0.85rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clc-deep);
+  background: var(--clc-surface);
+  border: 1px solid var(--clc-border);
+  border-radius: 999px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+.clc-page .page-kicker::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--clc-accent);
+}
+
+.clc-page .telephony-hero h1 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(2.1rem, 5vw, 3.35rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  color: var(--clc-ink);
+  max-width: 22ch;
+  margin: 1rem 0 1.1rem;
+}
+
+.telephony-hero-lead {
+  max-width: 58ch;
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  line-height: 1.75;
+  color: var(--clc-muted);
+  margin-bottom: 1.75rem;
+}
+
+.clc-page .telephony-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+  max-width: 520px;
+  margin-bottom: 1.75rem;
+}
+
+.clc-page .telephony-hero-stats .stat-box {
+  padding: 1rem 0.85rem;
+  border-radius: 12px;
+  background: var(--clc-surface);
+  border: 1px solid var(--clc-border);
+  box-shadow: 0 4px 18px var(--clc-glow);
+}
+
+.clc-page .telephony-hero-stats .stat-box b {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.35rem;
+  color: var(--clc-deep);
+}
+
+.telephony-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.telephony-jump a {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--clc-accent);
+  text-decoration: none;
+  background: var(--clc-surface);
+  border: 1px solid var(--clc-border);
+  border-radius: 999px;
+  transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.telephony-jump a:hover {
+  color: var(--clc-deep);
+  border-color: var(--clc-accent);
+  box-shadow: 0 4px 14px var(--clc-glow);
+}
+
+/* Voice layer explainer */
+.clc-hub-workforce {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+}
+
+.clc-hub-workforce-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  align-items: center;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-radius: 20px;
+  border: 1px solid var(--clc-border);
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
+}
+
+.clc-hub-workforce-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.clc-hub-workforce-num {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--clc-accent);
+  opacity: 0.7;
+}
+
+.clc-hub-workforce-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clc-soft);
+}
+
+.clc-hub-workforce-card h2 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--clc-ink);
+  margin: 0.5rem 0 0.75rem;
+}
+
+.clc-hub-workforce-lead {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--clc-muted);
+  margin: 0 0 1.25rem;
+}
+
+.clc-hub-pill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+}
+
+.clc-hub-pill {
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: var(--clc-surface);
+  border: 1px solid var(--clc-border);
+}
+
+.clc-hub-pill strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--clc-ink);
+  margin-bottom: 0.2rem;
+}
+
+.clc-hub-pill span {
+  font-size: 0.78rem;
+  color: var(--clc-soft);
+  line-height: 1.45;
+}
+
+/* Partner grid */
+.clc-hub-roles {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+}
+
+.clc-hub-roles-head {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 2rem;
+}
+
+.clc-hub-roles-head h2 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--clc-ink);
+  margin-bottom: 0.6rem;
+}
+
+.clc-hub-roles-head p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--clc-muted);
+}
+
+.clc-stage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.clc-stage-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.35rem 1.25rem 1.2rem;
+  border-radius: 16px;
+  border: 1px solid var(--clc-border);
+  background: var(--clc-surface);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  scroll-margin-top: calc(var(--nav-offset, 88px) + 1rem);
+}
+
+.clc-stage-card:hover {
+  transform: translateY(-3px);
+  border-color: #cbd5e1;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+.clc-stage-card--native {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto auto;
+  gap: 0.35rem 1.25rem;
+  align-items: start;
+  padding: 1.75rem 1.5rem;
+  border-color: var(--clc-accent);
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 48%, #f0f4f8 100%);
+  box-shadow: 0 12px 36px var(--clc-glow);
+}
+
+.clc-stage-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.clc-stage-card--native .clc-stage-card-top {
+  grid-column: 2;
+  grid-row: 1;
+  margin-bottom: 0;
+}
+
+.clc-stage-card-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--clc-panel);
+  border: 1px solid var(--clc-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.clc-stage-card--native .clc-stage-card-logo {
+  grid-row: 1 / span 3;
+  width: 64px;
+  height: 64px;
+}
+
+.clc-stage-card-logo img {
+  max-width: 32px;
+  max-height: 32px;
+  object-fit: contain;
+}
+
+.clc-stage-card-logo .brand-mark,
+.clc-stage-card-logo .clc-stage-num {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--clc-deep);
+}
+
+.clc-stage-badge {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--clc-deep);
+  background: rgba(74, 101, 139, 0.1);
+  border: 1px solid rgba(74, 101, 139, 0.25);
+  border-radius: 999px;
+  padding: 0.22rem 0.55rem;
+  white-space: nowrap;
+}
+
+.clc-stage-card h3 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: var(--clc-ink);
+  margin: 0 0 0.4rem;
+}
+
+.clc-stage-card--native h3 {
+  grid-column: 2;
+  font-size: 1.35rem;
+  margin-top: 0;
+}
+
+.clc-stage-card-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--clc-muted);
+  margin: 0 0 0.85rem;
+  flex: 1;
+}
+
+.clc-stage-card--native .clc-stage-card-desc {
+  grid-column: 2;
+}
+
+.clc-stage-card-points {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.clc-stage-card--native .clc-stage-card-points {
+  grid-column: 2;
+}
+
+.clc-stage-card-points li {
+  font-size: 0.8rem;
+  color: var(--clc-soft);
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--clc-accent);
+}
+
+.clc-stage-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--clc-accent);
+  margin-top: auto;
+}
+
+.clc-stage-card--native .clc-stage-card-cta {
+  grid-column: 3;
+  grid-row: 1 / span 3;
+  align-self: center;
+  font-size: 0.88rem;
+  padding: 0.65rem 1rem;
+  background: linear-gradient(135deg, var(--clc-accent), var(--clc-deep));
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px var(--clc-glow);
+}
+
+.clc-stage-card--native:hover .clc-stage-card-cta {
+  color: #fff;
+}
+
+.clc-stage-card:hover .clc-stage-card-cta {
+  color: var(--clc-deep);
+}
+
+/* Flow timeline */
+.clc-hub-flow {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+}
+
+.clc-hub-flow-head {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.clc-hub-flow-head h2 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(1.45rem, 3vw, 1.85rem);
+  font-weight: 600;
+  color: var(--clc-ink);
+  margin-bottom: 0.5rem;
+}
+
+.clc-hub-flow-head p {
+  color: var(--clc-muted);
+  max-width: 48ch;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.clc-flow-track {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.65rem;
+  counter-reset: cs-flow;
+}
+
+.clc-flow-step {
+  position: relative;
+  padding: 1.25rem 1rem;
+  border-radius: 14px;
+  background: var(--clc-surface);
+  border: 1px solid var(--clc-border);
+  text-align: center;
+}
+
+.clc-flow-step::before {
+  counter-increment: cs-flow;
+  content: counter(cs-flow, decimal-leading-zero);
+  display: block;
+  font-family: 'Clash Display', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--clc-accent);
+  margin-bottom: 0.5rem;
+}
+
+.clc-flow-step strong {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--clc-ink);
+  margin-bottom: 0.35rem;
+}
+
+.clc-flow-step p {
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: var(--clc-soft);
+  margin: 0;
+}
+
+.clc-hub-cta {
+  text-align: center;
+  padding: clamp(2.5rem, 5vw, 3.5rem) 0 clamp(3rem, 6vw, 4rem);
+}
+
+.clc-hub-cta h2 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-weight: 600;
+  color: var(--clc-ink);
+  margin-bottom: 0.5rem;
+}
+
+.clc-hub-cta p {
+  color: var(--clc-muted);
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 960px) {
+  .clc-hub-workforce-card {
+    grid-template-columns: 1fr;
+  }
+  .clc-flow-track {
+    grid-template-columns: 1fr;
+  }
+  .clc-stage-card--native {
+    grid-template-columns: auto 1fr;
+  }
+  .clc-stage-card--native .clc-stage-card-cta {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    justify-self: start;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .clc-page .telephony-hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .clc-hub-pill-grid {
+    grid-template-columns: 1fr;
+  }
+  .clc-stage-card--native {
+    grid-template-columns: 1fr;
+  }
+  .clc-stage-card--native .clc-stage-card-logo,
+  .clc-stage-card--native .clc-stage-card-top,
+  .clc-stage-card--native h3,
+  .clc-stage-card--native .clc-stage-card-desc,
+  .clc-stage-card--native .clc-stage-card-points {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
+.clc-stage-grid--five {
+  grid-template-columns: repeat(5, 1fr);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (max-width: 1100px) {
+  .clc-stage-grid--five {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .clc-stage-grid--five {
+    grid-template-columns: 1fr;
+  }
+}
+.clc-hub-builder {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+}
+.clc-pipeline-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-radius: 20px;
+  border: 1px solid var(--clc-border);
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
+}
+.clc-pipeline-meta .clc-hub-workforce-num {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--clc-accent);
+  opacity: 0.7;
+}
+.clc-pipeline-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clc-soft);
+}
+.clc-pipeline-card h2 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-weight: 600;
+  color: var(--clc-ink);
+  margin: 0.5rem 0 0.75rem;
+}
+.clc-pipeline-lead {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--clc-muted);
+  margin: 0 0 1rem;
+}
+.clc-pipeline-points {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+.clc-pipeline-points li {
+  font-size: 0.88rem;
+  color: var(--clc-soft);
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--clc-accent);
+}
+@media (max-width: 900px) {
+  .clc-pipeline-card { grid-template-columns: 1fr; }
+}

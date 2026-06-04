@@ -4,94 +4,130 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Analyze — Score Live — Call Lifecycle — EMAAVY</title>
-  <meta name="description" content="Analysis happens per conversational turn — not in a batch job overnight. Sentiment arcs, buyer intent, objection types, and compliance risk update live so …" />
+  <meta name="description" content="EMAAVY analyze stage — per-turn sentiment, intent, objections, and compliance scoring before the caller hangs up." />
   <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Analyze — Score Live — EMAAVY" />
+  <meta property="og:description" content="EMAAVY analyze stage — per-turn sentiment, intent, objections, and compliance scoring before the caller hangs up." />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../assets/nav.css" />
-<link rel="stylesheet" href="../../assets/masthead-flex.css" />
-
+  <link rel="stylesheet" href="../../assets/masthead-flex.css" />
   <link rel="stylesheet" href="../../assets/site.css" />
-<link rel="stylesheet" href="../../assets/emaavy-theme.css" />
+  <link rel="stylesheet" href="../../assets/emaavy-theme.css" />
 
+  <link rel="stylesheet" href="../../assets/call-lifecycle-stage.css" />
 </head>
 <body data-base="../../" data-route="lifecycle-analyze">
   <div id="site-nav-root"></div>
-  <main class="page-main int-category-page">
-    <section class="page-hero telephony-hero">
-      <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../../index.html">Home</a>
-          <span aria-hidden="true"> / </span>
-          <a href="../../index.html#journey">Call lifecycle</a>
-          <span aria-hidden="true"> / </span>
-          <span>Score Live</span>
-        </nav>
-        <span class="page-kicker">Step 3 · Analyze</span>
-        <h1>Analyze — Score Live</h1>
-        <p class="telephony-hero-lead">Analysis happens per conversational turn — not in a batch job overnight. Sentiment arcs, buyer intent, objection types, and compliance risk update live so teams can act before the caller hangs up.</p>
-        <div class="stat-row telephony-hero-stats"><div class="stat-box"><b>Per-turn</b><span>Scoring</span></div><div class="stat-box"><b>Live</b><span>Alerts</span></div><div class="stat-box"><b>Multi-signal</b><span>Intelligence</span></div></div>
-        <div class="capabilities-jump telephony-jump">
-          <a href="#overview">Overview</a>
-          <a href="#happens">What happens</a>
-          <a href="#emaavy">EMAAVY layer</a>
-          <a href="#outcomes">Outcomes</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="page-section">
-      <div class="container">
-        <div class="int-layer-nav"><a href="ring.html" class="int-layer-pill">Call Connects</a><a href="transcribe.html" class="int-layer-pill">Every Word Captured</a><a href="analyze.html" class="int-layer-pill">Score Live</a><a href="act.html" class="int-layer-pill">Triggers Fire</a><a href="learn.html" class="int-layer-pill">Models Improve</a></div>
-        <div class="cta-row" style="margin-top:1rem">
-          <a href="act.html" class="btn-outline">← Previous stage</a>
-          <a href="learn.html" class="btn-outline">Next stage →</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="overview" class="page-section alt">
-      <div class="container">
-        <article class="capability-block">
-          <div class="capability-block-inner">
-            <div class="capability-meta">
-              <span class="capability-num">03</span>
-              <span class="capability-tag">Call lifecycle · Score Live</span>
-            </div>
-            <div class="capability-content">
-              <h2>Stage overview</h2>
-              <p class="capability-lead">The analyze stage is EMAAVY's reasoning layer. Your configured LLM stack interprets meaning, emotion, and risk on each turn, feeding the intelligence matrix dashboards and trigger engine simultaneously.</p>
-            </div>
+  <main class="page-main clc-stage-page">
+    <section class="clc-stage-hero">
+      <div class="container clc-stage-hero-grid">
+        <div class="clc-stage-hero-copy">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span aria-hidden="true"> / </span>
+            <a href="../../index.html#journey">Call lifecycle</a>
+            <span aria-hidden="true"> / </span>
+            <a href="index.html">Overview</a>
+            <span aria-hidden="true"> / </span>
+            <span>Score Live</span>
+          </nav>
+          <span class="clc-stage-kicker">Call Lifecycle · Step 3 · Analyze</span>
+          <h1>Analyze — Score Live</h1>
+          <p class="clc-stage-lead">Analysis happens per conversational turn — not in a batch job overnight. Sentiment arcs, buyer intent, objection types, and compliance risk update live so teams can act before the caller hangs up.</p>
+          <div class="clc-stage-stats"><div class="clc-stage-stat"><b>Per-turn</b><span>Scoring</span></div><div class="clc-stage-stat"><b>Live</b><span>Alerts</span></div><div class="clc-stage-stat"><b>Multi-signal</b><span>Intelligence</span></div></div>
+          <div class="clc-stage-hero-actions">
+            <a href="../../book-demo.html" class="btn-primary">See the lifecycle live</a>
+            <a href="transcribe.html" class="btn-outline">← Transcribe</a>
+            <a href="act.html" class="btn-outline">Act →</a>
           </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="happens" class="page-section">
-      <div class="container">
-        <h2 class="section-title">What happens on the call</h2>
-        <p class="section-desc">Signals and events your team sees during this stage.</p>
-        <ul class="feature-list"><li>Sentiment timeline shifts green, amber, or red as tone changes</li><li>Intent classified as buy, explore, objection, or reject per turn</li><li>Compliance lexicon flags risky phrases for regulated industries</li><li>Objection tags feed script coaching and funnel analytics</li></ul>
-      </div>
-    </section>
-
-    <section id="emaavy" class="page-section alt">
-      <div class="container">
-        <h2 class="section-title">How EMAAVY powers this stage</h2>
-        <div class="telephony-flow-panel">
-          <ol class="telephony-flow-steps"><li><span class="telephony-flow-num">01</span><strong>Reason</strong><p>Route GPT, Claude, Gemini, Qwen, or Grok per workflow.</p></li><li><span class="telephony-flow-num">02</span><strong>Score</strong><p>Apply sentiment, intent, and compliance models in parallel.</p></li><li><span class="telephony-flow-num">03</span><strong>Alert</strong><p>Notify supervisors when thresholds breach.</p></li><li><span class="telephony-flow-num">04</span><strong>Summarize</strong><p>Rolling call summary for handoff and CRM notes.</p></li></ol>
         </div>
+        <aside class="clc-stage-hero-card" aria-label="Stage 03">
+          <div class="clc-stage-hero-logo"><span class="clc-stage-num">03</span></div>
+          <span class="clc-stage-hero-region">Intelligence · LLM</span>
+          <p>Stage <strong>03</strong> of 5 — Score Live on the EMAAVY voice intelligence pipeline.</p>
+        </aside>
       </div>
     </section>
 
-    <section id="outcomes" class="page-section">
+    <section class="clc-stage-section" id="overview">
       <div class="container">
-        <h2 class="section-title">Business outcomes</h2>
-        <ul class="feature-list"><li>Decisions based on live conversation state, not post-call guesswork</li><li>Compliance teams catch issues during the call</li><li>Sales leaders see intent shift before deals slip away</li></ul>
-        <div class="cta-row" style="margin-top:1.5rem">
-          <a href="../../book-demo.html" class="btn-primary">See the lifecycle live →</a>
-          <a href="index.html" class="btn-outline">All lifecycle stages</a>
+        <header class="clc-stage-section-head">
+          <h2>Stage overview</h2>
+          <p>What happens during Score Live and why it matters.</p>
+        </header>
+        <div class="clc-stage-prose"><p>The analyze stage is EMAAVY's reasoning layer. Your configured LLM stack interprets meaning, emotion, and risk on each turn, feeding the intelligence matrix dashboards and trigger engine simultaneously.</p></div>
+      </div>
+    </section>
+
+    <section class="clc-stage-section alt" id="happens">
+      <div class="container">
+        <header class="clc-stage-section-head">
+          <h2>What happens on the call</h2>
+          <p>Signals and events your team sees during this stage.</p>
+        </header>
+        <div class="clc-feature-grid"><article class="clc-feature-card"><h3>Sentiment timeline</h3><p>Tone shifts green, amber, or red as the call evolves.</p></article><article class="clc-feature-card"><h3>Intent classification</h3><p>Buy, explore, objection, or reject per turn.</p></article><article class="clc-feature-card"><h3>Compliance flags</h3><p>Risky phrases flagged for regulated programs.</p></article><article class="clc-feature-card"><h3>Objection tags</h3><p>Feed script coaching and funnel analytics.</p></article></div>
+      </div>
+    </section>
+
+    <section class="clc-stage-section" id="emaavy">
+      <div class="container clc-stage-split">
+        <header class="clc-stage-section-head">
+          <h2>How EMAAVY powers this stage</h2>
+          <p>Platform steps from connect through downstream action.</p>
+          <div class="clc-stack-pills"><span class="clc-stack-pill">OpenAI</span><span class="clc-stack-pill">Claude</span><span class="clc-stack-pill">Gemini</span><span class="clc-stack-pill">Intelligence Matrix</span></div>
+        </header>
+        <ul class="clc-stage-benefits"><li><div><strong>Reason</strong><span>Route GPT, Claude, Gemini, Qwen, or Grok per workflow.</span></div></li><li><div><strong>Score</strong><span>Sentiment, intent, and compliance models in parallel.</span></div></li><li><div><strong>Alert</strong><span>Notify supervisors when thresholds breach.</span></div></li><li><div><strong>Summarize</strong><span>Rolling call summary for handoff and CRM notes.</span></div></li></ul>
+      </div>
+    </section>
+
+    <section class="clc-stage-section alt" id="implementation">
+      <div class="container">
+        <header class="clc-stage-section-head">
+          <h2>Implementation flow</h2>
+          <p>Technical path EMAAVY executes for Analyze.</p>
+        </header>
+        <ol class="clc-impl-steps"><li><div><strong>Reason</strong><p>Route GPT, Claude, Gemini, Qwen, or Grok per workflow.</p></div></li><li><div><strong>Score</strong><p>Sentiment, intent, and compliance models in parallel.</p></div></li><li><div><strong>Alert</strong><p>Notify supervisors when thresholds breach.</p></div></li><li><div><strong>Summarize</strong><p>Rolling call summary for handoff and CRM notes.</p></div></li></ol>
+      </div>
+    </section>
+
+    <section class="clc-stage-section" id="outcomes">
+      <div class="container">
+        <header class="clc-stage-section-head">
+          <h2>Business outcomes</h2>
+          <p>Measurable impact when Score Live runs on EMAAVY.</p>
+        </header>
+        <div class="clc-feature-grid"><article class="clc-feature-card"><h3>Live decisions</h3><p>Act on conversation state, not post-call guesswork.</p></article><article class="clc-feature-card"><h3>In-call compliance</h3><p>Issues caught while the call is active.</p></article><article class="clc-feature-card"><h3>Revenue signal</h3><p>Leaders see intent shift before deals slip.</p></article></div>
+        <ul class="clc-outcomes-list"><li>Decisions based on live conversation state, not post-call guesswork</li><li>Compliance teams catch issues during the call</li><li>Sales leaders see intent shift before deals slip away</li></ul>
+      </div>
+    </section>
+
+    <section class="clc-stage-section alt">
+      <div class="container">
+        <header class="clc-stage-section-head">
+          <h2>Explore lifecycle stages</h2>
+          <p>Five connected stages — from ring to continuous improvement.</p>
+        </header>
+        <nav class="clc-stage-nav-strip" aria-label="Lifecycle stages">
+          <a href="ring.html">Ring</a>
+          <a href="transcribe.html">Transcribe</a>
+          <a href="analyze.html" class="is-current">Analyze</a>
+          <a href="act.html">Act</a>
+          <a href="learn.html">Learn</a>
+          <a href="index.html">Lifecycle overview</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="clc-stage-cta">
+      <div class="container">
+        <h2>See Score Live on a live call</h2>
+        <p>Book a demo — walk through ring, transcribe, analyze, act, and learn on your stack.</p>
+        <div class="cta-row">
+          <a href="../../book-demo.html" class="btn-primary">Book a demo</a>
+          <a href="index.html" class="btn-outline">Lifecycle overview</a>
         </div>
       </div>
     </section>

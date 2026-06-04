@@ -1,0 +1,525 @@
+/* ─── LLM hub — elegant layer page ─── */
+.llm-page {
+  --llm-ink: #0f172a;
+  --llm-muted: #475569;
+  --llm-soft: #64748b;
+  --llm-border: #e2e8f0;
+  --llm-surface: #ffffff;
+  --llm-panel: #f8fafc;
+  --llm-accent: #4a658b;
+  --llm-deep: #18345d;
+  --llm-glow: rgba(74, 101, 139, 0.12);
+}
+
+.llm-page .page-hero.telephony-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(3rem, 7vw, 5rem) 0 clamp(2.5rem, 5vw, 3.5rem);
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 0%, rgba(74, 101, 139, 0.14), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 90% 20%, rgba(24, 52, 93, 0.08), transparent 50%),
+    linear-gradient(180deg, #f4f7fb 0%, #ffffff 72%);
+  border-bottom: 1px solid var(--llm-border);
+}
+
+.llm-page .page-hero.telephony-hero::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(74, 101, 139, 0.35), transparent);
+}
+
+.llm-page .breadcrumb a {
+  color: var(--llm-accent);
+}
+
+.llm-page .page-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.38rem 0.85rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--llm-deep);
+  background: var(--llm-surface);
+  border: 1px solid var(--llm-border);
+  border-radius: 999px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+.llm-page .page-kicker::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--llm-accent);
+}
+
+.llm-page .llm-page .telephony-hero h1 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(2.1rem, 5vw, 3.35rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  color: var(--llm-ink);
+  max-width: 22ch;
+  margin: 1rem 0 1.1rem;
+}
+
+.telephony-hero-lead {
+  max-width: 58ch;
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  line-height: 1.75;
+  color: var(--llm-muted);
+  margin-bottom: 1.75rem;
+}
+
+.llm-page .telephony-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+  max-width: 520px;
+  margin-bottom: 1.75rem;
+}
+
+.llm-page .telephony-hero-stats .stat-box {
+  padding: 1rem 0.85rem;
+  border-radius: 12px;
+  background: var(--llm-surface);
+  border: 1px solid var(--llm-border);
+  box-shadow: 0 4px 18px var(--llm-glow);
+}
+
+.llm-page .telephony-hero-stats .stat-box b {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.35rem;
+  color: var(--llm-deep);
+}
+
+.telephony-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.telephony-jump a {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--llm-accent);
+  text-decoration: none;
+  background: var(--llm-surface);
+  border: 1px solid var(--llm-border);
+  border-radius: 999px;
+  transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.telephony-jump a:hover {
+  color: var(--llm-deep);
+  border-color: var(--llm-accent);
+  box-shadow: 0 4px 14px var(--llm-glow);
+}
+
+/* Voice layer explainer */
+.llm-hub-reasoning {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+}
+
+.llm-hub-reasoning-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  align-items: center;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border-radius: 20px;
+  border: 1px solid var(--llm-border);
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
+}
+
+.llm-hub-reasoning-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.llm-hub-reasoning-num {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--llm-accent);
+  opacity: 0.7;
+}
+
+.llm-hub-reasoning-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--llm-soft);
+}
+
+.llm-hub-reasoning-card h2 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--llm-ink);
+  margin: 0.5rem 0 0.75rem;
+}
+
+.llm-hub-reasoning-lead {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--llm-muted);
+  margin: 0 0 1.25rem;
+}
+
+.llm-hub-pill-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+}
+
+.llm-hub-pill {
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: var(--llm-surface);
+  border: 1px solid var(--llm-border);
+}
+
+.llm-hub-pill strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--llm-ink);
+  margin-bottom: 0.2rem;
+}
+
+.llm-hub-pill span {
+  font-size: 0.78rem;
+  color: var(--llm-soft);
+  line-height: 1.45;
+}
+
+/* Partner grid */
+.llm-hub-models {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+}
+
+.llm-hub-models-head {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 2rem;
+}
+
+.llm-hub-models-head h2 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--llm-ink);
+  margin-bottom: 0.6rem;
+}
+
+.llm-hub-models-head p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--llm-muted);
+}
+
+.llm-model-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.llm-model-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.35rem 1.25rem 1.2rem;
+  border-radius: 16px;
+  border: 1px solid var(--llm-border);
+  background: var(--llm-surface);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  scroll-margin-top: calc(var(--nav-offset, 88px) + 1rem);
+}
+
+.llm-model-card:hover {
+  transform: translateY(-3px);
+  border-color: #cbd5e1;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+.llm-model-card--native {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto auto;
+  gap: 0.35rem 1.25rem;
+  align-items: start;
+  padding: 1.75rem 1.5rem;
+  border-color: var(--llm-accent);
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 48%, #f0f4f8 100%);
+  box-shadow: 0 12px 36px var(--llm-glow);
+}
+
+.llm-model-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.llm-model-card--native .llm-model-card-top {
+  grid-column: 2;
+  grid-row: 1;
+  margin-bottom: 0;
+}
+
+.llm-model-card-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--llm-panel);
+  border: 1px solid var(--llm-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.llm-model-card--native .llm-model-card-logo {
+  grid-row: 1 / span 3;
+  width: 64px;
+  height: 64px;
+}
+
+.llm-model-card-logo img {
+  max-width: 32px;
+  max-height: 32px;
+  object-fit: contain;
+}
+
+.llm-model-card-logo .brand-mark {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--llm-deep);
+}
+
+.llm-model-badge {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--llm-deep);
+  background: rgba(74, 101, 139, 0.1);
+  border: 1px solid rgba(74, 101, 139, 0.25);
+  border-radius: 999px;
+  padding: 0.22rem 0.55rem;
+  white-space: nowrap;
+}
+
+.llm-model-card h3 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: var(--llm-ink);
+  margin: 0 0 0.4rem;
+}
+
+.llm-model-card--native h3 {
+  grid-column: 2;
+  font-size: 1.35rem;
+  margin-top: 0;
+}
+
+.llm-model-card-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--llm-muted);
+  margin: 0 0 0.85rem;
+  flex: 1;
+}
+
+.llm-model-card--native .llm-model-card-desc {
+  grid-column: 2;
+}
+
+.llm-model-card-points {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.llm-model-card--native .llm-model-card-points {
+  grid-column: 2;
+}
+
+.llm-model-card-points li {
+  font-size: 0.8rem;
+  color: var(--llm-soft);
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--llm-accent);
+}
+
+.llm-model-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--llm-accent);
+  margin-top: auto;
+}
+
+.llm-model-card--native .llm-model-card-cta {
+  grid-column: 3;
+  grid-row: 1 / span 3;
+  align-self: center;
+  font-size: 0.88rem;
+  padding: 0.65rem 1rem;
+  background: linear-gradient(135deg, var(--llm-accent), var(--llm-deep));
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px var(--llm-glow);
+}
+
+.llm-model-card--native:hover .llm-model-card-cta {
+  color: #fff;
+}
+
+.llm-model-card:hover .llm-model-card-cta {
+  color: var(--llm-deep);
+}
+
+/* Flow timeline */
+.llm-hub-flow {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+}
+
+.llm-hub-flow-head {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.llm-hub-flow-head h2 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(1.45rem, 3vw, 1.85rem);
+  font-weight: 600;
+  color: var(--llm-ink);
+  margin-bottom: 0.5rem;
+}
+
+.llm-hub-flow-head p {
+  color: var(--llm-muted);
+  max-width: 48ch;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.llm-flow-track {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.65rem;
+  counter-reset: llm-flow;
+}
+
+.llm-flow-step {
+  position: relative;
+  padding: 1.25rem 1rem;
+  border-radius: 14px;
+  background: var(--llm-surface);
+  border: 1px solid var(--llm-border);
+  text-align: center;
+}
+
+.llm-flow-step::before {
+  counter-increment: llm-flow;
+  content: counter(llm-flow, decimal-leading-zero);
+  display: block;
+  font-family: 'Clash Display', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--llm-accent);
+  margin-bottom: 0.5rem;
+}
+
+.llm-flow-step strong {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--llm-ink);
+  margin-bottom: 0.35rem;
+}
+
+.llm-flow-step p {
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: var(--llm-soft);
+  margin: 0;
+}
+
+.llm-hub-cta {
+  text-align: center;
+  padding: clamp(2.5rem, 5vw, 3.5rem) 0 clamp(3rem, 6vw, 4rem);
+}
+
+.llm-hub-cta h2 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-weight: 600;
+  color: var(--llm-ink);
+  margin-bottom: 0.5rem;
+}
+
+.llm-hub-cta p {
+  color: var(--llm-muted);
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 960px) {
+  .llm-hub-reasoning-card {
+    grid-template-columns: 1fr;
+  }
+  .llm-flow-track {
+    grid-template-columns: 1fr;
+  }
+  .llm-model-card--native {
+    grid-template-columns: auto 1fr;
+  }
+  .llm-model-card--native .llm-model-card-cta {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    justify-self: start;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .llm-page .telephony-hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .llm-hub-pill-grid {
+    grid-template-columns: 1fr;
+  }
+  .llm-model-card--native {
+    grid-template-columns: 1fr;
+  }
+  .llm-model-card--native .llm-model-card-logo,
+  .llm-model-card--native .llm-model-card-top,
+  .llm-model-card--native h3,
+  .llm-model-card--native .llm-model-card-desc,
+  .llm-model-card--native .llm-model-card-points {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}

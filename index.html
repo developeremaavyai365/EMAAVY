@@ -1028,14 +1028,13 @@ body {
   line-height: 1.65 !important;
   font-size: 0.95rem !important;
 }
-/* Two-column split */
+/* Flow layout (code panel removed) */
 #how-it-works .hiw-split {
   position: relative !important;
   z-index: 2 !important;
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr) !important;
-  gap: clamp(1.5rem, 4vw, 2.75rem) !important;
-  align-items: center !important;
+  display: block !important;
+  max-width: 520px !important;
+  margin: 0 auto !important;
 }
 /* Left: staggered flow */
 #how-it-works .hiw-flow-col {
@@ -1143,70 +1142,13 @@ body {
   margin: 0 !important;
   max-width: 28ch !important;
 }
-/* Right: code window */
-#how-it-works .hiw-code-col {
-  position: relative !important;
-  min-width: 0 !important;
-}
-#how-it-works .hiw-code-window {
-  border-radius: 12px !important;
-  overflow: hidden !important;
-  border: 1px solid #1e3a5f !important;
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.06) inset,
-    0 20px 50px -12px rgba(24, 52, 93, 0.35) !important;
-  background: #0f1f33 !important;
-}
-#how-it-works .hiw-code-titlebar {
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.4rem !important;
-  padding: 0.65rem 0.85rem !important;
-  background: #18345D !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-}
-#how-it-works .hiw-code-title {
-  flex: 1 !important;
-  text-align: left !important;
-  font-size: 0.72rem !important;
-  font-weight: 500 !important;
-  color: rgba(255, 255, 255, 0.85) !important;
-  letter-spacing: 0.04em !important;
-  font-family: ui-monospace, 'SF Mono', monospace !important;
-}
-#how-it-works .hiw-code-body {
-  padding: 0 !important;
-  overflow: auto !important;
-  max-height: min(420px, 52vh) !important;
-  background: #0f1f33 !important;
-}
-#how-it-works .hiw-code-body pre {
-  margin: 0 !important;
-  padding: 1rem 1rem 1.15rem !important;
-  font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace !important;
-  font-size: 0.72rem !important;
-  line-height: 1.65 !important;
-  color: #c5d4e8 !important;
-  tab-size: 2 !important;
-}
-#how-it-works .hiw-code-body code {
-  font: inherit !important;
-  color: inherit !important;
-}
-#how-it-works .hiw-c-kw { color: #7eb8ff !important; }
-#how-it-works .hiw-c-mod { color: #a8c8f0 !important; }
-#how-it-works .hiw-c-id { color: #8eb4e8 !important; }
-#how-it-works .hiw-c-str { color: #d4b896 !important; }
-#how-it-works .hiw-c-fn { color: #6b9fd4 !important; }
 /* Reveal */
-#how-it-works .hiw-flow-card.reveal,
-#how-it-works .hiw-code-window.reveal {
+#how-it-works .hiw-flow-card.reveal {
   opacity: 0 !important;
   transform: translateY(18px) !important;
   transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
-#how-it-works .hiw-flow-card.reveal.in,
-#how-it-works .hiw-code-window.reveal.in {
+#how-it-works .hiw-flow-card.reveal.in {
   opacity: 1 !important;
   transform: translateY(0) !important;
 }
@@ -1214,12 +1156,7 @@ body {
 #how-it-works .hiw-flow-card--b.reveal { transition-delay: 0.14s !important; }
 #how-it-works .hiw-flow-card--c.reveal { transition-delay: 0.22s !important; }
 #how-it-works .hiw-flow-card--d.reveal { transition-delay: 0.3s !important; }
-#how-it-works .hiw-code-window.reveal { transition-delay: 0.12s !important; }
 @media (max-width: 960px) {
-  #how-it-works .hiw-split {
-    grid-template-columns: 1fr !important;
-    gap: 2rem !important;
-  }
   #how-it-works .hiw-flow-col {
     min-height: 0 !important;
   }
@@ -1240,13 +1177,9 @@ body {
   #how-it-works.hiw-stage {
     border-radius: 10px !important;
   }
-  #how-it-works .hiw-code-body pre {
-    font-size: 0.65rem !important;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
-  #how-it-works .hiw-flow-card.reveal,
-  #how-it-works .hiw-code-window.reveal {
+  #how-it-works .hiw-flow-card.reveal {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
@@ -5460,15 +5393,17 @@ body[data-page="home"] .hero h1 .outline {
   <link rel="stylesheet" href="assets/hub-single-card.css" />
   <link rel="stylesheet" href="assets/hub-clear.css" />
   <link rel="stylesheet" href="assets/campaigns-showcase.css" />
+  <link rel="stylesheet" href="assets/agents-showcase.css" />
   <link rel="stylesheet" href="assets/flows-showcase.css" />
   <link rel="stylesheet" href="assets/nav.css" />
   <link rel="stylesheet" href="assets/masthead-flex.css" />
+  <link rel="stylesheet" href="assets/landing-masthead-fix.css" />
   <link rel="stylesheet" href="assets/landing-book-demo.css" />
   <script src="assets/hub-single-card.js" defer></script>
   <script src="assets/campaigns-showcase.js" defer></script>
   <script src="assets/flows-showcase.js" defer></script>
 </head>
-<body data-page="home"> <header class="masthead" id="masthead"> <div class="masthead-beam"> <div class="masthead-inner"> <a href="index.html" class="logo-mega logo-mega--mark logo-mega--nav-only" id="logoMega" aria-label="EMAAVY home"><img src="assets/emaavy-mark.png" alt="EMAAVY" class="logo-mega-mark" width="350" height="350" decoding="async" fetchpriority="high" /></a> <nav class="masthead-nav" aria-label="Main"> <a href="#how-it-works" data-nav-section="how-it-works" data-index="01">How It Works</a> <div class="nav-dropdown" id="integrationsDropdown"> <div class="nav-dropdown-split"> <a href="#integrations" class="nav-integrations-link" data-nav-section="integrations" data-index="02">Integrations</a> <button class="nav-dropdown-caret" id="integrationsDropdownTrigger" type="button" aria-label="Toggle integration categories">▾</button> </div> <div class="nav-dropdown-menu" id="integrationsMenu"> <div class="nav-dropdown-menu-glow" aria-hidden="true"></div> <div class="nav-dropdown-menu-head"> <span class="nav-dropdown-menu-kicker">Integration hub</span> <p>Jump to any category in your AI stack</p> </div> <div class="nav-dropdown-grid"> <div class="dropdown-section dropdown-section-wide"> <div class="dropdown-section-title"> EMAAVY integration layers</div> <div class="dropdown-link-grid"> <a href="pages/integrations/index.html">All integrations</a> <a href="pages/integrations/telephony.html">Telephony</a> <a href="pages/integrations/llms.html">LLMs</a> <a href="pages/integrations/stt.html">Speech-to-Text</a> <a href="pages/integrations/tts.html">Text-to-Speech</a> <a href="pages/integrations/tools.html">Tools &amp; workflow</a> </div> </div> </div> </div> </div> <a href="#agents" data-nav-section="agents" data-index="03">Agents</a> <a href="#campaigns" data-nav-section="campaigns" data-index="04">Campaigns</a> <a href="#features" data-nav-section="features" data-index="05">Flows</a> <a href="#case-studies" data-nav-section="case-studies" data-index="06">Case Studies</a> <a href="#journey" data-nav-section="journey" data-index="07">Call lifecycle</a> <a href="#faq" data-nav-section="faq" data-index="08">FAQ</a> <a href="pages/pricing.html" data-nav-id="pricing" data-index="09">Pricing</a> <a href="pages/documentation.html" data-nav-id="documentation" data-index="10">Documentation</a> <a href="pages/contact.html" data-nav-id="contact" data-index="11">Contact Us</a> </nav> <div class="masthead-actions"> <a href="login.html" class="masthead-login btn-nav-login" id="loginBtn">Log In</a> <a href="book-demo.html" class="masthead-go btn-nav-demo" id="bookDemoBtn">Book a Demo</a> </div> <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Open menu"> <span></span><span></span><span></span> </button> </div> </div> </header> <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div> <nav class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile navigation"> <a href="#how-it-works" data-nav-section="how-it-works">How It Works</a> <a href="#integrations" data-nav-section="integrations">Integrations</a> <span class="mobile-nav-label">Integration categories</span> <div class="mobile-sub"> <a href="#integration-telephony">Telephony · Vobiz</a> <a href="#integration-llm">LLMs</a> <a href="#integration-stt">Speech-to-Text</a> <a href="#integration-tts">Text-to-Speech</a> <a href="#integration-tools">Tools & Workflow</a> </div> <a href="#agents" data-nav-section="agents">Agents</a> <a href="#campaigns" data-nav-section="campaigns">Campaigns</a> <a href="#features" data-nav-section="features">Flows</a> <a href="#case-studies" data-nav-section="case-studies">Case Studies</a> <a href="#journey" data-nav-section="journey">Call lifecycle</a> <a href="#faq" data-nav-section="faq">FAQ</a> <a href="pages/pricing.html" data-nav-id="pricing">Pricing</a> <a href="pages/documentation.html" data-nav-id="documentation">Documentation</a> <a href="pages/contact.html" data-nav-id="contact">Contact Us</a> <div class="mobile-nav-actions"> <a href="login.html" class="btn-nav-login">Log In</a> <a href="book-demo.html" class="btn-nav-demo">Book a Demo</a> </div> </nav> <aside class="rail"> <a href="#top" class="rail-home" title="Home">⌂</a> <nav class="rail-dots" aria-label="Sections"> <a href="#top" data-label="Home" class="active"></a> <a href="#how-it-works" data-label="How"></a> <a href="#integrations" data-label="Integrations"></a> <a href="#agents" data-label="Agents"></a> <a href="#campaigns" data-label="Campaigns"></a> <a href="#features" data-label="Flows"></a> <a href="#case-studies" data-label="Proof"></a> <a href="#journey" data-label="Lifecycle"></a> <a href="#faq" data-label="FAQ"></a> <a href="#book-demo" data-label="Start"></a> </nav> <button class="rail-cta" type="button" title="Get Started">→</button> </aside> <div class="shell"> <!-- HERO --> <section class="hero" id="top"> <div class="hero-inner"> <div class="hero-copy"> <div class="hero-brand"> <div class="hero-brand-stack"> <span class="hero-brand-letters" aria-label="EMAAVY"> <span class="hero-brand-letter">E</span> <span class="hero-brand-letter">M</span> <span class="hero-brand-letter">A</span> <span class="hero-brand-letter">A</span> <span class="hero-brand-letter">V</span> <span class="hero-brand-letter">Y</span> </span> </div> <p class="hero-tagline">The Enterprise AI Operating System</p> </div> <p class="hero-kicker"><span>One platform. Full enterprise control.</span></p> <h1 class="hero-title" aria-label="Orchestrate enterprise AI"> <span class="line line-decode"><span class="inner">Orchestrate</span></span> <span class="line line-every"><span class="inner outline">enterprise</span></span> <span class="line line-call"><span class="inner glow">AI<span class="hero-title-mark" aria-hidden="true">.</span></span></span> </h1> <p class="hero-pitch">Deploy AI agents, run campaigns, and connect your entire stack—<strong>one unified platform</strong> that turns voice, data, and workflows into insight and action at enterprise scale.</p> <div class="hero-actions"> <button class="btn-magnetic btn-fill" type="button" data-open-demo>Try EMAAVY</button> </div> </div> <div class="hero-showcase" id="heroVisual" tabindex="0" aria-label="EMAAVY live platform preview" aria-live="polite"> <div class="hero-showcase-device"> <div class="hero-showcase-header"> <div class="hero-showcase-header-brand"><span class="hero-showcase-gem" aria-hidden="true"></span><span class="hero-showcase-header-label">EMAAVY Cloud</span></div> <span class="hero-showcase-live-badge" id="heroShowcaseLive"><span class="hero-showcase-eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="hero-showcase-live-text">Live preview</span></span> <span class="hero-showcase-url" id="heroShowcaseUrl">app.emaavy.com/dashboard</span> </div> <div class="hero-showcase-viewport"> <div class="hero-showcase-slides" id="heroShowcaseTrack"> <figure class="hero-slide is-active" data-effect="zoom" data-path="/dashboard" data-index="01" data-caption="Dashboard" data-desc="Real-time KPIs, call volume charts, and success rates—updated live as conversations flow in."> <div class="hero-slide-frame"><img src="assets/hero/dashboard.png" width="1024" height="487" sizes="(min-width:1200px) 620px, 90vw" srcset="assets/hero/dashboard.png 1024w" alt="EMAAVY dashboard" decoding="async" fetchpriority="high" /></div> <figcaption class="hero-slide-story"><span class="hero-slide-index" aria-hidden="true">01</span><div><strong class="hero-slide-name">Dashboard</strong><p class="hero-slide-desc">Real-time KPIs, call volume charts, and success rates—updated live as conversations flow in.</p></div></figcaption> </figure> <figure class="hero-slide" data-effect="slide-left" data-path="/campaigns" data-index="02" data-caption="Campaigns" data-desc="Launch outbound and inbound campaigns from one screen—routing, scripts, and schedules unified."> <div class="hero-slide-frame"><img src="assets/hero/campaigns.png" width="1024" height="566" sizes="(min-width:1200px) 620px, 90vw" srcset="assets/hero/campaigns.png 1024w" alt="EMAAVY campaigns" loading="lazy" decoding="async" /></div> <figcaption class="hero-slide-story"><span class="hero-slide-index" aria-hidden="true">02</span><div><strong class="hero-slide-name">Campaigns</strong><p class="hero-slide-desc">Launch outbound and inbound campaigns from one screen—routing, scripts, and schedules unified.</p></div></figcaption> </figure> <figure class="hero-slide" data-effect="slide-up" data-path="/agents" data-index="03" data-caption="AI Agents" data-desc="Deploy voice agents at scale—monitor performance, tune prompts, and iterate in minutes."> <div class="hero-slide-frame"><img src="assets/hero/agents.png" width="1024" height="577" sizes="(min-width:1200px) 620px, 90vw" srcset="assets/hero/agents.png 1024w" alt="EMAAVY AI agents" loading="lazy" decoding="async" /></div> <figcaption class="hero-slide-story"><span class="hero-slide-index" aria-hidden="true">03</span><div><strong class="hero-slide-name">AI Agents</strong><p class="hero-slide-desc">Deploy voice agents at scale—monitor performance, tune prompts, and iterate in minutes.</p></div></figcaption> </figure> <figure class="hero-slide" data-effect="fade-blur" data-path="/integrations" data-index="04" data-caption="Integrations" data-desc="Connect CRMs, LLMs, telephony, and speech APIs—your full stack in one hub."> <div class="hero-slide-frame"><img src="assets/hero/integrations.png" width="1024" height="573" sizes="(min-width:1200px) 620px, 90vw" srcset="assets/hero/integrations.png 1024w" alt="EMAAVY integrations" loading="lazy" decoding="async" /></div> <figcaption class="hero-slide-story"><span class="hero-slide-index" aria-hidden="true">04</span><div><strong class="hero-slide-name">Integrations</strong><p class="hero-slide-desc">Connect CRMs, LLMs, telephony, and speech APIs—your full stack in one hub.</p></div></figcaption> </figure> </div> <div class="hero-showcase-livefx" aria-hidden="true"><span class="hero-showcase-shimmer"></span></div> <div class="hero-showcase-vignette" aria-hidden="true"></div> </div> <footer class="hero-showcase-footer"> <nav class="hero-showcase-dots" role="tablist" aria-label="Platform views"> <button type="button" class="is-active" role="tab" aria-label="Dashboard" aria-selected="true" data-slide="0"><span class="hero-showcase-progress" aria-hidden="true"></span></button> <button type="button" role="tab" aria-label="Campaigns" aria-selected="false" data-slide="1"><span class="hero-showcase-progress" aria-hidden="true"></span></button> <button type="button" role="tab" aria-label="AI Agents" aria-selected="false" data-slide="2"><span class="hero-showcase-progress" aria-hidden="true"></span></button> <button type="button" role="tab" aria-label="Integrations" aria-selected="false" data-slide="3"><span class="hero-showcase-progress" aria-hidden="true"></span></button> </nav> </footer> </div> </div> </div> </section> <!-- HOW IT WORKS --> <section id="how-it-works" class="hiw-stage">
+<body data-page="home"> <header class="masthead" id="masthead"> <div class="masthead-beam"> <div class="masthead-inner"> <a href="index.html" class="logo-mega logo-mega--mark logo-mega--nav-only" id="logoMega" aria-label="EMAAVY home"><img src="assets/emaavy-mark.png" alt="EMAAVY" class="logo-mega-mark" width="44" height="44" decoding="async" fetchpriority="high" /></a> <nav class="masthead-nav" aria-label="Main"> <a href="#how-it-works" data-nav-section="how-it-works" data-index="01">How It Works</a> <div class="nav-dropdown" id="integrationsDropdown"> <div class="nav-dropdown-split"> <a href="#integrations" class="nav-integrations-link" data-nav-section="integrations" data-index="02">Integrations</a> <button class="nav-dropdown-caret" id="integrationsDropdownTrigger" type="button" aria-label="Toggle integration categories">▾</button> </div> <div class="nav-dropdown-menu" id="integrationsMenu"> <div class="nav-dropdown-menu-glow" aria-hidden="true"></div> <div class="nav-dropdown-menu-head"> <span class="nav-dropdown-menu-kicker">Integration hub</span> <p>Jump to any category in your AI stack</p> </div> <div class="nav-dropdown-grid"> <div class="dropdown-section dropdown-section-wide"> <div class="dropdown-section-title"> EMAAVY integration layers</div> <div class="dropdown-link-grid"> <a href="pages/integrations/index.html">All integrations</a> <a href="pages/integrations/telephony.html">Telephony</a> <a href="pages/integrations/llms.html">LLMs</a> <a href="pages/integrations/stt.html">Speech-to-Text</a> <a href="pages/integrations/tts.html">Text-to-Speech</a> <a href="pages/integrations/tools.html">Tools &amp; workflow</a> </div> </div> </div> </div> </div> <a href="#agents" data-nav-section="agents" data-index="03">Agents</a> <a href="#campaigns" data-nav-section="campaigns" data-index="04">Campaigns</a> <a href="#features" data-nav-section="features" data-index="05">Flows</a> <a href="#case-studies" data-nav-section="case-studies" data-index="06">Case Studies</a> <a href="#journey" data-nav-section="journey" data-index="07">Call lifecycle</a> <a href="#faq" data-nav-section="faq" data-index="08">FAQ</a> <a href="pages/pricing.html" data-nav-id="pricing" data-index="09">Pricing</a> <a href="pages/documentation.html" data-nav-id="documentation" data-index="10">Documentation</a> <a href="pages/contact.html" data-nav-id="contact" data-index="11">Contact Us</a> </nav> <div class="masthead-actions"> <a href="login.html" class="masthead-login btn-nav-login" id="loginBtn">Log In</a> <a href="book-demo.html" class="masthead-go btn-nav-demo" id="bookDemoBtn">Book a Demo</a> </div> <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Open menu"> <span></span><span></span><span></span> </button> </div> </div> </header> <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div> <nav class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile navigation"> <a href="#how-it-works" data-nav-section="how-it-works">How It Works</a> <a href="#integrations" data-nav-section="integrations">Integrations</a> <span class="mobile-nav-label">Integration categories</span> <div class="mobile-sub"> <a href="#integration-telephony">Telephony · Vobiz</a> <a href="#integration-llm">LLMs</a> <a href="#integration-stt">Speech-to-Text</a> <a href="#integration-tts">Text-to-Speech</a> <a href="#integration-tools">Tools & Workflow</a> </div> <a href="#agents" data-nav-section="agents">Agents</a> <a href="#campaigns" data-nav-section="campaigns">Campaigns</a> <a href="#features" data-nav-section="features">Flows</a> <a href="#case-studies" data-nav-section="case-studies">Case Studies</a> <a href="#journey" data-nav-section="journey">Call lifecycle</a> <a href="#faq" data-nav-section="faq">FAQ</a> <a href="pages/pricing.html" data-nav-id="pricing">Pricing</a> <a href="pages/documentation.html" data-nav-id="documentation">Documentation</a> <a href="pages/contact.html" data-nav-id="contact">Contact Us</a> <div class="mobile-nav-actions"> <a href="login.html" class="btn-nav-login">Log In</a> <a href="book-demo.html" class="btn-nav-demo">Book a Demo</a> </div> </nav> <aside class="rail"> <a href="#top" class="rail-home" title="Home">⌂</a> <nav class="rail-dots" aria-label="Sections"> <a href="#top" data-label="Home" class="active"></a> <a href="#how-it-works" data-label="How"></a> <a href="#integrations" data-label="Integrations"></a> <a href="#agents" data-label="Agents"></a> <a href="#campaigns" data-label="Campaigns"></a> <a href="#features" data-label="Flows"></a> <a href="#case-studies" data-label="Proof"></a> <a href="#journey" data-label="Lifecycle"></a> <a href="#faq" data-label="FAQ"></a> <a href="#book-demo" data-label="Start"></a> </nav> <button class="rail-cta" type="button" title="Get Started">→</button> </aside> <div class="shell"> <!-- HERO --> <section class="hero" id="top"> <div class="hero-inner"> <div class="hero-copy"> <div class="hero-brand"> <div class="hero-brand-stack"> <span class="hero-brand-letters" aria-label="EMAAVY"> <span class="hero-brand-letter">E</span> <span class="hero-brand-letter">M</span> <span class="hero-brand-letter">A</span> <span class="hero-brand-letter">A</span> <span class="hero-brand-letter">V</span> <span class="hero-brand-letter">Y</span> </span> </div> <p class="hero-tagline">The Enterprise AI Operating System</p> </div> <p class="hero-kicker"><span>One platform. Full enterprise control.</span></p> <h1 class="hero-title" aria-label="Orchestrate enterprise AI"> <span class="line line-decode"><span class="inner">Orchestrate</span></span> <span class="line line-every"><span class="inner outline">enterprise</span></span> <span class="line line-call"><span class="inner glow">AI<span class="hero-title-mark" aria-hidden="true">.</span></span></span> </h1> <p class="hero-pitch">Deploy AI agents, run campaigns, and connect your entire stack—<strong>one unified platform</strong> that turns voice, data, and workflows into insight and action at enterprise scale.</p> <div class="hero-actions"> <button class="btn-magnetic btn-fill" type="button" data-open-demo>Try EMAAVY</button> </div> </div> <div class="hero-showcase" id="heroVisual" tabindex="0" aria-label="EMAAVY live platform preview" aria-live="polite"> <div class="hero-showcase-device"> <div class="hero-showcase-header"> <div class="hero-showcase-header-brand"><span class="hero-showcase-gem" aria-hidden="true"></span><span class="hero-showcase-header-label">EMAAVY Cloud</span></div> <span class="hero-showcase-live-badge" id="heroShowcaseLive"><span class="hero-showcase-eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="hero-showcase-live-text">Live preview</span></span> <span class="hero-showcase-url" id="heroShowcaseUrl">app.emaavy.com/dashboard</span> </div> <div class="hero-showcase-viewport"> <div class="hero-showcase-slides" id="heroShowcaseTrack"> <figure class="hero-slide is-active" data-effect="zoom" data-path="/dashboard" data-index="01" data-caption="Dashboard" data-desc="Real-time KPIs, call volume charts, and success rates—updated live as conversations flow in."> <div class="hero-slide-frame"><img src="assets/hero/dashboard.png" width="1024" height="487" sizes="(min-width:1200px) 620px, 90vw" srcset="assets/hero/dashboard.png 1024w" alt="EMAAVY dashboard" decoding="async" fetchpriority="high" /></div> <figcaption class="hero-slide-story"><span class="hero-slide-index" aria-hidden="true">01</span><div><strong class="hero-slide-name">Dashboard</strong><p class="hero-slide-desc">Real-time KPIs, call volume charts, and success rates—updated live as conversations flow in.</p></div></figcaption> </figure> <figure class="hero-slide" data-effect="slide-left" data-path="/campaigns" data-index="02" data-caption="Campaigns" data-desc="Launch outbound and inbound campaigns from one screen—routing, scripts, and schedules unified."> <div class="hero-slide-frame"><img src="assets/hero/campaigns.png" width="1024" height="566" sizes="(min-width:1200px) 620px, 90vw" srcset="assets/hero/campaigns.png 1024w" alt="EMAAVY campaigns" loading="lazy" decoding="async" /></div> <figcaption class="hero-slide-story"><span class="hero-slide-index" aria-hidden="true">02</span><div><strong class="hero-slide-name">Campaigns</strong><p class="hero-slide-desc">Launch outbound and inbound campaigns from one screen—routing, scripts, and schedules unified.</p></div></figcaption> </figure> <figure class="hero-slide" data-effect="slide-up" data-path="/agents" data-index="03" data-caption="AI Agents" data-desc="Deploy voice agents at scale—monitor performance, tune prompts, and iterate in minutes."> <div class="hero-slide-frame"><img src="assets/hero/agents.png" width="1024" height="577" sizes="(min-width:1200px) 620px, 90vw" srcset="assets/hero/agents.png 1024w" alt="EMAAVY AI agents" loading="lazy" decoding="async" /></div> <figcaption class="hero-slide-story"><span class="hero-slide-index" aria-hidden="true">03</span><div><strong class="hero-slide-name">AI Agents</strong><p class="hero-slide-desc">Deploy voice agents at scale—monitor performance, tune prompts, and iterate in minutes.</p></div></figcaption> </figure> <figure class="hero-slide" data-effect="fade-blur" data-path="/integrations" data-index="04" data-caption="Integrations" data-desc="Connect CRMs, LLMs, telephony, and speech APIs—your full stack in one hub."> <div class="hero-slide-frame"><img src="assets/hero/integrations.png" width="1024" height="573" sizes="(min-width:1200px) 620px, 90vw" srcset="assets/hero/integrations.png 1024w" alt="EMAAVY integrations" loading="lazy" decoding="async" /></div> <figcaption class="hero-slide-story"><span class="hero-slide-index" aria-hidden="true">04</span><div><strong class="hero-slide-name">Integrations</strong><p class="hero-slide-desc">Connect CRMs, LLMs, telephony, and speech APIs—your full stack in one hub.</p></div></figcaption> </figure> </div> <div class="hero-showcase-livefx" aria-hidden="true"><span class="hero-showcase-shimmer"></span></div> <div class="hero-showcase-vignette" aria-hidden="true"></div> </div> <footer class="hero-showcase-footer"> <nav class="hero-showcase-dots" role="tablist" aria-label="Platform views"> <button type="button" class="is-active" role="tab" aria-label="Dashboard" aria-selected="true" data-slide="0"><span class="hero-showcase-progress" aria-hidden="true"></span></button> <button type="button" role="tab" aria-label="Campaigns" aria-selected="false" data-slide="1"><span class="hero-showcase-progress" aria-hidden="true"></span></button> <button type="button" role="tab" aria-label="AI Agents" aria-selected="false" data-slide="2"><span class="hero-showcase-progress" aria-hidden="true"></span></button> <button type="button" role="tab" aria-label="Integrations" aria-selected="false" data-slide="3"><span class="hero-showcase-progress" aria-hidden="true"></span></button> </nav> </footer> </div> </div> </div> </section> <!-- HOW IT WORKS --> <section id="how-it-works" class="hiw-stage">
     <div class="hiw-head reveal">
     <span class="section-kicker">The EMAAVY Method</span>
     <h2>How it works</h2>
@@ -5510,32 +5445,6 @@ body[data-page="home"] .hero h1 .outline {
           <p>Automations fire — WhatsApp, CRM updates, and calendar booking without handoffs.</p>
         </li>
       </ol>
-    </div>
-    <div class="hiw-code-col">
-      <div class="hiw-code-window reveal" aria-label="EMAAVY API integration example">
-        <div class="hiw-code-titlebar">
-          <span class="hiw-code-title">integration.py</span>
-        </div>
-        <div class="hiw-code-body">
-          <pre><code><span class="hiw-c-kw">import</span> <span class="hiw-c-mod">requests</span>
-
-<span class="hiw-c-id">url</span> = <span class="hiw-c-str">"https://api.emaavy.com/v1/calls"</span>
-<span class="hiw-c-id">payload</span> = {
-    <span class="hiw-c-str">"agent_id"</span>: <span class="hiw-c-str">"your-agent-id"</span>,
-    <span class="hiw-c-str">"recipient"</span>: <span class="hiw-c-str">"+91XXXXXXXXXX"</span>,
-    <span class="hiw-c-str">"telephony"</span>: <span class="hiw-c-str">"vobiz"</span>,
-    <span class="hiw-c-str">"stt"</span>: <span class="hiw-c-str">"deepgram"</span>,
-    <span class="hiw-c-str">"llm"</span>: <span class="hiw-c-str">"gpt-4o"</span>,
-}
-<span class="hiw-c-id">headers</span> = {
-    <span class="hiw-c-str">"Authorization"</span>: <span class="hiw-c-str">"Bearer YOUR_API_KEY"</span>,
-    <span class="hiw-c-str">"Content-Type"</span>: <span class="hiw-c-str">"application/json"</span>,
-}
-
-<span class="hiw-c-id">response</span> = <span class="hiw-c-fn">requests.post</span>(url, json=payload, headers=headers)
-<span class="hiw-c-fn">print</span>(response.json())</code></pre>
-        </div>
-      </div>
     </div>
   </div>
 </section> <!-- INTEGRATIONS HUB --> <section id="integrations" class="hub-zone hub-zone--2 hub-zone--alt hub-zone--clear hub-zone--integrations">
@@ -5580,13 +5489,50 @@ body[data-page="home"] .hero h1 .outline {
   <div class="hub-clear-shell reveal" id="agents-emaavy">
     <header class="hub-clear-intro">
       <h2 class="hub-clear-intro-title">An AI workforce for every enterprise.</h2>
-      <p class="hub-clear-intro-lead">Maavy deploys voice agents across industries and teams — each with its own voice, flow, and mission. Start from proven templates or build agents tailored to your brand, compliance, and workflows.</p>
+      <p class="hub-clear-intro-lead">Maavy deploys voice agents across industries and teams — each with its own voice, flow, and mission. Create as many agents as you need and assign them to the campaigns that matter.</p>
     </header>
+    <div class="agents-showcase reveal" id="agentsShowcase" aria-labelledby="agents-showcase-title">
+      <div class="agents-showcase-copy">
+        <p class="agents-showcase-eyebrow">Product preview</p>
+        <h3 class="agents-showcase-title" id="agents-showcase-title">One workspace. Unlimited agents for every campaign.</h3>
+        <p class="agents-showcase-lead">Spin up dedicated voice agents for sales, support, outbound, inbound, and regional programs — each with its own language, voice, and active campaign count. Toggle agents on or off without rebuilding your stack.</p>
+        <ul class="agents-showcase-points">
+          <li>Create multiple agents from one dashboard — each tuned for a different use case</li>
+          <li>Track language, voice provider, and how many campaigns each agent runs</li>
+          <li>Activate or pause any agent instantly while campaigns keep running</li>
+        </ul>
+        <div class="agents-showcase-stats" aria-label="Agent fleet highlights">
+          <span class="agents-showcase-stat">6+ agents in one view</span>
+          <span class="agents-showcase-stat">Per-campaign assignment</span>
+          <span class="agents-showcase-stat">EN · HI · more</span>
+        </div>
+      </div>
+      <div class="agents-showcase-device" aria-label="EMAAVY AI Agents dashboard">
+        <div class="agents-device-bar">
+          <span><strong>EMAAVY Cloud</strong> · AI Agents</span>
+          <span class="agents-device-live"><i aria-hidden="true"></i> Live fleet</span>
+        </div>
+        <figure class="agents-showcase-frame">
+          <img
+            src="assets/showcase/agents-dashboard.png"
+            srcset="assets/showcase/agents-dashboard.png 1024w, assets/hero/agents.png 1024w"
+            sizes="(min-width: 1024px) 680px, 92vw"
+            width="1024"
+            height="577"
+            alt="EMAAVY AI Agents dashboard showing multiple voice agents with language, voice provider, and active campaign counts"
+            decoding="async"
+            loading="lazy"
+          />
+        </figure>
+      </div>
+    </div>
     <div class="hub-clear-grid" role="list" aria-label="Enterprise agent use cases">
       <a href="pages/agents/workforce.html" class="hub-clear-card hub-clear-card--no-num" role="listitem"><h3 class="hub-clear-card-title">Full agent workforce</h3><p class="hub-clear-card-desc">Browse Maavy’s library of enterprise-ready agents.</p></a>
       <a href="pages/agents/sales-agent.html" class="hub-clear-card hub-clear-card--no-num" role="listitem"><h3 class="hub-clear-card-title">Revenue &amp; sales</h3><p class="hub-clear-card-desc">Qualification, objections, and meeting booking.</p></a>
       <a href="pages/agents/support-agent.html" class="hub-clear-card hub-clear-card--no-num" role="listitem"><h3 class="hub-clear-card-title">Customer experience</h3><p class="hub-clear-card-desc">Support, triage, and specialist escalation.</p></a>
-      <a href="pages/agents/outbound-agent.html" class="hub-clear-card hub-clear-card--no-num" role="listitem"><h3 class="hub-clear-card-title">Campaigns &amp; outreach</h3><p class="hub-clear-card-desc">Registrations, follow-ups, and lead programs.</p></a>
+      <a href="pages/agents/outbound-agent.html" class="hub-clear-card hub-clear-card--no-num" role="listitem"><h3 class="hub-clear-card-title">Outbound calls</h3><p class="hub-clear-card-desc">Proactive dialer, pacing, and personalized outreach at scale.</p></a>
+      <a href="pages/agents/inbound-agent.html" class="hub-clear-card hub-clear-card--no-num" role="listitem"><h3 class="hub-clear-card-title">Inbound calls</h3><p class="hub-clear-card-desc">24/7 answer, intent routing, and warm transfer.</p></a>
+      <a href="pages/agents/outbound-agent.html#campaigns" class="hub-clear-card hub-clear-card--no-num" role="listitem"><h3 class="hub-clear-card-title">Campaigns &amp; outreach</h3><p class="hub-clear-card-desc">Registrations, follow-ups, and lead programs.</p></a>
       <a href="pages/agents/workforce.html" class="hub-clear-card hub-clear-card--no-num" role="listitem"><h3 class="hub-clear-card-title">Industry workflows</h3><p class="hub-clear-card-desc">BPO, events, logistics, finance, and more.</p></a>
       <a href="pages/agents/workforce.html#builder" class="hub-clear-card hub-clear-card--no-num" role="listitem"><h3 class="hub-clear-card-title">Your custom agents</h3><p class="hub-clear-card-desc">Visual builder — prompts, voice, and rules you define.</p></a>
     </div>
@@ -5856,7 +5802,7 @@ body[data-page="home"] .hero h1 .outline {
   </div>
   <div class="hub-clear-shell reveal" id="case-studies-emaavy">
     <header class="hub-clear-intro">
-      <h2 class="hub-clear-intro-title">Real results. Three client stories.</h2>
+      <h2 class="hub-clear-intro-title">Real results from many client stories.</h2>
       <p class="hub-clear-intro-lead">Exhibition campaigns, BPO quality, and logistics at scale — each story shows the challenge, rollout, and measured outcome.</p>
     </header>
     <div class="hub-clear-grid" role="list" aria-label="Client case studies">

@@ -1,0 +1,169 @@
+/**
+ * Landing masthead — keep Log In / Book a Demo inside the navbar bar.
+ * Overrides inline landing styles that inflate masthead height and misalign CTAs.
+ */
+body[data-page="home"] {
+  --masthead-h-full: 72px;
+  --masthead-h-compact: 64px;
+  --masthead-h: 72px;
+}
+
+body[data-page="home"] .masthead {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: var(--masthead-h-full, 72px) !important;
+  overflow: visible !important;
+}
+
+body[data-page="home"] .masthead.compact {
+  min-height: var(--masthead-h-compact, 64px) !important;
+}
+
+body[data-page="home"] .masthead-beam {
+  position: relative !important;
+  inset: auto !important;
+  width: 100% !important;
+  min-height: inherit !important;
+  overflow: visible !important;
+}
+
+body[data-page="home"] .masthead-inner {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: clamp(0.5rem, 1.2vw, 1rem) !important;
+  width: 100% !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 0.5rem clamp(0.75rem, 2vw, 1.5rem) !important;
+  min-height: var(--masthead-h-full, 72px) !important;
+  height: auto !important;
+  box-sizing: border-box !important;
+}
+
+body[data-page="home"] .masthead.compact .masthead-inner {
+  min-height: var(--masthead-h-compact, 64px) !important;
+}
+
+body[data-page="home"] .logo-mega.logo-mega--mark,
+body[data-page="home"] .logo-mega--nav-only {
+  flex: 0 0 auto !important;
+  align-self: center !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+}
+
+body[data-page="home"] .logo-mega-mark {
+  display: block !important;
+  height: clamp(34px, 4vw, 44px) !important;
+  width: auto !important;
+  max-width: min(110px, 18vw) !important;
+  object-fit: contain !important;
+}
+
+body[data-page="home"] .masthead.compact .logo-mega-mark {
+  height: clamp(30px, 3.5vw, 38px) !important;
+}
+
+body[data-page="home"] .masthead-nav {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  align-self: center !important;
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  gap: 0.125rem !important;
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+body[data-page="home"] .masthead-nav::-webkit-scrollbar {
+  display: none;
+}
+
+body[data-page="home"] .masthead-actions {
+  flex: 0 0 auto !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  align-self: center !important;
+  gap: 0.4rem !important;
+  margin-left: auto !important;
+  padding: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  position: relative !important;
+  z-index: 6 !important;
+}
+
+body[data-page="home"] .masthead-actions a.masthead-login,
+body[data-page="home"] .masthead-actions a.masthead-go,
+body[data-page="home"] .masthead-actions a.btn-nav-login,
+body[data-page="home"] .masthead-actions a.btn-nav-demo {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  padding: 0 0.85rem !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  position: relative !important;
+  transform: none !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+body[data-page="home"] .nav-hamburger {
+  flex: 0 0 auto !important;
+  align-self: center !important;
+  margin-left: 0 !important;
+}
+
+@media (min-width: 861px) {
+  body[data-page="home"] .masthead-nav,
+  body[data-page="home"] .masthead-actions {
+    display: flex !important;
+  }
+
+  body[data-page="home"] .nav-hamburger {
+    display: none !important;
+  }
+}
+
+@media (max-width: 860px) {
+  body[data-page="home"] .masthead-nav,
+  body[data-page="home"] .masthead-actions {
+    display: none !important;
+  }
+
+  body[data-page="home"] .nav-hamburger {
+    display: flex !important;
+    margin-left: auto !important;
+  }
+}

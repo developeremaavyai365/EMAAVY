@@ -3,49 +3,130 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Webhooks Integration — EMAAVY</title>
-  <meta name="description" content="Connect Webhooks with EMAAVY. Push call events, transcripts, and scores to any endpoint the moment a call ends." />
+  <title>Webhooks — EMAAVY</title>
+  <meta name="description" content="EMAAVY webhooks — push call events, transcripts, scores, and metadata to any endpoint in real time." />
   <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Webhooks Integration — EMAAVY" />
-  <meta property="og:description" content="Connect Webhooks with EMAAVY. Push call events, transcripts, and scores to any endpoint the moment a call ends." />
+  <meta property="og:title" content="Webhooks — EMAAVY" />
+  <meta property="og:description" content="EMAAVY webhooks — push call events, transcripts, scores, and metadata to any endpoint in real time." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../assets/nav.css" />
-<link rel="stylesheet" href="../../assets/masthead-flex.css" />
-
+  <link rel="stylesheet" href="../../assets/masthead-flex.css" />
   <link rel="stylesheet" href="../../assets/site.css" />
-<link rel="stylesheet" href="../../assets/emaavy-theme.css" />
+  <link rel="stylesheet" href="../../assets/emaavy-theme.css" />
 
-
+  <link rel="stylesheet" href="../../assets/tools-partner.css" />
 </head>
 <body data-base="../../" data-route="integration-webhooks">
   <div id="site-nav-root"></div>
-  <main class="page-main">
-    <section class="page-hero compact">
-      <div class="container">
-        <span class="page-kicker">Tools</span>
-        <h1>Webhooks</h1>
-        <p>Push call events, transcripts, and scores to any endpoint the moment a call ends.</p>
+  <main class="page-main tools-partner-page">
+    <section class="tools-partner-hero">
+      <div class="container tools-partner-hero-grid">
+        <div class="tools-partner-hero-copy">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Home</a>
+            <span aria-hidden="true"> / </span>
+            <a href="../../index.html#integrations">Integrations</a>
+            <span aria-hidden="true"> / </span>
+            <a href="tools.html">Tools &amp; Workflow</a>
+            <span aria-hidden="true"> / </span>
+            <span>Webhooks</span>
+          </nav>
+          <span class="tools-partner-kicker">Tools &amp; Workflow · Events</span>
+          <h1>Webhooks</h1>
+          <p class="tools-partner-lead">Webhooks are the escape hatch that connects EMAAVY to everything else — your data warehouse, internal apps, Zapier, or bespoke ERP logic. Every call emits structured JSON the moment something meaningful happens.</p>
+          <div class="tools-partner-stats"><div class="tools-partner-stat"><b>Real-time</b><span>Events</span></div><div class="tools-partner-stat"><b>Full</b><span>Payloads</span></div><div class="tools-partner-stat"><b>HMAC</b><span>Signing</span></div></div>
+          <div class="tools-partner-hero-actions">
+            <a href="../../book-demo.html" class="btn-primary">Connect Webhooks</a>
+            <a href="tools.html" class="btn-outline">All tools</a>
+          </div>
+        </div>
+        <aside class="tools-partner-hero-card" aria-label="Webhooks overview">
+          <div class="tools-partner-hero-logo"><span class="brand-mark">WH</span></div>
+          <span class="tools-partner-hero-region">Custom events · Any stack</span>
+          <p>Triggered from EMAAVY — on call end or mid-call when your rules require action.</p>
+        </aside>
       </div>
     </section>
-    <section class="page-section">
+
+    <section class="tools-partner-section">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../index.html">Home</a> › <a href="../../pages/integrations/index.html">Integrations</a> › <span>Webhooks</span></nav>
-        <div class="stat-row">
-          <div class="stat-box"><b>Real-time</b><span>Delivery</span></div>
-          <div class="stat-box"><b>Custom</b><span>Payloads</span></div>
-        </div>
-        <ul class="feature-list">
-          <li>call.started / ended / scored events</li>
-          <li>Full transcript payloads</li>
-          <li>HMAC verification</li>
-          <li>Retry with backoff</li>
-        </ul>
+        <header class="tools-partner-section-head">
+          <h2>What Webhooks does</h2>
+          <p>How this tool fits into your post-call and in-call automation stack.</p>
+        </header>
+        <div class="tools-partner-prose"><p>Webhooks let EMAAVY notify your systems when calls start, turn, score, or complete — without polling APIs or batch CSV exports. Engineering teams define endpoints per environment and map events to internal queues.</p><p>Unlike point CRM connectors alone, webhooks carry the full conversation intelligence layer: transcript snippets, intent scores, compliance flags, and agent metadata in one payload.</p></div>
+      </div>
+    </section>
+
+    <section class="tools-partner-section alt">
+      <div class="container tools-partner-split">
+        <header class="tools-partner-section-head">
+          <h2>How EMAAVY uses Webhooks</h2>
+          <p>Conversation intelligence becomes operational motion — without manual entry.</p>
+        </header>
+        <ul class="tools-partner-benefits"><li><div><strong>Event catalog</strong><span>Subscribe to ring, answer, turn, disposition, and hangup events.</span></div></li><li><div><strong>Signed deliveries</strong><span>Verify authenticity with shared secrets and replay protection.</span></div></li><li><div><strong>Retry policy</strong><span>Automatic retries with backoff when your endpoint is briefly down.</span></div></li><li><div><strong>Sandbox mode</strong><span>Test payloads in staging before production traffic.</span></div></li></ul>
+      </div>
+    </section>
+
+    <section class="tools-partner-section">
+      <div class="container">
+        <header class="tools-partner-section-head">
+          <h2>Key capabilities</h2>
+          <p>What teams configure when Webhooks is wired to EMAAVY programs.</p>
+        </header>
+        <div class="tools-feature-grid"><article class="tools-feature-card"><h3>call.started / ended</h3><p>Lifecycle hooks for orchestration.</p></article><article class="tools-feature-card"><h3>turn.completed</h3><p>Per-utterance payloads for live dashboards.</p></article><article class="tools-feature-card"><h3>disposition.extracted</h3><p>Structured CRM-ready fields.</p></article><article class="tools-feature-card"><h3>Custom headers</h3><p>Auth tokens and trace IDs per request.</p></article><article class="tools-feature-card"><h3>Payload filtering</h3><p>Send only fields your system needs.</p></article><article class="tools-feature-card"><h3>OpenAPI docs</h3><p>Schema reference for engineering onboarding.</p></article></div>
+      </div>
+    </section>
+
+    <section class="tools-partner-section alt">
+      <div class="container">
+        <header class="tools-partner-section-head">
+          <h2>Ideal use cases</h2>
+          <p>Where Webhooks and EMAAVY deliver the strongest combined outcomes.</p>
+        </header>
+        <div class="tools-use-grid"><article class="tools-use-card"><h3>Custom ERP sync</h3><p>Push dispositions into non-standard systems.</p></article><article class="tools-use-card"><h3>Data warehouse</h3><p>Stream events into Snowflake or BigQuery pipelines.</p></article><article class="tools-use-card"><h3>Automation hubs</h3><p>Trigger Zapier, Make, or internal workflow engines.</p></article></div>
+      </div>
+    </section>
+
+    <section class="tools-partner-section">
+      <div class="container">
+        <header class="tools-partner-section-head">
+          <h2>Getting connected</h2>
+          <p>From credentials to production automations on EMAAVY.</p>
+        </header>
+        <ol class="tools-setup-steps"><li><div><strong>Register endpoint URL</strong><p>HTTPS required for production environments.</p></div></li><li><div><strong>Choose events</strong><p>Select which EMAAVY signals to forward.</p></div></li><li><div><strong>Configure signing secret</strong><p>Validate payloads in your receiver.</p></div></li><li><div><strong>Run test call</strong><p>Inspect payload in EMAAVY webhook debugger.</p></div></li></ol>
+      </div>
+    </section>
+
+    <section class="tools-partner-section alt">
+      <div class="container">
+        <header class="tools-partner-section-head">
+          <h2>Explore other tools</h2>
+          <p>Combine CRM, scheduling, messaging, Slack, and webhooks — one EMAAVY action layer.</p>
+        </header>
+        <nav class="tools-partner-nav-strip" aria-label="Tools and workflow partners">
+          <a href="webhooks.html" class="is-current">Webhooks</a>
+          <a href="salesforce.html">Salesforce</a>
+          <a href="hubspot.html">HubSpot</a>
+          <a href="calcom.html">Cal.com</a>
+          <a href="google-calendar.html">Google Calendar</a>
+          <a href="whatsapp.html">WhatsApp</a>
+          <a href="slack.html">Slack</a>
+          <a href="tools.html">All tools</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="tools-partner-cta">
+      <div class="container">
+        <h2>Ready to connect Webhooks?</h2>
+        <p>Book a walkthrough — map triggers, field sync, and live post-call automation on a real call.</p>
         <div class="cta-row">
-          <a href="../../book-demo.html" class="btn-primary">Connect Webhooks →</a>
-          <a href="../../pages/integrations/index.html" class="btn-outline">All integrations</a>
+          <a href="../../book-demo.html" class="btn-primary">Book a demo</a>
+          <a href="tools.html" class="btn-outline">Tools overview</a>
         </div>
       </div>
     </section>

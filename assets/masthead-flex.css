@@ -420,3 +420,96 @@ body[data-page="home"] #faq,
 body[data-page="home"] #book-demo {
   scroll-margin-top: calc(var(--masthead-h, 72px) + 1rem);
 }
+
+/* ─── Unified masthead (all pages — match landing bar layout) ─── */
+body .masthead {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: var(--masthead-h-full, 72px) !important;
+  overflow: visible !important;
+}
+
+body .masthead.compact {
+  min-height: var(--masthead-h-compact, 64px) !important;
+}
+
+body .masthead-beam {
+  position: relative !important;
+  inset: auto !important;
+  width: 100% !important;
+  min-height: inherit !important;
+  overflow: visible !important;
+}
+
+body .masthead-inner {
+  justify-content: flex-start !important;
+  min-height: var(--masthead-h-full, 72px) !important;
+  height: auto !important;
+}
+
+body .masthead.compact .masthead-inner {
+  min-height: var(--masthead-h-compact, 64px) !important;
+}
+
+body .logo-mega.logo-mega--mark,
+body .logo-mega--nav-only {
+  min-height: 0 !important;
+  padding: 0 !important;
+}
+
+body .logo-mega-mark {
+  height: clamp(34px, 4vw, 44px) !important;
+  width: auto !important;
+  max-width: min(110px, 18vw) !important;
+  object-fit: contain !important;
+}
+
+body .masthead.compact .logo-mega-mark {
+  height: clamp(30px, 3.5vw, 38px) !important;
+}
+
+body .masthead-nav {
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+body .masthead-nav:has(a:hover),
+body .masthead-nav:has(.nav-dropdown:hover),
+body .masthead-nav:has(.nav-dropdown.open) {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+body .masthead-actions {
+  display: flex !important;
+  margin-left: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  position: relative !important;
+  z-index: 6 !important;
+}
+
+body .masthead-actions a.masthead-login,
+body .masthead-actions a.masthead-go,
+body .masthead-actions a.btn-nav-login,
+body .masthead-actions a.btn-nav-demo {
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: none !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+body:has(.masthead) .page-main,
+body:has(.masthead) section[id] {
+  scroll-margin-top: calc(var(--masthead-h, 72px) + 12px);
+}

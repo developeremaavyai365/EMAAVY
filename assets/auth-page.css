@@ -98,36 +98,6 @@
   max-width: 480px;
 }
 
-.auth-showcase-logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-  text-decoration: none;
-  color: #fff;
-}
-
-.auth-showcase-logo img {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  object-fit: contain;
-  background: rgba(255, 255, 255, 0.15);
-  padding: 4px;
-}
-
-.auth-showcase-logo span {
-  font-family: 'Clash Display', sans-serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-.auth-showcase-logo em {
-  color: rgba(255, 255, 255, 0.75);
-  font-style: normal;
-}
-
 .auth-showcase h1 {
   font-family: 'Clash Display', sans-serif;
   font-size: clamp(2rem, 4vw, 2.85rem);
