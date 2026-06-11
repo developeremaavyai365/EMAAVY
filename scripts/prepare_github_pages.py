@@ -3,7 +3,7 @@
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-LANDING = ROOT / "emaavy_white_blue (2).html"
+LEGACY_LANDING = ROOT / "emaavy_white_blue (2).html"
 INDEX = ROOT / "index.html"
 
 REPLACEMENTS = [
@@ -13,18 +13,20 @@ REPLACEMENTS = [
 
 
 def main():
-    if not LANDING.exists():
-        raise SystemExit(f"Missing landing file: {LANDING}")
-
-    text = LANDING.read_text(encoding="utf-8")
-    INDEX.write_text(text, encoding="utf-8")
-    print(f"Wrote {INDEX.name} from landing ({len(text)} chars)")
+    if not INDEX.exists():
+        if LEGACY_LANDING.exists():
+            INDEX.write_text(LEGACY_LANDING.read_text(encoding="utf-8"), encoding="utf-8")
+            print(f"Wrote {INDEX.name} from legacy landing")
+        else:
+            raise SystemExit(f"Missing landing file: {INDEX}")
+    else:
+        print(f"Using existing {INDEX.name} as landing ({INDEX.stat().st_size} bytes)")
 
     count = 0
     for path in list(ROOT.rglob("*.html")) + list(ROOT.rglob("*.js")):
         if path.name.startswith(".") or "node_modules" in path.parts:
             continue
-        if path.resolve() == LANDING.resolve():
+        if path.resolve() == LEGACY_LANDING.resolve():
             continue
         raw = path.read_text(encoding="utf-8")
         updated = raw

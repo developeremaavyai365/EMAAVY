@@ -166,12 +166,19 @@
   color: #475569;
 }
 
+.hub-clear-why-list li > span:not(.hub-clear-why-icon) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+}
+
 .hub-clear-why-list strong {
   display: block;
   color: #0f172a;
   font-weight: 600;
   font-size: 0.84rem;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0;
+  line-height: 1.35;
 }
 
 .hub-clear-why-icon {

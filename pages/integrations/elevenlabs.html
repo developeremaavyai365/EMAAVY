@@ -3,125 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ElevenLabs — EMAAVY</title>
-  <meta name="description" content="ElevenLabs and EMAAVY — low-latency expressive voice synthesis for persuasive AI agents on live calls." />
+  <title>ElevenLabs Integration — EMAAVY</title>
+  <meta name="description" content="Connect ElevenLabs with EMAAVY. Low-latency expressive voice synthesis for warm, persuasive outbound agents." />
   <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="ElevenLabs — EMAAVY" />
-  <meta property="og:description" content="ElevenLabs and EMAAVY — low-latency expressive voice synthesis for persuasive AI agents on live calls." />
+  <meta property="og:title" content="ElevenLabs Integration — EMAAVY" />
+  <meta property="og:description" content="Connect ElevenLabs with EMAAVY. Low-latency expressive voice synthesis for warm, persuasive outbound agents." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../assets/nav.css" />
-  <link rel="stylesheet" href="../../assets/masthead-flex.css" />
-  <link rel="stylesheet" href="../../assets/site.css" />
-  <link rel="stylesheet" href="../../assets/emaavy-theme.css" />
+<link rel="stylesheet" href="../../assets/masthead-flex.css" />
 
-  <link rel="stylesheet" href="../../assets/tts-partner.css" />
+  <link rel="stylesheet" href="../../assets/site.css" />
+<link rel="stylesheet" href="../../assets/emaavy-theme.css" />
+
+
 </head>
 <body data-base="../../" data-route="integration-elevenlabs">
   <div id="site-nav-root"></div>
-  <main class="page-main tts-partner-page">
-    <section class="tts-partner-hero">
-      <div class="container tts-partner-hero-grid">
-        <div class="tts-partner-hero-copy">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true"> / </span>
-            <a href="../../index.html#integrations">Integrations</a>
-            <span aria-hidden="true"> / </span>
-            <a href="tts.html">Text-to-Speech</a>
-            <span aria-hidden="true"> / </span>
-            <span>ElevenLabs</span>
-          </nav>
-          <span class="tts-partner-kicker">Text-to-Speech · Expressive</span>
-          <h1>ElevenTurbo v2</h1>
-          <p class="tts-partner-lead">ElevenLabs sets the bar for expressive, human-like TTS — on EMAAVY, ElevenTurbo v2 powers outbound agents that sound warm, credible, and fast enough for real conversation turn-taking.</p>
-          <div class="tts-partner-stats"><div class="tts-partner-stat"><b><300ms</b><span>Target latency</span></div><div class="tts-partner-stat"><b>Voice clone</b><span>Profiles</span></div><div class="tts-partner-stat"><b>Global</b><span>Locales</span></div></div>
-          <div class="tts-partner-hero-actions">
-            <a href="../../book-demo.html" class="btn-primary">Connect ElevenLabs</a>
-            <a href="tts.html" class="btn-outline">All TTS engines</a>
-          </div>
+  <main class="page-main">
+    <section class="page-hero compact">
+      <div class="container">
+        <span class="page-kicker">TTS</span>
+        <h1>ElevenLabs</h1>
+        <p>Low-latency expressive voice synthesis for warm, persuasive outbound agents.</p>
+      </div>
+    </section>
+    <section class="page-section">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../index.html">Home</a> › <a href="../../pages/integrations/index.html">Integrations</a> › <span>ElevenLabs</span></nav>
+        <div class="stat-row">
+          <div class="stat-box"><b><300ms</b><span>Latency</span></div>
+          <div class="stat-box"><b>Expressive</b><span>Voice</span></div>
         </div>
-        <aside class="tts-partner-hero-card" aria-label="ElevenLabs overview">
-          <div class="tts-partner-hero-logo"><img src="../../assets/logos/elevenlabs.svg" alt="" width="52" height="52" loading="lazy" /></div>
-          <span class="tts-partner-hero-region">Expressive · Global</span>
-          <p>Synthesized live on EMAAVY — tone, pace, and voice profile per agent and campaign.</p>
-        </aside>
-      </div>
-    </section>
-
-    <section class="tts-partner-section">
-      <div class="container">
-        <header class="tts-partner-section-head">
-          <h2>What ElevenTurbo v2 delivers</h2>
-          <p>Why this engine exists and when it wins on live voice programs.</p>
-        </header>
-        <div class="tts-partner-prose"><p>ElevenLabs pioneered high-quality neural text-to-speech for creators and enterprises — voice cloning, emotional range, and turbo models optimized for conversational latency. ElevenTurbo v2 targets agents that must sound persuasive, not robotic, on sales and premium support calls.</p><p>Teams choose ElevenLabs when brand voice consistency matters globally — the same cloned profile can greet, handle objections, and close without studio re-records between script changes.</p></div>
-      </div>
-    </section>
-
-    <section class="tts-partner-section alt">
-      <div class="container tts-partner-split">
-        <header class="tts-partner-section-head">
-          <h2>How EMAAVY uses ElevenLabs</h2>
-          <p>From LLM script to caller audio — one orchestration layer controls the full voice loop.</p>
-        </header>
-        <ul class="tts-partner-benefits"><li><div><strong>Per-agent voice profiles</strong><span>Assign ElevenLabs voice IDs per campaign, language, or brand line.</span></div></li><li><div><strong>Stage-aware tone</strong><span>EMAAVY adjusts stability and style hints for opener vs. close segments.</span></div></li><li><div><strong>Streaming playback</strong><span>Audio chunks stream into the call as tokens arrive from the LLM.</span></div></li><li><div><strong>STT + TTS option</strong><span>Pair ElevenLabs capture and speech on one key when desired.</span></div></li></ul>
-      </div>
-    </section>
-
-    <section class="tts-partner-section">
-      <div class="container">
-        <header class="tts-partner-section-head">
-          <h2>Key capabilities</h2>
-          <p>What teams configure when ElevenTurbo v2 powers agent speech on EMAAVY.</p>
-        </header>
-        <div class="tts-feature-grid"><article class="tts-feature-card"><h3>ElevenTurbo v2</h3><p>Low-latency model built for dialogue agents.</p></article><article class="tts-feature-card"><h3>Voice cloning</h3><p>Consistent brand voice from short samples.</p></article><article class="tts-feature-card"><h3>Multilingual output</h3><p>Serve global programs from one voice platform.</p></article><article class="tts-feature-card"><h3>Emotion & stability</h3><p>Fine-tune expressiveness per script type.</p></article><article class="tts-feature-card"><h3>API streaming</h3><p>Chunked audio for natural barge-in and overlap.</p></article><article class="tts-feature-card"><h3>Dashboard analytics</h3><p>Monitor character usage alongside EMAAVY call KPIs.</p></article></div>
-      </div>
-    </section>
-
-    <section class="tts-partner-section alt">
-      <div class="container">
-        <header class="tts-partner-section-head">
-          <h2>Ideal use cases</h2>
-          <p>Where ElevenLabs and EMAAVY deliver the strongest combined outcomes.</p>
-        </header>
-        <div class="tts-use-grid"><article class="tts-use-card"><h3>Premium outbound</h3><p>High-touch sales where voice trust drives conversion.</p></article><article class="tts-use-card"><h3>English-global support</h3><p>Empathetic tone on cancellation saves and VIP care.</p></article><article class="tts-use-card"><h3>Brand campaigns</h3><p>Launches requiring one recognizable voice everywhere.</p></article></div>
-      </div>
-    </section>
-
-    <section class="tts-partner-section">
-      <div class="container">
-        <header class="tts-partner-section-head">
-          <h2>Getting connected</h2>
-          <p>From API credentials to production calls on EMAAVY.</p>
-        </header>
-        <ol class="tts-setup-steps"><li><div><strong>Add ElevenLabs API key</strong><p>Configure in EMAAVY integrations with quota alerts.</p></div></li><li><div><strong>Select voice profile</strong><p>Pick cloned or library voice per agent.</p></div></li><li><div><strong>Tune turbo settings</strong><p>Set stability and similarity for your vertical.</p></div></li><li><div><strong>Run live call test</strong><p>Validate turn latency with your STT + LLM stack.</p></div></li></ol>
-      </div>
-    </section>
-
-    <section class="tts-partner-section alt">
-      <div class="container">
-        <header class="tts-partner-section-head">
-          <h2>Explore other TTS engines</h2>
-          <p>Route English-global programs to ElevenLabs and Indian languages to Flash · Bulbul — same agent platform.</p>
-        </header>
-        <nav class="tts-partner-nav-strip" aria-label="TTS engines">
-          <a href="elevenlabs.html" class="is-current">ElevenLabs</a>
-          <a href="flash-bulbul.html">Flash · Bulbul</a>
-          <a href="tts.html">All TTS</a>
-        </nav>
-      </div>
-    </section>
-
-    <section class="tts-partner-cta">
-      <div class="container">
-        <h2>Ready to connect ElevenLabs?</h2>
-        <p>Book a walkthrough — hear live agent voice, compare engines, and map profiles to campaigns.</p>
+        <ul class="feature-list">
+          <li>Voice cloning</li>
+          <li>Emotional tone control</li>
+          <li>Multi-language voices</li>
+          <li>Real-time conversation</li>
+        </ul>
         <div class="cta-row">
-          <a href="../../book-demo.html" class="btn-primary">Book a demo</a>
-          <a href="tts.html" class="btn-outline">TTS overview</a>
+          <a href="../../book-demo.html" class="btn-primary">Connect ElevenLabs →</a>
+          <a href="../../pages/integrations/index.html" class="btn-outline">All integrations</a>
         </div>
       </div>
     </section>

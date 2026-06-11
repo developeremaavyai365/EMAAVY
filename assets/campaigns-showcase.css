@@ -42,26 +42,23 @@
   padding-top: 0.25rem;
 }
 
+.showcase-kicker--campaigns,
 .campaigns-showcase-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+  display: block;
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--camp-green);
-  margin-bottom: 0.75rem;
+  margin: 0 0 0.75rem;
 }
 
-.campaigns-showcase-eyebrow::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--camp-green);
-  box-shadow: 0 0 10px var(--camp-green);
-  animation: campPulse 2s ease-in-out infinite;
+.showcase-kicker::before,
+.showcase-kicker::after,
+.campaigns-showcase-eyebrow::before,
+.campaigns-showcase-eyebrow::after {
+  display: none !important;
+  content: none !important;
 }
 
 @keyframes campPulse {
@@ -98,25 +95,16 @@
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
+  padding-left: 0.85rem;
+  border-left: 2px solid #cbd5e1;
   font-size: 0.84rem;
   color: #475569;
   line-height: 1.45;
 }
 
 .campaigns-showcase-points li::before {
-  content: '✓';
-  flex-shrink: 0;
-  width: 1.15rem;
-  height: 1.15rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.6rem;
-  font-weight: 700;
-  color: #fff;
-  background: linear-gradient(135deg, #4a658b, #18345d);
-  border-radius: 50%;
-  margin-top: 0.1rem;
+  display: none !important;
+  content: none !important;
 }
 
 .campaigns-showcase-actions {
@@ -764,6 +752,5 @@
 
 @media (prefers-reduced-motion: reduce) {
   .camp-screen.is-active { animation: none; }
-  .campaigns-showcase-eyebrow::before,
   .campaigns-device-live i { animation: none; }
 }

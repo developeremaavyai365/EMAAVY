@@ -67,9 +67,7 @@
 
   function renderIntegrationsDropdown(opts) {
     const { masthead } = opts || {};
-    const mainPath = masthead
-      ? 'index.html#integrations'
-      : 'pages/integrations/index.html';
+    const mainPath = 'pages/integrations/index.html';
     const mainCls = masthead
       ? `nav-integrations-link${activeClass('integrations')}`
       : activeClass('integrations');
@@ -120,7 +118,7 @@
 
   function renderAgentsDropdown(opts) {
     const { masthead } = opts || {};
-    const mainPath = masthead ? 'index.html#agents' : 'pages/agents/index.html';
+    const mainPath = 'pages/agents/index.html';
     const sectionAttr = masthead ? ' data-nav-section="agents"' : ' data-nav-id="agents"';
     const indexAttr = masthead ? ' data-index="03"' : '';
     const items = dropdownMenuLinks(R.agents, 'agent');
@@ -139,7 +137,7 @@
 
   function renderLifecycleDropdown(opts) {
     const { masthead } = opts || {};
-    const mainPath = masthead ? 'index.html#journey' : 'pages/call-lifecycle/index.html';
+    const mainPath = 'pages/call-lifecycle/index.html';
     const sectionAttr = masthead ? ' data-nav-section="journey"' : ' data-nav-id="journey"';
     const indexAttr = masthead ? ' data-index="07"' : '';
     const items = dropdownMenuLinks(R.callLifecycle, 'lifecycle');
@@ -158,7 +156,7 @@
 
   function renderFaqDropdown(opts) {
     const { masthead } = opts || {};
-    const mainPath = masthead ? 'index.html#faq' : 'pages/faq.html';
+    const mainPath = 'pages/faq.html';
     const sectionAttr = masthead ? ' data-nav-section="faq"' : ' data-nav-id="faq"';
     const indexAttr = masthead ? ' data-index="08"' : '';
     const items = dropdownMenuLinks(R.faqTopics, 'faq');
@@ -218,25 +216,25 @@
 
     R.mainNav.forEach((item) => {
       if (item.dropdown === 'integrations') {
-        blocks.push(`<a href="${navHref('index.html#integrations')}" data-nav-section="integrations" data-nav-id="integrations">Integrations</a>`);
+        blocks.push(`<a href="${navHref('pages/integrations/index.html')}" data-nav-section="integrations" data-nav-id="integrations">Integrations</a>`);
         blocks.push('<span class="mobile-nav-label">Integration categories</span>');
         blocks.push(`<div class="mobile-sub">${R.integrationHubLayers.map((l) => `<a href="${navHref(l.path)}">${l.label}</a>`).join('')}</div>`);
         return;
       }
       if (item.dropdown === 'agents') {
-        blocks.push(`<a href="${navHref('index.html#agents')}" data-nav-section="agents" data-nav-id="agents">Agents</a>`);
+        blocks.push(`<a href="${navHref('pages/agents/index.html')}" data-nav-section="agents" data-nav-id="agents">Agents</a>`);
         blocks.push('<span class="mobile-nav-label">Agent types</span>');
         blocks.push(`<div class="mobile-sub">${dropdownMenuLinks(R.agents, 'agent')}</div>`);
         return;
       }
       if (item.dropdown === 'lifecycle') {
-        blocks.push(`<a href="${navHref('index.html#journey')}" data-nav-section="journey" data-nav-id="journey">Call lifecycle</a>`);
+        blocks.push(`<a href="${navHref('pages/call-lifecycle/index.html')}" data-nav-section="journey" data-nav-id="journey">Call lifecycle</a>`);
         blocks.push('<span class="mobile-nav-label">Lifecycle steps</span>');
         blocks.push(`<div class="mobile-sub">${dropdownMenuLinks(R.callLifecycle, 'lifecycle')}</div>`);
         return;
       }
       if (item.dropdown === 'faq') {
-        blocks.push(`<a href="${navHref('index.html#faq')}" data-nav-section="faq" data-nav-id="faq">FAQ</a>`);
+        blocks.push(`<a href="${navHref('pages/faq.html')}" data-nav-section="faq" data-nav-id="faq">FAQ</a>`);
         blocks.push('<span class="mobile-nav-label">FAQ topics</span>');
         blocks.push(`<div class="mobile-sub">${dropdownMenuLinks(R.faqTopics, 'faq')}</div>`);
         return;
@@ -253,8 +251,8 @@
 
   function renderMastheadLogo() {
     const src = navHref(R.logoMark || 'assets/emaavy-mark.png');
-    return `<a href="${R.homeHref(base())}" class="logo-mega logo-mega--mark logo-mega--nav-only" id="logoMega" aria-label="EMAAVY home">
-      <img src="${src}" alt="EMAAVY" class="logo-mega-mark" width="44" height="44" decoding="async" fetchpriority="high" />
+    return `<a href="${R.homeHref(base())}" class="logo-mega logo-mega--mark logo-mega--nav-only" aria-label="EMAAVY home">
+      <img src="${src}" alt="EMAAVY" class="logo-mega-mark" width="350" height="350" decoding="async" fetchpriority="high" />
     </a>`;
   }
 
@@ -342,9 +340,11 @@
     }
 
     const masthead = document.getElementById('masthead');
-    if (masthead && document.body.dataset.page !== 'home') {
-      masthead.style.setProperty('--masthead-progress', '0');
-      masthead.classList.remove('compact', 'scrolled');
+    if (masthead) {
+      masthead.classList.add('compact');
+      if (document.body.dataset.page !== 'home') {
+        masthead.style.setProperty('--masthead-progress', '1');
+      }
     }
 
     syncNavOffset();

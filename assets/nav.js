@@ -102,7 +102,7 @@
     let closeAnimTimer = null;
 
     function isDesktop() {
-      return window.matchMedia('(min-width: 861px)').matches;
+      return window.matchMedia('(min-width: 1025px)').matches;
     }
 
     function positionMenu() {
