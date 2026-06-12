@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta property="og:image" content="../../assets/brand/emaavy-logo.png" />
+
+  <link rel="icon" href="../../assets/brand/emaavy-logo.svg" type="image/svg+xml" />
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Knowlarity — EMAAVY</title>
@@ -12,12 +16,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../assets/nav.css" />
+  <link rel="stylesheet" href="../../assets/navbar-tokens.css" />
+<link rel="stylesheet" href="../../assets/nav.css" />
   <link rel="stylesheet" href="../../assets/masthead-flex.css" />
-  <link rel="stylesheet" href="../../assets/site.css" />
+<link rel="stylesheet" href="../../assets/navbar-typography.css" />
+
+    <link rel="stylesheet" href="../../assets/emaavy-type-tokens.css" />
+<link rel="stylesheet" href="../../assets/site.css" />
+  <link rel="stylesheet" href="../../assets/footer-premium.css" />
   <link rel="stylesheet" href="../../assets/emaavy-theme.css" />
+  <link rel="stylesheet" href="../../assets/responsive-system.css" />
 
   <link rel="stylesheet" href="../../assets/telephony-partner.css" />
+  <link rel="stylesheet" href="../../assets/integration-logo-3d.css" />
+  <link rel="stylesheet" href="../../assets/section-heading.css" />
+<link rel="stylesheet" href="../../assets/brand-logo.css" />
 </head>
 <body data-base="../../" data-route="integration-telephony-knowlarity">
   <div id="site-nav-root"></div>
@@ -25,16 +38,7 @@
     <section class="tel-partner-hero">
       <div class="container tel-partner-hero-grid">
         <div class="tel-partner-hero-copy">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true"> / </span>
-            <a href="../../index.html#integrations">Integrations</a>
-            <span aria-hidden="true"> / </span>
-            <a href="telephony.html">Telephony</a>
-            <span aria-hidden="true"> / </span>
-            <span>Knowlarity</span>
-          </nav>
-          <span class="tel-partner-kicker">Telephony · Cloud PBX</span>
+<span class="tel-partner-kicker">Telephony · Cloud PBX</span>
           <h1>Knowlarity</h1>
           <p class="tel-partner-lead">Knowlarity (Gupshup) delivers virtual business numbers, cloud PBX, and call distribution for Indian enterprises — integrated with EMAAVY so AI agents inherit your existing number strategy.</p>
           <div class="tel-partner-stats"><div class="tel-partner-stat"><b>Cloud PBX</b><span>Platform</span></div><div class="tel-partner-stat"><b>India</b><span>Scale</span></div><div class="tel-partner-stat"><b>Virtual nums</b><span>Inventory</span></div></div>
@@ -43,80 +47,129 @@
             <a href="telephony.html" class="btn-outline">All carriers</a>
           </div>
         </div>
-        <aside class="tel-partner-hero-card" aria-label="Knowlarity overview">
-          <div class="tel-partner-hero-logo"><img src="../../assets/logos/knowlarity.png" alt="" width="52" height="52" loading="lazy" /></div>
+        <aside class="tel-partner-hero-card int-logo-hero-wrap" aria-label="Knowlarity logo">
+          <div class="int-logo-hero-panel"><img class="int-logo-img int-logo-img--lg int-logo-img--neutral" src="../../assets/logos/integrations/knowlarity.svg" alt="Knowlarity" width="64" height="64" loading="lazy" decoding="async" /></div>
           <span class="tel-partner-hero-region">India · APAC</span>
-          <p>Integrated with EMAAVY voice agents, campaigns, and live call intelligence.</p>
         </aside>
       </div>
     </section>
 
-    <section class="tel-partner-section">
+    <section id="overview" class="tel-partner-section">
       <div class="container">
         <header class="tel-partner-section-head">
-          <h2>What Knowlarity does</h2>
-          <p>Understanding the carrier helps you choose the right voice path for each campaign.</p>
+          <h2>Overview</h2>
+          <p>What Knowlarity provides and how it fits into your voice stack.</p>
         </header>
         <div class="tel-partner-prose"><p>Knowlarity powers click-to-call, toll-free lines, and cloud PBX features for sales and support teams across India. Operations teams value its dashboards and number management for high-volume dialing.</p><p>EMAAVY connects to Knowlarity APIs so AI agents answer or place calls on the same virtual numbers your customers already recognize — no forced migration to a new carrier.</p></div>
       </div>
     </section>
 
-    <section class="tel-partner-section alt">
-      <div class="container tel-partner-split">
-        <header class="tel-partner-section-head">
-          <h2>How EMAAVY uses Knowlarity</h2>
-          <p>One integration layer — your agents, analytics, and CRM sync stay consistent regardless of carrier.</p>
-        </header>
-        <ul class="tel-partner-benefits"><li><div><strong>PBX + AI</strong><span>Route extensions or departments to AI agents during peak load.</span></div></li><li><div><strong>Campaign dialers</strong><span>Outbound programs with Knowlarity CLI and EMAAVY scripting.</span></div></li><li><div><strong>Supervisor tools</strong><span>Live monitoring with Knowlarity metrics plus EMAAVY scores.</span></div></li><li><div><strong>Regional languages</strong><span>Agents in Hindi, Tamil, and more on domestic routes.</span></div></li></ul>
-      </div>
-    </section>
-
-    <section class="tel-partner-section">
+    <section id="capabilities" class="tel-partner-section alt">
       <div class="container">
         <header class="tel-partner-section-head">
           <h2>Key capabilities</h2>
-          <p>What teams typically configure when Knowlarity powers EMAAVY voice programs.</p>
+          <p>Core features teams configure when Knowlarity powers EMAAVY programs.</p>
         </header>
-        <div class="tel-feature-grid"><article class="tel-feature-card"><h3>Virtual numbers</h3><p>Business lines with IVR and call routing.</p></article><article class="tel-feature-card"><h3>Cloud PBX</h3><p>Extensions, queues, and business-hour rules.</p></article><article class="tel-feature-card"><h3>Click-to-call</h3><p>Website and app-initiated calls into AI queues.</p></article><article class="tel-feature-card"><h3>Call recording</h3><p>Monitor and coach at scale.</p></article><article class="tel-feature-card"><h3>Analytics dashboard</h3><p>Ops visibility before and after AI rollout.</p></article><article class="tel-feature-card"><h3>API access</h3><p>Programmatic control for custom dialers.</p></article></div>
+        <div class="tel-feature-grid"><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">VN</span><h3>Virtual numbers</h3><p>Business lines with IVR and call routing.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">CP</span><h3>Cloud PBX</h3><p>Extensions, queues, and business-hour rules.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">CL</span><h3>Click-to-call</h3><p>Website and app-initiated calls into AI queues.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">CR</span><h3>Call recording</h3><p>Monitor and coach at scale.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">AD</span><h3>Analytics dashboard</h3><p>Ops visibility before and after AI rollout.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">AA</span><h3>API access</h3><p>Programmatic control for custom dialers.</p></article></div>
       </div>
     </section>
 
-    <section class="tel-partner-section alt">
+    <section id="use-cases" class="tel-partner-section">
       <div class="container">
         <header class="tel-partner-section-head">
-          <h2>Ideal use cases</h2>
-          <p>Where Knowlarity and EMAAVY deliver the strongest combined outcomes.</p>
+          <h2>Business use cases</h2>
+          <p>Real-world applications for Knowlarity with EMAAVY agents and campaigns.</p>
         </header>
-        <div class="tel-use-grid"><article class="tel-use-card"><h3>Inside sales</h3><p>Lead follow-up with AI and human hybrid teams.</p></article><article class="tel-use-card"><h3>Healthcare</h3><p>Appointment reminders on familiar local numbers.</p></article><article class="tel-use-card"><h3>Ed-tech</h3><p>Counseling and admission calls in regional languages.</p></article></div>
+        <div class="tel-use-grid"><article class="tel-use-card"><h3>Sales calls</h3><p>Lead follow-up with AI and human hybrid teams.</p></article><article class="tel-use-card"><h3>Appointment booking</h3><p>Healthcare and service reminders on familiar local numbers.</p></article><article class="tel-use-card"><h3>Customer support</h3><p>Inbound queues routed through cloud PBX to AI agents.</p></article><article class="tel-use-card"><h3>Outbound campaigns</h3><p>High-volume dial programs on virtual business numbers.</p></article><article class="tel-use-card"><h3>Lead qualification</h3><p>Counseling and admission screening in regional languages.</p></article><article class="tel-use-card"><h3>Multi-agent operations</h3><p>Department-based routing with shared Knowlarity inventory.</p></article></div>
+      </div>
+    </section>
+
+    <section id="integration-workflow" class="tel-partner-section alt">
+      <div class="container">
+        <header class="tel-partner-section-head">
+          <h2>Integration workflow</h2>
+          <p>How Knowlarity connects through EMAAVY — from live events to automated outcomes.</p>
+        </header>
+        <div class="tel-workflow-viz__track"><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">01</span><h3>Call connects</h3><p>Inbound or outbound session starts on your numbers.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">02</span><h3>EMAAVY routes</h3><p>Platform selects carrier, media path, and agent profile.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">03</span><h3>Provider handles</h3><p>Telephony partner delivers PSTN, SIP, or CPaaS voice.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">04</span><h3>Audio streams</h3><p>Live media feeds STT and reasoning pipelines.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">05</span><h3>Agent engages</h3><p>AI agent speaks and acts on real-time intelligence.</p></article></div>
+      </div>
+    </section>
+
+    <section id="setup-process" class="tel-partner-section">
+      <div class="container">
+        <header class="tel-partner-section-head">
+          <h2>Setup process</h2>
+          <p>Connection steps to go from credentials to production traffic with Knowlarity.</p>
+        </header>
+        <div class="tel-setup-grid"><article class="tel-setup-step"><span class="tel-setup-label">Authorize Knowlarity</span><p>API credentials in EMAAVY integrations hub.</p></article><article class="tel-setup-step"><span class="tel-setup-label">Sync numbers</span><p>Import active virtual numbers per business unit.</p></article><article class="tel-setup-step"><span class="tel-setup-label">Define routing</span><p>Point hunt groups or IVR branches to EMAAVY agents.</p></article><article class="tel-setup-step"><span class="tel-setup-label">Go live gradually</span><p>Shift one queue at a time to measure CSAT impact.</p></article></div>
+      </div>
+    </section>
+
+    <section id="business-benefits" class="tel-partner-section alt">
+      <div class="container tel-partner-split">
+        <header class="tel-partner-section-head">
+          <h2>Business benefits</h2>
+          <p>Efficiency, automation, scalability, and customer experience gains from connecting Knowlarity to EMAAVY.</p>
+        </header>
+        <ul class="tel-partner-benefits"><li><div><span class="tel-why-title">PBX + AI</span><span class="tel-why-desc">Route extensions or departments to AI agents during peak load.</span></div></li><li><div><span class="tel-why-title">Campaign dialers</span><span class="tel-why-desc">Outbound programs with Knowlarity CLI and EMAAVY scripting.</span></div></li><li><div><span class="tel-why-title">Supervisor tools</span><span class="tel-why-desc">Live monitoring with Knowlarity metrics plus EMAAVY scores.</span></div></li><li><div><span class="tel-why-title">Regional languages</span><span class="tel-why-desc">Agents in Hindi, Tamil, and more on domestic routes.</span></div></li></ul>
       </div>
     </section>
 
     <section class="tel-partner-section">
-      <div class="container">
-        <header class="tel-partner-section-head">
-          <h2>Getting connected</h2>
-          <p>A typical rollout path from credentials to production traffic.</p>
-        </header>
-        <ol class="tel-setup-steps"><li><div><strong>Authorize Knowlarity</strong><p>API credentials in EMAAVY integrations hub.</p></div></li><li><div><strong>Sync numbers</strong><p>Import active virtual numbers per business unit.</p></div></li><li><div><strong>Define routing</strong><p>Point hunt groups or IVR branches to EMAAVY agents.</p></div></li><li><div><strong>Go live gradually</strong><p>Shift one queue at a time to measure CSAT impact.</p></div></li></ol>
-      </div>
-    </section>
-
-    <section class="tel-partner-section alt">
       <div class="container">
         <header class="tel-partner-section-head">
           <h2>Explore other carriers</h2>
           <p>EMAAVY unifies every partner below — mix carriers by region or campaign without rebuilding agents.</p>
         </header>
-        <nav class="tel-partner-nav-strip" aria-label="Telephony partners">
-          <a href="vobiz.html">Vobiz</a>
-          <a href="twilio.html">Twilio</a>
-          <a href="plivo.html">Plivo</a>
-          <a href="vonage.html">Vonage</a>
-          <a href="exotel.html">Exotel</a>
-          <a href="knowlarity.html" class="is-current">Knowlarity</a>
-          <a href="telnyx.html">Telnyx</a>
-          <a href="bandwidth.html">Bandwidth</a>
-          <a href="telephony.html">All telephony</a>
+        <nav class="int-logo-ecosystem int-logo-ecosystem--compact" aria-label="Telephony partners">
+          <a href="vobiz.html" id="vobiz" class="int-logo-tile int-logo-tile--compact" aria-label="Vobiz integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/vobiz.svg" alt="Vobiz" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Vobiz</span>
+              <span class="int-logo-tile__category">Global CPaaS</span>
+            </div>
+          </a>
+          <a href="twilio.html" id="twilio" class="int-logo-tile int-logo-tile--compact" aria-label="Twilio integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/twilio.svg" alt="Twilio" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Twilio</span>
+              <span class="int-logo-tile__category">Global CPaaS</span>
+            </div>
+          </a>
+          <a href="plivo.html" id="plivo" class="int-logo-tile int-logo-tile--compact" aria-label="Plivo integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--light" src="../../assets/logos/integrations/plivo.svg" alt="Plivo" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Plivo</span>
+              <span class="int-logo-tile__category">Global CPaaS</span>
+            </div>
+          </a>
+          <a href="vonage.html" id="vonage" class="int-logo-tile int-logo-tile--compact" aria-label="Vonage integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--light" src="../../assets/logos/integrations/vonage.svg" alt="Vonage" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Vonage</span>
+              <span class="int-logo-tile__category">Global CPaaS</span>
+            </div>
+          </a>
+          <a href="exotel.html" id="exotel" class="int-logo-tile int-logo-tile--compact" aria-label="Exotel integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/exotel.svg" alt="Exotel" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Exotel</span>
+              <span class="int-logo-tile__category">India · APAC</span>
+            </div>
+          </a>
+          <a href="telnyx.html" id="telnyx" class="int-logo-tile int-logo-tile--compact" aria-label="Telnyx integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/telnyx.svg" alt="Telnyx" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Telnyx</span>
+              <span class="int-logo-tile__category">Private network</span>
+            </div>
+          </a>
+          <a href="bandwidth.html" id="bandwidth" class="int-logo-tile int-logo-tile--compact" aria-label="Bandwidth integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/bandwidth.svg" alt="Bandwidth" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Bandwidth</span>
+              <span class="int-logo-tile__category">Direct carrier</span>
+            </div>
+          </a>
         </nav>
       </div>
     </section>

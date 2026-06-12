@@ -1,4 +1,5 @@
 /* EMAAVY shared page styles */
+@import url('footer-premium.css');
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
@@ -14,7 +15,7 @@
   --brand-light: #4a658b;
   --brand-dark: #18345d;
   --brand-grad: linear-gradient(135deg, #4a658b 0%, #18345d 100%);
-  --text-primary: #0f172a;
+  --text-primary: #18345d;
   --text-secondary: #475569;
   --border-brand: rgba(74, 101, 139, 0.15);
   --shadow-brand: rgba(24, 52, 93, 0.12);
@@ -72,7 +73,7 @@ body:has(.site-header) .page-main {
 .page-hero h1 {
   font-family: 'Clash Display', sans-serif;
   font-size: clamp(2rem, 5vw, 3.2rem);
-  color: #0f172a;
+  color: #18345d;
   letter-spacing: -0.03em;
   line-height: 1.1;
   margin-bottom: 0.75rem;
@@ -96,7 +97,7 @@ body:has(.site-header) .page-main {
 .section-title {
   font-family: 'Clash Display', sans-serif;
   font-size: clamp(1.5rem, 3vw, 2rem);
-  color: #0f172a;
+  color: #18345d;
   margin-bottom: 0.5rem;
 }
 
@@ -136,7 +137,7 @@ body:has(.site-header) .page-main {
 .glow-card h3 {
   font-family: 'Clash Display', sans-serif;
   font-size: 1.1rem;
-  color: #0f172a;
+  color: #4a658b;
   margin-bottom: 0.4rem;
 }
 
@@ -272,6 +273,11 @@ body:has(.site-header) .page-main {
   margin-bottom: 1rem;
 }
 
+/* Subpages: no breadcrumb trail (Home / Section / Page) */
+body:not([data-page="home"]) .breadcrumb {
+  display: none !important;
+}
+
 .breadcrumb a {
   color: var(--brand-light);
   text-decoration: none;
@@ -279,10 +285,14 @@ body:has(.site-header) .page-main {
 
 .breadcrumb a:hover { text-decoration: underline; }
 
-.site-footer {
+.site-footer:not(.site-footer--premium) {
   background: var(--surface-muted);
   border-top: 1px solid var(--border);
   padding: 3rem 0 2rem;
+  margin-top: 4rem;
+}
+
+.site-footer--premium {
   margin-top: 4rem;
 }
 
@@ -296,10 +306,12 @@ body:has(.site-header) .page-main {
   align-items: start;
 }
 
-.footer-brand b {
-  font-family: 'Clash Display', sans-serif;
-  font-size: 1.25rem;
-  color: #0f172a;
+.footer-brand-logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  line-height: 0;
 }
 
 .footer-brand p {
@@ -347,7 +359,7 @@ body:has(.site-header) .page-main {
 .home-hero h1 {
   font-family: 'Clash Display', sans-serif;
   font-size: clamp(2.5rem, 6vw, 4rem);
-  color: #0f172a;
+  color: #18345d;
   letter-spacing: -0.04em;
   line-height: 1.05;
   margin-bottom: 1rem;
@@ -430,6 +442,16 @@ body:has(.site-header) .page-main {
 .nav-dropdown-split > a {
   border-radius: 999px 0 0 999px !important;
   padding-right: 0.35rem !important;
+  text-decoration: none !important;
+}
+
+.masthead .nav-dropdown-split > a,
+.masthead .nav-dropdown-split > a.active,
+.masthead .nav-dropdown-split > a:hover,
+.masthead .nav-dropdown-split > a:visited,
+.masthead .nav-dropdown-split > a:focus,
+.masthead .nav-dropdown-split > a:focus-visible {
+  text-decoration: none !important;
 }
 
 .nav-dropdown-caret {
@@ -445,10 +467,14 @@ body:has(.site-header) .page-main {
 
 .nav-dropdown-caret:hover { color: #4a658b; }
 
+.site-nav .nav-dropdown-split > a.active,
 .site-nav .nav-dropdown-split > a.active + .nav-dropdown-caret,
-.site-nav .nav-dropdown.open .nav-dropdown-split > a {
-  color: #18345d !important;
-  background: #f0f4f8 !important;
+.site-nav .nav-dropdown.open .nav-dropdown-split > a,
+.masthead .nav-dropdown-split > a.active {
+  color: var(--navbar-active-color, #4a658b) !important;
+  background: var(--navbar-active-bg, #f0f4f8) !important;
+  font-weight: var(--navbar-font-weight, 500) !important;
+  text-decoration: none !important;
 }
 
 .dropdown-link-grid {
@@ -458,7 +484,9 @@ body:has(.site-header) .page-main {
 }
 
 .dropdown-link-grid a {
-  font-size: 0.72rem !important;
+  font-family: var(--navbar-font-family);
+  font-size: var(--navbar-dropdown-link-size, 0.75rem) !important;
+  font-weight: var(--navbar-dropdown-link-weight, 500) !important;
   padding: 0.3rem 0.45rem !important;
 }
 
@@ -584,7 +612,7 @@ body:has(.site-header) .page-main {
   font-size: clamp(1.35rem, 2.5vw, 1.75rem);
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: #0f172a;
+  color: #18345d;
   margin-bottom: 0.65rem;
 }
 
@@ -624,7 +652,7 @@ body:has(.site-header) .page-main {
 .capabilities-page-cta h2 {
   font-family: 'Clash Display', sans-serif;
   font-size: clamp(1.35rem, 3vw, 1.85rem);
-  color: #0f172a;
+  color: #18345d;
   margin-bottom: 0.5rem;
 }
 
@@ -769,7 +797,7 @@ body:has(.site-header) .page-main {
 .telephony-provider-card h3 {
   font-family: 'Clash Display', sans-serif;
   font-size: 1.15rem;
-  color: #0f172a;
+  color: #4a658b;
   margin-bottom: 0.45rem;
 }
 
@@ -838,7 +866,7 @@ body:has(.site-header) .page-main {
 
 .telephony-flow-steps strong {
   font-size: 1rem;
-  color: #0f172a;
+  color: #4a658b;
 }
 
 .telephony-flow-steps p {

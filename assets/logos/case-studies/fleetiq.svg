@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="FleetIQ Logistics">
+  <rect width="48" height="48" rx="12" fill="#f1f5f9"/>
+  <rect x="10" y="22" width="22" height="10" rx="2" stroke="#18345d" stroke-width="2" fill="none"/>
+  <path d="M32 26h6l4 6v6H32V26z" stroke="#18345d" stroke-width="2" fill="none" stroke-linejoin="round"/>
+  <circle cx="18" cy="36" r="3" stroke="#4a658b" stroke-width="2" fill="none"/>
+  <circle cx="36" cy="36" r="3" stroke="#4a658b" stroke-width="2" fill="none"/>
+</svg>

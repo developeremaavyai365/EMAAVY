@@ -1,0 +1,272 @@
+/**
+ * EMAAVY — unified navbar typography enforcement.
+ * Loaded after nav.css + masthead-flex.css; overrides page/route/legacy rules.
+ */
+
+/* ─── Primary nav track (desktop masthead) ─── */
+body .masthead-nav,
+body .site-nav {
+  gap: var(--navbar-link-spacing) !important;
+  font-family: var(--navbar-font-family) !important;
+}
+
+body .masthead-nav > a,
+body .masthead-nav .nav-dropdown-split > a,
+body .masthead-nav .nav-integrations-link,
+body .masthead-nav .nav-dropdown-caret,
+body .masthead-nav .nav-dropdown-trigger,
+body .site-nav > a,
+body .site-nav .nav-dropdown-split > a,
+body .site-nav .nav-integrations-link,
+body .site-nav .nav-dropdown-caret,
+body .site-nav .nav-dropdown-trigger {
+  font-family: var(--navbar-font-family) !important;
+  font-size: var(--navbar-font-size) !important;
+  font-weight: var(--navbar-font-weight) !important;
+  line-height: var(--navbar-line-height) !important;
+  letter-spacing: var(--navbar-letter-spacing) !important;
+  color: var(--navbar-text-color) !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  text-rendering: optimizeLegibility !important;
+  transition: var(--navbar-transition) !important;
+  text-decoration: none !important;
+  padding: var(--navbar-link-padding-y) var(--navbar-link-padding-x) !important;
+  border-radius: var(--navbar-border-radius) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+body .masthead-nav .nav-dropdown-caret,
+body .site-nav .nav-dropdown-caret {
+  font-size: 0.6rem !important;
+  padding: 0 0.35rem 0 0.15rem !important;
+}
+
+body .masthead-nav > a::before,
+body .site-nav > a::before {
+  display: none !important;
+  content: none !important;
+}
+
+body .masthead-nav > a:hover,
+body .masthead-nav .nav-dropdown-split > a:hover,
+body .masthead-nav .nav-integrations-link:hover,
+body .masthead-nav .nav-dropdown-caret:hover,
+body .masthead-nav .nav-dropdown-trigger:hover,
+body .site-nav > a:hover,
+body .site-nav .nav-dropdown-split > a:hover,
+body .site-nav .nav-integrations-link:hover,
+body .site-nav .nav-dropdown-caret:hover,
+body .site-nav .nav-dropdown-trigger:hover {
+  color: var(--navbar-hover-color) !important;
+  background: var(--navbar-hover-bg) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+body .masthead-nav > a.active,
+body .masthead-nav .nav-dropdown-split > a.active,
+body .masthead-nav .nav-integrations-link.active,
+body .site-nav > a.active,
+body .site-nav .nav-dropdown-split > a.active,
+body .site-nav .nav-dropdown-trigger.active {
+  color: var(--navbar-active-color) !important;
+  background: var(--navbar-active-bg) !important;
+  font-weight: var(--navbar-font-weight) !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+
+body .masthead-nav .nav-dropdown-split > a:visited,
+body .masthead-nav .nav-dropdown-split > a:focus,
+body .masthead-nav .nav-dropdown-split > a:focus-visible,
+body .site-nav .nav-dropdown-split > a:visited,
+body .site-nav .nav-dropdown-split > a:focus,
+body .site-nav .nav-dropdown-split > a:focus-visible {
+  text-decoration: none !important;
+}
+
+body .masthead-nav > a.active:hover,
+body .masthead-nav .nav-dropdown-split > a.active:hover,
+body .masthead-nav .nav-integrations-link.active:hover,
+body .site-nav > a.active:hover,
+body .site-nav .nav-dropdown-split > a.active:hover {
+  color: var(--navbar-hover-color) !important;
+  background: var(--navbar-hover-bg) !important;
+}
+
+body .masthead-nav .nav-dropdown.open .nav-integrations-link,
+body .masthead-nav .nav-dropdown:hover .nav-integrations-link {
+  color: var(--navbar-active-color) !important;
+  background: var(--navbar-active-bg) !important;
+  font-weight: var(--navbar-font-weight) !important;
+}
+
+body .masthead-nav .nav-dropdown-split:hover .nav-integrations-link,
+body .masthead-nav .nav-dropdown.open .nav-dropdown-split .nav-integrations-link,
+body .masthead-nav .nav-dropdown-split:hover .nav-dropdown-caret,
+body .masthead-nav .nav-dropdown.open .nav-dropdown-split .nav-dropdown-caret {
+  color: var(--navbar-hover-color) !important;
+  background: var(--navbar-hover-bg) !important;
+}
+
+/* ─── Masthead CTAs ─── */
+body .masthead-actions a.masthead-cta,
+body .masthead-actions a.masthead-login,
+body .masthead-actions a.masthead-go,
+body .masthead-actions a.btn-nav-login,
+body .masthead-actions a.btn-nav-demo,
+body .site-actions .btn-nav-login,
+body .site-actions .btn-nav-demo {
+  font-family: var(--navbar-font-family) !important;
+  font-size: var(--navbar-cta-font-size) !important;
+  font-weight: var(--navbar-cta-font-weight) !important;
+  line-height: var(--navbar-line-height) !important;
+  letter-spacing: var(--navbar-letter-spacing) !important;
+  -webkit-font-smoothing: antialiased !important;
+  transition: var(--navbar-transition) !important;
+  box-shadow: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+body .masthead-actions a.masthead-login,
+body .masthead-actions a.btn-nav-login,
+body .site-actions .btn-nav-login {
+  color: var(--navbar-text-color) !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+}
+
+body .masthead-actions a.masthead-login:hover,
+body .masthead-actions a.btn-nav-login:hover,
+body .site-actions .btn-nav-login:hover {
+  color: var(--navbar-hover-color) !important;
+  background: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+body .masthead-actions a.masthead-go,
+body .masthead-actions a.btn-nav-demo,
+body .site-actions .btn-nav-demo {
+  color: var(--navbar-cta-demo-color) !important;
+  background: var(--navbar-cta-demo-bg) !important;
+  border: 1px solid transparent !important;
+}
+
+body .masthead-actions a.masthead-go:hover,
+body .masthead-actions a.btn-nav-demo:hover,
+body .site-actions .btn-nav-demo:hover {
+  color: var(--navbar-cta-demo-color) !important;
+  background: var(--navbar-cta-demo-bg-hover) !important;
+}
+
+/* ─── Dropdown panel links ─── */
+body .masthead .dropdown-section-title,
+body .site-nav .dropdown-section-title {
+  font-family: var(--navbar-font-family) !important;
+  font-size: var(--navbar-dropdown-title-size) !important;
+  font-weight: var(--navbar-dropdown-title-weight) !important;
+  letter-spacing: 0.08em !important;
+}
+
+body .masthead .dropdown-section a,
+body .masthead .dropdown-link-grid a,
+body .site-nav .dropdown-section a {
+  font-family: var(--navbar-font-family) !important;
+  font-size: var(--navbar-dropdown-link-size) !important;
+  font-weight: var(--navbar-dropdown-link-weight) !important;
+  line-height: 1.35 !important;
+  letter-spacing: var(--navbar-letter-spacing) !important;
+  color: var(--navbar-dropdown-link-color) !important;
+}
+
+body .masthead .dropdown-section a:hover,
+body .masthead .dropdown-link-grid a:hover,
+body .site-nav .dropdown-section a:hover {
+  color: var(--navbar-active-color) !important;
+  background: var(--navbar-active-bg) !important;
+  font-weight: var(--navbar-dropdown-link-weight) !important;
+}
+
+/* ─── Mobile drawer ─── */
+body .mobile-nav-drawer a {
+  font-family: var(--navbar-font-family) !important;
+  font-size: var(--navbar-mobile-font-size) !important;
+  font-weight: var(--navbar-mobile-font-weight) !important;
+  line-height: 1.35 !important;
+  letter-spacing: var(--navbar-letter-spacing) !important;
+  color: var(--navbar-text-color) !important;
+  transition: var(--navbar-transition) !important;
+}
+
+body .mobile-nav-drawer a:hover,
+body .mobile-nav-drawer a.active {
+  color: var(--navbar-active-color) !important;
+  background: var(--navbar-active-bg) !important;
+  font-weight: var(--navbar-mobile-font-weight) !important;
+}
+
+body .mobile-nav-drawer .mobile-nav-label {
+  font-family: var(--navbar-font-family) !important;
+  font-size: var(--navbar-mobile-label-size) !important;
+  font-weight: var(--navbar-mobile-label-weight) !important;
+  letter-spacing: 0.1em !important;
+  color: #64748b !important;
+}
+
+body .mobile-nav-drawer .mobile-sub a {
+  font-size: var(--navbar-mobile-font-size) !important;
+  font-weight: var(--navbar-mobile-font-weight) !important;
+}
+
+body .mobile-nav-actions .btn-nav-login,
+body .mobile-nav-actions .btn-nav-demo {
+  font-family: var(--navbar-font-family) !important;
+  font-size: var(--navbar-cta-font-size) !important;
+  font-weight: var(--navbar-cta-font-weight) !important;
+}
+
+/* ─── Neutralize legacy inline / theme nav typography overrides ─── */
+body[data-page="home"] .masthead-nav a,
+body[data-page="home"] .masthead-nav .nav-integrations-link,
+body[data-page="home"] .masthead-nav .nav-dropdown-caret,
+body[data-page="home"] .masthead-actions a.masthead-login,
+body[data-page="home"] .masthead-actions a.masthead-go,
+body:not([data-page="home"]) .masthead-nav a,
+body:not([data-page="home"]) .masthead-nav .nav-integrations-link,
+body:not([data-page="home"]) .masthead-nav .nav-dropdown-caret {
+  font-family: var(--navbar-font-family) !important;
+  font-size: var(--navbar-font-size) !important;
+  font-weight: var(--navbar-font-weight) !important;
+  letter-spacing: var(--navbar-letter-spacing) !important;
+  line-height: var(--navbar-line-height) !important;
+}
+
+body .masthead-actions a.masthead-go,
+body .masthead-actions a.btn-nav-demo {
+  font-weight: var(--navbar-cta-font-weight) !important;
+}
+
+/* ─── Integrations dropdown — neutralize page-specific overrides ─── */
+body .masthead #integrationsDropdown .nav-integrations-link,
+body .masthead #integrationsDropdown .nav-dropdown-caret {
+  font-family: var(--navbar-font-family) !important;
+  font-size: var(--navbar-font-size) !important;
+  font-weight: var(--navbar-font-weight) !important;
+  letter-spacing: var(--navbar-letter-spacing) !important;
+  padding: var(--navbar-link-padding-y) var(--navbar-link-padding-x) !important;
+  color: var(--navbar-text-color) !important;
+}
+
+body .masthead #integrationsMenu .dropdown-link-grid a {
+  font-size: var(--navbar-dropdown-link-size) !important;
+  font-weight: var(--navbar-dropdown-link-weight) !important;
+}
+
+body .masthead #integrationsMenu .dropdown-link-grid a:hover {
+  color: var(--navbar-active-color) !important;
+  background: var(--navbar-active-bg) !important;
+}

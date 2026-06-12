@@ -1,39 +1,35 @@
 #!/usr/bin/env python3
 """Generate telephony hub + per-partner integration pages."""
+import re
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from integration_logos import apply_logos_all
+from integration_pages_common import ensure_uses, render_hub, render_partner
 
 ROOT = Path(__file__).resolve().parents[1]
 INT = ROOT / "pages" / "integrations"
-
-HEAD_COMMON = """  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../assets/nav.css" />
-  <link rel="stylesheet" href="../../assets/masthead-flex.css" />
-  <link rel="stylesheet" href="../../assets/site.css" />
-  <link rel="stylesheet" href="../../assets/emaavy-theme.css" />
-"""
 
 PARTNERS = [
     {
         "slug": "vobiz",
         "name": "Vobiz",
-        "region": "Native carrier · Global",
-        "tag": "Native partner",
-        "featured": True,
+        "region": "Global · CPaaS",
+        "tag": "Global CPaaS",
         "logo": '<img src="../../assets/logos/vobiz.svg" alt="" width="52" height="52" loading="lazy" />',
         "logo_sm": '<img src="../../assets/logos/vobiz.svg" alt="" width="32" height="32" loading="lazy" />',
         "title": "Vobiz — EMAAVY",
         "h1": "Vobiz",
-        "meta": "Connect Vobiz with EMAAVY — global DIDs, intelligent routing, and sub-second connect times built for AI voice at scale.",
-        "lead": "Vobiz is EMAAVY's native telephony partner — engineered for AI voice programs that need global numbers, campaign-level routing, and carrier-grade reliability from day one.",
+        "meta": "Connect Vobiz with EMAAVY — global DIDs, intelligent routing, and sub-second connect times for AI voice programs.",
+        "lead": "Vobiz provides programmable voice infrastructure with global number provisioning, intelligent routing, and real-time call control — integrated with EMAAVY for AI agents, campaigns, and live call intelligence.",
         "stats": [("99.2%", "Connect rate"), ("<1s", "Ring-to-answer"), ("Global", "DID pools")],
         "about": [
-            "Vobiz provides programmable voice infrastructure with global number provisioning, intelligent routing, and real-time call control APIs. Teams use Vobiz when they need predictable connect rates and sub-second media setup for high-volume AI dialers.",
-            "Unlike generic CPaaS setups bolted onto agents as an afterthought, Vobiz was the reference carrier when EMAAVY's voice stack was designed — so webhooks, disposition events, and media streaming align with how AI agents actually run in production.",
+            "Vobiz offers programmable voice infrastructure with global number provisioning, intelligent routing, and real-time call control APIs. Teams use Vobiz when they need predictable connect rates and sub-second media setup for high-volume AI dialers.",
+            "Through EMAAVY, Vobiz sessions feed the same transcription, reasoning, and CRM sync layer as every other telephony partner — so operations can standardize on one agent stack regardless of carrier.",
         ],
         "emaavy": [
-            ("Native media path", "EMAAVY opens the voice channel on Vobiz and streams audio into STT and LLM pipelines from the first ring."),
+            ("Unified media path", "EMAAVY opens the voice channel and streams audio into STT and LLM pipelines from the first ring."),
             ("Campaign routing", "Assign numbers and routing rules per outbound or inbound campaign without duplicate configuration."),
             ("Live operations", "Supervisors see connect rates, active calls, and agent handoffs in the same workspace as conversation intelligence."),
             ("Compliance hooks", "Recording, retention, and audit events flow through EMAAVY's governance layer automatically."),
@@ -47,9 +43,12 @@ PARTNERS = [
             ("Recording ready", "Call audio available for QA, coaching, and compliance review."),
         ],
         "uses": [
-            ("Enterprise outbound", "High-volume registration, renewal, and sales programs with AI agents."),
-            ("Multilingual support", "Inbound lines with regional numbers and language-specific agents."),
-            ("BPO operations", "Replace manual dialers with governed AI voice at scale."),
+            ("Outbound campaigns", "High-volume registration, renewal, and sales programs with AI agents."),
+            ("Customer support", "Inbound lines with regional numbers and language-specific agents."),
+            ("Lead qualification", "Screen and route prospects before human handoff."),
+            ("Appointment booking", "Confirm slots and send calendar invites during live calls."),
+            ("Automated follow-ups", "Post-call reminders and nurture sequences without manual dialing."),
+            ("Multi-agent operations", "Run parallel campaigns across regions from one workspace."),
         ],
         "setup": [
             ("Connect Vobiz credentials", "Add API keys and account identifiers in the EMAAVY integrations console."),
@@ -57,9 +56,9 @@ PARTNERS = [
             ("Map webhooks", "EMAAVY registers call-status endpoints on your Vobiz application automatically."),
             ("Assign agents", "Link voice agents to campaigns — test with a sandbox call before go-live."),
         ],
-        "hub_desc": "Global DIDs, intelligent routing, and sub-second connect times — the native carrier integration EMAAVY was built around.",
+        "hub_desc": "Global DIDs, intelligent routing, and sub-second connect times for AI voice programs at scale.",
         "hub_points": ["Global DID provisioning and number pools", "Campaign-level routing rules", "Real-time call status webhooks"],
-        "hub_badge": "Native carrier",
+        "hub_badge": "Global CPaaS",
     },
     {
         "slug": "twilio",
@@ -92,9 +91,12 @@ PARTNERS = [
             ("Status callbacks", "Webhook events for initiated, ringing, answered, and completed states."),
         ],
         "uses": [
-            ("Global sales teams", "Multi-region outbound with localized numbers and compliance tooling."),
-            ("Contact centers", "Blend human queues with AI triage on shared Twilio infrastructure."),
-            ("Product-led growth", "Spin up pilot voice agents on existing Twilio subaccounts."),
+            ("Sales calls", "Multi-region outbound with localized numbers and compliance tooling."),
+            ("Customer support", "Blend human queues with AI triage on shared Twilio infrastructure."),
+            ("Lead qualification", "Screen inbound and outbound prospects before human handoff."),
+            ("Appointment booking", "Schedule meetings and send confirmations during live calls."),
+            ("Outbound campaigns", "Burst dial programs with elastic Twilio capacity."),
+            ("Multi-agent operations", "Run parallel agents across subaccounts from one EMAAVY workspace."),
         ],
         "setup": [
             ("Link Twilio account", "Provide Account SID and auth token in EMAAVY integrations."),
@@ -139,7 +141,10 @@ PARTNERS = [
         "uses": [
             ("International outbound", "Sales and collections across multiple countries."),
             ("Verification calls", "OTP and appointment confirmation at low cost."),
-            ("Startup scale-ups", "API-first telephony without long carrier contracts."),
+            ("Customer support", "Inbound lines with cost-optimized international routing."),
+            ("Lead qualification", "High-volume screening before sales team engagement."),
+            ("Automated follow-ups", "Payment reminders and nurture calls at scale."),
+            ("Multi-agent operations", "Regional campaigns with unified Plivo inventory."),
         ],
         "setup": [
             ("Add Plivo auth", "Connect auth ID and token in EMAAVY."),
@@ -183,8 +188,11 @@ PARTNERS = [
         ],
         "uses": [
             ("Contact centers", "AI-first routing with human overflow on Vonage."),
-            ("Financial services", "Secure voice with enterprise Vonage contracts."),
-            ("Retail support", "Seasonal inbound spikes handled by AI agents."),
+            ("Customer support", "Seasonal inbound spikes handled by AI agents."),
+            ("Sales calls", "Outbound and blended programs on shared Vonage infrastructure."),
+            ("Appointment booking", "Confirm slots with calendar sync during conversations."),
+            ("Lead qualification", "Tier-1 screening before specialist handoff."),
+            ("Multi-agent operations", "SIP and PSTN traffic through one agent orchestration layer."),
         ],
         "setup": [
             ("Connect Vonage API", "Add API key and application ID to EMAAVY."),
@@ -227,9 +235,12 @@ PARTNERS = [
             ("CRM integrations", "Native connectors plus EMAAVY webhook enrichment."),
         ],
         "uses": [
-            ("Indian BPOs", "QA automation on Exotel-backed call centers."),
-            ("D2C brands", "Order confirmation and NPS calls at scale."),
-            ("Fintech", "KYC reminders and collections with regional languages."),
+            ("Customer support", "QA automation on Exotel-backed call centers."),
+            ("Outbound campaigns", "Order confirmation and NPS calls at scale."),
+            ("Lead qualification", "KYC reminders and pre-sales screening in regional languages."),
+            ("Appointment booking", "Healthcare and service scheduling on domestic numbers."),
+            ("Automated follow-ups", "Collections and payment reminders with DND-aware dialing."),
+            ("Multi-agent operations", "Hindi, English, and regional agents on shared Exotel routes."),
         ],
         "setup": [
             ("Link Exotel account", "API key and subdomain in EMAAVY settings."),
@@ -272,9 +283,12 @@ PARTNERS = [
             ("API access", "Programmatic control for custom dialers."),
         ],
         "uses": [
-            ("Inside sales", "Lead follow-up with AI and human hybrid teams."),
-            ("Healthcare", "Appointment reminders on familiar local numbers."),
-            ("Ed-tech", "Counseling and admission calls in regional languages."),
+            ("Sales calls", "Lead follow-up with AI and human hybrid teams."),
+            ("Appointment booking", "Healthcare and service reminders on familiar local numbers."),
+            ("Customer support", "Inbound queues routed through cloud PBX to AI agents."),
+            ("Outbound campaigns", "High-volume dial programs on virtual business numbers."),
+            ("Lead qualification", "Counseling and admission screening in regional languages."),
+            ("Multi-agent operations", "Department-based routing with shared Knowlarity inventory."),
         ],
         "setup": [
             ("Authorize Knowlarity", "API credentials in EMAAVY integrations hub."),
@@ -317,9 +331,12 @@ PARTNERS = [
             ("Global coverage", "Reach customers in 100+ countries."),
         ],
         "uses": [
-            ("Real-time sales", "Sub-second agent responses on competitive outbound."),
-            ("US enterprise", "Programs requiring direct carrier relationships."),
-            ("Voice AI labs", "Pilot cutting-edge agents before wide rollout."),
+            ("Sales calls", "Sub-second agent responses on competitive outbound."),
+            ("Customer support", "Low-latency inbound with private network media paths."),
+            ("Lead qualification", "Real-time screening with minimal conversational delay."),
+            ("Outbound campaigns", "Global programs on programmable Telnyx numbers."),
+            ("Automated follow-ups", "Post-call sequences with consistent media quality."),
+            ("Multi-agent operations", "Pilot and production agents on shared Call Control apps."),
         ],
         "setup": [
             ("Add Telnyx API key", "Store credentials securely in EMAAVY."),
@@ -362,9 +379,12 @@ PARTNERS = [
             ("Enterprise SLAs", "Contractual uptime for critical programs."),
         ],
         "uses": [
-            ("US healthcare", "Patient outreach with HIPAA-aware workflows."),
-            ("Collections", "Regulated dialing with full audit trails."),
-            ("Enterprise IT", "Standardize on Bandwidth while adopting AI agents."),
+            ("Customer support", "Patient and member outreach with HIPAA-aware workflows."),
+            ("Outbound campaigns", "Regulated collections dialing with full audit trails."),
+            ("Appointment booking", "Healthcare scheduling with E911-compliant numbers."),
+            ("Lead qualification", "Financial services screening with enterprise SLAs."),
+            ("Automated follow-ups", "Payment and renewal reminders on direct carrier routes."),
+            ("Multi-agent operations", "Standardize on Bandwidth while scaling AI agent programs."),
         ],
         "setup": [
             ("Connect Bandwidth account", "User ID and API token in EMAAVY."),
@@ -378,313 +398,96 @@ PARTNERS = [
     },
 ]
 
-ALL_SLUGS = [p["slug"] for p in PARTNERS]
+
+USE_EXTRAS = [
+    ("Appointment booking", "Schedule and confirm calls on provisioned numbers."),
+    ("Automated follow-ups", "Outbound reminders and callbacks at scale."),
+    ("Multi-agent operations", "Standardize carriers while scaling AI programs."),
+]
+
+HUB_CFG = {
+    "route": "integration-telephony",
+    "title": "Telephony — EMAAVY",
+    "meta": "EMAAVY telephony — enterprise voice infrastructure for AI agents. CPaaS, SIP, PSTN, global carriers, and live call lifecycle.",
+    "og_title": "Telephony — EMAAVY",
+    "og_description": "Connect EMAAVY to global carriers. Voice infrastructure built for AI agents at scale.",
+    "breadcrumb": "Telephony",
+    "kicker": "Foundation layer · Telephony",
+    "h1": "Voice infrastructure for AI agents",
+    "lead": "Connect AI agents to global phone networks through a single integration layer. Provision numbers, route via CPaaS or SIP, and capture audio from the first ring — with consistent reliability across every carrier.",
+    "stats": [("8", "Carrier partners"), ("180+", "Countries"), ("<1s", "Ring-to-answer"), ("99.9%", "Platform uptime")],
+    "anchor_jumps": [
+        ("voice-layer", "How EMAAVY handles voice"),
+        ("partners", "Carriers"),
+        ("call-flow", "Call flow"),
+    ],
+    "layer_id": "voice-layer",
+    "layer_num": "Layer 01",
+    "layer_tag": "EMAAVY · Telephony",
+    "layer_h2": "How EMAAVY handles voice",
+    "layer_lead": "Every AI voice conversation starts with a reliable channel. EMAAVY normalizes telephony across providers so engineering configures once and operations scales everywhere.",
+    "pills": [
+        ("CPaaS APIs", "Connect programmable voice platforms without rebuilding your agent stack."),
+        ("SIP trunks", "Bring your own carrier relationships while EMAAVY orchestrates media."),
+        ("PSTN reach", "Reach real phone numbers worldwide for outbound and inbound lines."),
+        ("First-ring capture", "Audio streams into transcription and reasoning from connect."),
+    ],
+    "partners_id": "partners",
+    "partners_h2": "Carrier partners",
+    "partners_desc": "Eight integrations today — each with a dedicated page.",
+    "flow_id": "call-flow",
+    "flow_h2": "Live call flow",
+    "flow_desc": "How every call moves through EMAAVY once telephony connects.",
+    "flow_steps": [
+        ("Call initiated", "Outbound dial or inbound ring hits your configured numbers."),
+        ("EMAAVY routes", "Carrier, region, and agent profile selected automatically."),
+        ("Media streams", "Audio captured for STT and live intelligence."),
+        ("Agent engages", "LLM and TTS layers respond in real time."),
+        ("Call completes", "Dispositions, recordings, and automations finalize."),
+    ],
+    "cta_h2": "Connect telephony to EMAAVY",
+    "cta_desc": "See live number provisioning, routing, and agent handoff in a tailored demo.",
+}
+
+HUB_FILE = "telephony.html"
+HUB_LABEL = "All carriers"
+HUB_BREADCRUMB = "Telephony"
+HUB_CTA = "Telephony overview"
 
 
-def partner_nav(current: str) -> str:
-    links = []
+def prepare():
     for p in PARTNERS:
-        cls = ' class="is-current"' if p["slug"] == current else ""
-        links.append(
-            f'<a href="{p["slug"]}.html"{cls}>{p["name"]}</a>'
-        )
-    links.append('<a href="telephony.html">All telephony</a>')
-    return "\n          ".join(links)
+        ensure_uses(p, USE_EXTRAS)
+    apply_logos_all(PARTNERS)
 
 
-def render_partner(p: dict) -> str:
-    stats = "".join(
-        f'<div class="tel-partner-stat"><b>{a}</b><span>{b}</span></div>'
-        for a, b in p["stats"]
-    )
-    about = "".join(f"<p>{para}</p>" for para in p["about"])
-    benefits = "".join(
-        f'<li><div><strong>{t}</strong><span>{d}</span></div></li>'
-        for t, d in p["emaavy"]
-    )
-    features = "".join(
-        f'<article class="tel-feature-card"><h3>{t}</h3><p>{d}</p></article>'
-        for t, d in p["features"]
-    )
-    uses = "".join(
-        f'<article class="tel-use-card"><h3>{t}</h3><p>{d}</p></article>'
-        for t, d in p["uses"]
-    )
-    setup = "".join(
-        f'<li><div><strong>{t}</strong><p>{d}</p></div></li>'
-        for t, d in p["setup"]
-    )
+def write_partner(p: dict) -> str:
     route = f"integration-telephony-{p['slug']}"
-
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{p['title']}</title>
-  <meta name="description" content="{p['meta']}" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="{p['title']}" />
-  <meta property="og:description" content="{p['meta']}" />
-  <meta property="og:type" content="website" />
-{HEAD_COMMON}
-  <link rel="stylesheet" href="../../assets/telephony-partner.css" />
-</head>
-<body data-base="../../" data-route="{route}">
-  <div id="site-nav-root"></div>
-  <main class="page-main tel-partner-page">
-    <section class="tel-partner-hero">
-      <div class="container tel-partner-hero-grid">
-        <div class="tel-partner-hero-copy">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true"> / </span>
-            <a href="../../index.html#integrations">Integrations</a>
-            <span aria-hidden="true"> / </span>
-            <a href="telephony.html">Telephony</a>
-            <span aria-hidden="true"> / </span>
-            <span>{p['name']}</span>
-          </nav>
-          <span class="tel-partner-kicker">Telephony · {p['tag']}</span>
-          <h1>{p['h1']}</h1>
-          <p class="tel-partner-lead">{p['lead']}</p>
-          <div class="tel-partner-stats">{stats}</div>
-          <div class="tel-partner-hero-actions">
-            <a href="../../book-demo.html" class="btn-primary">Connect {p['name']}</a>
-            <a href="telephony.html" class="btn-outline">All carriers</a>
-          </div>
-        </div>
-        <aside class="tel-partner-hero-card" aria-label="{p['name']} overview">
-          <div class="tel-partner-hero-logo">{p['logo']}</div>
-          <span class="tel-partner-hero-region">{p['region']}</span>
-          <p>Integrated with EMAAVY voice agents, campaigns, and live call intelligence.</p>
-        </aside>
-      </div>
-    </section>
-
-    <section class="tel-partner-section">
-      <div class="container">
-        <header class="tel-partner-section-head">
-          <h2>What {p['name']} does</h2>
-          <p>Understanding the carrier helps you choose the right voice path for each campaign.</p>
-        </header>
-        <div class="tel-partner-prose">{about}</div>
-      </div>
-    </section>
-
-    <section class="tel-partner-section alt">
-      <div class="container tel-partner-split">
-        <header class="tel-partner-section-head">
-          <h2>How EMAAVY uses {p['name']}</h2>
-          <p>One integration layer — your agents, analytics, and CRM sync stay consistent regardless of carrier.</p>
-        </header>
-        <ul class="tel-partner-benefits">{benefits}</ul>
-      </div>
-    </section>
-
-    <section class="tel-partner-section">
-      <div class="container">
-        <header class="tel-partner-section-head">
-          <h2>Key capabilities</h2>
-          <p>What teams typically configure when {p['name']} powers EMAAVY voice programs.</p>
-        </header>
-        <div class="tel-feature-grid">{features}</div>
-      </div>
-    </section>
-
-    <section class="tel-partner-section alt">
-      <div class="container">
-        <header class="tel-partner-section-head">
-          <h2>Ideal use cases</h2>
-          <p>Where {p['name']} and EMAAVY deliver the strongest combined outcomes.</p>
-        </header>
-        <div class="tel-use-grid">{uses}</div>
-      </div>
-    </section>
-
-    <section class="tel-partner-section">
-      <div class="container">
-        <header class="tel-partner-section-head">
-          <h2>Getting connected</h2>
-          <p>A typical rollout path from credentials to production traffic.</p>
-        </header>
-        <ol class="tel-setup-steps">{setup}</ol>
-      </div>
-    </section>
-
-    <section class="tel-partner-section alt">
-      <div class="container">
-        <header class="tel-partner-section-head">
-          <h2>Explore other carriers</h2>
-          <p>EMAAVY unifies every partner below — mix carriers by region or campaign without rebuilding agents.</p>
-        </header>
-        <nav class="tel-partner-nav-strip" aria-label="Telephony partners">
-          {partner_nav(p['slug'])}
-        </nav>
-      </div>
-    </section>
-
-    <section class="tel-partner-cta">
-      <div class="container">
-        <h2>Ready to connect {p['name']}?</h2>
-        <p>Book a walkthrough — we will map numbers, routing, and your first AI campaign on a live call.</p>
-        <div class="cta-row">
-          <a href="../../book-demo.html" class="btn-primary">Book a demo</a>
-          <a href="telephony.html" class="btn-outline">Telephony overview</a>
-        </div>
-      </div>
-    </section>
-  </main>
-  <div id="site-footer-root"></div>
-  <script src="../../assets/routes.js"></script>
-  <script src="../../assets/components.js"></script>
-  <script src="../../assets/nav.js"></script>
-</body>
-</html>
-"""
-
-
-def card_html(p: dict) -> str:
-    points = "".join(f"<li>{x}</li>" for x in p["hub_points"])
-    featured = " tel-partner-card--native" if p.get("featured") else ""
-    cta = "Explore integration →" if not p.get("featured") else "View full integration →"
-    badge = f'<span class="tel-partner-badge">{p["hub_badge"]}</span>'
-    return f"""          <a href="{p['slug']}.html" id="{p['slug']}" class="tel-partner-card{featured}">
-            <div class="tel-partner-card-top">
-              <div class="tel-partner-card-logo">{p['logo_sm']}</div>
-              {badge}
-            </div>
-            <h3>{p['name']}</h3>
-            <p class="tel-partner-card-desc">{p['hub_desc']}</p>
-            <ul class="tel-partner-card-points">{points}</ul>
-            <span class="tel-partner-card-cta">{cta}</span>
-          </a>"""
-
-
-def render_hub() -> str:
-    cards = "\n".join(card_html(p) for p in PARTNERS)
-    jumps = " ".join(
-        f'<a href="#{p["slug"]}">{p["name"]}</a>' for p in PARTNERS
+    return render_partner(
+        p,
+        partners=PARTNERS,
+        route=route,
+        segment_kicker=f"Telephony · {p['tag']}",
+        hub_file=HUB_FILE,
+        hub_label=HUB_LABEL,
+        hub_breadcrumb=HUB_BREADCRUMB,
+        hub_cta_label=HUB_CTA,
+        nav_label_key="name",
+        connect_name_key="name",
+        explore_title="Explore other carriers",
+        explore_desc="EMAAVY unifies every partner below — mix carriers by region or campaign without rebuilding agents.",
+        nav_aria="Telephony partners",
+        overview_fit="your voice stack",
+        cta_desc="Book a walkthrough — we will map numbers, routing, and your first AI campaign on a live call.",
+        segment_type="telephony",
+        hub_label_key="name",
     )
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Telephony — EMAAVY</title>
-  <meta name="description" content="EMAAVY telephony — enterprise voice infrastructure for AI agents. CPaaS, SIP, PSTN, global carriers, and live call lifecycle." />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Telephony — EMAAVY" />
-  <meta property="og:description" content="Connect EMAAVY to Vobiz, Twilio, and global carriers. Voice infrastructure built for AI agents at scale." />
-  <meta property="og:type" content="website" />
-{HEAD_COMMON}
-  <link rel="stylesheet" href="../../assets/telephony-hub.css" />
-</head>
-<body data-base="../../" data-route="integration-telephony">
-  <div id="site-nav-root"></div>
-  <main class="page-main telephony-page">
-    <section class="page-hero telephony-hero">
-      <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../../index.html">Home</a>
-          <span aria-hidden="true"> / </span>
-          <a href="../../index.html#integrations">Integrations</a>
-          <span aria-hidden="true"> / </span>
-          <span>Telephony</span>
-        </nav>
-        <span class="page-kicker">Foundation layer · Telephony</span>
-        <h1>Enterprise voice infrastructure for AI agents</h1>
-        <p class="telephony-hero-lead">EMAAVY is the connective tissue between your AI agents and the world's phone networks. Provision numbers globally, route via CPaaS or SIP, and capture audio from the first ring — with carrier-grade reliability your revenue teams can trust.</p>
-        <div class="stat-row telephony-hero-stats">
-          <div class="stat-box"><b>8</b><span>Carrier partners</span></div>
-          <div class="stat-box"><b>180+</b><span>Countries</span></div>
-          <div class="stat-box"><b>&lt;1s</b><span>Ring-to-answer</span></div>
-          <div class="stat-box"><b>99.9%</b><span>Platform uptime</span></div>
-        </div>
-        <div class="capabilities-jump telephony-jump">
-          <a href="#voice-layer">How EMAAVY handles voice</a>
-          <a href="#partners">Carriers</a>
-          <a href="#call-flow">Call flow</a>
-          {jumps}
-        </div>
-      </div>
-    </section>
-
-    <section id="voice-layer" class="tel-hub-voice">
-      <div class="container">
-        <article class="tel-hub-voice-card">
-          <div class="tel-hub-voice-meta">
-            <span class="tel-hub-voice-num">Layer 01</span>
-            <span class="tel-hub-voice-tag">EMAAVY · Telephony</span>
-            <h2>How EMAAVY handles voice</h2>
-            <p class="tel-hub-voice-lead">Every AI voice conversation starts with a reliable channel. EMAAVY normalizes telephony across providers so engineering configures once and operations scales everywhere.</p>
-          </div>
-          <div class="tel-hub-pill-grid">
-            <div class="tel-hub-pill"><strong>CPaaS APIs</strong><span>Connect programmable voice platforms without rebuilding your agent stack.</span></div>
-            <div class="tel-hub-pill"><strong>SIP trunks</strong><span>Bring your own carrier relationships while EMAAVY orchestrates media.</span></div>
-            <div class="tel-hub-pill"><strong>PSTN reach</strong><span>Reach real phone numbers worldwide for outbound and inbound lines.</span></div>
-            <div class="tel-hub-pill"><strong>First-ring capture</strong><span>Audio streams into transcription and reasoning from connect.</span></div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="partners" class="tel-hub-partners page-section alt">
-      <div class="container">
-        <header class="tel-hub-partners-head">
-          <h2>Carrier partners</h2>
-          <p>Eight integrations today — each with a dedicated page covering what the provider does, how EMAAVY connects, and how to roll out.</p>
-        </header>
-        <div class="tel-partner-grid">
-{cards}
-        </div>
-      </div>
-    </section>
-
-    <section id="call-flow" class="tel-hub-flow">
-      <div class="container">
-        <header class="tel-hub-flow-head">
-          <h2>Live call flow</h2>
-          <p>What happens on every call when EMAAVY is in the loop — regardless of which carrier you choose.</p>
-        </header>
-        <div class="tel-flow-track">
-          <article class="tel-flow-step"><strong>Voice channel opens</strong><p>EMAAVY establishes the media path and prepares the agent session.</p></article>
-          <article class="tel-flow-step"><strong>Carrier routes</strong><p>Your partner connects the callee with optimal routing rules.</p></article>
-          <article class="tel-flow-step"><strong>Audio streams</strong><p>Real-time audio feeds transcription and LLM pipelines.</p></article>
-          <article class="tel-flow-step"><strong>Agent responds</strong><p>The AI speaks, listens, and adapts within latency targets.</p></article>
-          <article class="tel-flow-step"><strong>CRM updates</strong><p>Dispositions and scores land before hang-up.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="tel-hub-cta">
-      <div class="container">
-        <h2>Connect telephony to EMAAVY</h2>
-        <p>See live routing, carrier setup, and agent handoff in a tailored demo.</p>
-        <div class="cta-row">
-          <a href="../../book-demo.html" class="btn-primary">Book a demo</a>
-          <a href="index.html" class="btn-outline">All integrations</a>
-        </div>
-      </div>
-    </section>
-  </main>
-  <div id="site-footer-root"></div>
-  <script src="../../assets/routes.js"></script>
-  <script src="../../assets/components.js"></script>
-  <script src="../../assets/nav.js"></script>
-</body>
-</html>
-"""
 
 
 def update_routes():
     path = ROOT / "assets" / "routes.js"
     text = path.read_text(encoding="utf-8")
-    import re
-
-    lines = [
-        "      { id: 'telephony', label: 'Telephony layer', path: 'pages/integrations/telephony.html' },",
-    ]
+    lines = ["      { id: 'telephony', label: 'Telephony layer', path: 'pages/integrations/telephony.html' },"]
     for p in PARTNERS:
         lines.append(
             f"      {{ id: '{p['slug']}', label: '{p['name']}', path: 'pages/integrations/{p['slug']}.html' }},"
@@ -695,10 +498,13 @@ def update_routes():
 
 
 def main():
+    prepare()
     INT.mkdir(parents=True, exist_ok=True)
-    (INT / "telephony.html").write_text(render_hub(), encoding="utf-8")
+    (INT / "telephony.html").write_text(
+        render_hub(HUB_CFG, PARTNERS, jump_label_key="name", hub_tile_label_key="name"), encoding="utf-8"
+    )
     for p in PARTNERS:
-        (INT / f"{p['slug']}.html").write_text(render_partner(p), encoding="utf-8")
+        (INT / f"{p['slug']}.html").write_text(write_partner(p), encoding="utf-8")
     update_routes()
     print(f"OK: telephony hub + {len(PARTNERS)} partner pages, routes.js updated")
 

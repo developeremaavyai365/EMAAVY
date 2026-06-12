@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Sales Agent">
+  <rect width="48" height="48" rx="12" fill="#f1f5f9"/>
+  <path d="M14 32V18l10-6 10 6v14" stroke="#18345d" stroke-width="2" fill="none" stroke-linejoin="round"/>
+  <path d="M20 32v-8h8v8" stroke="#4a658b" stroke-width="2" fill="none"/>
+  <circle cx="24" cy="22" r="3" fill="#4a658b"/>
+</svg>

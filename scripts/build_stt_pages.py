@@ -1,19 +1,15 @@
 #!/usr/bin/env python3
 """Generate STT hub + per-provider integration pages."""
 import re
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from integration_logos import apply_logos_all
+from integration_pages_common import ensure_uses, render_hub, render_partner
 
 ROOT = Path(__file__).resolve().parents[1]
 INT = ROOT / "pages" / "integrations"
-
-HEAD_COMMON = """  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../assets/nav.css" />
-  <link rel="stylesheet" href="../../assets/masthead-flex.css" />
-  <link rel="stylesheet" href="../../assets/site.css" />
-  <link rel="stylesheet" href="../../assets/emaavy-theme.css" />
-"""
 
 PROVIDERS = [
     {
@@ -22,7 +18,6 @@ PROVIDERS = [
         "short": "Deepgram",
         "region": "Low latency · Global",
         "tag": "Low latency",
-        "featured": True,
         "route": "integration-deepgram",
         "logo": '<img src="https://cdn.simpleicons.org/deepgram/13EF93" alt="" width="52" height="52" loading="lazy" />',
         "logo_sm": '<img src="https://cdn.simpleicons.org/deepgram/13EF93" alt="" width="32" height="32" loading="lazy" />',
@@ -442,295 +437,91 @@ PROVIDERS = [
     },
 ]
 
+USE_EXTRAS = [
+    ("Live coaching", "Supervisors see transcripts and intent signals in real time."),
+    ("Compliance monitoring", "Keyword and phrase detection for regulated industries."),
+    ("Multi-agent operations", "Route languages and accents per campaign without rebuilds."),
+]
 
-def provider_nav(current: str) -> str:
-    links = []
+HUB_CFG = {
+    "route": "integration-stt",
+    "title": "Speech-to-Text — EMAAVY",
+    "meta": "Nine STT providers, one EMAAVY platform. Pick the best engine per language, accent, or latency — routing is automatic so nothing gets lost.",
+    "og_title": "Speech-to-Text — EMAAVY",
+    "og_description": "Deepgram, Sarvam, AssemblyAI, Azure, Google, Whisper, and more — unified live transcription on EMAAVY.",
+    "breadcrumb": "Speech-to-Text",
+    "kicker": "Capture layer · Speech-to-Text",
+    "h1": "Every word captured — in real time",
+    "lead": "Nine STT providers, one EMAAVY platform. Pick the best engine per language, accent, or latency — routing is automatic so supervisors, agents, and CRM systems see words as they are spoken.",
+    "stats": [("9", "STT providers"), ("<0.5s", "Typical latency"), ("22+", "Languages")],
+    "anchor_jumps": [
+        ("capture-layer", "How EMAAVY transcribes"),
+        ("providers", "STT partners"),
+        ("pipeline", "Speech pipeline"),
+    ],
+    "layer_id": "capture-layer",
+    "layer_num": "Layer 03",
+    "layer_tag": "EMAAVY · Speech-to-Text",
+    "layer_h2": "How EMAAVY handles transcription",
+    "layer_lead": "Telephony audio streams into the STT layer the moment a call connects. Engineering configures defaults; operations routes Indian dialects, global English, and low-latency tiers without rebuilding agents.",
+    "pills": [
+        ("Provider choice", "Deepgram, Sarvam, Gladia, Azure, Google, and more."),
+        ("Language routing", "Indian languages to Sarvam; global English to Deepgram."),
+        ("Keyword boosting", "Brand and compliance phrases recognized reliably."),
+        ("Live feeds", "Transcripts power intent scoring before hang-up."),
+    ],
+    "partners_id": "providers",
+    "partners_h2": "STT partners",
+    "partners_desc": "Nine engines integrated today — each with a dedicated page on capabilities, EMAAVY routing, and rollout steps.",
+    "flow_id": "pipeline",
+    "flow_h2": "From speech to structured insight",
+    "flow_desc": "How every call moves through EMAAVY once audio hits the STT layer.",
+    "flow_steps": [
+        ("Audio captured", "EMAAVY ingests the live media stream from the voice channel."),
+        ("STT transcribes", "Your chosen engine streams words with sub-second latency."),
+        ("Intent parsed", "LLM layer classifies buyer signals from the transcript."),
+        ("Scores update", "Sentiment and compliance refresh on every turn."),
+        ("Actions fire", "CRM, webhooks, and coaching rules run automatically."),
+    ],
+    "cta_h2": "Connect Speech-to-Text to EMAAVY",
+    "cta_desc": "See live STT routing, keyword boosting, and agent handoff in a tailored demo.",
+}
+
+HUB_FILE = "stt.html"
+HUB_LABEL = "All STT"
+HUB_BREADCRUMB = "Speech-to-Text"
+HUB_CTA = "STT overview"
+
+
+def prepare():
     for p in PROVIDERS:
-        cls = ' class="is-current"' if p["slug"] == current else ""
-        links.append(f'<a href="{p["slug"]}.html"{cls}>{p["short"]}</a>')
-    links.append('<a href="stt.html">All STT</a>')
-    return "\n          ".join(links)
+        p.pop("featured", None)
+        ensure_uses(p, USE_EXTRAS)
+    apply_logos_all(PROVIDERS)
 
 
-def render_partner(p: dict) -> str:
-    stats = "".join(
-        f'<div class="stt-partner-stat"><b>{a}</b><span>{b}</span></div>'
-        for a, b in p["stats"]
-    )
-    about = "".join(f"<p>{para}</p>" for para in p["about"])
-    benefits = "".join(
-        f'<li><div><strong>{t}</strong><span>{d}</span></div></li>'
-        for t, d in p["emaavy"]
-    )
-    features = "".join(
-        f'<article class="stt-feature-card"><h3>{t}</h3><p>{d}</p></article>'
-        for t, d in p["features"]
-    )
-    uses = "".join(
-        f'<article class="stt-use-card"><h3>{t}</h3><p>{d}</p></article>'
-        for t, d in p["uses"]
-    )
-    setup = "".join(
-        f'<li><div><strong>{t}</strong><p>{d}</p></div></li>'
-        for t, d in p["setup"]
+def write_partner(p: dict) -> str:
+    route = p.get("route", f"integration-{p['slug']}")
+    return render_partner(
+        p,
+        partners=PROVIDERS,
+        route=route,
+        segment_kicker=f"Speech-to-Text · {p['tag']}",
+        hub_file=HUB_FILE,
+        hub_label=HUB_LABEL,
+        hub_breadcrumb=HUB_BREADCRUMB,
+        hub_cta_label=HUB_CTA,
+        nav_label_key="short",
+        connect_name_key="name",
+        explore_title="Explore other STT engines",
+        explore_desc="Mix engines by language and latency — EMAAVY keeps transcripts and scoring consistent.",
+        nav_aria="STT partners",
+        overview_fit="your capture layer",
+        cta_desc="Book a walkthrough — we will map STT routing, keyword boosting, and a live agent demo.",
+        segment_type="stt",
+        hub_label_key="short",
     )
 
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{p['title']}</title>
-  <meta name="description" content="{p['meta']}" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="{p['title']}" />
-  <meta property="og:description" content="{p['meta']}" />
-  <meta property="og:type" content="website" />
-{HEAD_COMMON}
-  <link rel="stylesheet" href="../../assets/stt-partner.css" />
-</head>
-<body data-base="../../" data-route="{p['route']}">
-  <div id="site-nav-root"></div>
-  <main class="page-main stt-partner-page">
-    <section class="stt-partner-hero">
-      <div class="container stt-partner-hero-grid">
-        <div class="stt-partner-hero-copy">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true"> / </span>
-            <a href="../../index.html#integrations">Integrations</a>
-            <span aria-hidden="true"> / </span>
-            <a href="stt.html">Speech-to-Text</a>
-            <span aria-hidden="true"> / </span>
-            <span>{p['short']}</span>
-          </nav>
-          <span class="stt-partner-kicker">Speech-to-Text · {p['tag']}</span>
-          <h1>{p['h1']}</h1>
-          <p class="stt-partner-lead">{p['lead']}</p>
-          <div class="stt-partner-stats">{stats}</div>
-          <div class="stt-partner-hero-actions">
-            <a href="../../book-demo.html" class="btn-primary">Connect {p['short']}</a>
-            <a href="stt.html" class="btn-outline">All STT providers</a>
-          </div>
-        </div>
-        <aside class="stt-partner-hero-card" aria-label="{p['name']} overview">
-          <div class="stt-partner-hero-logo">{p['logo']}</div>
-          <span class="stt-partner-hero-region">{p['region']}</span>
-          <p>Live transcription through EMAAVY — routed per language, campaign, and latency needs.</p>
-        </aside>
-      </div>
-    </section>
-
-    <section class="stt-partner-section">
-      <div class="container">
-        <header class="stt-partner-section-head">
-          <h2>What {p['short']} does</h2>
-          <p>Understanding the STT engine helps you pick the right capture layer for each voice program.</p>
-        </header>
-        <div class="stt-partner-prose">{about}</div>
-      </div>
-    </section>
-
-    <section class="stt-partner-section alt">
-      <div class="container stt-partner-split">
-        <header class="stt-partner-section-head">
-          <h2>How EMAAVY uses {p['short']}</h2>
-          <p>One speech pipeline — swap STT providers without rebuilding agents or analytics.</p>
-        </header>
-        <ul class="stt-partner-benefits">{benefits}</ul>
-      </div>
-    </section>
-
-    <section class="stt-partner-section">
-      <div class="container">
-        <header class="stt-partner-section-head">
-          <h2>Key capabilities</h2>
-          <p>What teams configure when {p['short']} powers EMAAVY transcription.</p>
-        </header>
-        <div class="stt-feature-grid">{features}</div>
-      </div>
-    </section>
-
-    <section class="stt-partner-section alt">
-      <div class="container">
-        <header class="stt-partner-section-head">
-          <h2>Ideal use cases</h2>
-          <p>Where {p['short']} and EMAAVY deliver the strongest combined outcomes.</p>
-        </header>
-        <div class="stt-use-grid">{uses}</div>
-      </div>
-    </section>
-
-    <section class="stt-partner-section">
-      <div class="container">
-        <header class="stt-partner-section-head">
-          <h2>Getting connected</h2>
-          <p>From API credentials to live traffic on EMAAVY.</p>
-        </header>
-        <ol class="stt-setup-steps">{setup}</ol>
-      </div>
-    </section>
-
-    <section class="stt-partner-section alt">
-      <div class="container">
-        <header class="stt-partner-section-head">
-          <h2>Explore other STT providers</h2>
-          <p>Mix engines by language and campaign — transcripts and scoring stay in one platform.</p>
-        </header>
-        <nav class="stt-partner-nav-strip" aria-label="STT providers">
-          {provider_nav(p['slug'])}
-        </nav>
-      </div>
-    </section>
-
-    <section class="stt-partner-cta">
-      <div class="container">
-        <h2>Ready to connect {p['short']}?</h2>
-        <p>Book a walkthrough — we will map STT routing, keyword lists, and a live agent demo.</p>
-        <div class="cta-row">
-          <a href="../../book-demo.html" class="btn-primary">Book a demo</a>
-          <a href="stt.html" class="btn-outline">STT overview</a>
-        </div>
-      </div>
-    </section>
-  </main>
-  <div id="site-footer-root"></div>
-  <script src="../../assets/routes.js"></script>
-  <script src="../../assets/components.js"></script>
-  <script src="../../assets/nav.js"></script>
-</body>
-</html>
-"""
-
-
-def card_html(p: dict) -> str:
-    points = "".join(f"<li>{x}</li>" for x in p["hub_points"])
-    featured = " stt-model-card--native" if p.get("featured") else ""
-    cta = "Explore integration →" if not p.get("featured") else "View full integration →"
-    badge = f'<span class="stt-model-badge">{p["hub_badge"]}</span>'
-    return f"""          <a href="{p['slug']}.html" id="{p['slug']}" class="stt-model-card{featured}">
-            <div class="stt-model-card-top">
-              <div class="stt-model-card-logo">{p['logo_sm']}</div>
-              {badge}
-            </div>
-            <h3>{p['name']}</h3>
-            <p class="stt-model-card-desc">{p['hub_desc']}</p>
-            <ul class="stt-model-card-points">{points}</ul>
-            <span class="stt-model-card-cta">{cta}</span>
-          </a>"""
-
-
-def render_hub() -> str:
-    cards = "\n".join(card_html(p) for p in PROVIDERS)
-    jumps = " ".join(f'<a href="#{p["slug"]}">{p["short"]}</a>' for p in PROVIDERS)
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Speech-to-Text — EMAAVY</title>
-  <meta name="description" content="Nine STT providers, one EMAAVY platform. Pick the best engine per language, accent, or latency — routing is automatic so nothing gets lost." />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Speech-to-Text — EMAAVY" />
-  <meta property="og:description" content="Deepgram, Sarvam, AssemblyAI, Azure, Google, Whisper, and more — unified live transcription on EMAAVY." />
-  <meta property="og:type" content="website" />
-{HEAD_COMMON}
-  <link rel="stylesheet" href="../../assets/stt-hub.css" />
-</head>
-<body data-base="../../" data-route="integration-stt">
-  <div id="site-nav-root"></div>
-  <main class="page-main stt-page">
-    <section class="page-hero telephony-hero">
-      <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../../index.html">Home</a>
-          <span aria-hidden="true"> / </span>
-          <a href="../../index.html#integrations">Integrations</a>
-          <span aria-hidden="true"> / </span>
-          <span>Speech-to-Text</span>
-        </nav>
-        <span class="page-kicker">Capture layer · Speech-to-Text</span>
-        <h1>Every word captured — in real time</h1>
-        <p class="telephony-hero-lead">Nine STT providers, one EMAAVY platform. Pick the best engine per language, accent, or latency — routing is automatic so supervisors, agents, and CRM systems see words as they are spoken.</p>
-        <div class="stat-row telephony-hero-stats">
-          <div class="stat-box"><b>9</b><span>STT providers</span></div>
-          <div class="stat-box"><b>&lt;0.5s</b><span>Typical latency</span></div>
-          <div class="stat-box"><b>22+</b><span>Languages</span></div>
-        </div>
-        <div class="capabilities-jump telephony-jump">
-          <a href="#capture-layer">How EMAAVY transcribes</a>
-          <a href="#providers">STT partners</a>
-          <a href="#pipeline">Speech pipeline</a>
-          {jumps}
-        </div>
-      </div>
-    </section>
-
-    <section id="capture-layer" class="stt-hub-capture">
-      <div class="container">
-        <article class="stt-hub-capture-card">
-          <div class="stt-hub-capture-meta">
-            <span class="stt-hub-capture-num">Layer 03</span>
-            <span class="stt-hub-capture-tag">EMAAVY · Speech-to-Text</span>
-            <h2>How EMAAVY handles transcription</h2>
-            <p class="stt-hub-capture-lead">Telephony audio streams into the STT layer the moment a call connects. Engineering configures defaults; operations routes Indian dialects, global English, and low-latency tiers without rebuilding agents.</p>
-          </div>
-          <div class="stt-hub-pill-grid">
-            <div class="stt-hub-pill"><strong>Provider choice</strong><span>Deepgram, Sarvam, Gladia, Azure, Google, and more.</span></div>
-            <div class="stt-hub-pill"><strong>Language routing</strong><span>Indian languages to Sarvam; global English to Deepgram.</span></div>
-            <div class="stt-hub-pill"><strong>Keyword boosting</strong><span>Brand and compliance phrases recognized reliably.</span></div>
-            <div class="stt-hub-pill"><strong>Live feeds</strong><span>Transcripts power intent scoring before hang-up.</span></div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="providers" class="stt-hub-providers page-section alt">
-      <div class="container">
-        <header class="stt-hub-providers-head">
-          <h2>STT partners</h2>
-          <p>Nine engines integrated today — each with a dedicated page on capabilities, EMAAVY routing, and rollout steps.</p>
-        </header>
-        <div class="stt-model-grid">
-{cards}
-        </div>
-      </div>
-    </section>
-
-    <section id="pipeline" class="stt-hub-flow">
-      <div class="container">
-        <header class="stt-hub-flow-head">
-          <h2>From speech to structured insight</h2>
-          <p>How every call moves through EMAAVY once audio hits the STT layer.</p>
-        </header>
-        <div class="stt-flow-track">
-          <article class="stt-flow-step"><strong>Audio captured</strong><p>EMAAVY ingests the live media stream from the voice channel.</p></article>
-          <article class="stt-flow-step"><strong>STT transcribes</strong><p>Your chosen engine streams words with sub-second latency.</p></article>
-          <article class="stt-flow-step"><strong>Intent parsed</strong><p>LLM layer classifies buyer signals from the transcript.</p></article>
-          <article class="stt-flow-step"><strong>Scores update</strong><p>Sentiment and compliance refresh on every turn.</p></article>
-          <article class="stt-flow-step"><strong>Actions fire</strong><p>CRM, webhooks, and coaching rules run automatically.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="stt-hub-cta">
-      <div class="container">
-        <h2>Connect Speech-to-Text to EMAAVY</h2>
-        <p>See live STT routing, keyword boosting, and agent handoff in a tailored demo.</p>
-        <div class="cta-row">
-          <a href="../../book-demo.html" class="btn-primary">Book a demo</a>
-          <a href="index.html" class="btn-outline">All integrations</a>
-        </div>
-      </div>
-    </section>
-  </main>
-  <div id="site-footer-root"></div>
-  <script src="../../assets/routes.js"></script>
-  <script src="../../assets/components.js"></script>
-  <script src="../../assets/nav.js"></script>
-</body>
-</html>
-"""
 
 
 def update_routes():
@@ -748,12 +539,15 @@ def update_routes():
 
 
 def main():
+    prepare()
     INT.mkdir(parents=True, exist_ok=True)
-    (INT / "stt.html").write_text(render_hub(), encoding="utf-8")
+    (INT / "stt.html").write_text(
+        render_hub(HUB_CFG, PROVIDERS, jump_label_key="short", hub_tile_label_key="short"), encoding="utf-8"
+    )
     for p in PROVIDERS:
-        (INT / f"{p['slug']}.html").write_text(render_partner(p), encoding="utf-8")
+        (INT / f"{p['slug']}.html").write_text(write_partner(p), encoding="utf-8")
     update_routes()
-    print(f"OK: STT hub + {len(PROVIDERS)} provider pages, routes.js updated")
+    print(f"OK: stt.html + {len(PROVIDERS)} partner pages, routes.js updated")
 
 
 if __name__ == "__main__":

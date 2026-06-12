@@ -1,0 +1,133 @@
+/**
+ * EMAAVY — canonical brand logo (assets/brand/emaavy-logo.svg)
+ * Official wordmark · #18345d · proportional scaling only
+ */
+:root {
+  --emaavy-logo-aspect: 5.586;
+  --emaavy-logo-color: #18345d;
+  --navbar-logo-height: 24px;
+  --navbar-logo-height-compact: 22px;
+  --navbar-logo-max-width: 140px;
+  --navbar-logo-gap: clamp(1.25rem, 2.2vw, 1.75rem);
+}
+
+/* ─── Base image rules ─── */
+.emaavy-logo,
+.logo-mega-mark {
+  display: block;
+  width: auto !important;
+  max-width: 100%;
+  object-fit: contain !important;
+  object-position: left center;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 0;
+  background: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  clip-path: none !important;
+  -webkit-clip-path: none !important;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* ─── Navbar wordmark ─── */
+.logo-mega--wordmark,
+.logo-mega--nav-only,
+.logo-mega.logo-mega--wordmark {
+  flex: 0 0 auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  align-self: center !important;
+  justify-content: flex-start !important;
+  line-height: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 var(--navbar-logo-gap) 0 0 !important;
+  text-decoration: none !important;
+  gap: 0 !important;
+  overflow: visible !important;
+}
+
+.emaavy-logo--nav,
+.logo-mega--nav-only .emaavy-logo,
+.logo-mega--nav-only .logo-mega-mark,
+.masthead .emaavy-logo,
+.masthead .logo-mega-mark,
+body .masthead .logo-mega-mark,
+body .masthead .emaavy-logo,
+body[data-page="home"] .logo-mega-mark,
+body[data-page="home"] .emaavy-logo--nav {
+  height: var(--navbar-logo-height) !important;
+  width: auto !important;
+  max-width: var(--navbar-logo-max-width) !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+}
+
+.masthead.compact .emaavy-logo--nav,
+.masthead.compact .logo-mega-mark,
+body .masthead.compact .logo-mega-mark,
+body .masthead.compact .emaavy-logo,
+body[data-page="home"] .masthead.compact .logo-mega-mark,
+body[data-page="home"] .masthead.compact .emaavy-logo--nav {
+  height: var(--navbar-logo-height-compact) !important;
+  max-width: calc(var(--navbar-logo-max-width) - 8px) !important;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --navbar-logo-height: 22px;
+    --navbar-logo-height-compact: 20px;
+    --navbar-logo-max-width: 120px;
+    --navbar-logo-gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --navbar-logo-height: 20px;
+    --navbar-logo-max-width: 108px;
+    --navbar-logo-gap: 0.75rem;
+  }
+}
+
+/* Hero headline isolated from logo — typography lives in index.html */
+
+/* ─── Home hero logo only ─── */
+.emaavy-logo--hero,
+.hero-brand .emaavy-logo {
+  height: clamp(36px, 5.5vw, 52px) !important;
+  width: auto !important;
+  max-width: min(300px, 72vw) !important;
+  margin-bottom: 0.35rem;
+}
+
+/* ─── Footer ─── */
+.footer-brand-logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  line-height: 0;
+}
+
+.emaavy-logo--footer,
+.footer-brand .emaavy-logo {
+  height: clamp(22px, 2.8vw, 26px) !important;
+  width: auto !important;
+  max-width: min(160px, 50vw) !important;
+}
+
+/* Hide legacy font-based wordmark recreations (hero uses .hero-brand-letters) */
+.logo-letters,
+.logo-letter,
+.logo-mega-maavy,
+.logo-mega-brand,
+.logo-mega--wordmark .logo-tag {
+  display: none !important;
+}

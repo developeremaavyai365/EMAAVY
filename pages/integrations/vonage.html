@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta property="og:image" content="../../assets/brand/emaavy-logo.png" />
+
+  <link rel="icon" href="../../assets/brand/emaavy-logo.svg" type="image/svg+xml" />
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vonage Voice API — EMAAVY</title>
@@ -12,12 +16,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../assets/nav.css" />
+  <link rel="stylesheet" href="../../assets/navbar-tokens.css" />
+<link rel="stylesheet" href="../../assets/nav.css" />
   <link rel="stylesheet" href="../../assets/masthead-flex.css" />
-  <link rel="stylesheet" href="../../assets/site.css" />
+<link rel="stylesheet" href="../../assets/navbar-typography.css" />
+
+    <link rel="stylesheet" href="../../assets/emaavy-type-tokens.css" />
+<link rel="stylesheet" href="../../assets/site.css" />
+  <link rel="stylesheet" href="../../assets/footer-premium.css" />
   <link rel="stylesheet" href="../../assets/emaavy-theme.css" />
+  <link rel="stylesheet" href="../../assets/responsive-system.css" />
 
   <link rel="stylesheet" href="../../assets/telephony-partner.css" />
+  <link rel="stylesheet" href="../../assets/integration-logo-3d.css" />
+  <link rel="stylesheet" href="../../assets/section-heading.css" />
+<link rel="stylesheet" href="../../assets/brand-logo.css" />
 </head>
 <body data-base="../../" data-route="integration-telephony-vonage">
   <div id="site-nav-root"></div>
@@ -25,16 +38,7 @@
     <section class="tel-partner-hero">
       <div class="container tel-partner-hero-grid">
         <div class="tel-partner-hero-copy">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true"> / </span>
-            <a href="../../index.html#integrations">Integrations</a>
-            <span aria-hidden="true"> / </span>
-            <a href="telephony.html">Telephony</a>
-            <span aria-hidden="true"> / </span>
-            <span>Vonage</span>
-          </nav>
-          <span class="tel-partner-kicker">Telephony · SIP + PSTN</span>
+<span class="tel-partner-kicker">Telephony · SIP + PSTN</span>
           <h1>Vonage Voice API</h1>
           <p class="tel-partner-lead">Vonage (formerly Nexmo) powers voice, video, and messaging for enterprises worldwide. EMAAVY integrates Vonage Voice API for blended contact-center and SIP workloads.</p>
           <div class="tel-partner-stats"><div class="tel-partner-stat"><b>SIP + PSTN</b><span>Connectivity</span></div><div class="tel-partner-stat"><b>Global</b><span>Numbers</span></div><div class="tel-partner-stat"><b>Enterprise</b><span>Support</span></div></div>
@@ -43,80 +47,129 @@
             <a href="telephony.html" class="btn-outline">All carriers</a>
           </div>
         </div>
-        <aside class="tel-partner-hero-card" aria-label="Vonage overview">
-          <div class="tel-partner-hero-logo"><img src="https://cdn.simpleicons.org/vonage/000000" alt="" width="52" height="52" loading="lazy" /></div>
+        <aside class="tel-partner-hero-card int-logo-hero-wrap" aria-label="Vonage logo">
+          <div class="int-logo-hero-panel"><img class="int-logo-img int-logo-img--lg int-logo-img--light" src="../../assets/logos/integrations/vonage.svg" alt="Vonage" width="64" height="64" loading="lazy" decoding="async" /></div>
           <span class="tel-partner-hero-region">Global CPaaS · SIP</span>
-          <p>Integrated with EMAAVY voice agents, campaigns, and live call intelligence.</p>
         </aside>
       </div>
     </section>
 
-    <section class="tel-partner-section">
+    <section id="overview" class="tel-partner-section">
       <div class="container">
         <header class="tel-partner-section-head">
-          <h2>What Vonage does</h2>
-          <p>Understanding the carrier helps you choose the right voice path for each campaign.</p>
+          <h2>Overview</h2>
+          <p>What Vonage provides and how it fits into your voice stack.</p>
         </header>
         <div class="tel-partner-prose"><p>Vonage Voice API supports outbound and inbound calls, NCCO call control, recording, and SIP interconnect. It is a common choice for organizations migrating legacy contact centers to programmable infrastructure.</p><p>With EMAAVY, Vonage sessions feed the same real-time transcription and agent reasoning layer — whether calls originate from PSTN, SIP trunks, or WebRTC endpoints.</p></div>
       </div>
     </section>
 
-    <section class="tel-partner-section alt">
-      <div class="container tel-partner-split">
-        <header class="tel-partner-section-head">
-          <h2>How EMAAVY uses Vonage</h2>
-          <p>One integration layer — your agents, analytics, and CRM sync stay consistent regardless of carrier.</p>
-        </header>
-        <ul class="tel-partner-benefits"><li><div><strong>Blended centers</strong><span>AI handles tier-1 volume; Vonage routes escalations to human queues.</span></div></li><li><div><strong>SIP enterprises</strong><span>Keep existing trunks while adding AI agents on selective campaigns.</span></div></li><li><div><strong>Global footprint</strong><span>Provision numbers in key markets without separate orchestration code.</span></div></li><li><div><strong>Recording & compliance</strong><span>Align Vonage recordings with EMAAVY audit policies.</span></div></li></ul>
-      </div>
-    </section>
-
-    <section class="tel-partner-section">
+    <section id="capabilities" class="tel-partner-section alt">
       <div class="container">
         <header class="tel-partner-section-head">
           <h2>Key capabilities</h2>
-          <p>What teams typically configure when Vonage powers EMAAVY voice programs.</p>
+          <p>Core features teams configure when Vonage powers EMAAVY programs.</p>
         </header>
-        <div class="tel-feature-grid"><article class="tel-feature-card"><h3>Voice API</h3><p>NCCO-driven call flows with JSON control.</p></article><article class="tel-feature-card"><h3>SIP trunks</h3><p>Connect on-prem or cloud PBX infrastructure.</p></article><article class="tel-feature-card"><h3>Number management</h3><p>Search, buy, and port numbers globally.</p></article><article class="tel-feature-card"><h3>WebRTC</h3><p>Browser-based calling for supervisor monitoring.</p></article><article class="tel-feature-card"><h3>Call recording</h3><p>Store conversations with configurable retention.</p></article><article class="tel-feature-card"><h3>Low-latency media</h3><p>Optimized paths for conversational AI loops.</p></article></div>
+        <div class="tel-feature-grid"><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">VA</span><h3>Voice API</h3><p>NCCO-driven call flows with JSON control.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">ST</span><h3>SIP trunks</h3><p>Connect on-prem or cloud PBX infrastructure.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">NM</span><h3>Number management</h3><p>Search, buy, and port numbers globally.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">WE</span><h3>WebRTC</h3><p>Browser-based calling for supervisor monitoring.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">CR</span><h3>Call recording</h3><p>Store conversations with configurable retention.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">LM</span><h3>Low-latency media</h3><p>Optimized paths for conversational AI loops.</p></article></div>
       </div>
     </section>
 
-    <section class="tel-partner-section alt">
+    <section id="use-cases" class="tel-partner-section">
       <div class="container">
         <header class="tel-partner-section-head">
-          <h2>Ideal use cases</h2>
-          <p>Where Vonage and EMAAVY deliver the strongest combined outcomes.</p>
+          <h2>Business use cases</h2>
+          <p>Real-world applications for Vonage with EMAAVY agents and campaigns.</p>
         </header>
-        <div class="tel-use-grid"><article class="tel-use-card"><h3>Contact centers</h3><p>AI-first routing with human overflow on Vonage.</p></article><article class="tel-use-card"><h3>Financial services</h3><p>Secure voice with enterprise Vonage contracts.</p></article><article class="tel-use-card"><h3>Retail support</h3><p>Seasonal inbound spikes handled by AI agents.</p></article></div>
+        <div class="tel-use-grid"><article class="tel-use-card"><h3>Contact centers</h3><p>AI-first routing with human overflow on Vonage.</p></article><article class="tel-use-card"><h3>Customer support</h3><p>Seasonal inbound spikes handled by AI agents.</p></article><article class="tel-use-card"><h3>Sales calls</h3><p>Outbound and blended programs on shared Vonage infrastructure.</p></article><article class="tel-use-card"><h3>Appointment booking</h3><p>Confirm slots with calendar sync during conversations.</p></article><article class="tel-use-card"><h3>Lead qualification</h3><p>Tier-1 screening before specialist handoff.</p></article><article class="tel-use-card"><h3>Multi-agent operations</h3><p>SIP and PSTN traffic through one agent orchestration layer.</p></article></div>
+      </div>
+    </section>
+
+    <section id="integration-workflow" class="tel-partner-section alt">
+      <div class="container">
+        <header class="tel-partner-section-head">
+          <h2>Integration workflow</h2>
+          <p>How Vonage connects through EMAAVY — from live events to automated outcomes.</p>
+        </header>
+        <div class="tel-workflow-viz__track"><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">01</span><h3>Call connects</h3><p>Inbound or outbound session starts on your numbers.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">02</span><h3>EMAAVY routes</h3><p>Platform selects carrier, media path, and agent profile.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">03</span><h3>Provider handles</h3><p>Telephony partner delivers PSTN, SIP, or CPaaS voice.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">04</span><h3>Audio streams</h3><p>Live media feeds STT and reasoning pipelines.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">05</span><h3>Agent engages</h3><p>AI agent speaks and acts on real-time intelligence.</p></article></div>
+      </div>
+    </section>
+
+    <section id="setup-process" class="tel-partner-section">
+      <div class="container">
+        <header class="tel-partner-section-head">
+          <h2>Setup process</h2>
+          <p>Connection steps to go from credentials to production traffic with Vonage.</p>
+        </header>
+        <div class="tel-setup-grid"><article class="tel-setup-step"><span class="tel-setup-label">Connect Vonage API</span><p>Add API key and application ID to EMAAVY.</p></article><article class="tel-setup-step"><span class="tel-setup-label">Configure application</span><p>EMAAVY sets answer and event URLs on your Vonage app.</p></article><article class="tel-setup-step"><span class="tel-setup-label">Attach numbers</span><p>Map inbound or outbound numbers to campaigns.</p></article><article class="tel-setup-step"><span class="tel-setup-label">Validate SIP</span><p>Optional trunk testing before production traffic.</p></article></div>
+      </div>
+    </section>
+
+    <section id="business-benefits" class="tel-partner-section alt">
+      <div class="container tel-partner-split">
+        <header class="tel-partner-section-head">
+          <h2>Business benefits</h2>
+          <p>Efficiency, automation, scalability, and customer experience gains from connecting Vonage to EMAAVY.</p>
+        </header>
+        <ul class="tel-partner-benefits"><li><div><span class="tel-why-title">Blended centers</span><span class="tel-why-desc">AI handles tier-1 volume; Vonage routes escalations to human queues.</span></div></li><li><div><span class="tel-why-title">SIP enterprises</span><span class="tel-why-desc">Keep existing trunks while adding AI agents on selective campaigns.</span></div></li><li><div><span class="tel-why-title">Global footprint</span><span class="tel-why-desc">Provision numbers in key markets without separate orchestration code.</span></div></li><li><div><span class="tel-why-title">Recording & compliance</span><span class="tel-why-desc">Align Vonage recordings with EMAAVY audit policies.</span></div></li></ul>
       </div>
     </section>
 
     <section class="tel-partner-section">
-      <div class="container">
-        <header class="tel-partner-section-head">
-          <h2>Getting connected</h2>
-          <p>A typical rollout path from credentials to production traffic.</p>
-        </header>
-        <ol class="tel-setup-steps"><li><div><strong>Connect Vonage API</strong><p>Add API key and application ID to EMAAVY.</p></div></li><li><div><strong>Configure application</strong><p>EMAAVY sets answer and event URLs on your Vonage app.</p></div></li><li><div><strong>Attach numbers</strong><p>Map inbound or outbound numbers to campaigns.</p></div></li><li><div><strong>Validate SIP</strong><p>Optional trunk testing before production traffic.</p></div></li></ol>
-      </div>
-    </section>
-
-    <section class="tel-partner-section alt">
       <div class="container">
         <header class="tel-partner-section-head">
           <h2>Explore other carriers</h2>
           <p>EMAAVY unifies every partner below — mix carriers by region or campaign without rebuilding agents.</p>
         </header>
-        <nav class="tel-partner-nav-strip" aria-label="Telephony partners">
-          <a href="vobiz.html">Vobiz</a>
-          <a href="twilio.html">Twilio</a>
-          <a href="plivo.html">Plivo</a>
-          <a href="vonage.html" class="is-current">Vonage</a>
-          <a href="exotel.html">Exotel</a>
-          <a href="knowlarity.html">Knowlarity</a>
-          <a href="telnyx.html">Telnyx</a>
-          <a href="bandwidth.html">Bandwidth</a>
-          <a href="telephony.html">All telephony</a>
+        <nav class="int-logo-ecosystem int-logo-ecosystem--compact" aria-label="Telephony partners">
+          <a href="vobiz.html" id="vobiz" class="int-logo-tile int-logo-tile--compact" aria-label="Vobiz integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/vobiz.svg" alt="Vobiz" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Vobiz</span>
+              <span class="int-logo-tile__category">Global CPaaS</span>
+            </div>
+          </a>
+          <a href="twilio.html" id="twilio" class="int-logo-tile int-logo-tile--compact" aria-label="Twilio integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/twilio.svg" alt="Twilio" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Twilio</span>
+              <span class="int-logo-tile__category">Global CPaaS</span>
+            </div>
+          </a>
+          <a href="plivo.html" id="plivo" class="int-logo-tile int-logo-tile--compact" aria-label="Plivo integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--light" src="../../assets/logos/integrations/plivo.svg" alt="Plivo" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Plivo</span>
+              <span class="int-logo-tile__category">Global CPaaS</span>
+            </div>
+          </a>
+          <a href="exotel.html" id="exotel" class="int-logo-tile int-logo-tile--compact" aria-label="Exotel integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/exotel.svg" alt="Exotel" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Exotel</span>
+              <span class="int-logo-tile__category">India · APAC</span>
+            </div>
+          </a>
+          <a href="knowlarity.html" id="knowlarity" class="int-logo-tile int-logo-tile--compact" aria-label="Knowlarity integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/knowlarity.svg" alt="Knowlarity" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Knowlarity</span>
+              <span class="int-logo-tile__category">India · APAC</span>
+            </div>
+          </a>
+          <a href="telnyx.html" id="telnyx" class="int-logo-tile int-logo-tile--compact" aria-label="Telnyx integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/telnyx.svg" alt="Telnyx" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Telnyx</span>
+              <span class="int-logo-tile__category">Private network</span>
+            </div>
+          </a>
+          <a href="bandwidth.html" id="bandwidth" class="int-logo-tile int-logo-tile--compact" aria-label="Bandwidth integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/bandwidth.svg" alt="Bandwidth" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Bandwidth</span>
+              <span class="int-logo-tile__category">Direct carrier</span>
+            </div>
+          </a>
         </nav>
       </div>
     </section>

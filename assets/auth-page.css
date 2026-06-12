@@ -14,9 +14,8 @@
   min-height: 100vh;
 }
 
-.auth-page #site-footer-root .site-footer {
+.auth-page #site-footer-root .site-footer--premium {
   margin-top: 0;
-  border-top: 1px solid #e2e8f0;
 }
 
 .auth-shell {
@@ -96,36 +95,6 @@
   position: relative;
   z-index: 2;
   max-width: 480px;
-}
-
-.auth-showcase-logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-  text-decoration: none;
-  color: #fff;
-}
-
-.auth-showcase-logo img {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  object-fit: contain;
-  background: rgba(255, 255, 255, 0.15);
-  padding: 4px;
-}
-
-.auth-showcase-logo span {
-  font-family: 'Clash Display', sans-serif;
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-.auth-showcase-logo em {
-  color: rgba(255, 255, 255, 0.75);
-  font-style: normal;
 }
 
 .auth-showcase h1 {
@@ -278,7 +247,7 @@
 .auth-panel-head h2 {
   font-family: 'Clash Display', sans-serif;
   font-size: 1.65rem;
-  color: #0f172a;
+  color: #18345d;
   letter-spacing: -0.03em;
   margin-bottom: 0.35rem;
 }

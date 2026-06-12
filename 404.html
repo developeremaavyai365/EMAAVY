@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found — EMAAVY</title>
+  <meta name="description" content="The page you requested could not be found on EMAAVY." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="assets/brand/emaavy-logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/navbar-tokens.css" />
+  <link rel="stylesheet" href="assets/nav.css" />
+  <link rel="stylesheet" href="assets/masthead-flex.css" />
+  <link rel="stylesheet" href="assets/navbar-typography.css" />
+  <link rel="stylesheet" href="assets/emaavy-type-tokens.css" />
+  <link rel="stylesheet" href="assets/site.css" />
+  <link rel="stylesheet" href="assets/emaavy-theme.css" />
+  <link rel="stylesheet" href="assets/responsive-system.css" />
+  <link rel="stylesheet" href="assets/brand-logo.css" />
+  <style>
+    .error-page {
+      min-height: calc(100vh - var(--masthead-h, 72px));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+    .error-card {
+      max-width: 520px;
+    }
+    .error-code {
+      font-family: 'Clash Display', sans-serif;
+      font-size: clamp(4rem, 12vw, 6rem);
+      font-weight: 700;
+      color: #4a658b;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .error-card h1 {
+      font-family: 'Clash Display', sans-serif;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      color: #18345d;
+      margin-bottom: 0.75rem;
+    }
+    .error-card p {
+      color: #475569;
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+    .error-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+    .error-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.65rem 1.25rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .error-actions .primary {
+      background: #4a658b;
+      color: #fff;
+    }
+    .error-actions .primary:hover {
+      background: #18345d;
+    }
+    .error-actions .secondary {
+      background: #fff;
+      color: #18345d;
+      border: 1px solid #e2e8f0;
+    }
+    .error-actions .secondary:hover {
+      background: #f8fafc;
+    }
+  </style>
+</head>
+<body data-base="" data-route="404">
+  <div id="site-nav-root"></div>
+  <main class="error-page">
+    <div class="error-card">
+      <p class="error-code" aria-hidden="true">404</p>
+      <h1>Page not found</h1>
+      <p>The page you are looking for may have moved, been renamed, or no longer exists. Return to the homepage or explore our documentation.</p>
+      <div class="error-actions">
+        <a href="index.html" class="primary">Back to home</a>
+        <a href="pages/documentation.html" class="secondary">Documentation</a>
+        <a href="book-demo.html" class="secondary">Book a demo</a>
+      </div>
+    </div>
+  </main>
+  <div id="site-footer-root"></div>
+  <script src="assets/routes.js"></script>
+  <script src="assets/components.js"></script>
+  <script src="assets/nav.js"></script>
+</body>
+</html>

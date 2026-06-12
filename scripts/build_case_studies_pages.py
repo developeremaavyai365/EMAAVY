@@ -1,19 +1,15 @@
 #!/usr/bin/env python3
 """Generate Case Studies hub + per-client story pages."""
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from case_study_logos import apply_case_study_icons, ensure_icons
+from case_studies_pages_common import render_hub, render_study
 
 ROOT = Path(__file__).resolve().parents[1]
 CS_DIR = ROOT / "pages" / "case-studies"
 HUB = ROOT / "pages" / "case-studies.html"
-
-HEAD_COMMON = """  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="{base}assets/nav.css" />
-  <link rel="stylesheet" href="{base}assets/masthead-flex.css" />
-  <link rel="stylesheet" href="{base}assets/site.css" />
-  <link rel="stylesheet" href="{base}assets/emaavy-theme.css" />
-"""
 
 STUDIES = [
     {
@@ -159,286 +155,65 @@ STUDIES = [
     },
 ]
 
+HUB_CFG = {
+    "route": "case-studies",
+    "title": "Case Studies — EMAAVY",
+    "meta": "Real EMAAVY client results — exhibition campaigns, BPO QA automation, and logistics follow-ups with measurable ROI.",
+    "og_title": "Case Studies — EMAAVY",
+    "og_description": "Client success stories with challenge, EMAAVY rollout, and measured outcomes.",
+    "kicker": "Client Success · Proof",
+    "h1": "Real results from client stories",
+    "lead": "Exhibition campaigns, BPO quality programs, and logistics at scale — each story documents the challenge, EMAAVY implementation, and outcomes measured after go-live.",
+    "stats": [("68%", "Peak conversion"), ("50K+", "Calls / month"), ("61%", "Faster QA")],
+    "anchor_jumps": [],
+    "layer_id": "proof-layer",
+    "layer_num": "Client proof",
+    "layer_tag": "EMAAVY · Case Studies",
+    "layer_h2": "Why enterprises trust EMAAVY outcomes",
+    "layer_lead": "Every story follows the same arc — a business constraint, an EMAAVY voice and intelligence rollout, and metrics captured in production. No vanity slides; only measured lift against prior baselines.",
+    "pills": [
+        ("Proven conversion", "Voice beats email and manual outreach on high-intent lists."),
+        ("Full call coverage", "Score every conversation — not 5% spot checks."),
+        ("Multilingual scale", "Regional programs without proportional hiring."),
+        ("Fast escalation", "Humans join with transcript context when risk spikes."),
+    ],
+    "stories_id": "stories",
+    "stories_h2": "Client stories",
+    "stories_desc": "Three published case studies — each with a dedicated page covering challenge, solution, implementation, and results.",
+    "flow_id": "rollout",
+    "flow_h2": "From pilot to production proof",
+    "flow_desc": "How teams typically move from first story to scaled programs on EMAAVY.",
+    "flow_steps": [
+        ("Align on KPI", "Pick conversion, CSAT, or QA coverage targets."),
+        ("Design the program", "Agents, languages, and integration stack."),
+        ("Pilot cohort", "Single campaign or queue before full traffic."),
+        ("Measure live", "Dashboards vs email, manual, or sample QA baselines."),
+        ("Scale", "Expand lists, languages, and supervisor playbooks."),
+    ],
+    "cta_h2": "Build your next success story on EMAAVY",
+    "cta_desc": "See how voice programs perform in your industry — tailored demo with live calls and ROI framing.",
+}
 
-def study_nav(current: str) -> str:
-    links = []
+
+def prepare():
     for s in STUDIES:
-        cls = ' class="is-current"' if s["slug"] == current else ""
-        links.append(f'<a href="{s["slug"]}.html"{cls}>{s["short"]}</a>')
-    links.append('<a href="../case-studies.html">All case studies</a>')
-    return "\n          ".join(links)
-
-
-def render_study(s: dict) -> str:
-    stats = "".join(
-        f'<div class="cs-study-stat"><b>{a}</b><span>{b}</span></div>' for a, b in s["stats"]
-    )
-    challenge = "".join(f"<p>{p}</p>" for p in s["challenge"])
-    benefits = "".join(
-        f'<li><div><strong>{t}</strong><span>{d}</span></div></li>'
-        for t, d in s["solution_points"]
-    )
-    stack = "".join(f'<span class="cs-stack-pill">{x}</span>' for x in s["stack"])
-    impl = "".join(
-        f'<li><div><strong>{t}</strong><p>{d}</p></div></li>'
-        for t, d in s["implementation"]
-    )
-    highlights = "".join(
-        f'<article class="cs-feature-card"><h3>{t}</h3><p>{d}</p></article>'
-        for t, d in s["results_highlights"]
-    )
-    bullets = "".join(f"<li>{b}</li>" for b in s["results_bullets"])
-
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{s['name']} — Case Study — EMAAVY</title>
-  <meta name="description" content="{s['meta']}" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="{s['name']} — Case Study — EMAAVY" />
-  <meta property="og:description" content="{s['meta']}" />
-  <meta property="og:type" content="article" />
-{HEAD_COMMON.format(base="../../")}
-  <link rel="stylesheet" href="../../assets/case-study-detail.css" />
-</head>
-<body data-base="../../" data-route="{s['route']}">
-  <div id="site-nav-root"></div>
-  <main class="page-main cs-study-page">
-    <section class="cs-study-hero">
-      <div class="container cs-study-hero-grid">
-        <div class="cs-study-hero-copy">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true"> / </span>
-            <a href="../../index.html#case-studies">Case Studies</a>
-            <span aria-hidden="true"> / </span>
-            <a href="../case-studies.html">All stories</a>
-            <span aria-hidden="true"> / </span>
-            <span>{s['short']}</span>
-          </nav>
-          <span class="cs-study-kicker">Case Study · {s['kicker']}</span>
-          <h1>{s['headline']}</h1>
-          <p class="cs-study-lead">{s['lead']}</p>
-          <div class="cs-study-stats">{stats}</div>
-          <div class="cs-study-hero-actions">
-            <a href="../../book-demo.html" class="btn-primary">Discuss a similar rollout</a>
-            <a href="../case-studies.html" class="btn-outline">All case studies</a>
-          </div>
-        </div>
-        <aside class="cs-study-hero-card" aria-label="{s['name']}">
-          <div class="cs-study-hero-logo"><span class="brand-mark">{s['mark']}</span></div>
-          <span class="cs-study-hero-region">{s['region']}</span>
-          <p><strong>{s['name']}</strong> — client success on EMAAVY voice, intelligence, and integrations.</p>
-        </aside>
-      </div>
-    </section>
-
-    <section class="cs-study-section" id="challenge">
-      <div class="container">
-        <header class="cs-study-section-head">
-          <h2>The challenge</h2>
-          <p>What {s['name']} needed to solve before EMAAVY.</p>
-        </header>
-        <div class="cs-study-prose">{challenge}</div>
-      </div>
-    </section>
-
-    <section class="cs-study-section alt" id="solution">
-      <div class="container cs-study-split">
-        <header class="cs-study-section-head">
-          <h2>How EMAAVY delivered</h2>
-          <p>{s['solution_lead']}</p>
-          <div class="cs-stack-pills">{stack}</div>
-        </header>
-        <ul class="cs-study-benefits">{benefits}</ul>
-      </div>
-    </section>
-
-    <section class="cs-study-section" id="implementation">
-      <div class="container">
-        <header class="cs-study-section-head">
-          <h2>Implementation on EMAAVY</h2>
-          <p>Step-by-step rollout — from data ingest to live operations.</p>
-        </header>
-        <ol class="cs-impl-steps">{impl}</ol>
-      </div>
-    </section>
-
-    <section class="cs-study-section alt" id="results">
-      <div class="container">
-        <header class="cs-study-section-head">
-          <h2>Results &amp; impact</h2>
-          <p>Outcomes measured after go-live — not projections.</p>
-        </header>
-        <div class="cs-feature-grid">{highlights}</div>
-        <ul class="cs-results-list">{bullets}</ul>
-      </div>
-    </section>
-
-    <section class="cs-study-section">
-      <div class="container">
-        <header class="cs-study-section-head">
-          <h2>More client stories</h2>
-          <p>Explore other industries and programs running on EMAAVY.</p>
-        </header>
-        <nav class="cs-study-nav-strip" aria-label="Case studies">
-          {study_nav(s['slug'])}
-        </nav>
-      </div>
-    </section>
-
-    <section class="cs-study-cta">
-      <div class="container">
-        <h2>Ready for results like {s['short']}?</h2>
-        <p>Book a walkthrough — review a live call, map your stack, and plan your first program.</p>
-        <div class="cta-row">
-          <a href="../../book-demo.html" class="btn-primary">Book a demo</a>
-          <a href="../case-studies.html" class="btn-outline">All case studies</a>
-        </div>
-      </div>
-    </section>
-  </main>
-  <div id="site-footer-root"></div>
-  <script src="../../assets/routes.js"></script>
-  <script src="../../assets/components.js"></script>
-  <script src="../../assets/nav.js"></script>
-</body>
-</html>
-"""
-
-
-def card_html(s: dict) -> str:
-    points = "".join(f"<li>{x}</li>" for x in s["hub_points"])
-    return f"""          <a href="case-studies/{s['slug']}.html" id="{s['slug']}" class="cs-study-card">
-            <div class="cs-study-card-top">
-              <div class="cs-study-card-logo"><span class="brand-mark">{s['mark']}</span></div>
-              <span class="cs-study-badge">{s['hub_badge']}</span>
-            </div>
-            <h3>{s['name']}</h3>
-            <p class="cs-study-card-desc">{s['hub_desc']}</p>
-            <ul class="cs-study-card-points">{points}</ul>
-            <span class="cs-study-card-cta">Read case study →</span>
-          </a>"""
-
-
-def render_hub() -> str:
-    cards = "\n".join(card_html(s) for s in STUDIES)
-    jumps = " ".join(f'<a href="#{s["slug"]}">{s["short"]}</a>' for s in STUDIES)
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Case Studies — EMAAVY</title>
-  <meta name="description" content="Real EMAAVY client results — exhibition campaigns, BPO QA automation, and logistics follow-ups with measurable ROI." />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Case Studies — EMAAVY" />
-  <meta property="og:description" content="Client success stories with challenge, EMAAVY rollout, and measured outcomes." />
-  <meta property="og:type" content="website" />
-{HEAD_COMMON.format(base="../")}
-  <link rel="stylesheet" href="../assets/case-studies-hub.css" />
-</head>
-<body data-base="../" data-route="case-studies">
-  <div id="site-nav-root"></div>
-  <main class="page-main cs-page">
-    <section class="page-hero telephony-hero">
-      <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../index.html">Home</a>
-          <span aria-hidden="true"> / </span>
-          <span>Case Studies</span>
-        </nav>
-        <span class="page-kicker">Client Success · Proof</span>
-        <h1>Real results from client stories</h1>
-        <p class="telephony-hero-lead">Exhibition campaigns, BPO quality programs, and logistics at scale — each story documents the challenge, EMAAVY implementation, and outcomes measured after go-live.</p>
-        <div class="stat-row telephony-hero-stats">
-          <div class="stat-box"><b>68%</b><span>Peak conversion</span></div>
-          <div class="stat-box"><b>50K+</b><span>Calls / month</span></div>
-          <div class="stat-box"><b>61%</b><span>Faster QA</span></div>
-        </div>
-        <div class="capabilities-jump telephony-jump">
-          <a href="#proof-layer">Why EMAAVY wins</a>
-          <a href="#stories">Client stories</a>
-          <a href="#rollout">Rollout path</a>
-          {jumps}
-        </div>
-      </div>
-    </section>
-
-    <section id="proof-layer" class="cs-hub-workforce">
-      <div class="container">
-        <article class="cs-hub-workforce-card">
-          <div class="cs-hub-workforce-meta">
-            <span class="cs-hub-workforce-num">Client proof</span>
-            <span class="cs-hub-workforce-tag">EMAAVY · Case Studies</span>
-            <h2>Why enterprises trust EMAAVY outcomes</h2>
-            <p class="cs-hub-workforce-lead">Every story follows the same arc — a business constraint, an EMAAVY voice and intelligence rollout, and metrics captured in production. No vanity slides; only measured lift against prior baselines.</p>
-          </div>
-          <div class="cs-hub-pill-grid">
-            <div class="cs-hub-pill"><strong>Proven conversion</strong><span>Voice beats email and manual outreach on high-intent lists.</span></div>
-            <div class="cs-hub-pill"><strong>Full call coverage</strong><span>Score every conversation — not 5% spot checks.</span></div>
-            <div class="cs-hub-pill"><strong>Multilingual scale</strong><span>Regional programs without proportional hiring.</span></div>
-            <div class="cs-hub-pill"><strong>Fast escalation</strong><span>Humans join with transcript context when risk spikes.</span></div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="stories" class="cs-hub-roles page-section alt">
-      <div class="container">
-        <header class="cs-hub-roles-head">
-          <h2>Client stories</h2>
-          <p>Three published case studies — each with a dedicated page covering challenge, solution, implementation, and results.</p>
-        </header>
-        <div class="cs-study-grid cs-study-grid--trio">
-{cards}
-        </div>
-      </div>
-    </section>
-
-    <section id="rollout" class="cs-hub-flow">
-      <div class="container">
-        <header class="cs-hub-flow-head">
-          <h2>From pilot to production proof</h2>
-          <p>How teams typically move from first story to scaled programs on EMAAVY.</p>
-        </header>
-        <div class="cs-flow-track">
-          <article class="cs-flow-step"><strong>Align on KPI</strong><p>Pick conversion, CSAT, or QA coverage targets.</p></article>
-          <article class="cs-flow-step"><strong>Design the program</strong><p>Agents, languages, and integration stack.</p></article>
-          <article class="cs-flow-step"><strong>Pilot cohort</strong><p>Single campaign or queue before full traffic.</p></article>
-          <article class="cs-flow-step"><strong>Measure live</strong><p>Dashboards vs email, manual, or sample QA baselines.</p></article>
-          <article class="cs-flow-step"><strong>Scale</strong><p>Expand lists, languages, and supervisor playbooks.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="cs-hub-cta">
-      <div class="container">
-        <h2>Build your next success story on EMAAVY</h2>
-        <p>See how voice programs perform in your industry — tailored demo with live calls and ROI framing.</p>
-        <div class="cta-row">
-          <a href="../book-demo.html" class="btn-primary">Book a demo</a>
-          <a href="../index.html#case-studies" class="btn-outline">Back to overview</a>
-        </div>
-      </div>
-    </section>
-  </main>
-  <div id="site-footer-root"></div>
-  <script src="../assets/routes.js"></script>
-  <script src="../assets/components.js"></script>
-  <script src="../assets/nav.js"></script>
-</body>
-</html>
-"""
+        s["uses"] = list(s["results_highlights"])
 
 
 def main():
-    CS_DIR.mkdir(parents=True, exist_ok=True)
-    HUB.write_text(render_hub(), encoding="utf-8")
+    prepare()
+    ensure_icons()
+    hub_studies = []
     for s in STUDIES:
-        (CS_DIR / f"{s['slug']}.html").write_text(render_study(s), encoding="utf-8")
+        hs = dict(s)
+        apply_case_study_icons(hs, base="../")
+        hub_studies.append(hs)
+    for s in STUDIES:
+        apply_case_study_icons(s, base="../../")
+    CS_DIR.mkdir(parents=True, exist_ok=True)
+    HUB.write_text(render_hub(HUB_CFG, hub_studies), encoding="utf-8")
+    for s in STUDIES:
+        (CS_DIR / f"{s['slug']}.html").write_text(render_study(s, studies=STUDIES), encoding="utf-8")
     print(f"OK: case-studies hub + {len(STUDIES)} detail pages")
 
 

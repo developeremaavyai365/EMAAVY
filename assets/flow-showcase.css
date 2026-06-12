@@ -1,0 +1,186 @@
+
+#features .hub-clear-shell { max-width: 1180px; }
+
+#features .flow-split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr);
+  gap: clamp(1.25rem, 3.5vw, 2.5rem);
+  align-items: start;
+}
+
+#features .flow-steps-head {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #18345d;
+  margin: 0 0 0.25rem;
+}
+
+#features .flow-steps-sub {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: #64748b;
+  margin: 0 0 0.85rem;
+}
+
+#features .flow-steps-col {
+  max-height: min(82vh, 640px);
+  overflow-y: auto;
+  padding-right: 0.35rem;
+  scrollbar-width: thin;
+}
+
+#features .flow-layer-steps {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+#features .flow-layer-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.55rem;
+  align-items: start;
+  padding: 0.75rem 0.85rem;
+  list-style: none;
+  border-radius: 10px;
+  border: 1px solid rgba(74, 101, 139, 0.18);
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+#features .flow-layer-card-icon {
+  font-size: 1.15rem;
+  line-height: 1;
+  margin-top: 0.1rem;
+}
+
+#features .flow-layer-card-body h3 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0.1rem 0 0.2rem;
+  line-height: 1.25;
+}
+
+#features .flow-layer-card-body p {
+  font-size: 0.68rem;
+  line-height: 1.45;
+  color: #475569;
+  margin: 0;
+}
+
+#features .flow-layer-card-kicker {
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4a658b;
+}
+
+#features .flow-layer-card-tag {
+  font-size: 0.48rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #18345d;
+  padding: 0.18rem 0.38rem;
+  border-radius: 999px;
+  background: rgba(74, 101, 139, 0.1);
+  border: 1px solid rgba(74, 101, 139, 0.18);
+  white-space: nowrap;
+}
+
+#features .flow-showcase {
+  position: relative;
+  width: 100%;
+}
+
+#features .flow-showcase-col {
+  position: relative;
+  min-width: 0;
+}
+
+#features .flow-sc-stage {
+  position: relative;
+  width: 100%;
+  min-height: 460px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+#features .flow-sc-status {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.55rem 1rem;
+  background: rgba(255, 255, 255, 0.92);
+  border-top: 1px solid rgba(74, 101, 139, 0.14);
+  backdrop-filter: blur(8px);
+  font-size: 0.62rem;
+  color: #64748b;
+}
+
+#features .flow-sc-status-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: #18345d;
+}
+
+#features .flow-sc-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4a658b;
+  animation: flow-sc-pulse 2s ease-in-out infinite;
+}
+
+@keyframes flow-sc-pulse {
+  50% { opacity: 0.45; }
+}
+
+#features .flow-sc-status-metric {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #4a658b;
+}
+
+#features .flow-sc-status-metric strong {
+  color: #18345d;
+}
+
+#features .flows-device-body {
+  padding-bottom: 2.5rem;
+}
+
+#features .flow-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 0.85rem;
+}
+
+@media (max-width: 1024px) {
+  #features .flow-split {
+    grid-template-columns: 1fr;
+  }
+  #features .flow-layer-card {
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}

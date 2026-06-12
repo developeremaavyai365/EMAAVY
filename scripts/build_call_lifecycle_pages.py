@@ -8,10 +8,17 @@ LC_DIR = ROOT / "pages" / "call-lifecycle"
 HEAD_COMMON = """  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/navbar-tokens.css" />
   <link rel="stylesheet" href="../../assets/nav.css" />
   <link rel="stylesheet" href="../../assets/masthead-flex.css" />
+  <link rel="stylesheet" href="../../assets/brand-logo.css" />
+  <link rel="stylesheet" href="../../assets/navbar-typography.css" />
+  <link rel="icon" href="../../assets/brand/emaavy-logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../../assets/emaavy-type-tokens.css" />
   <link rel="stylesheet" href="../../assets/site.css" />
+  <link rel="stylesheet" href="../../assets/footer-premium.css" />
   <link rel="stylesheet" href="../../assets/emaavy-theme.css" />
+  <link rel="stylesheet" href="../../assets/responsive-system.css" />
 """
 
 STAGES = [
@@ -308,15 +315,6 @@ def render_stage(s: dict) -> str:
     <section class="clc-stage-hero">
       <div class="container clc-stage-hero-grid">
         <div class="clc-stage-hero-copy">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true"> / </span>
-            <a href="../../index.html#journey">Call lifecycle</a>
-            <span aria-hidden="true"> / </span>
-            <a href="index.html">Overview</a>
-            <span aria-hidden="true"> / </span>
-            <span>{s['name']}</span>
-          </nav>
           <span class="clc-stage-kicker">Call Lifecycle · {s['kicker']}</span>
           <h1>{s['headline']}</h1>
           <p class="clc-stage-lead">{s['lead']}</p>
@@ -463,11 +461,6 @@ def render_hub() -> str:
   <main class="page-main clc-page">
     <section class="page-hero telephony-hero">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../../index.html">Home</a>
-          <span aria-hidden="true"> / </span>
-          <span>Call lifecycle</span>
-        </nav>
         <span class="page-kicker">End-to-end flow · Voice intelligence</span>
         <h1>The call journey — step by step</h1>
         <p class="telephony-hero-lead">From ring to learn — every stage is captured, scored, and turned into action automatically. Explore each step for full detail on what EMAAVY does and why it matters.</p>

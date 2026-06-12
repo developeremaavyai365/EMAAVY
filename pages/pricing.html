@@ -1,30 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta property="og:image" content="../assets/brand/emaavy-logo.png" />
+
+  <link rel="icon" href="../assets/brand/emaavy-logo.svg" type="image/svg+xml" />
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pricing — EMAAVY</title>
-  <meta name="description" content="EMAAVY pricing — Starter, Pro, Business, and Enterprise plans for call intelligence at any scale." />
+  <meta name="description" content="EMAAVY India-first pricing — Starter ₹2,499/mo, Growth ₹9,999/mo, and Enterprise custom. Full orchestration engine included on every tier." />
   <meta name="robots" content="index, follow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/nav.css" />
-<link rel="stylesheet" href="../assets/masthead-flex.css" />
+  <link rel="stylesheet" href="../assets/navbar-tokens.css" />
+<link rel="stylesheet" href="../assets/nav.css" />
+  <link rel="stylesheet" href="../assets/masthead-flex.css" />
+<link rel="stylesheet" href="../assets/navbar-typography.css" />
 
-  <link rel="stylesheet" href="../assets/site.css" />
-<link rel="stylesheet" href="../assets/emaavy-theme.css" />
-
+    <link rel="stylesheet" href="../assets/emaavy-type-tokens.css" />
+<link rel="stylesheet" href="../assets/site.css" />
+  <link rel="stylesheet" href="../assets/footer-premium.css" />
+  <link rel="stylesheet" href="../assets/emaavy-theme.css" />
+  <link rel="stylesheet" href="../assets/responsive-system.css" />
+  <link rel="stylesheet" href="../assets/telephony-hub.css" />
+  <link rel="stylesheet" href="../assets/integration-logo-3d.css" />
   <link rel="stylesheet" href="../assets/pricing-page.css" />
+  <link rel="stylesheet" href="../assets/section-heading.css" />
   <style>
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.in { opacity: 1; transform: none; }
   </style>
+<link rel="stylesheet" href="../assets/brand-logo.css" />
 </head>
-<body data-base="../" data-route="pricing">
+<body data-base="../" data-route="pricing" class="int-logo-page">
   <div id="site-nav-root"></div>
-  <main class="page-main pricing-page-main">
-<section class="pricing" id="pricing"> <div class="pricing-head reveal"> <div> <p class="bento-label" style="margin-bottom:0.75rem">Pricing</p> <h2>Plans for every team</h2> </div> <p>Scale from first call to enterprise fleets. Switch plans anytime — no lock-in, no noise.</p> <div class="billing-toggle"> <span class="active" id="labelMonthly">Monthly</span> <button class="toggle-switch" id="billingToggle" type="button" aria-label="Toggle yearly billing"></button> <span id="labelYearly">Yearly</span> <span class="save-pill" id="savePill">Save 20%</span> </div> </div> <div class="pricing-stage"> <article class="price-card reveal click-detail" data-detail="price-starter" tabindex="0" data-tier="starter" data-monthly="0" data-yearly="0"> <span class="pack-badge">Free trial</span> <p class="pack-tier">01 · Entry</p> <h3 class="pack-name">Starter Pack</h3> <p class="pack-tagline">For solo founders testing the waters.</p> <div class="pack-price"> <span class="currency">$</span> <span class="amount" data-monthly="0" data-yearly="0">0</span> <span class="period">/mo</span> </div> <p class="pack-billed" data-monthly="14-day full access" data-yearly="14-day full access">14-day full access</p> <ul class="pack-features"> <li><span class="feat-check"></span> 500 calls / month</li> <li><span class="feat-check"></span> Real-time transcription</li> <li><span class="feat-check"></span> 5 Indian languages</li> <li><span class="feat-check"></span> 1 team seat</li> <li><span class="feat-check"></span> 7-day call replay</li> <li class="muted">AI agents · Campaigns not included</li> </ul> <button class="pack-cta" type="button" data-magnetic>Start Free →</button> </article> <article class="price-card featured reveal" data-tier="pro" data-monthly="149" data-yearly="119"> <span class="pack-badge hot">Most signal</span> <p class="pack-tier">02 · Growth</p> <h3 class="pack-name">Pro Pack</h3> <p class="pack-tagline">For teams that live on the phone.</p> <div class="pack-price"> <span class="currency">$</span> <span class="amount" data-monthly="149" data-yearly="119">149</span> <span class="period">/mo</span> </div> <p class="pack-billed" data-monthly="Billed monthly" data-yearly="Billed annually · $1,428/yr">Billed monthly</p> <ul class="pack-features"> <li><span class="feat-check"></span> 5,000 calls / month</li> <li><span class="feat-check"></span> All 22 languages + Hinglish</li> <li><span class="feat-check"></span> Sentiment & intent scoring</li> <li><span class="feat-check"></span> 2 AI voice agents</li> <li><span class="feat-check"></span> 10 team seats</li> <li><span class="feat-check"></span> 90-day analytics history</li> </ul> <button class="pack-cta primary" type="button" data-magnetic>Go Pro →</button> </article> <article class="price-card reveal click-detail" data-detail="price-pro" tabindex="0" data-tier="business" data-monthly="399" data-yearly="319"> <span class="pack-badge">Scale</span> <p class="pack-tier">03 · Velocity</p> <h3 class="pack-name">Business Pack</h3> <p class="pack-tagline">For ops teams running campaigns at volume.</p> <div class="pack-price"> <span class="currency">$</span> <span class="amount" data-monthly="399" data-yearly="319">399</span> <span class="period">/mo</span> </div> <p class="pack-billed" data-monthly="Billed monthly" data-yearly="Billed annually · $3,828/yr">Billed monthly</p> <ul class="pack-features"> <li><span class="feat-check"></span> 50,000 calls / month</li> <li><span class="feat-check"></span> Unlimited AI voice agents</li> <li><span class="feat-check"></span> Campaign automation</li> <li><span class="feat-check"></span> API + webhooks</li> <li><span class="feat-check"></span> Unlimited seats</li> <li><span class="feat-check"></span> Priority support · SLA 99.9%</li> </ul> <button class="pack-cta" type="button" data-magnetic>Scale Up →</button> </article> <article class="price-card enterprise reveal click-detail" data-detail="price-enterprise" tabindex="0" data-tier="enterprise"> <span class="pack-badge" style="color:var(--violet);border-color:rgba(129,140,248,0.35);background:rgba(129,140,248,0.12)">Custom</span> <p class="pack-tier" style="color:var(--violet)">04 · Orbit</p> <h3 class="pack-name">Enterprise</h3> <p class="pack-tagline">For fleets, banks, and platforms at planetary scale.</p> <div class="pack-price custom"> <span class="amount">Let's talk</span> </div> <p class="pack-billed">Tailored volume · Dedicated infra</p> <ul class="pack-features"> <li><span class="feat-check"></span> Unlimited calls & retention</li> <li><span class="feat-check"></span> Custom AI models & voices</li> <li><span class="feat-check"></span> SSO / SAML · VPC deploy</li> <li><span class="feat-check"></span> Dedicated CSM & solutions eng</li> <li><span class="feat-check"></span> 99.99% SLA · audit logs</li> <li><span class="feat-check"></span> On-prem & hybrid options</li> </ul> <button class="pack-cta enterprise-btn" type="button" data-magnetic>Contact Sales →</button> </article> </div> <div class="pricing-compare reveal"> <div class="compare-row head"> <span>Capability</span> <span>Starter</span> <span>Pro</span> <span>Business</span> <span>Enterprise</span> </div> <div class="compare-row"> <span>Monthly calls</span> <span>500</span> <span class="yes">5K</span> <span class="yes">50K</span> <span class="yes">∞</span> </div> <div class="compare-row"> <span>AI voice agents</span> <span class="no">—</span> <span>2</span> <span class="yes">∞</span> <span class="yes">∞</span> </div> <div class="compare-row"> <span>Campaign automation</span> <span class="no">—</span> <span class="no">—</span> <span class="yes"></span> <span class="yes"></span> </div> <div class="compare-row"> <span>API access</span> <span class="no">—</span> <span class="no">—</span> <span class="yes"></span> <span class="yes"></span> </div> <div class="compare-row"> <span>Custom models</span> <span class="no">—</span> <span class="no">—</span> <span class="no">—</span> <span class="yes"></span> </div> </div> </section>
+  <main class="page-main telephony-page pricing-page">
+    <section class="int-dir-hero" id="pricing">
+      <div class="container">
+<span class="page-kicker">Pricing</span>
+        <h1>India-first pricing — <span class="pricing-hero-accent">1/10th the cost</span> of global alternatives.</h1>
+        <p class="int-dir-hero-lead">All tiers include the full orchestration engine — EMAAVY is all-in.</p>
+        <div class="billing-toggle reveal">
+          <span class="active" id="labelMonthly">Monthly</span>
+          <button class="toggle-switch" id="billingToggle" type="button" aria-label="Toggle yearly billing"></button>
+          <span id="labelYearly">Yearly</span>
+          <span class="save-pill" id="savePill">Save 20%</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="int-category-block" id="plans">
+      <div class="container">
+        <header class="int-category-head reveal">
+          <h2>Plans</h2>
+        </header>
+        <div class="pricing-stage">
+          <article class="price-card reveal click-detail" data-detail="price-starter" tabindex="0" data-tier="starter" data-monthly="2499" data-yearly="1999">
+            <span class="pack-badge">Starter</span>
+            <p class="pack-tier">01 · Starter</p>
+            <h3 class="pack-name">Starter</h3>
+            <p class="pack-tagline">Full orchestration engine — EMAAVY is all-in.</p>
+            <div class="pack-price">
+              <span class="currency">₹</span>
+              <span class="amount" data-monthly="2499" data-yearly="1999">2499</span>
+              <span class="period">/month + usage</span>
+            </div>
+            <p class="pack-billed" data-monthly="Billed monthly" data-yearly="Billed annually · ₹23,988/yr">Billed monthly</p>
+            <ul class="pack-features">
+              <li><span class="feat-check" aria-hidden="true">✓</span> Voice orchestration engine</li>
+              <li><span class="feat-check" aria-hidden="true">✓</span> Visual FlowBuilder</li>
+              <li><span class="feat-check" aria-hidden="true">✓</span> Built-in telephony</li>
+              <li><span class="feat-check" aria-hidden="true">✓</span> Standard support</li>
+              <li><span class="feat-check" aria-hidden="true">✓</span> Basic analytics</li>
+              <li><span class="feat-check" aria-hidden="true">✓</span> Indic language support</li>
+              <li class="muted">For POCs and small-volume deployments</li>
+            </ul>
+            <button class="pack-cta" type="button" data-magnetic>Get Started →</button>
+          </article>
+          <article class="price-card featured reveal click-detail" data-detail="price-growth" tabindex="0" data-tier="growth" data-monthly="9999" data-yearly="7999">
+            <span class="pack-badge hot">Most popular</span>
+            <p class="pack-tier">02 · Growth</p>
+            <h3 class="pack-name">Growth</h3>
+            <p class="pack-tagline">Everything in Starter, plus scale and priority support.</p>
+            <div class="pack-price">
+              <span class="currency">₹</span>
+              <span class="amount" data-monthly="9999" data-yearly="7999">9999</span>
+              <span class="period">/month + usage</span>
+            </div>
+            <p class="pack-billed" data-monthly="Billed monthly" data-yearly="Billed annually · ₹95,988/yr">Billed monthly</p>
+            <ul class="pack-features">
+              <li><span class="feat-check" aria-hidden="true">✓</span> Everything in Starter</li>
+              <li><span class="feat-check" aria-hidden="true">✓</span> Multi-provider synthesis</li>
+              <li><span class="feat-check" aria-hidden="true">✓</span> Priority support</li>
+              <li><span class="feat-check" aria-hidden="true">✓</span> Advanced analytics</li>
+              <li><span class="feat-check" aria-hidden="true">✓</span> Custom integrations</li>
+              <li><span class="feat-check" aria-hidden="true">✓</span> Dedicated account manager</li>
+              <li class="muted">Mid-market — most popular tier</li>
+            </ul>
+            <button class="pack-cta primary" type="button" data-magnetic>Choose Growth →</button>
+          </article>
+          <article class="price-card enterprise reveal click-detail" data-detail="price-enterprise" tabindex="0" data-tier="enterprise">
+            <span class="pack-badge">Custom</span>
+            <p class="pack-tier">03 · Enterprise</p>
+            <h3 class="pack-name">Enterprise</h3>
+            <p class="pack-tagline">Annual ACV for high-volume and regulated programs.</p>
+            <div class="pack-price custom">
+              <span class="amount">Custom</span>
+            </div>
+            <p class="pack-billed">Annual ACV</p>
+            <ul class="pack-features">
+              <li><span class="feat-check" aria-hidden="true">✓</span> Everything in Growth</li>
+              <li><span class="feat-check" aria-hidden="true">✓</span> SLA guarantees</li>
+              <li><span class="feat-check" aria-hidden="true">✓</span> Real-time intelligence</li>
+              <li><span class="feat-check" aria-hidden="true">✓</span> Custom Indic model config</li>
+              <li><span class="feat-check" aria-hidden="true">✓</span> Multi-client dashboard</li>
+              <li><span class="feat-check" aria-hidden="true">✓</span> Full audit logs + compliance</li>
+              <li class="muted">₹10L+ committed ACV / ~$12K+/year</li>
+            </ul>
+            <button class="pack-cta enterprise-btn" type="button" data-magnetic>Contact Sales →</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="int-category-block alt" id="compare">
+      <div class="container">
+        <header class="int-category-head reveal">
+          <h2>Compare tiers</h2>
+        </header>
+        <div class="pricing-compare reveal">
+          <div class="compare-row head">
+            <span>Capability</span>
+            <span>Starter</span>
+            <span>Growth</span>
+            <span>Enterprise</span>
+          </div>
+          <div class="compare-row">
+            <span>Monthly platform fee</span>
+            <span>₹2,499</span>
+            <span class="yes">₹9,999</span>
+            <span class="yes">Custom</span>
+          </div>
+          <div class="compare-row">
+            <span>Usage billing</span>
+            <span class="yes">+ usage</span>
+            <span class="yes">+ usage</span>
+            <span class="yes">Annual ACV</span>
+          </div>
+          <div class="compare-row">
+            <span>Voice orchestration engine</span>
+            <span class="yes">✓</span>
+            <span class="yes">✓</span>
+            <span class="yes">✓</span>
+          </div>
+          <div class="compare-row">
+            <span>Visual FlowBuilder</span>
+            <span class="yes">✓</span>
+            <span class="yes">✓</span>
+            <span class="yes">✓</span>
+          </div>
+          <div class="compare-row">
+            <span>Built-in telephony</span>
+            <span class="yes">✓</span>
+            <span class="yes">✓</span>
+            <span class="yes">✓</span>
+          </div>
+          <div class="compare-row">
+            <span>Standard support</span>
+            <span class="yes">✓</span>
+            <span class="yes">✓</span>
+            <span class="yes">✓</span>
+          </div>
+          <div class="compare-row">
+            <span>Basic analytics</span>
+            <span class="yes">✓</span>
+            <span class="yes">✓</span>
+            <span class="yes">✓</span>
+          </div>
+          <div class="compare-row">
+            <span>Indic language support</span>
+            <span class="yes">✓</span>
+            <span class="yes">✓</span>
+            <span class="yes">✓</span>
+          </div>
+          <div class="compare-row">
+            <span>Multi-provider synthesis</span>
+            <span class="no">—</span>
+            <span class="yes">✓</span>
+            <span class="yes">✓</span>
+          </div>
+          <div class="compare-row">
+            <span>Priority support</span>
+            <span class="no">—</span>
+            <span class="yes">✓</span>
+            <span class="yes">✓</span>
+          </div>
+          <div class="compare-row">
+            <span>Advanced analytics</span>
+            <span class="no">—</span>
+            <span class="yes">✓</span>
+            <span class="yes">✓</span>
+          </div>
+          <div class="compare-row">
+            <span>Custom integrations</span>
+            <span class="no">—</span>
+            <span class="yes">✓</span>
+            <span class="yes">✓</span>
+          </div>
+          <div class="compare-row">
+            <span>Dedicated account manager</span>
+            <span class="no">—</span>
+            <span class="yes">✓</span>
+            <span class="yes">✓</span>
+          </div>
+          <div class="compare-row">
+            <span>SLA guarantees</span>
+            <span class="no">—</span>
+            <span class="no">—</span>
+            <span class="yes">✓</span>
+          </div>
+          <div class="compare-row">
+            <span>Real-time intelligence</span>
+            <span class="no">—</span>
+            <span class="no">—</span>
+            <span class="yes">✓</span>
+          </div>
+          <div class="compare-row">
+            <span>Custom Indic model config</span>
+            <span class="no">—</span>
+            <span class="no">—</span>
+            <span class="yes">✓</span>
+          </div>
+          <div class="compare-row">
+            <span>Multi-client dashboard</span>
+            <span class="no">—</span>
+            <span class="no">—</span>
+            <span class="yes">✓</span>
+          </div>
+          <div class="compare-row">
+            <span>Full audit logs + compliance</span>
+            <span class="no">—</span>
+            <span class="no">—</span>
+            <span class="yes">✓</span>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
   <div id="site-footer-root"></div>
   <script src="../assets/routes.js"></script>

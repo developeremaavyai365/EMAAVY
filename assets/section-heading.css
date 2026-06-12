@@ -1,0 +1,6 @@
+/**
+ * Legacy entry point — loads the full EMAAVY typography system.
+ * Kept for backward compatibility with existing HTML link tags.
+ */
+@import url('emaavy-type-tokens.css');
+@import url('emaavy-typography.css');

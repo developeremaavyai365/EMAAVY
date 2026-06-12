@@ -24,19 +24,22 @@
 
 .hub-clear-intro-title {
   font-family: 'Clash Display', sans-serif;
-  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
   font-weight: 600;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   line-height: 1.15;
-  color: #0f172a;
-  margin: 0 0 0.65rem;
+  color: #18345d;
+  margin: 0 0 0.5rem;
 }
 
 .hub-clear-intro-lead {
-  font-size: clamp(0.92rem, 1.4vw, 1.02rem);
+  font-size: 0.95rem;
   line-height: 1.65;
-  color: #475569;
+  color: #64748b;
   margin: 0;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hub-clear-grid {
@@ -92,7 +95,7 @@
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: #0f172a;
+  color: #18345d;
   margin: 0;
   line-height: 1.2;
 }
@@ -174,7 +177,7 @@
 
 .hub-clear-why-list strong {
   display: block;
-  color: #0f172a;
+  color: #18345d;
   font-weight: 600;
   font-size: 0.84rem;
   margin-bottom: 0;

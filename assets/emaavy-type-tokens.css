@@ -1,0 +1,72 @@
+/**
+ * EMAAVY — global typography design tokens.
+ * Reference: enterprise SaaS hero (bold display heading + muted lead).
+ * Colors: original EMAAVY palette only.
+ */
+:root {
+  --emaavy-font-display: 'Clash Display', system-ui, sans-serif;
+  --emaavy-font-body: 'General Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Headings */
+  --emaavy-h1-size: clamp(2rem, 5vw, 3rem);
+  --emaavy-h1-weight: 700;
+  --emaavy-h1-tracking: -0.025em;
+  --emaavy-h1-line: 1.12;
+  /* Logo blues: deep #18345d (display) · bolt #4a658b (subheads) */
+  --emaavy-h1-color: #18345d;
+
+  --emaavy-h2-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  --emaavy-h2-weight: 600;
+  --emaavy-h2-tracking: -0.02em;
+  --emaavy-h2-line: 1.15;
+  --emaavy-h2-color: #18345d;
+
+  --emaavy-h3-size: clamp(1.2rem, 2.2vw, 1.45rem);
+  --emaavy-h3-weight: 600;
+  --emaavy-h3-color: #4a658b;
+
+  --emaavy-h4-size: 1.05rem;
+  --emaavy-h4-weight: 600;
+  --emaavy-h4-color: #4a658b;
+
+  /* Body & lead */
+  --emaavy-body-size: 1rem;
+  --emaavy-body-weight: 400;
+  --emaavy-body-line: 1.65;
+  --emaavy-body-color: #475569;
+
+  --emaavy-lead-size: clamp(1rem, 1.5vw, 1.08rem);
+  --emaavy-lead-weight: 400;
+  --emaavy-lead-line: 1.6;
+  --emaavy-lead-color: #64748b;
+  --emaavy-lead-max: 54ch;
+
+  /* Kicker / label */
+  --emaavy-kicker-size: 0.68rem;
+  --emaavy-kicker-weight: 500;
+  --emaavy-kicker-tracking: 0.1em;
+  --emaavy-kicker-color: #64748b;
+  --emaavy-kicker-bg: #f8fafc;
+  --emaavy-kicker-border: #e2e8f0;
+
+  /* Accent text (brand, not gradient) */
+  --emaavy-accent-text: #4a658b;
+  --emaavy-accent-deep: #18345d;
+
+  /* Aliases used by section-heading.css */
+  --section-kicker-size: var(--emaavy-kicker-size);
+  --section-kicker-weight: var(--emaavy-kicker-weight);
+  --section-kicker-tracking: var(--emaavy-kicker-tracking);
+  --section-kicker-color: var(--emaavy-kicker-color);
+  --section-kicker-bg: var(--emaavy-kicker-bg);
+  --section-kicker-border: var(--emaavy-kicker-border);
+  --section-title-font: var(--emaavy-font-display);
+  --section-title-size: var(--emaavy-h2-size);
+  --section-title-weight: var(--emaavy-h2-weight);
+  --section-title-tracking: var(--emaavy-h2-tracking);
+  --section-title-color: var(--emaavy-h1-color);
+  --section-lead-size: var(--emaavy-lead-size);
+  --section-lead-color: var(--emaavy-lead-color);
+  --section-lead-line: var(--emaavy-lead-line);
+  --section-lead-max: var(--emaavy-lead-max);
+}

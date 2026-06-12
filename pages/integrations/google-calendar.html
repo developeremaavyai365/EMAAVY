@@ -1,51 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta property="og:image" content="../../assets/brand/emaavy-logo.png" />
+
+  <link rel="icon" href="../../assets/brand/emaavy-logo.svg" type="image/svg+xml" />
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Google Calendar Integration — EMAAVY</title>
-  <meta name="description" content="Connect Google Calendar with EMAAVY. Sync confirmed appointments into shared Google Calendars with invites and reminders." />
+  <title>Google Calendar — EMAAVY</title>
+  <meta name="description" content="Google Calendar and EMAAVY — sync confirmed appointments into shared calendars with invites and reminders." />
   <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Google Calendar Integration — EMAAVY" />
-  <meta property="og:description" content="Connect Google Calendar with EMAAVY. Sync confirmed appointments into shared Google Calendars with invites and reminders." />
+  <meta property="og:title" content="Google Calendar — EMAAVY" />
+  <meta property="og:description" content="Google Calendar and EMAAVY — sync confirmed appointments into shared calendars with invites and reminders." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../assets/nav.css" />
-<link rel="stylesheet" href="../../assets/masthead-flex.css" />
+  <link rel="stylesheet" href="../../assets/navbar-tokens.css" />
+<link rel="stylesheet" href="../../assets/nav.css" />
+  <link rel="stylesheet" href="../../assets/masthead-flex.css" />
+<link rel="stylesheet" href="../../assets/navbar-typography.css" />
 
-  <link rel="stylesheet" href="../../assets/site.css" />
-<link rel="stylesheet" href="../../assets/emaavy-theme.css" />
+    <link rel="stylesheet" href="../../assets/emaavy-type-tokens.css" />
+<link rel="stylesheet" href="../../assets/site.css" />
+  <link rel="stylesheet" href="../../assets/footer-premium.css" />
+  <link rel="stylesheet" href="../../assets/emaavy-theme.css" />
+  <link rel="stylesheet" href="../../assets/responsive-system.css" />
 
-
+  <link rel="stylesheet" href="../../assets/telephony-partner.css" />
+  <link rel="stylesheet" href="../../assets/integration-logo-3d.css" />
+  <link rel="stylesheet" href="../../assets/section-heading.css" />
+<link rel="stylesheet" href="../../assets/brand-logo.css" />
 </head>
 <body data-base="../../" data-route="integration-google-calendar">
   <div id="site-nav-root"></div>
-  <main class="page-main">
-    <section class="page-hero compact">
-      <div class="container">
-        <span class="page-kicker">Tools</span>
-        <h1>Google Calendar</h1>
-        <p>Sync confirmed appointments into shared Google Calendars with invites and reminders.</p>
+  <main class="page-main tel-partner-page">
+    <section class="tel-partner-hero">
+      <div class="container tel-partner-hero-grid">
+        <div class="tel-partner-hero-copy">
+<span class="tel-partner-kicker">Tools & Workflow · Calendar</span>
+          <h1>Google Calendar</h1>
+          <p class="tel-partner-lead">When teams live in Google Workspace, EMAAVY creates Calendar events with invites, Meet links, and reminders the moment an agent secures a meeting — no rep copy-paste from call notes.</p>
+          <div class="tel-partner-stats"><div class="tel-partner-stat"><b>Workspace</b><span>Native</span></div><div class="tel-partner-stat"><b>Meet links</b><span>Optional</span></div><div class="tel-partner-stat"><b>Shared</b><span>Calendars</span></div></div>
+          <div class="tel-partner-hero-actions">
+            <a href="../../book-demo.html" class="btn-primary">Connect Google Calendar</a>
+            <a href="tools.html" class="btn-outline">All tools</a>
+          </div>
+        </div>
+        <aside class="tel-partner-hero-card int-logo-hero-wrap" aria-label="Google Calendar logo">
+          <div class="int-logo-hero-panel"><img class="int-logo-img int-logo-img--lg int-logo-img--neutral" src="../../assets/logos/integrations/google-calendar.svg" alt="Google Calendar" width="64" height="64" loading="lazy" decoding="async" /></div>
+          <span class="tel-partner-hero-region">Google Workspace</span>
+        </aside>
       </div>
     </section>
-    <section class="page-section">
+
+    <section id="overview" class="tel-partner-section">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../index.html">Home</a> › <a href="../../pages/integrations/index.html">Integrations</a> › <span>Google Calendar</span></nav>
-        <div class="stat-row">
-          <div class="stat-box"><b>Instant</b><span>Sync</span></div>
-          <div class="stat-box"><b>Team</b><span>Calendars</span></div>
-        </div>
-        <ul class="feature-list">
-          <li>Shared team calendars</li>
-          <li>Automatic invites</li>
-          <li>Reminder configuration</li>
-          <li>Two-way rescheduling</li>
-        </ul>
+        <header class="tel-partner-section-head">
+          <h2>Overview</h2>
+          <p>What Google Calendar provides and how it fits into your operations stack.</p>
+        </header>
+        <div class="tel-partner-prose"><p>Google Calendar is the default scheduling surface for millions of businesses using Gmail and Meet. EMAAVY integrates via Google APIs to insert events on the right organizer calendar with attendee invites.</p><p>Programs already using Google for identity and email often prefer Calendar over third-party schedulers — EMAAVY supports both Cal.com and native Google flows.</p></div>
+      </div>
+    </section>
+
+    <section id="capabilities" class="tel-partner-section alt">
+      <div class="container">
+        <header class="tel-partner-section-head">
+          <h2>Key capabilities</h2>
+          <p>Core features teams configure when Google Calendar powers EMAAVY programs.</p>
+        </header>
+        <div class="tel-feature-grid"><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">OT</span><h3>OAuth to Google</h3><p>Secure Workspace consent flows.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">MU</span><h3>Multi-calendar</h3><p>Target primary or shared team calendars.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">IA</span><h3>Invite attendees</h3><p>Callee email from verified disposition.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">FL</span><h3>Free/busy lookup</h3><p>Avoid double-booking during calls.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">TH</span><h3>Timezone handling</h3><p>Correct offsets for global callers.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">AT</span><h3>Audit trail</h3><p>Event IDs stored in EMAAVY call records.</p></article></div>
+      </div>
+    </section>
+
+    <section id="use-cases" class="tel-partner-section">
+      <div class="container">
+        <header class="tel-partner-section-head">
+          <h2>Business use cases</h2>
+          <p>Real-world applications for Google Calendar with EMAAVY agents and campaigns.</p>
+        </header>
+        <div class="tel-use-grid"><article class="tel-use-card"><h3>Workspace-native sales</h3><p>Teams on Gmail and Google Meet.</p></article><article class="tel-use-card"><h3>SMB appointment setting</h3><p>Local services booking over the phone.</p></article><article class="tel-use-card"><h3>Hybrid scheduling</h3><p>Cal.com for external + Google for internal holds.</p></article><article class="tel-use-card"><h3>Lead qualification</h3><p>Sync scores and dispositions to CRM during live calls.</p></article><article class="tel-use-card"><h3>Automated follow-ups</h3><p>Trigger messaging and tasks the moment calls end.</p></article><article class="tel-use-card"><h3>Multi-agent operations</h3><p>Standardize automations while scaling agent programs.</p></article></div>
+      </div>
+    </section>
+
+    <section id="integration-workflow" class="tel-partner-section alt">
+      <div class="container">
+        <header class="tel-partner-section-head">
+          <h2>Integration workflow</h2>
+          <p>How Google Calendar connects through EMAAVY — from live events to automated outcomes.</p>
+        </header>
+        <div class="tel-workflow-viz__track"><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">01</span><h3>Call event</h3><p>Live or completed call triggers EMAAVY rules.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">02</span><h3>EMAAVY evaluates</h3><p>Intent, keywords, and scores match automations.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">03</span><h3>Tool invoked</h3><p>CRM, calendar, or messaging API is called.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">04</span><h3>Record syncs</h3><p>Contacts, tasks, and deals update automatically.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">05</span><h3>Team notified</h3><p>Slack, WhatsApp, or webhooks confirm completion.</p></article></div>
+      </div>
+    </section>
+
+    <section id="setup-process" class="tel-partner-section">
+      <div class="container">
+        <header class="tel-partner-section-head">
+          <h2>Setup process</h2>
+          <p>Connection steps to go from credentials to production traffic with Google Calendar.</p>
+        </header>
+        <div class="tel-setup-grid"><article class="tel-setup-step"><span class="tel-setup-label">Connect Google Workspace</span><p>Admin consent for Calendar scope.</p></article><article class="tel-setup-step"><span class="tel-setup-label">Pick organizer calendars</span><p>Map campaigns to calendar resources.</p></article><article class="tel-setup-step"><span class="tel-setup-label">Define event templates</span><p>Default titles and descriptions per campaign.</p></article><article class="tel-setup-step"><span class="tel-setup-label">Pilot invites</span><p>Confirm attendees receive correct ICS emails.</p></article></div>
+      </div>
+    </section>
+
+    <section id="business-benefits" class="tel-partner-section alt">
+      <div class="container tel-partner-split">
+        <header class="tel-partner-section-head">
+          <h2>Business benefits</h2>
+          <p>Efficiency, automation, scalability, and customer experience gains from connecting Google Calendar to EMAAVY.</p>
+        </header>
+        <ul class="tel-partner-benefits"><li><div><span class="tel-why-title">Event creation</span><span class="tel-why-desc">Title, time, attendees from extracted call data.</span></div></li><li><div><span class="tel-why-title">Meet link generation</span><span class="tel-why-desc">Optional video conference attachment.</span></div></li><li><div><span class="tel-why-title">Shared resource calendars</span><span class="tel-why-desc">Book into team pools with permissions.</span></div></li><li><div><span class="tel-why-title">Reminder defaults</span><span class="tel-why-desc">Respect org notification policies.</span></div></li></ul>
+      </div>
+    </section>
+
+    <section class="tel-partner-section">
+      <div class="container">
+        <header class="tel-partner-section-head">
+          <h2>Explore other tools</h2>
+          <p>Mix CRM, scheduling, messaging, and webhooks per campaign — EMAAVY keeps automations consistent.</p>
+        </header>
+        <nav class="int-logo-ecosystem int-logo-ecosystem--compact" aria-label="Workflow tools">
+          <a href="webhooks.html" id="webhooks" class="int-logo-tile int-logo-tile--compact" aria-label="Webhooks integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/webhooks.svg" alt="Webhooks" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Webhooks</span>
+              <span class="int-logo-tile__category">Events</span>
+            </div>
+          </a>
+          <a href="salesforce.html" id="salesforce" class="int-logo-tile int-logo-tile--compact" aria-label="Salesforce integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/salesforce.svg" alt="Salesforce" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Salesforce</span>
+              <span class="int-logo-tile__category">CRM</span>
+            </div>
+          </a>
+          <a href="hubspot.html" id="hubspot" class="int-logo-tile int-logo-tile--compact" aria-label="HubSpot integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/hubspot.svg" alt="HubSpot" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">HubSpot</span>
+              <span class="int-logo-tile__category">CRM</span>
+            </div>
+          </a>
+          <a href="calcom.html" id="calcom" class="int-logo-tile int-logo-tile--compact" aria-label="Cal.com integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/calcom.svg" alt="Cal.com" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Cal.com</span>
+              <span class="int-logo-tile__category">Scheduling</span>
+            </div>
+          </a>
+          <a href="whatsapp.html" id="whatsapp" class="int-logo-tile int-logo-tile--compact" aria-label="WhatsApp integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/whatsapp.svg" alt="WhatsApp" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">WhatsApp</span>
+              <span class="int-logo-tile__category">Messaging</span>
+            </div>
+          </a>
+          <a href="slack.html" id="slack" class="int-logo-tile int-logo-tile--compact" aria-label="Slack integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--light" src="../../assets/logos/integrations/slack.svg" alt="Slack" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Slack</span>
+              <span class="int-logo-tile__category">Alerts</span>
+            </div>
+          </a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="tel-partner-cta">
+      <div class="container">
+        <h2>Ready to connect Google Calendar?</h2>
+        <p>Book a walkthrough — we will map triggers, CRM fields, and live automation on a sample call.</p>
         <div class="cta-row">
-          <a href="../../book-demo.html" class="btn-primary">Connect Google Calendar →</a>
-          <a href="../../pages/integrations/index.html" class="btn-outline">All integrations</a>
+          <a href="../../book-demo.html" class="btn-primary">Book a demo</a>
+          <a href="tools.html" class="btn-outline">Tools overview</a>
         </div>
       </div>
     </section>

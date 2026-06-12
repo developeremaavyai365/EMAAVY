@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Custom Agent Builder">
+  <rect width="48" height="48" rx="12" fill="#f1f5f9"/>
+  <rect x="12" y="14" width="10" height="8" rx="2" stroke="#18345d" stroke-width="1.8" fill="none"/>
+  <rect x="26" y="14" width="10" height="8" rx="2" stroke="#18345d" stroke-width="1.8" fill="none"/>
+  <rect x="19" y="28" width="10" height="8" rx="2" stroke="#4a658b" stroke-width="1.8" fill="none"/>
+  <path d="M17 22v3h6M31 22v3h-6M24 25v3" stroke="#4a658b" stroke-width="1.6" fill="none"/>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Webhooks">
+  <rect width="32" height="32" fill="none"/>
+  <path d="M8 20c0-2.2 1.8-4 4-4h2a3 3 0 1 0 0-6H12" stroke="#4a658b" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <circle cx="22" cy="10" r="3" fill="#4a658b"/>
+  <circle cx="22" cy="22" r="3" fill="#18345d"/>
+</svg>

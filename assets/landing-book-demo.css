@@ -16,3 +16,16 @@ body[data-page="home"] #book-demo .demo-form {
 body[data-page="home"] #book-demo .demo-form.reveal.in {
   transform: none;
 }
+
+body[data-page="home"] #book-demo .demo-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 640px) {
+  body[data-page="home"] #book-demo .demo-form-row {
+    grid-template-columns: 1fr;
+  }
+}

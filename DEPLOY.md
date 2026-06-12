@@ -1,73 +1,90 @@
-# Deploy EMAAVY to GitHub Pages (live link)
+# Deploy EMAAVY to GitHub Pages
 
-Your site is a static HTML site. After you push to GitHub and turn on Pages, everyone gets a link like:
+## Live URL
 
-**`https://YOUR_USERNAME.github.io/REPO_NAME/`**
+**https://developeremaavyai365.github.io/EMAAVY/**
+
+This URL updates automatically after each successful push to `main`.
 
 ---
 
-## One-time setup (about 5 minutes)
-
-### 1. Create a GitHub repository
-
-1. Go to [https://github.com/new](https://github.com/new)
-2. Name it (e.g. `emaavy` or `emaavy-website`)
-3. Choose **Public**
-4. Do **not** add a README if GitHub offers one (you already have code locally)
-5. Click **Create repository**
-
-### 2. Push this project from your PC
-
-In PowerShell, from this folder:
+## Quick deploy
 
 ```powershell
 cd "c:\Users\DELL\Desktop\New folder (3)\emaavy"
 
 python scripts/prepare_github_pages.py
+python scripts/qa_audit.py
 
 git add -A
-git commit -m "Prepare site for GitHub Pages with index.html landing"
+git commit -m "Update EMAAVY site"
+git push origin main
+```
 
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+1. Open [Actions](https://github.com/developeremaavyai365/EMAAVY/actions) on GitHub
+2. Wait for **Deploy to GitHub Pages** to finish (green checkmark)
+3. Visit **https://developeremaavyai365.github.io/EMAAVY/**
+
+---
+
+## First-time setup (if starting fresh)
+
+### 1. Create repository
+
+1. Go to [github.com/new](https://github.com/new)
+2. Name: `EMAAVY` (or your choice)
+3. Visibility: **Public** (required for free `github.io` hosting)
+4. Create without adding a README
+
+### 2. Push from local
+
+```powershell
+git remote add origin https://github.com/YOUR_USERNAME/EMAAVY.git
 git branch -M main
 git push -u origin main
 ```
 
-Replace `YOUR_USERNAME` and `YOUR_REPO_NAME` with your GitHub username and repo name.
-
 ### 3. Enable GitHub Pages
 
-1. Open your repo on GitHub → **Settings** → **Pages**
-2. Under **Build and deployment** → **Source**, choose **GitHub Actions**
-3. After the first push, open **Actions** and wait for **Deploy to GitHub Pages** to finish (green checkmark)
-
-### 4. Your live URL
-
-GitHub shows the URL on **Settings → Pages**, usually:
-
-`https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
-
-Share that link. The home page is `index.html` (your full landing experience).
+1. Repo → **Settings** → **Pages**
+2. **Build and deployment** → **Source** → **GitHub Actions**
+3. After first push, workflow `.github/workflows/pages.yml` deploys the site
 
 ---
 
-## Updating the live site later
+## How deployment works
+
+- Workflow: `.github/workflows/pages.yml`
+- Triggers: push to `main`, or manual **workflow_dispatch**
+- Artifact: entire repository root (static HTML/CSS/JS)
+- Entry point: `index.html`
+
+---
+
+## Pre-push checklist
 
 ```powershell
-cd "c:\Users\DELL\Desktop\New folder (3)\emaavy"
-# edit files, then:
-python scripts/prepare_github_pages.py
-git add -A
-git commit -m "Update site"
-git push
+python scripts/qa_audit.py
 ```
 
-Pages redeploys automatically within a few minutes.
+Expect: `DEPLOYMENT READY` with 0 CRITICAL issues.
 
 ---
 
 ## Notes
 
-- **Custom domain**: Settings → Pages → Custom domain (optional).
-- **Private repo**: GitHub Pages on free plans requires a **public** repo for `github.io` hosting.
-- Local file `emaavy_white_blue (2).html` is still the source; the script copies it to `index.html` for hosting.
+- **Custom domain**: Settings → Pages → Custom domain (optional)
+- **404**: `404.html` is included; configure host to serve it for missing routes
+- **Legacy HTML** at repo root (`index1.html`, etc.) are not linked from production nav—safe to ignore or delete later
+- **Forms**: client-side only until backend is connected
+
+---
+
+## Troubleshooting
+
+| Problem | Fix |
+|---------|-----|
+| 404 on home | Ensure `index.html` exists at repo root |
+| Styles missing | Check browser network tab for 404 on `assets/` paths |
+| Pages not updating | Wait 2–5 min; check Actions tab for failed workflow |
+| Wrong default page | GitHub Pages serves `index.html` first—no `jekyll` build needed |

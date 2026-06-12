@@ -1,0 +1,441 @@
+/**
+ * EMAAVY responsive system — cross-device layout, typography, and touch optimization.
+ * Load last in <head>. Does not change brand colors or visual identity.
+ */
+
+:root {
+  --bp-xs: 320px;
+  --bp-sm: 375px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+  --bp-2xl: 1440px;
+  --bp-3xl: 1920px;
+  --content-max: 1400px;
+  --content-wide: 1600px;
+  --space-page-x: clamp(1rem, 4vw, 3rem);
+  --space-section-y: clamp(3rem, 8vw, 6rem);
+  --touch-min: 44px;
+  --fluid-body: clamp(0.9375rem, 0.9rem + 0.2vw, 1.0625rem);
+  --fluid-h1: clamp(1.875rem, 1.5rem + 2.5vw, 3.5rem);
+  --fluid-h2: clamp(1.5rem, 1.25rem + 1.5vw, 2.5rem);
+  --fluid-h3: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+}
+
+/* ─── Global overflow & fluid media ─── */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+picture {
+  display: block;
+}
+
+/* ─── Fluid containers ─── */
+.shell,
+.hub-clear-shell,
+.container,
+.page-main .container,
+.footer-doc-page .container,
+.telephony-page .container {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-page-x);
+  padding-right: var(--space-page-x);
+  box-sizing: border-box;
+}
+
+/* ─── Section rail — hide on tablet/mobile ─── */
+@media (max-width: 1024px) {
+  .rail {
+    display: none !important;
+  }
+
+  .shell {
+    margin-left: 0 !important;
+    padding-left: var(--space-page-x) !important;
+    padding-right: var(--space-page-x) !important;
+  }
+}
+
+/* ─── Hub zones — adaptive section padding ─── */
+.hub-zone,
+.cap-section,
+.page-section {
+  padding-left: var(--space-page-x);
+  padding-right: var(--space-page-x);
+  box-sizing: border-box;
+}
+
+/* ─── Showcase split columns — tablet stack ─── */
+@media (max-width: 960px) {
+  #how-it-works .hiw-split,
+  #integrations .int-split,
+  #agents .agt-split,
+  #campaigns .camp-split,
+  #features .flow-split,
+  #journey .lc-split {
+    grid-template-columns: 1fr !important;
+    gap: clamp(1.25rem, 4vw, 2rem) !important;
+  }
+
+  .hiw-showcase-col,
+  .int-showcase-col,
+  .agt-showcase-col,
+  .camp-showcase-col,
+  .flow-showcase-col,
+  .lc-showcase-col {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .hiw-layers-col,
+  .int-layers-col,
+  .agt-layers-col,
+  .camp-layers-col,
+  .flow-layers-col,
+  .lc-layers-col {
+    min-height: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hiw-showcase,
+  .int-showcase,
+  .agt-showcase,
+  .camp-showcase,
+  .flow-showcase,
+  .lc-showcase {
+    border-radius: 18px !important;
+  }
+
+  .hiw-sc-stage,
+  .int-sc-stage,
+  .agt-sc-stage,
+  .camp-sc-stage,
+  .flow-sc-stage,
+  .lc-sc-stage {
+    min-height: min(360px, 55vh) !important;
+    max-height: none !important;
+  }
+}
+
+/* ─── Subpage fluid typography ─── */
+body:not([data-page="home"]) .page-hero h1,
+body:not([data-page="home"]) .telephony-hero h1,
+body:not([data-page="home"]) .footer-doc-hero h1 {
+  font-size: var(--fluid-h1);
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+body:not([data-page="home"]) .page-section h2,
+body:not([data-page="home"]) .capability-content h2 {
+  font-size: var(--fluid-h2);
+  overflow-wrap: anywhere;
+}
+
+body:not([data-page="home"]) .page-section h3,
+body:not([data-page="home"]) .capability-content h3 {
+  font-size: var(--fluid-h3);
+}
+
+body:not([data-page="home"]) .telephony-hero-lead,
+body:not([data-page="home"]) .page-hero p,
+body:not([data-page="home"]) .footer-doc-hero p {
+  font-size: var(--fluid-body);
+  max-width: 65ch;
+}
+
+/* ─── Forms — touch-friendly inputs ─── */
+input,
+select,
+textarea,
+button,
+.btn-fill,
+.btn-ghost,
+.hub-btn-primary,
+.hub-btn-secondary,
+.demo-input,
+.demo-submit,
+.contact-input,
+.contact-submit,
+.auth-input,
+.auth-submit {
+  font-size: max(16px, 1rem);
+}
+
+input,
+select,
+textarea,
+.demo-input,
+.contact-input,
+.auth-input {
+  min-height: var(--touch-min);
+}
+
+@media (pointer: coarse) {
+  .hub-btn-primary,
+  .hub-btn-secondary,
+  .btn-fill,
+  .btn-ghost,
+  .demo-submit,
+  .contact-submit,
+  .auth-submit,
+  .nav-hamburger {
+    min-height: var(--touch-min);
+    min-width: var(--touch-min);
+  }
+}
+
+/* Landing book-demo form rows */
+.demo-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 640px) {
+  .demo-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="home"] #book-demo {
+    padding: clamp(3rem, 10vw, 6rem) var(--space-page-x) clamp(2.5rem, 8vw, 5rem);
+  }
+}
+
+/* ─── Hero — mobile & short viewport ─── */
+@media (max-width: 640px) {
+  body[data-page="home"] .hero {
+    height: auto !important;
+    max-height: none !important;
+    min-height: 100dvh !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    padding-bottom: clamp(1.5rem, 5vw, 2.5rem) !important;
+  }
+
+  body[data-page="home"] .hero-inner {
+    max-height: none !important;
+  }
+
+  body[data-page="home"] .hero-showcase.hero-command-center .hcc-stage,
+  body[data-page="home"] .hero-showcase.hero-command-center .hcc-stage.is-presenting {
+    min-height: 300px !important;
+    max-height: min(58vh, 400px) !important;
+    aspect-ratio: 1 / 1 !important;
+  }
+
+  body[data-page="home"] .hero-actions {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.65rem;
+  }
+
+  body[data-page="home"] .hero-actions .btn-fill,
+  body[data-page="home"] .hero-actions .btn-ghost {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 375px) {
+  body[data-page="home"] .hero-brand-letter {
+    font-size: clamp(1.65rem, 8vw, 2rem) !important;
+  }
+
+  body[data-page="home"] .hero-title,
+  body[data-page="home"] .hero h1.hero-title {
+    font-size: clamp(1.85rem, 8.5vw, 2.35rem) !important;
+  }
+
+  .hcc-node {
+    width: 4.5rem !important;
+  }
+
+  .hcc-core {
+    width: 4.75rem !important;
+    height: 4.75rem !important;
+  }
+}
+
+/* ─── Orbit nodes — extra-small phones ─── */
+@media (max-width: 414px) {
+  .hcc-node--telephony { --hcc-x: 80%; --hcc-y: 20%; }
+  .hcc-node--agents { --hcc-x: 90%; --hcc-y: 50%; }
+  .hcc-node--crm { --hcc-x: 20%; --hcc-y: 20%; }
+  .hcc-node--campaigns { --hcc-x: 10%; --hcc-y: 50%; }
+  .hcc-node--workflows { --hcc-x: 20%; --hcc-y: 80%; }
+  .hcc-node--integrations { --hcc-y: 84%; }
+  .hcc-node--analytics { --hcc-x: 80%; --hcc-y: 80%; }
+}
+
+/* ─── Flows canvas — avoid forced horizontal scroll on mobile ─── */
+@media (max-width: 640px) {
+  .flows-canvas {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .flows-device-body {
+    overflow-x: hidden;
+  }
+}
+
+/* ─── Pricing compare table ─── */
+@media (max-width: 720px) {
+  .pricing-page .pricing-compare {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    overflow-x: auto;
+  }
+}
+
+/* ─── Footer doc / dashboard product pages ─── */
+@media (max-width: 768px) {
+  .stat-row,
+  .telephony-hero-stats,
+  .platform-stats {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem;
+  }
+
+  .capability-block-inner {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .footer-doc-block .capability-meta {
+    flex-direction: row;
+    gap: 0.75rem;
+  }
+}
+
+/* ─── Documentation page grids ─── */
+@media (max-width: 1024px) {
+  .docs-page-main .hiw-steps {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .docs-page-main .hiw-steps,
+  .docs-page-main .platform-stats {
+    grid-template-columns: 1fr !important;
+  }
+
+  .docs-page-main .cap-section {
+    padding-left: var(--space-page-x);
+    padding-right: var(--space-page-x);
+  }
+}
+
+/* ─── Integration / pricing card grids ─── */
+@media (max-width: 768px) {
+  .int-cards-grid,
+  .pricing-cards,
+  .agents-grid,
+  .hub-card-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ─── Contact page ─── */
+@media (max-width: 768px) {
+  .contact-shell {
+    padding: 0 var(--space-page-x);
+  }
+
+  .contact-channel {
+    padding: 1rem;
+  }
+}
+
+/* ─── Auth layout ─── */
+@media (max-width: 960px) {
+  .auth-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .auth-showcase {
+    min-height: auto;
+    padding: clamp(2rem, 6vw, 3rem) var(--space-page-x);
+  }
+}
+
+/* ─── Footer premium ─── */
+@media (max-width: 640px) {
+  .site-footer--premium .footer-premium-grid {
+    gap: 2rem;
+  }
+
+  .site-footer--premium .footer-premium-col {
+    min-width: 0;
+  }
+}
+
+/* ─── Ultrawide — prevent over-stretch ─── */
+@media (min-width: 1920px) {
+  .shell,
+  .hub-clear-shell,
+  .masthead-inner,
+  .site-header-inner {
+    max-width: var(--content-wide);
+  }
+}
+
+/* ─── Section orbit showcases — small screens ─── */
+@media (max-width: 640px) {
+  .hiw-sc-node,
+  .int-sc-node,
+  .agt-sc-node,
+  .camp-sc-node,
+  .lc-sc-node {
+    max-width: 5rem;
+  }
+
+  .hiw-sc-core,
+  .int-sc-core,
+  .agt-sc-core,
+  .camp-sc-core,
+  .lc-sc-core {
+    transform: scale(0.9);
+  }
+}
+
+/* ─── Layout stability — reduce CLS from animations ─── */
+.hero-showcase,
+.hiw-sc-stage,
+.int-sc-stage,
+.agt-sc-stage,
+.camp-sc-stage,
+.flow-sc-stage,
+.lc-sc-stage {
+  contain: layout style;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -12,10 +12,17 @@ SCRIPTS = '''  <script src="{base}assets/routes.js"></script>
   <script src="{base}assets/components.js"></script>
   <script src="{base}assets/nav.js"></script>'''
 
-CSS = '''  <link rel="stylesheet" href="{base}assets/nav.css" />
+CSS = '''  <link rel="stylesheet" href="{base}assets/navbar-tokens.css" />
+  <link rel="stylesheet" href="{base}assets/nav.css" />
   <link rel="stylesheet" href="{base}assets/masthead-flex.css" />
+  <link rel="stylesheet" href="{base}assets/brand-logo.css" />
+  <link rel="stylesheet" href="{base}assets/navbar-typography.css" />
+  <link rel="icon" href="{base}assets/brand/emaavy-logo.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="{base}assets/site.css" />
-  <link rel="stylesheet" href="{base}assets/emaavy-theme.css" />'''
+  <link rel="stylesheet" href="{base}assets/footer-premium.css" />
+  <link rel="stylesheet" href="{base}assets/emaavy-theme.css" />
+  <link rel="stylesheet" href="{base}assets/responsive-system.css" />
+  <link rel="stylesheet" href="{base}assets/section-heading.css" />'''
 
 
 def shell(title, description, route, base, content, extra_head=''):
@@ -70,11 +77,9 @@ def breadcrumb(base, items):
 def integration_page(slug, title, category, desc, stats, features, base='../../'):
     stats_html = ''.join(f'          <div class="stat-box"><b>{b}</b><span>{s}</span></div>\n' for b, s in stats)
     feat_html = ''.join(f'          <li>{f}</li>\n' for f in features)
-    bc = breadcrumb(base, [('Home', 'index.html'), ('Integrations', 'pages/integrations/index.html'), (title, '')])
     content = f'''{hero(category, title, desc, compact=True)}
     <section class="page-section">
       <div class="container">
-{breadcrumb(base, [('Home', 'index.html'), ('Integrations', 'pages/integrations/index.html'), (title, '')])}
         <div class="stat-row">
 {stats_html}        </div>
         <ul class="feature-list">
@@ -100,7 +105,6 @@ def agent_page(slug, title, desc, stats, features, base='../../'):
     content = f'''{hero('AI Voice Agent', title, desc, compact=True)}
     <section class="page-section">
       <div class="container">
-{breadcrumb(base, [('Home', 'index.html'), ('Agents', 'pages/agents/index.html'), (title, '')])}
         <div class="stat-row">
 {stats_html}        </div>
         <ul class="feature-list">

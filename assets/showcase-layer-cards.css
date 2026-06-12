@@ -1,0 +1,433 @@
+/**
+ * Shared zigzag layer cards — brand-aligned fills + outline colors
+ * (EMAAVY logo blues: deep #18345d · bolt #4a658b · steel #5a7d9e)
+ */
+
+:root {
+  --emaavy-deep: #18345d;
+  --emaavy-bolt: #4a658b;
+  --emaavy-steel: #5a7d9e;
+  --emaavy-mid-deep: #314c74;
+  --emaavy-mid-steel: #527194;
+  --emaavy-surface: #f0f4f8;
+}
+
+#how-it-works .hiw-flow-card,
+#integrations .int-layer-card,
+#agents .agt-layer-card,
+#campaigns .camp-layer-card,
+#features .flow-layer-card,
+#journey .lc-layer-card {
+  max-width: 94%;
+  border-width: 1.5px;
+  border-style: solid;
+}
+
+/* Variant A — steel blue outline, left */
+#how-it-works .hiw-flow-card--a,
+#integrations .int-layer-card--a,
+#agents .agt-layer-card--a,
+#campaigns .camp-layer-card--a,
+#features .flow-layer-card--a,
+#journey .lc-layer-card--a {
+  margin-right: auto;
+  margin-left: 0;
+  background: linear-gradient(135deg, var(--emaavy-surface) 0%, #fafbfc 100%);
+  border-color: rgba(90, 125, 158, 0.52);
+  box-shadow: 0 0 0 1px rgba(90, 125, 158, 0.1);
+}
+
+/* Variant B — bolt outline (logo primary), right */
+#how-it-works .hiw-flow-card--b,
+#integrations .int-layer-card--b,
+#agents .agt-layer-card--b,
+#campaigns .camp-layer-card--b,
+#features .flow-layer-card--b,
+#journey .lc-layer-card--b {
+  margin-left: auto;
+  margin-right: 0;
+  background: linear-gradient(135deg, rgba(74, 101, 139, 0.14) 0%, rgba(74, 101, 139, 0.04) 100%);
+  border-color: rgba(74, 101, 139, 0.5);
+  box-shadow: 0 0 0 1px rgba(74, 101, 139, 0.12);
+}
+
+/* Variant C — deep navy outline + bolt accent bar, left */
+#how-it-works .hiw-flow-card--c,
+#integrations .int-layer-card--c,
+#agents .agt-layer-card--c,
+#campaigns .camp-layer-card--c,
+#features .flow-layer-card--c,
+#journey .lc-layer-card--c {
+  margin-right: auto;
+  margin-left: 0;
+  background: #ffffff;
+  border-color: rgba(24, 52, 93, 0.4);
+  box-shadow: inset 3px 0 0 var(--emaavy-bolt), 0 0 0 1px rgba(24, 52, 93, 0.08);
+}
+
+/* Variant D — mid-deep outline, right */
+#how-it-works .hiw-flow-card--d,
+#integrations .int-layer-card--d,
+#agents .agt-layer-card--d,
+#campaigns .camp-layer-card--d,
+#features .flow-layer-card--d,
+#journey .lc-layer-card--d {
+  margin-left: auto;
+  margin-right: 0;
+  background: linear-gradient(135deg, rgba(24, 52, 93, 0.07) 0%, #f8fafc 100%);
+  border-color: rgba(49, 76, 116, 0.46);
+  box-shadow: 0 0 0 1px rgba(49, 76, 116, 0.1);
+}
+
+/* Variant E — mid-steel outline, left */
+#how-it-works .hiw-flow-card--e,
+#integrations .int-layer-card--e,
+#agents .agt-layer-card--e,
+#campaigns .camp-layer-card--e,
+#features .flow-layer-card--e,
+#journey .lc-layer-card--e {
+  margin-right: auto;
+  margin-left: 0;
+  background: linear-gradient(135deg, #eef2f7 0%, #ffffff 100%);
+  border-color: rgba(82, 113, 148, 0.48);
+  box-shadow: 0 0 0 1px rgba(82, 113, 148, 0.1);
+}
+
+/* Kicker tints */
+#how-it-works .hiw-flow-card--a .hiw-flow-card-kicker,
+#integrations .int-layer-card--a .int-layer-card-kicker,
+#agents .agt-layer-card--a .agt-layer-card-kicker,
+#campaigns .camp-layer-card--a .camp-layer-card-kicker,
+#features .flow-layer-card--a .flow-layer-card-kicker,
+#journey .lc-layer-card--a .lc-layer-card-kicker {
+  color: var(--emaavy-steel);
+}
+
+#how-it-works .hiw-flow-card--b .hiw-flow-card-kicker,
+#integrations .int-layer-card--b .int-layer-card-kicker,
+#agents .agt-layer-card--b .agt-layer-card-kicker,
+#campaigns .camp-layer-card--b .camp-layer-card-kicker,
+#features .flow-layer-card--b .flow-layer-card-kicker,
+#journey .lc-layer-card--b .lc-layer-card-kicker {
+  color: var(--emaavy-bolt);
+}
+
+#how-it-works .hiw-flow-card--c .hiw-flow-card-kicker,
+#integrations .int-layer-card--c .int-layer-card-kicker,
+#agents .agt-layer-card--c .agt-layer-card-kicker,
+#campaigns .camp-layer-card--c .camp-layer-card-kicker,
+#features .flow-layer-card--c .flow-layer-card-kicker,
+#journey .lc-layer-card--c .lc-layer-card-kicker {
+  color: var(--emaavy-deep);
+}
+
+#how-it-works .hiw-flow-card--d .hiw-flow-card-kicker,
+#integrations .int-layer-card--d .int-layer-card-kicker,
+#agents .agt-layer-card--d .agt-layer-card-kicker,
+#campaigns .camp-layer-card--d .camp-layer-card-kicker,
+#features .flow-layer-card--d .flow-layer-card-kicker,
+#journey .lc-layer-card--d .lc-layer-card-kicker {
+  color: var(--emaavy-mid-deep);
+}
+
+#how-it-works .hiw-flow-card--e .hiw-flow-card-kicker,
+#integrations .int-layer-card--e .int-layer-card-kicker,
+#agents .agt-layer-card--e .agt-layer-card-kicker,
+#campaigns .camp-layer-card--e .camp-layer-card-kicker,
+#features .flow-layer-card--e .flow-layer-card-kicker,
+#journey .lc-layer-card--e .lc-layer-card-kicker {
+  color: var(--emaavy-mid-steel);
+}
+
+/* Step number tints */
+#how-it-works .hiw-flow-card--a .hiw-flow-card-num,
+#integrations .int-layer-card--a .int-layer-card-num,
+#agents .agt-layer-card--a .agt-layer-card-num,
+#campaigns .camp-layer-card--a .camp-layer-card-num,
+#journey .lc-layer-card--a .lc-layer-card-num {
+  color: rgba(90, 125, 158, 0.22);
+}
+
+#how-it-works .hiw-flow-card--b .hiw-flow-card-num,
+#integrations .int-layer-card--b .int-layer-card-num,
+#agents .agt-layer-card--b .agt-layer-card-num,
+#campaigns .camp-layer-card--b .camp-layer-card-num,
+#journey .lc-layer-card--b .lc-layer-card-num {
+  color: rgba(74, 101, 139, 0.22);
+}
+
+#how-it-works .hiw-flow-card--c .hiw-flow-card-num,
+#integrations .int-layer-card--c .int-layer-card-num,
+#agents .agt-layer-card--c .agt-layer-card-num,
+#campaigns .camp-layer-card--c .camp-layer-card-num,
+#journey .lc-layer-card--c .lc-layer-card-num {
+  color: rgba(24, 52, 93, 0.18);
+}
+
+#how-it-works .hiw-flow-card--d .hiw-flow-card-num,
+#integrations .int-layer-card--d .int-layer-card-num,
+#agents .agt-layer-card--d .agt-layer-card-num,
+#campaigns .camp-layer-card--d .camp-layer-card-num,
+#journey .lc-layer-card--d .lc-layer-card-num {
+  color: rgba(49, 76, 116, 0.2);
+}
+
+#how-it-works .hiw-flow-card--e .hiw-flow-card-num,
+#integrations .int-layer-card--e .int-layer-card-num,
+#agents .agt-layer-card--e .agt-layer-card-num,
+#campaigns .camp-layer-card--e .camp-layer-card-num,
+#journey .lc-layer-card--e .lc-layer-card-num {
+  color: rgba(82, 113, 148, 0.2);
+}
+
+/* Tag / mode pill tints */
+#features .flow-layer-card--a .flow-layer-card-tag,
+#journey .lc-layer-card--a .lc-layer-card-tag,
+#agents .agt-layer-card--a .agt-layer-card-mode {
+  color: var(--emaavy-steel);
+  background: rgba(90, 125, 158, 0.12);
+  border-color: rgba(90, 125, 158, 0.28);
+}
+
+#features .flow-layer-card--b .flow-layer-card-tag,
+#journey .lc-layer-card--b .lc-layer-card-tag,
+#agents .agt-layer-card--b .agt-layer-card-mode {
+  color: var(--emaavy-bolt);
+  background: rgba(74, 101, 139, 0.12);
+  border-color: rgba(74, 101, 139, 0.28);
+}
+
+#features .flow-layer-card--c .flow-layer-card-tag,
+#journey .lc-layer-card--c .lc-layer-card-tag,
+#agents .agt-layer-card--c .agt-layer-card-mode {
+  color: var(--emaavy-deep);
+  background: rgba(24, 52, 93, 0.08);
+  border-color: rgba(24, 52, 93, 0.22);
+}
+
+#features .flow-layer-card--d .flow-layer-card-tag,
+#journey .lc-layer-card--d .lc-layer-card-tag,
+#agents .agt-layer-card--d .agt-layer-card-mode {
+  color: var(--emaavy-mid-deep);
+  background: rgba(49, 76, 116, 0.1);
+  border-color: rgba(49, 76, 116, 0.24);
+}
+
+#features .flow-layer-card--e .flow-layer-card-tag,
+#journey .lc-layer-card--e .lc-layer-card-tag,
+#agents .agt-layer-card--e .agt-layer-card-mode {
+  color: var(--emaavy-mid-steel);
+  background: rgba(82, 113, 148, 0.1);
+  border-color: rgba(82, 113, 148, 0.24);
+}
+
+/* Hover — deepen each variant outline */
+#how-it-works .hiw-flow-card--a:hover,
+#how-it-works .hiw-flow-card--a:focus-visible,
+#integrations .int-layer-card--a:hover,
+#integrations .int-layer-card--a:focus-visible,
+#agents .agt-layer-card--a:hover,
+#agents .agt-layer-card--a:focus-visible,
+#campaigns .camp-layer-card--a:hover,
+#campaigns .camp-layer-card--a:focus-visible,
+#features .flow-layer-card--a:hover,
+#features .flow-layer-card--a:focus-visible,
+#journey .lc-layer-card--a:hover,
+#journey .lc-layer-card--a:focus-visible {
+  border-color: var(--emaavy-steel);
+  box-shadow: 0 10px 28px rgba(90, 125, 158, 0.14);
+  transform: translateY(-1px);
+}
+
+#how-it-works .hiw-flow-card--b:hover,
+#how-it-works .hiw-flow-card--b:focus-visible,
+#integrations .int-layer-card--b:hover,
+#integrations .int-layer-card--b:focus-visible,
+#agents .agt-layer-card--b:hover,
+#agents .agt-layer-card--b:focus-visible,
+#campaigns .camp-layer-card--b:hover,
+#campaigns .camp-layer-card--b:focus-visible,
+#features .flow-layer-card--b:hover,
+#features .flow-layer-card--b:focus-visible,
+#journey .lc-layer-card--b:hover,
+#journey .lc-layer-card--b:focus-visible {
+  border-color: var(--emaavy-bolt);
+  box-shadow: 0 10px 28px rgba(74, 101, 139, 0.14);
+  transform: translateY(-1px);
+}
+
+#how-it-works .hiw-flow-card--c:hover,
+#how-it-works .hiw-flow-card--c:focus-visible,
+#integrations .int-layer-card--c:hover,
+#integrations .int-layer-card--c:focus-visible,
+#agents .agt-layer-card--c:hover,
+#agents .agt-layer-card--c:focus-visible,
+#campaigns .camp-layer-card--c:hover,
+#campaigns .camp-layer-card--c:focus-visible,
+#features .flow-layer-card--c:hover,
+#features .flow-layer-card--c:focus-visible,
+#journey .lc-layer-card--c:hover,
+#journey .lc-layer-card--c:focus-visible {
+  border-color: var(--emaavy-deep);
+  box-shadow: inset 3px 0 0 var(--emaavy-bolt), 0 10px 28px rgba(24, 52, 93, 0.12);
+  transform: translateY(-1px);
+}
+
+#how-it-works .hiw-flow-card--d:hover,
+#how-it-works .hiw-flow-card--d:focus-visible,
+#integrations .int-layer-card--d:hover,
+#integrations .int-layer-card--d:focus-visible,
+#agents .agt-layer-card--d:hover,
+#agents .agt-layer-card--d:focus-visible,
+#campaigns .camp-layer-card--d:hover,
+#campaigns .camp-layer-card--d:focus-visible,
+#features .flow-layer-card--d:hover,
+#features .flow-layer-card--d:focus-visible,
+#journey .lc-layer-card--d:hover,
+#journey .lc-layer-card--d:focus-visible {
+  border-color: var(--emaavy-mid-deep);
+  box-shadow: 0 10px 28px rgba(49, 76, 116, 0.14);
+  transform: translateY(-1px);
+}
+
+#how-it-works .hiw-flow-card--e:hover,
+#how-it-works .hiw-flow-card--e:focus-visible,
+#integrations .int-layer-card--e:hover,
+#integrations .int-layer-card--e:focus-visible,
+#agents .agt-layer-card--e:hover,
+#agents .agt-layer-card--e:focus-visible,
+#campaigns .camp-layer-card--e:hover,
+#campaigns .camp-layer-card--e:focus-visible,
+#features .flow-layer-card--e:hover,
+#features .flow-layer-card--e:focus-visible,
+#journey .lc-layer-card--e:hover,
+#journey .lc-layer-card--e:focus-visible {
+  border-color: var(--emaavy-mid-steel);
+  box-shadow: 0 10px 28px rgba(82, 113, 148, 0.14);
+  transform: translateY(-1px);
+}
+
+/* Selected — matching variant outline */
+#how-it-works .hiw-flow-card--a.is-selected,
+#integrations .int-layer-card--a.is-selected,
+#agents .agt-layer-card--a.is-selected,
+#campaigns .camp-layer-card--a.is-selected,
+#features .flow-layer-card--a.is-selected,
+#journey .lc-layer-card--a.is-selected {
+  border-color: var(--emaavy-steel) !important;
+  box-shadow: 0 8px 22px rgba(90, 125, 158, 0.18) !important;
+}
+
+#how-it-works .hiw-flow-card--b.is-selected,
+#integrations .int-layer-card--b.is-selected,
+#agents .agt-layer-card--b.is-selected,
+#campaigns .camp-layer-card--b.is-selected,
+#features .flow-layer-card--b.is-selected,
+#journey .lc-layer-card--b.is-selected {
+  border-color: var(--emaavy-bolt) !important;
+  box-shadow: 0 8px 22px rgba(74, 101, 139, 0.18) !important;
+}
+
+#how-it-works .hiw-flow-card--c.is-selected,
+#integrations .int-layer-card--c.is-selected,
+#agents .agt-layer-card--c.is-selected,
+#campaigns .camp-layer-card--c.is-selected,
+#features .flow-layer-card--c.is-selected,
+#journey .lc-layer-card--c.is-selected {
+  border-color: var(--emaavy-deep) !important;
+  box-shadow: inset 3px 0 0 var(--emaavy-bolt), 0 8px 22px rgba(24, 52, 93, 0.16) !important;
+}
+
+#how-it-works .hiw-flow-card--d.is-selected,
+#integrations .int-layer-card--d.is-selected,
+#agents .agt-layer-card--d.is-selected,
+#campaigns .camp-layer-card--d.is-selected,
+#features .flow-layer-card--d.is-selected,
+#journey .lc-layer-card--d.is-selected {
+  border-color: var(--emaavy-mid-deep) !important;
+  box-shadow: 0 8px 22px rgba(49, 76, 116, 0.18) !important;
+}
+
+#how-it-works .hiw-flow-card--e.is-selected,
+#integrations .int-layer-card--e.is-selected,
+#agents .agt-layer-card--e.is-selected,
+#campaigns .camp-layer-card--e.is-selected,
+#features .flow-layer-card--e.is-selected,
+#journey .lc-layer-card--e.is-selected {
+  border-color: var(--emaavy-mid-steel) !important;
+  box-shadow: 0 8px 22px rgba(82, 113, 148, 0.18) !important;
+}
+
+/* Premium showcase frame — outline follows active layer card */
+#how-it-works:has(.hiw-flow-card--a.is-selected) .hiw-showcase,
+#integrations:has(.int-layer-card--a.is-selected) .int-showcase,
+#agents:has(.agt-layer-card--a.is-selected) .agt-showcase,
+#campaigns:has(.camp-layer-card--a.is-selected) .camp-showcase,
+#features:has(.flow-layer-card--a.is-selected) .flow-showcase,
+#journey:has(.lc-layer-card--a.is-selected) .lc-showcase {
+  box-shadow:
+    0 0 0 2px var(--emaavy-steel),
+    0 22px 52px -14px rgba(24, 52, 93, 0.32),
+    0 0 40px -10px rgba(90, 125, 158, 0.28) !important;
+}
+
+#how-it-works:has(.hiw-flow-card--b.is-selected) .hiw-showcase,
+#integrations:has(.int-layer-card--b.is-selected) .int-showcase,
+#agents:has(.agt-layer-card--b.is-selected) .agt-showcase,
+#campaigns:has(.camp-layer-card--b.is-selected) .camp-showcase,
+#features:has(.flow-layer-card--b.is-selected) .flow-showcase,
+#journey:has(.lc-layer-card--b.is-selected) .lc-showcase {
+  box-shadow:
+    0 0 0 2px var(--emaavy-bolt),
+    0 22px 52px -14px rgba(24, 52, 93, 0.32),
+    0 0 40px -10px rgba(74, 101, 139, 0.28) !important;
+}
+
+#how-it-works:has(.hiw-flow-card--c.is-selected) .hiw-showcase,
+#integrations:has(.int-layer-card--c.is-selected) .int-showcase,
+#agents:has(.agt-layer-card--c.is-selected) .agt-showcase,
+#campaigns:has(.camp-layer-card--c.is-selected) .camp-showcase,
+#features:has(.flow-layer-card--c.is-selected) .flow-showcase,
+#journey:has(.lc-layer-card--c.is-selected) .lc-showcase {
+  box-shadow:
+    0 0 0 2px var(--emaavy-deep),
+    0 22px 52px -14px rgba(24, 52, 93, 0.36),
+    0 0 40px -10px rgba(24, 52, 93, 0.22) !important;
+}
+
+#how-it-works:has(.hiw-flow-card--d.is-selected) .hiw-showcase,
+#integrations:has(.int-layer-card--d.is-selected) .int-showcase,
+#agents:has(.agt-layer-card--d.is-selected) .agt-showcase,
+#campaigns:has(.camp-layer-card--d.is-selected) .camp-showcase,
+#features:has(.flow-layer-card--d.is-selected) .flow-showcase,
+#journey:has(.lc-layer-card--d.is-selected) .lc-showcase {
+  box-shadow:
+    0 0 0 2px var(--emaavy-mid-deep),
+    0 22px 52px -14px rgba(24, 52, 93, 0.32),
+    0 0 40px -10px rgba(49, 76, 116, 0.26) !important;
+}
+
+#how-it-works:has(.hiw-flow-card--e.is-selected) .hiw-showcase,
+#integrations:has(.int-layer-card--e.is-selected) .int-showcase,
+#agents:has(.agt-layer-card--e.is-selected) .agt-showcase,
+#campaigns:has(.camp-layer-card--e.is-selected) .camp-showcase,
+#features:has(.flow-layer-card--e.is-selected) .flow-showcase,
+#journey:has(.lc-layer-card--e.is-selected) .lc-showcase {
+  box-shadow:
+    0 0 0 2px var(--emaavy-mid-steel),
+    0 22px 52px -14px rgba(24, 52, 93, 0.32),
+    0 0 40px -10px rgba(82, 113, 148, 0.26) !important;
+}
+
+@media (max-width: 1024px) {
+  #how-it-works .hiw-flow-card,
+  #integrations .int-layer-card,
+  #agents .agt-layer-card,
+  #campaigns .camp-layer-card,
+  #features .flow-layer-card,
+  #journey .lc-layer-card {
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}

@@ -2,45 +2,54 @@
 
 **The Enterprise AI Operating System for voice, campaigns, and call intelligence.**
 
-EMAAVY is a static marketing and product website for an enterprise voice-AI platform. It presents the full product story—voice agents, campaign orchestration, integrations, call lifecycle, case studies, and pricing—in a fast, professional, deployment-ready format suitable for GitHub Pages.
+EMAAVY is a production-ready static marketing and product website for an enterprise voice-AI platform. It covers voice agents, campaign orchestration, integrations, call lifecycle, case studies, API documentation, pricing, and conversion flows—optimized for GitHub Pages and mobile devices.
 
 ---
 
 ## Live site
 
-After GitHub Pages is enabled, the site is available at:
-
 **https://developeremaavyai365.github.io/EMAAVY/**
 
-> Replace the URL above if you use a custom domain or a different repository name.
+| Page | URL |
+|------|-----|
+| Home | [/EMAAVY/](https://developeremaavyai365.github.io/EMAAVY/) |
+| Login | [/EMAAVY/login.html](https://developeremaavyai365.github.io/EMAAVY/login.html) |
+| Book a demo | [/EMAAVY/book-demo.html](https://developeremaavyai365.github.io/EMAAVY/book-demo.html) |
+| Pricing | [/EMAAVY/pages/pricing.html](https://developeremaavyai365.github.io/EMAAVY/pages/pricing.html) |
+| Integrations | [/EMAAVY/pages/integrations/index.html](https://developeremaavyai365.github.io/EMAAVY/pages/integrations/index.html) |
+| Documentation | [/EMAAVY/pages/documentation.html](https://developeremaavyai365.github.io/EMAAVY/pages/documentation.html) |
+
+Deployment is automatic on every push to `main` via GitHub Actions (see [Deploy](#deploy-to-github-pages)).
 
 ---
 
-## What this repository includes
+## What’s included
 
 | Area | Description |
 |------|-------------|
-| **Landing page** | Full-scroll homepage with hero video showcase, product hubs, and CTAs |
-| **Voice agents** | Workforce hub and role pages (sales, support, inbound, outbound) |
-| **Campaigns** | Interactive campaign builder showcase and guided workflow preview |
-| **Integrations** | Telephony, LLM, STT, TTS, and tools/CRM partner pages |
-| **Call lifecycle** | Ring → transcribe → analyze → act → learn journey |
-| **Case studies** | Customer outcome stories with detail pages |
-| **Auth & conversion** | Login, book-a-demo, pricing, documentation, and contact flows |
+| **Landing page** | Hero command-center orbit, six interactive showcases (HIW, Integrations, Agents, Campaigns, Flows, Lifecycle) |
+| **Voice agents** | 16 template pages + workforce hub |
+| **Integrations** | Telephony, LLM, STT, TTS, tools/CRM — 34 partner pages |
+| **Call lifecycle** | Ring → transcribe → analyze → act → learn |
+| **Case studies** | Mudita, NextCall, FleetIQ |
+| **API docs** | 9 API reference pages under `pages/api-docs/` |
+| **Product features** | Dashboard, campaigns, RAG, integrations ecosystem |
+| **Auth & conversion** | Login, book-a-demo, pricing, contact, FAQ |
+| **404 page** | Branded not-found page with recovery links |
 
-The site is **static HTML, CSS, and JavaScript**—no application server or database is required to host it.
+**113+ production HTML pages** — static HTML, CSS, and vanilla JavaScript. No backend required for hosting.
 
 ---
 
 ## Tech stack
 
-- **Markup & styling** — Semantic HTML5, modular CSS, responsive layout
-- **Scripting** — Vanilla JavaScript (navigation, showcases, hero video player)
-- **Typography** — Clash Display, General Sans (Fontshare / Google Fonts)
-- **Assets** — Optimized PNG screenshots, SVG logos, hero MP4 tour video
-- **Routing** — Central nav registry in `assets/routes.js`
-- **Hosting** — GitHub Pages via GitHub Actions
-- **Tooling** — Python scripts for page generation and deploy preparation
+- **Frontend** — Semantic HTML5, modular CSS, vanilla JS
+- **Typography** — Clash Display + General Sans (Fontshare)
+- **Navigation** — Central route registry in `assets/routes.js`, shared nav/footer via `assets/components.js`
+- **Showcases** — Orbit command center + section showcases (`*-showcase.js/css`)
+- **Responsive** — `assets/responsive-system.css` (320px → 4K)
+- **Hosting** — GitHub Pages via `.github/workflows/pages.yml`
+- **Generators** — Python scripts in `scripts/` for page regeneration
 
 ---
 
@@ -48,132 +57,101 @@ The site is **static HTML, CSS, and JavaScript**—no application server or data
 
 ```
 emaavy/
-├── index.html                 # Landing page (GitHub Pages entry)
-├── login.html                 # Login screen
-├── book-demo.html             # Book a demo
-├── assets/                    # Global styles, scripts, images, video
-│   ├── routes.js              # Navigation & route registry
-│   ├── site.css               # Shared design tokens & components
-│   ├── hero-video.js          # Hero video player (mute/unmute)
-│   └── video/
-│       └── emaavy-hero.mp4    # Platform tour video
-├── pages/                     # Product & marketing subpages
-│   ├── agents/
-│   ├── integrations/
-│   ├── call-lifecycle/
-│   ├── case-studies/
-│   ├── faq/
-│   └── …
-├── scripts/                   # Build & maintenance utilities
-│   ├── prepare_github_pages.py
-│   └── build_hero_video.py
-├── .github/workflows/
-│   └── pages.yml              # GitHub Pages deploy workflow
-└── DEPLOY.md                  # Extended deployment notes
+├── index.html              # Landing page (GitHub Pages entry)
+├── login.html              # Login / signup
+├── book-demo.html          # Demo booking
+├── 404.html                # Custom not-found page
+├── assets/
+│   ├── routes.js           # Navigation & route registry
+│   ├── components.js       # Shared masthead + footer
+│   ├── responsive-system.css
+│   ├── hero-command-center.js/css
+│   ├── *-showcase.js/css   # Section showcases
+│   └── brand/              # Logo assets
+├── pages/
+│   ├── agents/             # Agent templates (16+)
+│   ├── integrations/       # Partner pages (34)
+│   ├── api-docs/           # API reference (9)
+│   ├── product/            # Product feature pages (9)
+│   ├── call-lifecycle/     # Lifecycle stages (6)
+│   ├── case-studies/       # Customer stories
+│   ├── faq/                # FAQ topics
+│   ├── company/            # Company & resources
+│   └── legal/              # Terms, privacy
+├── scripts/                # Build, patch, and QA utilities
+├── .github/workflows/pages.yml
+├── PRE_PRODUCTION_AUDIT_REPORT.md
+└── DEPLOY.md
 ```
 
 ---
 
 ## Local development
 
-### Option 1 — Open directly
-
-Open `index.html` in a modern browser (Chrome, Edge, or Firefox).
-
-> Some features (routing, fetches) work best with a local server. Use Option 2 for full behavior.
-
-### Option 2 — Local static server (recommended)
-
-**Python**
+### Quick start (recommended)
 
 ```powershell
 cd path\to\emaavy
 python -m http.server 8080
 ```
 
-Then visit **http://localhost:8080**
+Open **http://localhost:8080**
 
-**Node.js (if installed)**
+### Pre-push QA
 
 ```powershell
-npx serve .
+python scripts/qa_audit.py
+```
+
+Validates routes, assets, JS syntax, and security. Expect **DEPLOYMENT READY** before pushing.
+
+### Regenerate pages
+
+```powershell
+python scripts/build_footer_pages.py
+python scripts/build_integrations_index.py
+python scripts/patch_responsive_assets.py
+python scripts/prepare_github_pages.py
 ```
 
 ---
 
 ## Deploy to GitHub Pages
 
-### Prerequisites
+### Automatic (configured)
 
-- A GitHub account and repository (this project uses `EMAAVY`)
-- Git installed locally
-- Repository set to **Public** (required for free `github.io` hosting)
+Every push to `main` triggers **Deploy to GitHub Pages** (GitHub Actions).
 
-### First-time deploy
+1. Ensure **Settings → Pages → Source** is **GitHub Actions**
+2. Push to `main`
+3. Wait for the green checkmark in **Actions**
+4. Live at **https://developeremaavyai365.github.io/EMAAVY/**
+
+### Manual push
 
 ```powershell
 cd path\to\emaavy
-
 python scripts/prepare_github_pages.py
-
+python scripts/qa_audit.py
 git add -A
-git commit -m "Prepare site for GitHub Pages"
+git commit -m "Update EMAAVY site"
 git push origin main
 ```
 
-1. On GitHub, open **Settings → Pages**
-2. Under **Build and deployment**, set **Source** to **GitHub Actions**
-3. Wait for the **Deploy to GitHub Pages** workflow to complete (Actions tab)
-
-The workflow file is at `.github/workflows/pages.yml`. It publishes the repository root as a static site on every push to `main`.
-
-### Subsequent updates
-
-```powershell
-python scripts/prepare_github_pages.py
-git add -A
-git commit -m "Update site content"
-git push
-```
-
-Deployment typically completes within a few minutes.
-
-For more detail, see [DEPLOY.md](DEPLOY.md).
+See [DEPLOY.md](DEPLOY.md) for first-time setup and troubleshooting.
 
 ---
 
-## Maintenance scripts
+## Key scripts
 
 | Script | Purpose |
 |--------|---------|
-| `scripts/prepare_github_pages.py` | Syncs landing content to `index.html` and normalizes internal links for hosting |
-| `scripts/build_hero_video.py` | Rebuilds `assets/video/emaavy-hero.mp4` from platform screenshots |
-| `scripts/build_*.py` | Generators for agents, integrations, case studies, and other hub pages |
-
-Run scripts from the repository root:
-
-```powershell
-python scripts/prepare_github_pages.py
-python scripts/build_hero_video.py
-```
-
----
-
-## Hero video
-
-The homepage hero uses a cinematic platform tour (`assets/video/emaavy-hero.mp4`) with:
-
-- Autoplay (muted by default)
-- Volume on/off control
-- Chapter labels (Dashboard, Campaigns, AI Agents, Integrations)
-
-**Replace the video:** overwrite `assets/video/emaavy-hero.mp4` with your own recording (MP4, H.264, 1920×1080 recommended).
-
-**Regenerate from screenshots:**
-
-```powershell
-python scripts/build_hero_video.py
-```
+| `scripts/qa_audit.py` | Pre-production audit (routes, assets, JS, security) |
+| `scripts/prepare_github_pages.py` | Normalize links for GitHub Pages hosting |
+| `scripts/patch_responsive_assets.py` | Inject responsive CSS across all HTML pages |
+| `scripts/build_footer_pages.py` | Generate API docs, product, company, legal pages |
+| `scripts/build_integrations_index.py` | Regenerate integrations hub |
+| `scripts/remove_breadcrumbs.py` | Strip breadcrumbs from subpages |
 
 ---
 
@@ -181,12 +159,27 @@ python scripts/build_hero_video.py
 
 | Token | Value | Usage |
 |-------|-------|--------|
-| Primary navy | `#18345D` | Headlines, emphasis |
-| Secondary slate | `#4A658B` | Accents, buttons, links |
-| Surface | `#FFFFFF` / `#F8FAFC` | Backgrounds, cards |
-| Success | `#3ECF8E` | Live indicators, campaigns accent |
+| Deep navy | `#18345d` | Headlines, emphasis |
+| Bolt slate | `#4a658b` | Accents, buttons, links |
+| Steel blue | `#5a7d9e` | Gradients, highlights |
+| Surface | `#ffffff` / `#f8fafc` | Backgrounds, cards |
 
-Shared components live under `assets/` (`site.css`, `nav.css`, `hub-clear.css`, showcase styles).
+Shared styles: `assets/emaavy-theme.css`, `assets/site.css`, `assets/nav.css`, `assets/footer-premium.css`.
+
+---
+
+## Quality assurance
+
+Pre-production audit completed May 2026:
+
+- ✓ 113 pages audited
+- ✓ 23/23 JS files pass syntax check
+- ✓ All routes resolve
+- ✓ Responsive system deployed
+- ✓ Security scan clean
+- **Score: 95/100 — Deployment ready**
+
+Full report: [PRE_PRODUCTION_AUDIT_REPORT.md](PRE_PRODUCTION_AUDIT_REPORT.md)
 
 ---
 
@@ -196,18 +189,15 @@ Shared components live under `assets/` (`site.css`, `nav.css`, `hub-clear.css`, 
 - Firefox 90+
 - Safari 15+
 
-Uses modern CSS (`:has()`, `clamp()`, flex/grid) and HTML5 video. JavaScript is required for navigation and interactive showcases.
+Uses modern CSS (`:has()`, `clamp()`, flex/grid). JavaScript required for navigation and showcases.
 
 ---
 
-## Security note
+## Security
 
-This repository is a **marketing website only**. Do not commit:
+This is a **marketing website only**. Do not commit API keys, `.env` files, or production credentials.
 
-- API keys or secrets
-- `.env` files
-- Production login credentials
-- Customer data
+Forms (login, demo, contact) are client-side demos—connect a backend before production auth.
 
 ---
 
@@ -215,11 +205,12 @@ This repository is a **marketing website only**. Do not commit:
 
 **GitHub:** [developeremaavyai365/EMAAVY](https://github.com/developeremaavyai365/EMAAVY)
 
+**Live:** [developeremaavyai365.github.io/EMAAVY](https://developeremaavyai365.github.io/EMAAVY/)
+
 ---
 
 ## License
 
 Copyright © EMAAVY. All rights reserved.
 
-This project is proprietary marketing material unless otherwise stated by the owner.
-"# EMAAVY" 
+Proprietary marketing material unless otherwise stated by the owner.

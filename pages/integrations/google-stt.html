@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta property="og:image" content="../../assets/brand/emaavy-logo.png" />
+
+  <link rel="icon" href="../../assets/brand/emaavy-logo.svg" type="image/svg+xml" />
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Google Speech-to-Text — EMAAVY</title>
@@ -12,120 +16,175 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../assets/nav.css" />
+  <link rel="stylesheet" href="../../assets/navbar-tokens.css" />
+<link rel="stylesheet" href="../../assets/nav.css" />
   <link rel="stylesheet" href="../../assets/masthead-flex.css" />
-  <link rel="stylesheet" href="../../assets/site.css" />
-  <link rel="stylesheet" href="../../assets/emaavy-theme.css" />
+<link rel="stylesheet" href="../../assets/navbar-typography.css" />
 
-  <link rel="stylesheet" href="../../assets/stt-partner.css" />
+    <link rel="stylesheet" href="../../assets/emaavy-type-tokens.css" />
+<link rel="stylesheet" href="../../assets/site.css" />
+  <link rel="stylesheet" href="../../assets/footer-premium.css" />
+  <link rel="stylesheet" href="../../assets/emaavy-theme.css" />
+  <link rel="stylesheet" href="../../assets/responsive-system.css" />
+
+  <link rel="stylesheet" href="../../assets/telephony-partner.css" />
+  <link rel="stylesheet" href="../../assets/integration-logo-3d.css" />
+  <link rel="stylesheet" href="../../assets/section-heading.css" />
+<link rel="stylesheet" href="../../assets/brand-logo.css" />
 </head>
 <body data-base="../../" data-route="integration-google-stt">
   <div id="site-nav-root"></div>
-  <main class="page-main stt-partner-page">
-    <section class="stt-partner-hero">
-      <div class="container stt-partner-hero-grid">
-        <div class="stt-partner-hero-copy">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true"> / </span>
-            <a href="../../index.html#integrations">Integrations</a>
-            <span aria-hidden="true"> / </span>
-            <a href="stt.html">Speech-to-Text</a>
-            <span aria-hidden="true"> / </span>
-            <span>Google</span>
-          </nav>
-          <span class="stt-partner-kicker">Speech-to-Text · Global</span>
+  <main class="page-main tel-partner-page">
+    <section class="tel-partner-hero">
+      <div class="container tel-partner-hero-grid">
+        <div class="tel-partner-hero-copy">
+<span class="tel-partner-kicker">Speech-to-Text · Global</span>
           <h1>Google Speech-to-Text</h1>
-          <p class="stt-partner-lead">Google Cloud Speech-to-Text spans hundreds of languages and dialects with models tuned for phone audio — ideal when EMAAVY campaigns run on GCP or need Google's latest chirp-class accuracy.</p>
-          <div class="stt-partner-stats"><div class="stt-partner-stat"><b>125+</b><span>Languages</span></div><div class="stt-partner-stat"><b>Telephony</b><span>Models</span></div><div class="stt-partner-stat"><b>GCP</b><span>Native</span></div></div>
-          <div class="stt-partner-hero-actions">
-            <a href="../../book-demo.html" class="btn-primary">Connect Google</a>
-            <a href="stt.html" class="btn-outline">All STT providers</a>
+          <p class="tel-partner-lead">Google Cloud Speech-to-Text spans hundreds of languages and dialects with models tuned for phone audio — ideal when EMAAVY campaigns run on GCP or need Google's latest chirp-class accuracy.</p>
+          <div class="tel-partner-stats"><div class="tel-partner-stat"><b>125+</b><span>Languages</span></div><div class="tel-partner-stat"><b>Telephony</b><span>Models</span></div><div class="tel-partner-stat"><b>GCP</b><span>Native</span></div></div>
+          <div class="tel-partner-hero-actions">
+            <a href="../../book-demo.html" class="btn-primary">Connect Google STT</a>
+            <a href="stt.html" class="btn-outline">All STT</a>
           </div>
         </div>
-        <aside class="stt-partner-hero-card" aria-label="Google STT overview">
-          <div class="stt-partner-hero-logo"><img src="https://cdn.simpleicons.org/google/4285F4" alt="" width="52" height="52" loading="lazy" /></div>
-          <span class="stt-partner-hero-region">Google Cloud · Global</span>
-          <p>Live transcription through EMAAVY — routed per language, campaign, and latency needs.</p>
+        <aside class="tel-partner-hero-card int-logo-hero-wrap" aria-label="Google STT logo">
+          <div class="int-logo-hero-panel"><img class="int-logo-img int-logo-img--lg int-logo-img--neutral" src="../../assets/logos/integrations/google-cloud.svg" alt="Google STT" width="64" height="64" loading="lazy" decoding="async" /></div>
+          <span class="tel-partner-hero-region">Google Cloud · Global</span>
         </aside>
       </div>
     </section>
 
-    <section class="stt-partner-section">
+    <section id="overview" class="tel-partner-section">
       <div class="container">
-        <header class="stt-partner-section-head">
-          <h2>What Google does</h2>
-          <p>Understanding the STT engine helps you pick the right capture layer for each voice program.</p>
+        <header class="tel-partner-section-head">
+          <h2>Overview</h2>
+          <p>What Google STT provides and how it fits into your capture layer.</p>
         </header>
-        <div class="stt-partner-prose"><p>Google Cloud STT supports synchronous, streaming, and batch recognition with enhanced phone call models that expect 8 kHz narrow-band audio typical of PSTN legs.</p><p>Teams on Google Kubernetes, BigQuery analytics, or Chronicle security stacks often keep speech in GCP for unified billing and VPC service controls.</p></div>
+        <div class="tel-partner-prose"><p>Google Cloud STT supports synchronous, streaming, and batch recognition with enhanced phone call models that expect 8 kHz narrow-band audio typical of PSTN legs.</p><p>Teams on Google Kubernetes, BigQuery analytics, or Chronicle security stacks often keep speech in GCP for unified billing and VPC service controls.</p></div>
       </div>
     </section>
 
-    <section class="stt-partner-section alt">
-      <div class="container stt-partner-split">
-        <header class="stt-partner-section-head">
-          <h2>How EMAAVY uses Google</h2>
-          <p>One speech pipeline — swap STT providers without rebuilding agents or analytics.</p>
-        </header>
-        <ul class="stt-partner-benefits"><li><div><strong>GCP alignment</strong><span>Same project boundaries as other cloud voice services.</span></div></li><li><div><strong>Phone model selection</strong><span>Automatic telephony profile per campaign.</span></div></li><li><div><strong>Multi-language routing</strong><span>Pair with EMAAVY language detection rules.</span></div></li><li><div><strong>Data residency</strong><span>Region-specific processing for compliance.</span></div></li></ul>
-      </div>
-    </section>
-
-    <section class="stt-partner-section">
+    <section id="capabilities" class="tel-partner-section alt">
       <div class="container">
-        <header class="stt-partner-section-head">
+        <header class="tel-partner-section-head">
           <h2>Key capabilities</h2>
-          <p>What teams configure when Google powers EMAAVY transcription.</p>
+          <p>Core features teams configure when Google STT powers EMAAVY programs.</p>
         </header>
-        <div class="stt-feature-grid"><article class="stt-feature-card"><h3>Streaming recognition</h3><p>Interim results for live agents.</p></article><article class="stt-feature-card"><h3>Telephony model</h3><p>Optimized for call center audio.</p></article><article class="stt-feature-card"><h3>Speech adaptation</h3><p>Phrase hints and custom classes.</p></article><article class="stt-feature-card"><h3>Multilingual</h3><p>Automatic language detection options.</p></article><article class="stt-feature-card"><h3>Word timestamps</h3><p>Align transcripts to audio for QA.</p></article><article class="stt-feature-card"><h3>VPC controls</h3><p>Service perimeter compatible deployments.</p></article></div>
+        <div class="tel-feature-grid"><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">SR</span><h3>Streaming recognition</h3><p>Interim results for live agents.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">TM</span><h3>Telephony model</h3><p>Optimized for call center audio.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">SA</span><h3>Speech adaptation</h3><p>Phrase hints and custom classes.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">MU</span><h3>Multilingual</h3><p>Automatic language detection options.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">WT</span><h3>Word timestamps</h3><p>Align transcripts to audio for QA.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">VC</span><h3>VPC controls</h3><p>Service perimeter compatible deployments.</p></article></div>
       </div>
     </section>
 
-    <section class="stt-partner-section alt">
+    <section id="use-cases" class="tel-partner-section">
       <div class="container">
-        <header class="stt-partner-section-head">
-          <h2>Ideal use cases</h2>
-          <p>Where Google and EMAAVY deliver the strongest combined outcomes.</p>
+        <header class="tel-partner-section-head">
+          <h2>Business use cases</h2>
+          <p>Real-world applications for Google STT with EMAAVY agents and campaigns.</p>
         </header>
-        <div class="stt-use-grid"><article class="stt-use-card"><h3>GCP-native voice</h3><p>Programs already on Google Cloud.</p></article><article class="stt-use-card"><h3>Global support lines</h3><p>Many languages on one platform.</p></article><article class="stt-use-card"><h3>Analytics pipelines</h3><p>Export to BigQuery after EMAAVY enrichment.</p></article></div>
+        <div class="tel-use-grid"><article class="tel-use-card"><h3>GCP-native voice</h3><p>Programs already on Google Cloud.</p></article><article class="tel-use-card"><h3>Global support lines</h3><p>Many languages on one platform.</p></article><article class="tel-use-card"><h3>Analytics pipelines</h3><p>Export to BigQuery after EMAAVY enrichment.</p></article><article class="tel-use-card"><h3>Live coaching</h3><p>Supervisors see transcripts and intent signals in real time.</p></article><article class="tel-use-card"><h3>Compliance monitoring</h3><p>Keyword and phrase detection for regulated industries.</p></article><article class="tel-use-card"><h3>Multi-agent operations</h3><p>Route languages and accents per campaign without rebuilds.</p></article></div>
       </div>
     </section>
 
-    <section class="stt-partner-section">
+    <section id="integration-workflow" class="tel-partner-section alt">
       <div class="container">
-        <header class="stt-partner-section-head">
-          <h2>Getting connected</h2>
-          <p>From API credentials to live traffic on EMAAVY.</p>
+        <header class="tel-partner-section-head">
+          <h2>Integration workflow</h2>
+          <p>How Google STT connects through EMAAVY — from live events to automated outcomes.</p>
         </header>
-        <ol class="stt-setup-steps"><li><div><strong>Enable Speech API</strong><p>In Google Cloud project linked to EMAAVY.</p></div></li><li><div><strong>Create service account</strong><p>Least-privilege credentials for STT only.</p></div></li><li><div><strong>Configure adaptation</strong><p>Phrase sets for brand and SKU names.</p></div></li><li><div><strong>Test phone audio</strong><p>Validate 8 kHz samples from your carrier.</p></div></li></ol>
+        <div class="tel-workflow-viz__track"><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">01</span><h3>Audio captured</h3><p>Live call media enters the transcription layer.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">02</span><h3>EMAAVY routes</h3><p>STT engine selected by language and latency tier.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">03</span><h3>Provider transcribes</h3><p>Words stream with sub-second turnaround.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">04</span><h3>Intent parsed</h3><p>LLM scores buyer signals from transcript.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">05</span><h3>Automations fire</h3><p>Coaching, CRM, and webhooks react in real time.</p></article></div>
       </div>
     </section>
 
-    <section class="stt-partner-section alt">
+    <section id="setup-process" class="tel-partner-section">
       <div class="container">
-        <header class="stt-partner-section-head">
-          <h2>Explore other STT providers</h2>
-          <p>Mix engines by language and campaign — transcripts and scoring stay in one platform.</p>
+        <header class="tel-partner-section-head">
+          <h2>Setup process</h2>
+          <p>Connection steps to go from credentials to production traffic with Google STT.</p>
         </header>
-        <nav class="stt-partner-nav-strip" aria-label="STT providers">
-          <a href="deepgram.html">Deepgram</a>
-          <a href="sarvam.html">Sarvam</a>
-          <a href="assemblyai.html">AssemblyAI</a>
-          <a href="azure-stt.html">Azure</a>
-          <a href="google-stt.html" class="is-current">Google</a>
-          <a href="openai-stt.html">Whisper</a>
-          <a href="elevenlabs-stt.html">ElevenLabs</a>
-          <a href="gladia.html">Gladia</a>
-          <a href="smallest.html">Smallest</a>
-          <a href="stt.html">All STT</a>
+        <div class="tel-setup-grid"><article class="tel-setup-step"><span class="tel-setup-label">Enable Speech API</span><p>In Google Cloud project linked to EMAAVY.</p></article><article class="tel-setup-step"><span class="tel-setup-label">Create service account</span><p>Least-privilege credentials for STT only.</p></article><article class="tel-setup-step"><span class="tel-setup-label">Configure adaptation</span><p>Phrase sets for brand and SKU names.</p></article><article class="tel-setup-step"><span class="tel-setup-label">Test phone audio</span><p>Validate 8 kHz samples from your carrier.</p></article></div>
+      </div>
+    </section>
+
+    <section id="business-benefits" class="tel-partner-section alt">
+      <div class="container tel-partner-split">
+        <header class="tel-partner-section-head">
+          <h2>Business benefits</h2>
+          <p>Efficiency, automation, scalability, and customer experience gains from connecting Google STT to EMAAVY.</p>
+        </header>
+        <ul class="tel-partner-benefits"><li><div><span class="tel-why-title">GCP alignment</span><span class="tel-why-desc">Same project boundaries as other cloud voice services.</span></div></li><li><div><span class="tel-why-title">Phone model selection</span><span class="tel-why-desc">Automatic telephony profile per campaign.</span></div></li><li><div><span class="tel-why-title">Multi-language routing</span><span class="tel-why-desc">Pair with EMAAVY language detection rules.</span></div></li><li><div><span class="tel-why-title">Data residency</span><span class="tel-why-desc">Region-specific processing for compliance.</span></div></li></ul>
+      </div>
+    </section>
+
+    <section class="tel-partner-section">
+      <div class="container">
+        <header class="tel-partner-section-head">
+          <h2>Explore other STT engines</h2>
+          <p>Mix engines by language and latency — EMAAVY keeps transcripts and scoring consistent.</p>
+        </header>
+        <nav class="int-logo-ecosystem int-logo-ecosystem--compact" aria-label="STT partners">
+          <a href="deepgram.html" id="deepgram" class="int-logo-tile int-logo-tile--compact" aria-label="Deepgram integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/deepgram.svg" alt="Deepgram" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Deepgram</span>
+              <span class="int-logo-tile__category">Low latency</span>
+            </div>
+          </a>
+          <a href="sarvam.html" id="sarvam" class="int-logo-tile int-logo-tile--compact" aria-label="Sarvam integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/sarvam.svg" alt="Sarvam AI" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Sarvam</span>
+              <span class="int-logo-tile__category">India · 22 langs</span>
+            </div>
+          </a>
+          <a href="assemblyai.html" id="assemblyai" class="int-logo-tile int-logo-tile--compact" aria-label="AssemblyAI integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/assemblyai.svg" alt="AssemblyAI" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">AssemblyAI</span>
+              <span class="int-logo-tile__category">Real-time</span>
+            </div>
+          </a>
+          <a href="azure-stt.html" id="azure-stt" class="int-logo-tile int-logo-tile--compact" aria-label="Azure integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/azure.svg" alt="Azure Speech" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Azure</span>
+              <span class="int-logo-tile__category">Enterprise</span>
+            </div>
+          </a>
+          <a href="openai-stt.html" id="openai-stt" class="int-logo-tile int-logo-tile--compact" aria-label="Whisper integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/openai.svg" alt="OpenAI Whisper" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Whisper</span>
+              <span class="int-logo-tile__category">Whisper</span>
+            </div>
+          </a>
+          <a href="elevenlabs-stt.html" id="elevenlabs-stt" class="int-logo-tile int-logo-tile--compact" aria-label="ElevenLabs integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/elevenlabs.svg" alt="ElevenLabs STT" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">ElevenLabs</span>
+              <span class="int-logo-tile__category">Unified stack</span>
+            </div>
+          </a>
+          <a href="gladia.html" id="gladia" class="int-logo-tile int-logo-tile--compact" aria-label="Gladia integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/gladia.svg" alt="Gladia" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Gladia</span>
+              <span class="int-logo-tile__category">Multilingual</span>
+            </div>
+          </a>
+          <a href="smallest.html" id="smallest" class="int-logo-tile int-logo-tile--compact" aria-label="Smallest integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/smallest.svg" alt="Smallest AI" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Smallest</span>
+              <span class="int-logo-tile__category">Lightweight</span>
+            </div>
+          </a>
         </nav>
       </div>
     </section>
 
-    <section class="stt-partner-cta">
+    <section class="tel-partner-cta">
       <div class="container">
-        <h2>Ready to connect Google?</h2>
-        <p>Book a walkthrough — we will map STT routing, keyword lists, and a live agent demo.</p>
+        <h2>Ready to connect Google STT?</h2>
+        <p>Book a walkthrough — we will map STT routing, keyword boosting, and a live agent demo.</p>
         <div class="cta-row">
           <a href="../../book-demo.html" class="btn-primary">Book a demo</a>
           <a href="stt.html" class="btn-outline">STT overview</a>

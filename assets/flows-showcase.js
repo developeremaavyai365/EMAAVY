@@ -243,11 +243,39 @@
     else if (branchId === 'later') selectNode('end_follow', branchId);
   }
 
+  const layerCards = document.querySelectorAll('#features .flow-layer-card');
+  const statusLabel = document.querySelector('[data-flow-status-label]');
+  const LAYER_MAP = {
+    'flow-hook': { title: 'Hook & Context', node: 'hook' },
+    'flow-branch': { title: 'Branching Paths', node: 'hook', branch: 'interested' },
+    'flow-value': { title: 'Value & Capture', node: 'value' },
+    'flow-nurture': { title: 'Nurture & Follow-up', node: 'nurture' },
+    'flow-ends': { title: 'End States', node: 'end_registered' },
+  };
+
+  function setLayerSelected(layerId) {
+    layerCards.forEach((card) => {
+      card.classList.toggle('is-selected', card.getAttribute('data-detail') === layerId);
+    });
+    const meta = LAYER_MAP[layerId];
+    if (statusLabel && meta) statusLabel.textContent = meta.title;
+  }
+
+  function syncLayerFromNode(nodeId) {
+    layerCards.forEach((card) => {
+      const meta = LAYER_MAP[card.getAttribute('data-detail')];
+      if (!meta || meta.branch) return;
+      if (meta.node === nodeId) setLayerSelected(card.getAttribute('data-detail'));
+    });
+  }
+
   function selectNode(nodeId, branchKeep) {
     state.activeNode = nodeId;
     if (!branchKeep) state.branch = null;
     const node = NODE_DATA[nodeId];
     if (!node) return;
+
+    syncLayerFromNode(nodeId);
 
     dimNodes(nodeId, state.branch);
     if (state.branch && PATH_EDGES[state.branch]) {
@@ -297,8 +325,32 @@
 
   tryLiveBtn?.addEventListener('click', () => {
     setScreenshot(false);
+    setLayerSelected('flow-hook');
     selectNode('hook');
   });
 
+  layerCards.forEach((card) => {
+    function activate() {
+      const detail = card.getAttribute('data-detail');
+      const meta = LAYER_MAP[detail];
+      if (!meta) return;
+      setScreenshot(false);
+      setLayerSelected(detail);
+      if (meta.branch) {
+        selectBranch(meta.branch, NODE_DATA.hook);
+      } else {
+        selectNode(meta.node);
+      }
+    }
+    card.addEventListener('click', activate);
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        activate();
+      }
+    });
+  });
+
+  setLayerSelected('flow-hook');
   selectNode('hook');
 })();

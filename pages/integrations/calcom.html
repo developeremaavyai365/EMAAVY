@@ -1,51 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta property="og:image" content="../../assets/brand/emaavy-logo.png" />
+
+  <link rel="icon" href="../../assets/brand/emaavy-logo.svg" type="image/svg+xml" />
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cal.com Integration — EMAAVY</title>
-  <meta name="description" content="Connect Cal.com with EMAAVY. Book meetings live during calls — agent captures the slot and creates the event instantly." />
+  <title>Cal.com — EMAAVY</title>
+  <meta name="description" content="Cal.com and EMAAVY — book meetings live during AI voice calls with instant calendar holds." />
   <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Cal.com Integration — EMAAVY" />
-  <meta property="og:description" content="Connect Cal.com with EMAAVY. Book meetings live during calls — agent captures the slot and creates the event instantly." />
+  <meta property="og:title" content="Cal.com — EMAAVY" />
+  <meta property="og:description" content="Cal.com and EMAAVY — book meetings live during AI voice calls with instant calendar holds." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../assets/nav.css" />
-<link rel="stylesheet" href="../../assets/masthead-flex.css" />
+  <link rel="stylesheet" href="../../assets/navbar-tokens.css" />
+<link rel="stylesheet" href="../../assets/nav.css" />
+  <link rel="stylesheet" href="../../assets/masthead-flex.css" />
+<link rel="stylesheet" href="../../assets/navbar-typography.css" />
 
-  <link rel="stylesheet" href="../../assets/site.css" />
-<link rel="stylesheet" href="../../assets/emaavy-theme.css" />
+    <link rel="stylesheet" href="../../assets/emaavy-type-tokens.css" />
+<link rel="stylesheet" href="../../assets/site.css" />
+  <link rel="stylesheet" href="../../assets/footer-premium.css" />
+  <link rel="stylesheet" href="../../assets/emaavy-theme.css" />
+  <link rel="stylesheet" href="../../assets/responsive-system.css" />
 
-
+  <link rel="stylesheet" href="../../assets/telephony-partner.css" />
+  <link rel="stylesheet" href="../../assets/integration-logo-3d.css" />
+  <link rel="stylesheet" href="../../assets/section-heading.css" />
+<link rel="stylesheet" href="../../assets/brand-logo.css" />
 </head>
 <body data-base="../../" data-route="integration-calcom">
   <div id="site-nav-root"></div>
-  <main class="page-main">
-    <section class="page-hero compact">
-      <div class="container">
-        <span class="page-kicker">Tools</span>
-        <h1>Cal.com</h1>
-        <p>Book meetings live during calls — agent captures the slot and creates the event instantly.</p>
+  <main class="page-main tel-partner-page">
+    <section class="tel-partner-hero">
+      <div class="container tel-partner-hero-grid">
+        <div class="tel-partner-hero-copy">
+<span class="tel-partner-kicker">Tools & Workflow · Scheduling</span>
+          <h1>Cal.com</h1>
+          <p class="tel-partner-lead">Cal.com is the open scheduling layer modern teams trust — on EMAAVY, voice agents check availability, propose slots, and confirm bookings while the caller is still on the line.</p>
+          <div class="tel-partner-stats"><div class="tel-partner-stat"><b>Live</b><span>Booking</span></div><div class="tel-partner-stat"><b>Open</b><span>Scheduling</span></div><div class="tel-partner-stat"><b>Instant</b><span>Confirm</span></div></div>
+          <div class="tel-partner-hero-actions">
+            <a href="../../book-demo.html" class="btn-primary">Connect Cal.com</a>
+            <a href="tools.html" class="btn-outline">All tools</a>
+          </div>
+        </div>
+        <aside class="tel-partner-hero-card int-logo-hero-wrap" aria-label="Cal.com logo">
+          <div class="int-logo-hero-panel"><img class="int-logo-img int-logo-img--lg int-logo-img--neutral" src="../../assets/logos/integrations/calcom.svg" alt="Cal.com" width="64" height="64" loading="lazy" decoding="async" /></div>
+          <span class="tel-partner-hero-region">Scheduling · Open</span>
+        </aside>
       </div>
     </section>
-    <section class="page-section">
+
+    <section id="overview" class="tel-partner-section">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../index.html">Home</a> › <a href="../../pages/integrations/index.html">Integrations</a> › <span>Cal.com</span></nav>
-        <div class="stat-row">
-          <div class="stat-box"><b>Live</b><span>Booking</span></div>
-          <div class="stat-box"><b>Zero</b><span>Manual entry</span></div>
-        </div>
-        <ul class="feature-list">
-          <li>Real-time availability</li>
-          <li>Auto calendar events</li>
-          <li>Timezone-aware scheduling</li>
-          <li>Email confirmations</li>
-        </ul>
+        <header class="tel-partner-section-head">
+          <h2>Overview</h2>
+          <p>What Cal.com provides and how it fits into your operations stack.</p>
+        </header>
+        <div class="tel-partner-prose"><p>Cal.com provides embeddable scheduling with team round-robin, collective events, and API access for programmatic booking. Sales and success teams use it to remove back-and-forth email when setting demos.</p><p>EMAAVY agents read live calendar availability through Cal.com APIs, negotiate time with the callee, and create confirmed events — reducing drop-off after verbal yes on the phone.</p></div>
+      </div>
+    </section>
+
+    <section id="capabilities" class="tel-partner-section alt">
+      <div class="container">
+        <header class="tel-partner-section-head">
+          <h2>Key capabilities</h2>
+          <p>Core features teams configure when Cal.com powers EMAAVY programs.</p>
+        </header>
+        <div class="tel-feature-grid"><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">AA</span><h3>Availability API</h3><p>Fetch open slots programmatically.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">IB</span><h3>Instant booking</h3><p>Create events with attendee details.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">ET</span><h3>Event types</h3><p>Map campaigns to specific Cal.com event links.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">BT</span><h3>Buffer times</h3><p>Respect prep and travel buffers automatically.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">RF</span><h3>Reschedule flows</h3><p>Agent can move meetings per script.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">WC</span><h3>Webhook confirmations</h3><p>Sync booking IDs back to EMAAVY analytics.</p></article></div>
+      </div>
+    </section>
+
+    <section id="use-cases" class="tel-partner-section">
+      <div class="container">
+        <header class="tel-partner-section-head">
+          <h2>Business use cases</h2>
+          <p>Real-world applications for Cal.com with EMAAVY agents and campaigns.</p>
+        </header>
+        <div class="tel-use-grid"><article class="tel-use-card"><h3>SDR outbound</h3><p>Book demos directly from cold calls.</p></article><article class="tel-use-card"><h3>Renewal calls</h3><p>Schedule success reviews on positive intent.</p></article><article class="tel-use-card"><h3>Healthcare & services</h3><p>Appointment setting with compliance scripts.</p></article><article class="tel-use-card"><h3>Lead qualification</h3><p>Sync scores and dispositions to CRM during live calls.</p></article><article class="tel-use-card"><h3>Automated follow-ups</h3><p>Trigger messaging and tasks the moment calls end.</p></article><article class="tel-use-card"><h3>Multi-agent operations</h3><p>Standardize automations while scaling agent programs.</p></article></div>
+      </div>
+    </section>
+
+    <section id="integration-workflow" class="tel-partner-section alt">
+      <div class="container">
+        <header class="tel-partner-section-head">
+          <h2>Integration workflow</h2>
+          <p>How Cal.com connects through EMAAVY — from live events to automated outcomes.</p>
+        </header>
+        <div class="tel-workflow-viz__track"><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">01</span><h3>Call event</h3><p>Live or completed call triggers EMAAVY rules.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">02</span><h3>EMAAVY evaluates</h3><p>Intent, keywords, and scores match automations.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">03</span><h3>Tool invoked</h3><p>CRM, calendar, or messaging API is called.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">04</span><h3>Record syncs</h3><p>Contacts, tasks, and deals update automatically.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">05</span><h3>Team notified</h3><p>Slack, WhatsApp, or webhooks confirm completion.</p></article></div>
+      </div>
+    </section>
+
+    <section id="setup-process" class="tel-partner-section">
+      <div class="container">
+        <header class="tel-partner-section-head">
+          <h2>Setup process</h2>
+          <p>Connection steps to go from credentials to production traffic with Cal.com.</p>
+        </header>
+        <div class="tel-setup-grid"><article class="tel-setup-step"><span class="tel-setup-label">Connect Cal.com API</span><p>API key and default event type in EMAAVY.</p></article><article class="tel-setup-step"><span class="tel-setup-label">Link team calendars</span><p>Assign round-robin pools per campaign.</p></article><article class="tel-setup-step"><span class="tel-setup-label">Script booking flow</span><p>Train agent prompts for slot negotiation.</p></article><article class="tel-setup-step"><span class="tel-setup-label">Test timezone edge cases</span><p>Validate international callers.</p></article></div>
+      </div>
+    </section>
+
+    <section id="business-benefits" class="tel-partner-section alt">
+      <div class="container tel-partner-split">
+        <header class="tel-partner-section-head">
+          <h2>Business benefits</h2>
+          <p>Efficiency, automation, scalability, and customer experience gains from connecting Cal.com to EMAAVY.</p>
+        </header>
+        <ul class="tel-partner-benefits"><li><div><span class="tel-why-title">In-call booking</span><span class="tel-why-desc">Agent offers slots from real availability.</span></div></li><li><div><span class="tel-why-title">Hold & confirm</span><span class="tel-why-desc">Reservation completes before hang-up.</span></div></li><li><div><span class="tel-why-title">Team routing</span><span class="tel-why-desc">Round-robin across AE calendars per campaign.</span></div></li><li><div><span class="tel-why-title">Timezone aware</span><span class="tel-why-desc">Caller local time surfaced correctly.</span></div></li></ul>
+      </div>
+    </section>
+
+    <section class="tel-partner-section">
+      <div class="container">
+        <header class="tel-partner-section-head">
+          <h2>Explore other tools</h2>
+          <p>Mix CRM, scheduling, messaging, and webhooks per campaign — EMAAVY keeps automations consistent.</p>
+        </header>
+        <nav class="int-logo-ecosystem int-logo-ecosystem--compact" aria-label="Workflow tools">
+          <a href="webhooks.html" id="webhooks" class="int-logo-tile int-logo-tile--compact" aria-label="Webhooks integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/webhooks.svg" alt="Webhooks" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Webhooks</span>
+              <span class="int-logo-tile__category">Events</span>
+            </div>
+          </a>
+          <a href="salesforce.html" id="salesforce" class="int-logo-tile int-logo-tile--compact" aria-label="Salesforce integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/salesforce.svg" alt="Salesforce" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Salesforce</span>
+              <span class="int-logo-tile__category">CRM</span>
+            </div>
+          </a>
+          <a href="hubspot.html" id="hubspot" class="int-logo-tile int-logo-tile--compact" aria-label="HubSpot integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/hubspot.svg" alt="HubSpot" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">HubSpot</span>
+              <span class="int-logo-tile__category">CRM</span>
+            </div>
+          </a>
+          <a href="google-calendar.html" id="google-calendar" class="int-logo-tile int-logo-tile--compact" aria-label="Google Calendar integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/google-calendar.svg" alt="Google Calendar" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Google Calendar</span>
+              <span class="int-logo-tile__category">Calendar</span>
+            </div>
+          </a>
+          <a href="whatsapp.html" id="whatsapp" class="int-logo-tile int-logo-tile--compact" aria-label="WhatsApp integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/whatsapp.svg" alt="WhatsApp" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">WhatsApp</span>
+              <span class="int-logo-tile__category">Messaging</span>
+            </div>
+          </a>
+          <a href="slack.html" id="slack" class="int-logo-tile int-logo-tile--compact" aria-label="Slack integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--light" src="../../assets/logos/integrations/slack.svg" alt="Slack" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Slack</span>
+              <span class="int-logo-tile__category">Alerts</span>
+            </div>
+          </a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="tel-partner-cta">
+      <div class="container">
+        <h2>Ready to connect Cal.com?</h2>
+        <p>Book a walkthrough — we will map triggers, CRM fields, and live automation on a sample call.</p>
         <div class="cta-row">
-          <a href="../../book-demo.html" class="btn-primary">Connect Cal.com →</a>
-          <a href="../../pages/integrations/index.html" class="btn-outline">All integrations</a>
+          <a href="../../book-demo.html" class="btn-primary">Book a demo</a>
+          <a href="tools.html" class="btn-outline">Tools overview</a>
         </div>
       </div>
     </section>

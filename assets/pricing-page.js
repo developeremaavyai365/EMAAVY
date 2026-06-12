@@ -47,7 +47,7 @@
     ).observe(card);
   });
 
-  document.querySelectorAll('.pricing-head.reveal, .pricing-compare.reveal').forEach((el) => {
+  document.querySelectorAll('.billing-toggle.reveal, .int-category-head.reveal, .pricing-compare.reveal').forEach((el) => {
     new IntersectionObserver(
       ([e]) => {
         if (e.isIntersecting) el.classList.add('in');

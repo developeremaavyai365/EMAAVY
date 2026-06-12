@@ -562,19 +562,13 @@ def topic_page(slug, t):
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../assets/nav.css" />
   <link rel="stylesheet" href="../../assets/site.css" />
+  <link rel="stylesheet" href="../../assets/footer-premium.css" />
 </head>
 <body data-base="../../" data-route="{t['route']}">
   <div id="site-nav-root"></div>
   <main class="page-main int-category-page">
     <section class="page-hero telephony-hero">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../../{HOME}">Home</a>
-          <span aria-hidden="true"> / </span>
-          <a href="../faq.html">FAQ</a>
-          <span aria-hidden="true"> / </span>
-          <span>{t['title']}</span>
-        </nav>
         <span class="page-kicker">{t['kicker']}</span>
         <h1>{t['title']}</h1>
         <p class="telephony-hero-lead">{t['hero_lead']}</p>
@@ -675,17 +669,13 @@ def hub_page():
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/nav.css" />
   <link rel="stylesheet" href="../assets/site.css" />
+  <link rel="stylesheet" href="../assets/footer-premium.css" />
 </head>
 <body data-base="../" data-route="faq">
   <div id="site-nav-root"></div>
   <main class="page-main">
     <section class="page-hero telephony-hero">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../{HOME}">Home</a>
-          <span aria-hidden="true"> / </span>
-          <span>FAQ</span>
-        </nav>
         <span class="page-kicker">Support · Knowledge base</span>
         <h1>Questions teams ask before they scale</h1>
         <p class="telephony-hero-lead">Six guided topics — each with a full page of context, not a one-line accordion.</p>

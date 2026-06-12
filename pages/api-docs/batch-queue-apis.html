@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Batch &amp; Queue APIs — EMAAVY</title>
+  <meta name="description" content="Enqueue bulk outbound campaigns with pacing, retries, and timezone-aware scheduling." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Batch &amp; Queue APIs — EMAAVY" />
+  <meta property="og:description" content="Enqueue bulk outbound campaigns with pacing, retries, and timezone-aware scheduling." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/navbar-tokens.css" />
+  <link rel="stylesheet" href="../../assets/nav.css" />
+  <link rel="stylesheet" href="../../assets/masthead-flex.css" />
+  <link rel="stylesheet" href="../../assets/navbar-typography.css" />
+  <link rel="stylesheet" href="../../assets/emaavy-type-tokens.css" />
+  <link rel="stylesheet" href="../../assets/site.css" />
+  <link rel="stylesheet" href="../../assets/emaavy-theme.css" />
+  <link rel="stylesheet" href="../../assets/responsive-system.css" />
+  <link rel="stylesheet" href="../../assets/section-heading.css" />
+  <link rel="stylesheet" href="../../assets/brand-logo.css" />
+  <link rel="stylesheet" href="../../assets/footer-premium.css" />
+  <link rel="stylesheet" href="../../assets/footer-page.css" />
+  <link rel="icon" href="../../assets/brand/emaavy-logo.svg" type="image/svg+xml" />
+</head>
+<body data-base="../../" data-route="footer-batch-queue-apis">
+  <div id="site-nav-root"></div>
+  <main class="page-main footer-doc-page">
+    <section class="page-hero telephony-hero footer-doc-hero">
+      <div class="container">
+        <span class="page-kicker">API Documentation</span>
+        <h1>Batch &amp; Queue APIs</h1>
+        <p class="telephony-hero-lead">Enqueue thousands of outbound dials with intelligent pacing, timezone windows, retry policies, and per-sub-account rate limits.</p>
+      </div>
+    </section>
+    <section id="create-batch" class="page-section alt">
+      <div class="container footer-api-wrap">
+        <article class="footer-api-card">
+          <div class="footer-api-meta">
+            <span class="capability-num">01</span>
+            <span class="footer-api-method">POST</span>
+            <code class="footer-api-path">https://api.emaavy.com/v1/batches</code>
+          </div>
+          <h2>Create a batch job</h2>
+          <p class="footer-api-overview">Upload contacts and schedule a campaign wave.</p>
+          <h3>Example request</h3>
+          <pre class="footer-code-block" data-lang="bash"><code>curl -X POST https://api.emaavy.com/v1/batches \
+  -H &quot;Authorization: Bearer &lt;EMAAVY_API_KEY&gt;&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#x27;{
+    &quot;agent_id&quot;: &quot;agt_4kLm9&quot;,
+    &quot;name&quot;: &quot;June renewal reminders&quot;,
+    &quot;contacts&quot;: [
+      { &quot;to&quot;: &quot;+919876543210&quot;, &quot;vars&quot;: { &quot;first_name&quot;: &quot;Anita&quot;, &quot;due_date&quot;: &quot;2026-06-15&quot; } }
+    ],
+    &quot;pacing&quot;: { &quot;max_concurrent&quot;: 40, &quot;calls_per_minute&quot;: 120 },
+    &quot;retry&quot;: { &quot;no_answer&quot;: { &quot;attempts&quot;: 2, &quot;delay_minutes&quot;: 180 } }
+  }&#x27;</code></pre>
+              <h3>Request body</h3>
+              <pre class="footer-code-block" data-lang="json"><code>{
+  &quot;agent_id&quot;: &quot;agt_4kLm9&quot;,
+  &quot;name&quot;: &quot;June renewal reminders&quot;,
+  &quot;contacts&quot;: [{ &quot;to&quot;: &quot;+919876543210&quot;, &quot;vars&quot;: { &quot;first_name&quot;: &quot;Anita&quot;, &quot;due_date&quot;: &quot;2026-06-15&quot; } }],
+  &quot;pacing&quot;: { &quot;max_concurrent&quot;: 40, &quot;calls_per_minute&quot;: 120 },
+  &quot;retry&quot;: { &quot;no_answer&quot;: { &quot;attempts&quot;: 2, &quot;delay_minutes&quot;: 180 } }
+}</code></pre>
+          <h3>Responses</h3>
+          <div class="footer-api-responses">
+            <div class="footer-api-response footer-api-response--200">
+              <div class="footer-api-response-head"><strong>200</strong> — OK — batch queued</div>
+              <pre class="footer-code-block" data-lang="json"><code>{
+  &quot;batch_id&quot;: &quot;batch_7hK2&quot;,
+  &quot;status&quot;: &quot;queued&quot;,
+  &quot;contact_count&quot;: 1,
+  &quot;estimated_start&quot;: &quot;2026-05-30T11:00:00Z&quot;
+}</code></pre>
+            </div>
+            <div class="footer-api-response footer-api-response--400">
+              <div class="footer-api-response-head"><strong>400</strong> — Bad Request</div>
+              <pre class="footer-code-block" data-lang="json"><code>{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;invalid_request&quot;,
+    &quot;message&quot;: &quot;Missing required field or malformed JSON body.&quot;,
+    &quot;field&quot;: &quot;agent_id&quot;
+  }
+}</code></pre>
+            </div>
+            <div class="footer-api-response footer-api-response--401">
+              <div class="footer-api-response-head"><strong>401</strong> — Unauthorized</div>
+              <pre class="footer-code-block" data-lang="json"><code>{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;unauthorized&quot;,
+    &quot;message&quot;: &quot;Invalid or missing Authorization header. Use Bearer &lt;EMAAVY_API_KEY&gt;.&quot;
+  }
+}</code></pre>
+            </div>
+            <div class="footer-api-response footer-api-response--501">
+              <div class="footer-api-response-head"><strong>501</strong> — Not Implemented</div>
+              <pre class="footer-code-block" data-lang="json"><code>{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;not_implemented&quot;,
+    &quot;message&quot;: &quot;This endpoint is not enabled for your workspace tier. Contact sales@emaavy.com.&quot;
+  }
+}</code></pre>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="page-section">
+      <div class="container">
+        <h2 class="footer-related-head">Related documentation</h2>
+        <div class="footer-related-row"><a href="../../pages/product/bulk-calls-campaigns.html" class="footer-related-pill">Bulk Calls &amp; Campaigns</a><a href="../../pages/api-docs/making-phone-calls-apis.html" class="footer-related-pill">Making Phone Calls APIs</a></div>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer-root"></div>
+  <script src="../../assets/routes.js"></script>
+  <script src="../../assets/components.js"></script>
+  <script src="../../assets/nav.js"></script>
+</body>
+</html>

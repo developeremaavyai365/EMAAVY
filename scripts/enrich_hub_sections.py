@@ -169,10 +169,10 @@ SECTIONS["agents"] = """
           <li><strong>Fast deploy</strong>Visual flows — live in minutes</li>""",
     "<span>Sales</span><span>Support</span><span>Campaign</span><span>Builder</span>",
     """<span class="hub-quick-links-label">Meet your agents</span>
-          <a class="hub-quick-link" href="pages/agents/sales-agent.html">Sales agent</a>
-          <a class="hub-quick-link" href="pages/agents/support-agent.html">Support agent</a>
-          <a class="hub-quick-link" href="pages/agents/outbound-agent.html">Campaign agent</a>
-          <a class="hub-quick-link" href="pages/agents/workforce.html">Workforce hub</a>""",
+          <a class="hub-quick-link" href="pages/agents/real-estate.html">Sales template</a>
+          <a class="hub-quick-link" href="pages/agents/support-playbook.html">Support template</a>
+          <a class="hub-quick-link" href="pages/agents/event-agent.html">Event outreach</a>
+          <a class="hub-quick-link" href="pages/agents/workforce.html">All templates</a>""",
     """<div class="hub-stat"><b>24/7</b><span>Always on</span></div>
           <div class="hub-stat"><b>22</b><span>Languages</span></div>
           <div class="hub-stat"><b>4</b><span>Agent roles</span></div>

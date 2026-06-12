@@ -1,0 +1,198 @@
+/* ═══ Footer subpages — API docs, product, company ═══ */
+.footer-doc-page {
+  background: #f8fafc;
+}
+
+.footer-doc-hero .telephony-hero-lead {
+  max-width: 62ch;
+}
+
+.footer-doc-block .capability-content p {
+  color: #475569;
+  line-height: 1.72;
+  margin-bottom: 0.85rem;
+}
+
+.footer-doc-block .capability-content p:last-child {
+  margin-bottom: 0;
+}
+
+.footer-feature-list {
+  margin: 1rem 0 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.footer-feature-list li {
+  color: #475569;
+  line-height: 1.6;
+  font-size: 0.94rem;
+}
+
+.footer-code-block {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-radius: 10px;
+  padding: 1rem 1.15rem;
+  overflow-x: auto;
+  font-family: ui-monospace, 'Cascadia Code', 'SF Mono', Consolas, monospace;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  margin: 0.75rem 0 1rem;
+  border: 1px solid rgba(74, 101, 139, 0.35);
+}
+
+.footer-api-wrap {
+  max-width: 900px;
+}
+
+.footer-api-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.05);
+}
+
+.footer-api-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+}
+
+.footer-api-method {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+  border-radius: 6px;
+  background: rgba(74, 101, 139, 0.12);
+  color: #18345d;
+}
+
+.footer-api-path {
+  font-size: 0.82rem;
+  color: #334155;
+  background: #f1f5f9;
+  padding: 0.3rem 0.55rem;
+  border-radius: 6px;
+}
+
+.footer-api-overview {
+  color: #475569;
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.footer-api-card h3 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 0.95rem;
+  color: #0f172a;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.footer-api-responses {
+  display: grid;
+  gap: 1rem;
+}
+
+.footer-api-response-head {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin-bottom: 0.4rem;
+}
+
+.footer-api-response--200 .footer-api-response-head strong {
+  color: #16a34a;
+}
+
+.footer-api-response--400 .footer-api-response-head strong,
+.footer-api-response--401 .footer-api-response-head strong {
+  color: #dc2626;
+}
+
+.footer-api-response--501 .footer-api-response-head strong {
+  color: #d97706;
+}
+
+.footer-related-head {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.15rem;
+  color: #0f172a;
+  margin-bottom: 0.85rem;
+}
+
+.footer-related-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.footer-related-pill {
+  display: inline-flex;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  color: #334155;
+  font-size: 0.82rem;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.footer-related-pill:hover,
+.footer-related-pill:focus-visible {
+  border-color: #4a658b;
+  color: #18345d;
+  outline: none;
+}
+
+.footer-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.footer-pricing-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.15rem;
+}
+
+.footer-pricing-card h3 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.05rem;
+  color: #0f172a;
+  margin: 0 0 0.35rem;
+}
+
+.footer-pricing-card .price {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #18345d;
+  margin-bottom: 0.65rem;
+}
+
+.footer-status-page {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: #166534;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.footer-llms-pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+}

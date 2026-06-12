@@ -1,63 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta property="og:image" content="../../assets/brand/emaavy-logo.png" />
+
+  <link rel="icon" href="../../assets/brand/emaavy-logo.svg" type="image/svg+xml" />
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Integrations — EMAAVY</title>
-  <meta name="description" content="Connect EMAAVY with OpenAI, Claude, Deepgram, WhatsApp, Slack, Salesforce, and your entire AI stack." />
+  <meta name="description" content="Discover 31+ EMAAVY integrations — telephony, LLMs, speech, voice, and workflow tools through premium interactive brand logos." />
   <meta name="robots" content="index, follow" />
   <meta property="og:title" content="Integrations — EMAAVY" />
-  <meta property="og:description" content="Connect EMAAVY with OpenAI, Claude, Deepgram, WhatsApp, Slack, Salesforce, and your entire AI stack." />
+  <meta property="og:description" content="Explore EMAAVY's full integration ecosystem — click any logo to open the provider page." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../assets/nav.css" />
-<link rel="stylesheet" href="../../assets/masthead-flex.css" />
+  <link rel="stylesheet" href="../../assets/navbar-tokens.css" />
+<link rel="stylesheet" href="../../assets/nav.css" />
+  <link rel="stylesheet" href="../../assets/masthead-flex.css" />
+<link rel="stylesheet" href="../../assets/navbar-typography.css" />
 
-  <link rel="stylesheet" href="../../assets/site.css" />
-<link rel="stylesheet" href="../../assets/emaavy-theme.css" />
+    <link rel="stylesheet" href="../../assets/emaavy-type-tokens.css" />
+<link rel="stylesheet" href="../../assets/site.css" />
+  <link rel="stylesheet" href="../../assets/footer-premium.css" />
+  <link rel="stylesheet" href="../../assets/emaavy-theme.css" />
+  <link rel="stylesheet" href="../../assets/responsive-system.css" />
 
-
+  <link rel="stylesheet" href="../../assets/telephony-hub.css" />
+  <link rel="stylesheet" href="../../assets/integration-logo-3d.css" />
+  <link rel="stylesheet" href="../../assets/section-heading.css" />
+<link rel="stylesheet" href="../../assets/brand-logo.css" />
 </head>
-<body data-base="../../" data-route="integrations">
+<body data-base="../../" data-route="integrations" class="int-logo-page">
   <div id="site-nav-root"></div>
-  <main class="page-main">
-    <section class="page-hero">
+  <main class="page-main telephony-page">
+    <section class="int-dir-hero">
       <div class="container">
-        <span class="page-kicker">Integrations Hub</span>
+<span class="page-kicker">Integrations directory</span>
         <h1>Your entire AI stack — connected</h1>
-        <p>Every model, telephony provider, and workflow tool — with dedicated pages for each integration.</p>
+        <p class="int-dir-hero-lead">Browse every partner in a clean, organized directory. Select a category, click an integration, and open the full provider page.</p>
+        <nav class="int-category-nav" aria-label="Integration categories">
+          <a href="#telephony" class="int-category-pill">Telephony</a><a href="#llms" class="int-category-pill">LLMs</a><a href="#stt" class="int-category-pill">Speech-to-Text</a><a href="#tts" class="int-category-pill">Text-to-Speech</a><a href="#tools" class="int-category-pill">Tools & Workflow</a>
+        </nav>
       </div>
     </section>
-    <section class="page-section">
+    <section id="telephony" class="int-category-block">
       <div class="container">
-                <div class="int-layer-nav">
-          <a href="telephony.html" class="int-layer-pill">Telephony</a>
-          <a href="llms.html" class="int-layer-pill">LLMs</a>
-          <a href="stt.html" class="int-layer-pill">STT</a>
-          <a href="tts.html" class="int-layer-pill">TTS</a>
-          <a href="tools.html" class="int-layer-pill">Tools</a>
-        </div>
-        <div class="card-grid">
-          <a href="telephony.html" class="glow-card"><div class="card-icon">📞</div><h3>Telephony</h3><p>EMAAVY voice infrastructure — global carriers, CPaaS, SIP, PSTN, and live call lifecycle.</p><span class="card-tag">Telephony →</span></a>
-          <a href="vobiz.html" class="glow-card"><div class="card-icon">🔗</div><h3>Vobiz</h3><p>Enterprise-grade outbound telephony with global number provisioning, intelligent…</p><span class="card-tag">Telephony →</span></a>
-          <a href="openai.html" class="glow-card"><div class="card-icon">🔗</div><h3>OpenAI GPT</h3><p>Flagship reasoning for complex sales flows, objection handling, and structured d…</p><span class="card-tag">LLM →</span></a>
-          <a href="claude.html" class="glow-card"><div class="card-icon">🔗</div><h3>Claude</h3><p>Best-in-class comprehension for nuanced conversations and compliance-sensitive i…</p><span class="card-tag">LLM →</span></a>
-          <a href="gemini.html" class="glow-card"><div class="card-icon">🔗</div><h3>Gemini Flash</h3><p>Ultra-low-latency inference for real-time intent detection during live calls.…</p><span class="card-tag">LLM →</span></a>
-          <a href="qwen.html" class="glow-card"><div class="card-icon">🔗</div><h3>Qwen 3.6</h3><p>Cost-efficient multilingual model optimized for Hinglish and regional Indian dia…</p><span class="card-tag">LLM →</span></a>
-          <a href="grok.html" class="glow-card"><div class="card-icon">🔗</div><h3>Grok Beta</h3><p>Experimental reasoning layer for creative outbound scripts and dynamic rebuttals…</p><span class="card-tag">LLM →</span></a>
-          <a href="deepgram.html" class="glow-card"><div class="card-icon">🔗</div><h3>Deepgram</h3><p>Sub-500ms streaming transcription with industry-leading accuracy for live agent …</p><span class="card-tag">STT →</span></a>
-          <a href="sarvam.html" class="glow-card"><div class="card-icon">🔗</div><h3>Sarvam AI</h3><p>Purpose-built for 22 Indian languages — accuracy international STT models cannot…</p><span class="card-tag">STT →</span></a>
-          <a href="elevenlabs.html" class="glow-card"><div class="card-icon">🔗</div><h3>ElevenLabs</h3><p>Low-latency expressive voice synthesis for warm, persuasive outbound agents.…</p><span class="card-tag">TTS →</span></a>
-          <a href="flash-bulbul.html" class="glow-card"><div class="card-icon">🔗</div><h3>Flash · Bulbul</h3><p>Native Indian voice models with natural Hinglish cadence for sales and support.…</p><span class="card-tag">TTS →</span></a>
-          <a href="webhooks.html" class="glow-card"><div class="card-icon">🔗</div><h3>Webhooks</h3><p>Push call events, transcripts, and scores to any endpoint the moment a call ends…</p><span class="card-tag">Tools →</span></a>
-          <a href="calcom.html" class="glow-card"><div class="card-icon">🔗</div><h3>Cal.com</h3><p>Book meetings live during calls — agent captures the slot and creates the event …</p><span class="card-tag">Tools →</span></a>
-          <a href="google-calendar.html" class="glow-card"><div class="card-icon">🔗</div><h3>Google Calendar</h3><p>Sync confirmed appointments into shared Google Calendars with invites and remind…</p><span class="card-tag">Tools →</span></a>
-          <a href="whatsapp.html" class="glow-card"><div class="card-icon">🔗</div><h3>WhatsApp</h3><p>Send confirmations, links, and follow-ups automatically when a call concludes.…</p><span class="card-tag">Tools →</span></a>
-          <a href="slack.html" class="glow-card"><div class="card-icon">🔗</div><h3>Slack</h3><p>Route call intelligence, alerts, and coaching notifications to your team Slack c…</p><span class="card-tag">Tools →</span></a>
-          <a href="salesforce.html" class="glow-card"><div class="card-icon">🔗</div><h3>Salesforce</h3><p>Update records, log dispositions, and push intent scores — no manual CRM entry.…</p><span class="card-tag">Tools →</span></a>
-          <a href="hubspot.html" class="glow-card"><div class="card-icon">🔗</div><h3>HubSpot</h3><p>Create deals, update contacts, and trigger workflows based on conversation intel…</p><span class="card-tag">Tools →</span></a>
+        <header class="int-category-head">
+          <h2>Telephony</h2>
+          <a href="telephony.html">View telephony layer →</a>
+        </header>
+        <nav class="int-logo-ecosystem" aria-label="Telephony integrations">
+          <a href="vobiz.html" id="vobiz" class="int-logo-tile" aria-label="Vobiz integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/vobiz.svg" alt="Vobiz" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Vobiz</span>
+              <span class="int-logo-tile__category">Telephony</span>
+            </div>
+          </a>
+          <a href="twilio.html" id="twilio" class="int-logo-tile" aria-label="Twilio integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/twilio.svg" alt="Twilio" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Twilio</span>
+              <span class="int-logo-tile__category">Telephony</span>
+            </div>
+          </a>
+          <a href="plivo.html" id="plivo" class="int-logo-tile" aria-label="Plivo integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--light" src="../../assets/logos/integrations/plivo.svg" alt="Plivo" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Plivo</span>
+              <span class="int-logo-tile__category">Telephony</span>
+            </div>
+          </a>
+          <a href="vonage.html" id="vonage" class="int-logo-tile" aria-label="Vonage integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--light" src="../../assets/logos/integrations/vonage.svg" alt="Vonage" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Vonage</span>
+              <span class="int-logo-tile__category">Telephony</span>
+            </div>
+          </a>
+          <a href="exotel.html" id="exotel" class="int-logo-tile" aria-label="Exotel integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/exotel.svg" alt="Exotel" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Exotel</span>
+              <span class="int-logo-tile__category">Telephony</span>
+            </div>
+          </a>
+          <a href="knowlarity.html" id="knowlarity" class="int-logo-tile" aria-label="Knowlarity integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/knowlarity.svg" alt="Knowlarity" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Knowlarity</span>
+              <span class="int-logo-tile__category">Telephony</span>
+            </div>
+          </a>
+          <a href="telnyx.html" id="telnyx" class="int-logo-tile" aria-label="Telnyx integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/telnyx.svg" alt="Telnyx" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Telnyx</span>
+              <span class="int-logo-tile__category">Telephony</span>
+            </div>
+          </a>
+          <a href="bandwidth.html" id="bandwidth" class="int-logo-tile" aria-label="Bandwidth integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/bandwidth.svg" alt="Bandwidth" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Bandwidth</span>
+              <span class="int-logo-tile__category">Telephony</span>
+            </div>
+          </a>
+        </nav>
+      </div>
+    </section>
+    <section id="llms" class="int-category-block alt">
+      <div class="container">
+        <header class="int-category-head">
+          <h2>LLMs</h2>
+          <a href="llms.html">View llms layer →</a>
+        </header>
+        <nav class="int-logo-ecosystem" aria-label="LLMs integrations">
+          <a href="openai.html" id="openai" class="int-logo-tile" aria-label="OpenAI integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/openai.svg" alt="OpenAI GPT" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">OpenAI</span>
+              <span class="int-logo-tile__category">LLMs</span>
+            </div>
+          </a>
+          <a href="claude.html" id="claude" class="int-logo-tile" aria-label="Claude integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--light" src="../../assets/logos/integrations/anthropic.svg" alt="Claude" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Claude</span>
+              <span class="int-logo-tile__category">LLMs</span>
+            </div>
+          </a>
+          <a href="gemini.html" id="gemini" class="int-logo-tile" aria-label="Gemini integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/gemini.svg" alt="Gemini" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Gemini</span>
+              <span class="int-logo-tile__category">LLMs</span>
+            </div>
+          </a>
+          <a href="qwen.html" id="qwen" class="int-logo-tile" aria-label="Qwen integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/qwen.svg" alt="Qwen" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Qwen</span>
+              <span class="int-logo-tile__category">LLMs</span>
+            </div>
+          </a>
+          <a href="grok.html" id="grok" class="int-logo-tile" aria-label="Grok integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/grok.svg" alt="Grok" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Grok</span>
+              <span class="int-logo-tile__category">LLMs</span>
+            </div>
+          </a>
+        </nav>
+      </div>
+    </section>
+    <section id="stt" class="int-category-block">
+      <div class="container">
+        <header class="int-category-head">
+          <h2>Speech-to-Text</h2>
+          <a href="stt.html">View speech-to-text layer →</a>
+        </header>
+        <nav class="int-logo-ecosystem" aria-label="Speech-to-Text integrations">
+          <a href="deepgram.html" id="deepgram" class="int-logo-tile" aria-label="Deepgram integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/deepgram.svg" alt="Deepgram" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Deepgram</span>
+              <span class="int-logo-tile__category">Speech-to-Text</span>
+            </div>
+          </a>
+          <a href="sarvam.html" id="sarvam" class="int-logo-tile" aria-label="Sarvam integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/sarvam.svg" alt="Sarvam AI" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Sarvam</span>
+              <span class="int-logo-tile__category">Speech-to-Text</span>
+            </div>
+          </a>
+          <a href="assemblyai.html" id="assemblyai" class="int-logo-tile" aria-label="AssemblyAI integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/assemblyai.svg" alt="AssemblyAI" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">AssemblyAI</span>
+              <span class="int-logo-tile__category">Speech-to-Text</span>
+            </div>
+          </a>
+          <a href="azure-stt.html" id="azure-stt" class="int-logo-tile" aria-label="Azure integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/azure.svg" alt="Azure Speech" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Azure</span>
+              <span class="int-logo-tile__category">Speech-to-Text</span>
+            </div>
+          </a>
+          <a href="google-stt.html" id="google-stt" class="int-logo-tile" aria-label="Google integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/google-cloud.svg" alt="Google STT" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Google</span>
+              <span class="int-logo-tile__category">Speech-to-Text</span>
+            </div>
+          </a>
+          <a href="openai-stt.html" id="openai-stt" class="int-logo-tile" aria-label="Whisper integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/openai.svg" alt="OpenAI Whisper" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Whisper</span>
+              <span class="int-logo-tile__category">Speech-to-Text</span>
+            </div>
+          </a>
+          <a href="elevenlabs-stt.html" id="elevenlabs-stt" class="int-logo-tile" aria-label="ElevenLabs integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/elevenlabs.svg" alt="ElevenLabs STT" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">ElevenLabs</span>
+              <span class="int-logo-tile__category">Speech-to-Text</span>
+            </div>
+          </a>
+          <a href="gladia.html" id="gladia" class="int-logo-tile" aria-label="Gladia integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/gladia.svg" alt="Gladia" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Gladia</span>
+              <span class="int-logo-tile__category">Speech-to-Text</span>
+            </div>
+          </a>
+          <a href="smallest.html" id="smallest" class="int-logo-tile" aria-label="Smallest integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/smallest.svg" alt="Smallest AI" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Smallest</span>
+              <span class="int-logo-tile__category">Speech-to-Text</span>
+            </div>
+          </a>
+        </nav>
+      </div>
+    </section>
+    <section id="tts" class="int-category-block alt">
+      <div class="container">
+        <header class="int-category-head">
+          <h2>Text-to-Speech</h2>
+          <a href="tts.html">View text-to-speech layer →</a>
+        </header>
+        <nav class="int-logo-ecosystem" aria-label="Text-to-Speech integrations">
+          <a href="elevenlabs.html" id="elevenlabs" class="int-logo-tile" aria-label="ElevenLabs integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--light" src="../../assets/logos/integrations/elevenlabs.svg" alt="ElevenLabs" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">ElevenLabs</span>
+              <span class="int-logo-tile__category">Text-to-Speech</span>
+            </div>
+          </a>
+          <a href="flash-bulbul.html" id="flash-bulbul" class="int-logo-tile" aria-label="Flash · Bulbul integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/flash-bulbul.svg" alt="Flash · Bulbul" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Flash · Bulbul</span>
+              <span class="int-logo-tile__category">Text-to-Speech</span>
+            </div>
+          </a>
+        </nav>
+      </div>
+    </section>
+    <section id="tools" class="int-category-block">
+      <div class="container">
+        <header class="int-category-head">
+          <h2>Tools & Workflow</h2>
+          <a href="tools.html">View tools & workflow layer →</a>
+        </header>
+        <nav class="int-logo-ecosystem" aria-label="Tools & Workflow integrations">
+          <a href="webhooks.html" id="webhooks" class="int-logo-tile" aria-label="Webhooks integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/webhooks.svg" alt="Webhooks" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Webhooks</span>
+              <span class="int-logo-tile__category">Tools & Workflow</span>
+            </div>
+          </a>
+          <a href="salesforce.html" id="salesforce" class="int-logo-tile" aria-label="Salesforce integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/salesforce.svg" alt="Salesforce" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Salesforce</span>
+              <span class="int-logo-tile__category">Tools & Workflow</span>
+            </div>
+          </a>
+          <a href="hubspot.html" id="hubspot" class="int-logo-tile" aria-label="HubSpot integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/hubspot.svg" alt="HubSpot" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">HubSpot</span>
+              <span class="int-logo-tile__category">Tools & Workflow</span>
+            </div>
+          </a>
+          <a href="calcom.html" id="calcom" class="int-logo-tile" aria-label="Cal.com integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/calcom.svg" alt="Cal.com" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Cal.com</span>
+              <span class="int-logo-tile__category">Tools & Workflow</span>
+            </div>
+          </a>
+          <a href="google-calendar.html" id="google-calendar" class="int-logo-tile" aria-label="Google Calendar integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/google-calendar.svg" alt="Google Calendar" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Google Calendar</span>
+              <span class="int-logo-tile__category">Tools & Workflow</span>
+            </div>
+          </a>
+          <a href="whatsapp.html" id="whatsapp" class="int-logo-tile" aria-label="WhatsApp integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/whatsapp.svg" alt="WhatsApp" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">WhatsApp</span>
+              <span class="int-logo-tile__category">Tools & Workflow</span>
+            </div>
+          </a>
+          <a href="slack.html" id="slack" class="int-logo-tile" aria-label="Slack integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--light" src="../../assets/logos/integrations/slack.svg" alt="Slack" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Slack</span>
+              <span class="int-logo-tile__category">Tools & Workflow</span>
+            </div>
+          </a>
+        </nav>
+      </div>
+    </section>
+    <section class="tel-hub-cta">
+      <div class="container">
+        <h2>Ready to connect your stack?</h2>
+        <p>Book a walkthrough — we will map providers, routing, and your first live workflow.</p>
+        <div class="cta-row">
+          <a href="../../book-demo.html" class="btn-primary">Book a demo</a>
+          <a href="../../index.html#integrations" class="btn-outline">Back to platform</a>
         </div>
       </div>
     </section>

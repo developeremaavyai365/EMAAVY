@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 32" role="img" aria-label="AssemblyAI">
+  <rect width="140" height="32" fill="none"/>
+  <rect x="4" y="6" width="20" height="20" rx="5" fill="#2545D0"/>
+  <path d="M10 20 V12 h5l3 6 3-6 h5v8" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="32" y="21" font-family="system-ui,Arial,sans-serif" font-size="13" font-weight="700" fill="#2545D0">AssemblyAI</text>
+</svg>

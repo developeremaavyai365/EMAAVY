@@ -1,0 +1,30 @@
+{
+  "readiness": "DEPLOYMENT READY",
+  "score": 95,
+  "counts": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 1
+  },
+  "issues": [
+    {
+      "severity": "LOW",
+      "category": "build",
+      "message": "No package.json \u2014 static site, npm build N/A (expected)",
+      "path": ""
+    }
+  ],
+  "js_syntax": {
+    "passed": 23,
+    "failed": 0
+  },
+  "pages_audited": 113,
+  "legacy_excluded": [
+    "creative.html.html",
+    "emaavy landing page claude.html",
+    "emaavy white blue(2).html",
+    "index.html.html",
+    "index1.html"
+  ]
+}

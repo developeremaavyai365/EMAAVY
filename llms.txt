@@ -1,0 +1,25 @@
+# EMAAVY — Voice AI Agent Platform
+
+> Build, deploy, and manage production LLM-powered voice agents with Twilio/Plivo telephony, RAG knowledgebases, and developer APIs.
+
+## Core capabilities
+- Outbound and inbound AI voice agents
+- Twilio and Plivo direct integrations
+- Vector DB / PDF knowledgebases with mid-call RAG
+- Function & tool calling (CRM, calendars, webhooks)
+- Bulk campaigns and batch queue APIs
+- Multi-tenant sub-account isolation
+
+## API base
+https://api.emaavy.com/v1
+
+## Key pages
+- Documentation: /pages/documentation.html
+- API Authentication: /pages/api-docs/api-authentication.html
+- Pricing: /pages/pricing.html
+- Contact: /pages/contact.html
+- Book demo: /book-demo.html
+
+## Contact
+- sales@emaavy.com
+- support@emaavy.com

@@ -1,0 +1,50 @@
+"""Conversational flow showcase catalog for landing page premium panel."""
+
+FLOW_LAYERS = [
+    {
+        "id": "hook",
+        "node": "hook",
+        "icon": "🎯",
+        "kicker": "Opening",
+        "title": "Hook & Context",
+        "short": "Curiosity-driven openers with live {{name}} and {{agent_name}} placeholders.",
+        "detail": "Design how every conversation starts — personalized hooks, offer framing, and context that adapts per campaign without rebuilding the flow.",
+    },
+    {
+        "id": "branch",
+        "node": "hook",
+        "branch": "interested",
+        "icon": "⑂",
+        "kicker": "Branching",
+        "title": "Branching Paths",
+        "short": "Interested, maybe, or not — each response routes to a different script arm.",
+        "detail": "Visual branches light up on the canvas as you simulate responses. Objection, nurture, and hard-close paths stay mapped in one builder view.",
+    },
+    {
+        "id": "value",
+        "node": "value",
+        "icon": "✨",
+        "kicker": "Conversion",
+        "title": "Value & Capture",
+        "short": "Benefits, proof, and registration steps on the hot path.",
+        "detail": "Move prospects from interest to action with value tease nodes and capture steps — scripts, outcomes, and CRM triggers wired to each end state.",
+    },
+    {
+        "id": "nurture",
+        "node": "nurture",
+        "icon": "🌱",
+        "kicker": "Nurture",
+        "title": "Nurture & Follow-up",
+        "short": "Info sends, soft scheduling, and re-engagement for undecided contacts.",
+        "detail": "Not every call converts on the first ring. Nurture nodes handle maybe responses with one-pagers, callback scheduling, and polite persistence.",
+    },
+    {
+        "id": "ends",
+        "node": "end_registered",
+        "icon": "◎",
+        "kicker": "Outcomes",
+        "title": "End States",
+        "short": "Registered, follow-up, info sent, and soft close — all tracked automatically.",
+        "detail": "Every terminal node syncs disposition to CRM and triggers post-call automations. Supervisors see which path each contact took without reading transcripts.",
+    },
+]

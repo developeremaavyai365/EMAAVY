@@ -1,0 +1,373 @@
+/**
+
+ * Hero — single-viewport layout, sizes aligned with showcase segments
+
+ * (agents / campaigns copy + int/hiw sc-stage panels)
+
+ */
+
+body[data-page="home"] .hero {
+
+  --hero-pad-y: clamp(0.75rem, 1.5vw, 1.25rem);
+
+  --hero-nav-h: var(--masthead-h, 72px);
+
+  --hero-content-h: calc(100dvh - var(--hero-nav-h) - var(--hero-pad-y) * 2);
+
+
+
+  height: 100dvh !important;
+
+  max-height: 100dvh !important;
+
+  min-height: 0 !important;
+
+  box-sizing: border-box !important;
+
+  padding: calc(var(--hero-nav-h) + var(--hero-pad-y)) clamp(1.25rem, 4vw, 3rem) var(--hero-pad-y) !important;
+
+  overflow: hidden !important;
+
+  align-items: center !important;
+
+  justify-content: center !important;
+
+}
+
+
+
+body[data-page="home"] .hero-inner {
+
+  max-height: var(--hero-content-h) !important;
+
+  min-height: 0 !important;
+
+  height: auto !important;
+
+  gap: clamp(1.25rem, 3.5vw, 2.5rem) !important;
+
+  align-items: center !important;
+
+}
+
+
+
+@media (min-width: 1200px) {
+
+  body[data-page="home"] .hero-inner {
+
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr) !important;
+
+    gap: clamp(1.5rem, 3.5vw, 2.75rem) !important;
+
+  }
+
+}
+
+
+
+body[data-page="home"] .hero-copy {
+
+  padding-bottom: 0 !important;
+
+  justify-content: center !important;
+
+  min-height: 0 !important;
+
+  max-height: var(--hero-content-h) !important;
+
+}
+
+
+
+/* EMAAVY wordmark — agents/campaigns showcase title scale */
+
+body[data-page="home"] .hero-brand {
+
+  margin-bottom: clamp(1rem, 2vw, 1.35rem) !important;
+
+}
+
+
+
+body[data-page="home"] .hero-brand-stack {
+
+  margin-bottom: 0.55rem !important;
+
+}
+
+
+
+body[data-page="home"] .hero-brand-letter {
+
+  font-size: clamp(2rem, 4.5vw, 2.75rem) !important;
+
+  letter-spacing: -0.04em !important;
+
+}
+
+
+
+/* Tagline under wordmark — showcase kicker + lead hybrid */
+
+body[data-page="home"] .hero-tagline {
+
+  font-size: clamp(0.75rem, 1.2vw, 0.88rem) !important;
+
+  font-weight: 600 !important;
+
+  letter-spacing: 0.14em !important;
+
+  line-height: 1.5 !important;
+
+  max-width: 26rem !important;
+
+}
+
+
+
+body[data-page="home"] .hero-kicker {
+
+  margin: 0 0 0.75rem !important;
+
+  font-size: clamp(0.65rem, 1vw, 0.75rem) !important;
+
+  font-weight: 700 !important;
+
+  letter-spacing: 0.14em !important;
+
+}
+
+
+
+/* Headline — slightly above section h1 token */
+
+body[data-page="home"] .hero-title,
+
+body[data-page="home"] .hero h1.hero-title {
+
+  margin: 0 0 0.75rem !important;
+
+  font-size: clamp(2.25rem, 5.2vw, 3.15rem) !important;
+
+  font-weight: 700 !important;
+
+  letter-spacing: -0.03em !important;
+
+  line-height: 1.1 !important;
+
+  color: #18345d !important;
+
+}
+
+
+
+/* Lead — agents / campaigns showcase lead */
+
+body[data-page="home"] .hero-pitch {
+
+  margin: 0 0 1.25rem !important;
+
+  font-size: clamp(0.92rem, 1.35vw, 1.02rem) !important;
+
+  line-height: 1.65 !important;
+
+  color: #475569 !important;
+
+  max-width: 52ch !important;
+
+}
+
+
+
+body[data-page="home"] .hero-actions .btn-fill {
+
+  padding: 0.88rem 1.75rem !important;
+
+  font-size: clamp(0.95rem, 1.5vw, 1.08rem) !important;
+
+}
+
+
+
+/* Command center — match int-sc-stage / hiw-sc-stage (580px panel) */
+
+body[data-page="home"] .hero-showcase,
+
+body[data-page="home"] .hero-showcase.hero-command-center {
+
+  max-width: min(580px, 52vw) !important;
+
+  width: 100% !important;
+
+  min-height: 0 !important;
+
+  align-self: center !important;
+
+  margin-left: 0 !important;
+
+  margin-right: auto !important;
+
+}
+
+
+
+body[data-page="home"] .hero-showcase.hero-command-center .hcc-stage {
+
+  min-height: min(420px, calc(var(--hero-content-h) - 2rem)) !important;
+
+  max-height: min(calc(var(--hero-content-h) - 1rem), min(78vh, 580px)) !important;
+
+  aspect-ratio: 1 / 1 !important;
+
+  height: auto !important;
+
+  width: 100% !important;
+
+  padding-bottom: 2.75rem !important;
+
+}
+
+
+
+body[data-page="home"] .hero-showcase.hero-command-center .hcc-stage.is-presenting {
+
+  min-height: min(420px, calc(var(--hero-content-h) - 2rem)) !important;
+
+  max-height: min(calc(var(--hero-content-h) - 1rem), min(78vh, 580px)) !important;
+
+  aspect-ratio: auto !important;
+
+}
+
+
+
+@media (min-width: 1200px) {
+
+  body[data-page="home"] .hero-showcase,
+
+  body[data-page="home"] .hero-showcase.hero-command-center {
+
+    max-width: 620px !important;
+
+  }
+
+}
+
+
+
+@media (max-width: 960px) {
+
+  body[data-page="home"] .hero-inner {
+
+    grid-template-columns: 1fr !important;
+
+    gap: clamp(1.25rem, 3vw, 2rem) !important;
+
+  }
+
+
+
+  body[data-page="home"] .hero-showcase.hero-command-center {
+
+    grid-column: 1 !important;
+
+    grid-row: 1 !important;
+
+    max-width: min(480px, 92vw) !important;
+
+    margin: 0 auto !important;
+
+  }
+
+
+
+  body[data-page="home"] .hero-copy {
+
+    grid-column: 1 !important;
+
+    grid-row: 2 !important;
+
+    align-items: center !important;
+
+    text-align: center !important;
+
+  }
+
+
+
+  body[data-page="home"] .hero-showcase.hero-command-center .hcc-stage,
+
+  body[data-page="home"] .hero-showcase.hero-command-center .hcc-stage.is-presenting {
+
+    min-height: 360px !important;
+
+    max-height: min(52vh, 440px) !important;
+
+  }
+
+}
+
+
+
+@media (max-width: 640px) {
+
+  body[data-page="home"] .hero {
+
+    height: auto !important;
+
+    max-height: none !important;
+
+    min-height: 100dvh !important;
+
+    overflow-x: hidden !important;
+
+    overflow-y: auto !important;
+
+  }
+
+
+
+  body[data-page="home"] .hero-inner {
+
+    max-height: none !important;
+
+  }
+
+}
+
+
+
+@media (max-height: 780px) {
+
+  body[data-page="home"] .hero-brand-letter {
+
+    font-size: clamp(1.75rem, 3.8vw, 2.25rem) !important;
+
+  }
+
+
+
+  body[data-page="home"] .hero-title,
+
+  body[data-page="home"] .hero h1.hero-title {
+
+    font-size: clamp(2rem, 4.5vw, 2.65rem) !important;
+
+  }
+
+
+
+  body[data-page="home"] .hero-showcase.hero-command-center .hcc-stage,
+
+  body[data-page="home"] .hero-showcase.hero-command-center .hcc-stage.is-presenting {
+
+    min-height: 0 !important;
+
+    max-height: min(calc(var(--hero-content-h) - 0.75rem), 400px) !important;
+
+  }
+
+}
+
+

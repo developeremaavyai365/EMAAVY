@@ -51,6 +51,7 @@ body[data-page="home"] .masthead.compact .masthead-inner {
   min-height: var(--masthead-h-compact, 64px) !important;
 }
 
+body[data-page="home"] .logo-mega.logo-mega--wordmark,
 body[data-page="home"] .logo-mega.logo-mega--mark,
 body[data-page="home"] .logo-mega--nav-only {
   flex: 0 0 auto !important;
@@ -59,17 +60,7 @@ body[data-page="home"] .logo-mega--nav-only {
   padding: 0 !important;
 }
 
-body[data-page="home"] .logo-mega-mark {
-  display: block !important;
-  height: clamp(34px, 4vw, 44px) !important;
-  width: auto !important;
-  max-width: min(110px, 18vw) !important;
-  object-fit: contain !important;
-}
-
-body[data-page="home"] .masthead.compact .logo-mega-mark {
-  height: clamp(30px, 3.5vw, 38px) !important;
-}
+/* Navbar logo sizing: assets/brand-logo.css */
 
 body[data-page="home"] .masthead-nav {
   flex: 1 1 auto !important;
@@ -87,7 +78,7 @@ body[data-page="home"] .masthead-nav {
   box-shadow: none !important;
   padding: 0 !important;
   margin: 0 !important;
-  gap: 0.125rem !important;
+  gap: var(--navbar-link-spacing) !important;
   overflow-x: auto !important;
   overflow-y: visible !important;
   -webkit-overflow-scrolling: touch;
@@ -127,8 +118,10 @@ body[data-page="home"] .masthead-actions a.btn-nav-demo {
   padding: 0 0.85rem !important;
   margin: 0 !important;
   line-height: 1 !important;
-  font-size: 0.75rem !important;
-  font-weight: 600 !important;
+  font-family: var(--navbar-font-family) !important;
+  font-size: var(--navbar-cta-font-size) !important;
+  font-weight: var(--navbar-cta-font-weight) !important;
+  letter-spacing: var(--navbar-letter-spacing) !important;
   white-space: nowrap !important;
   flex-shrink: 0 !important;
   visibility: visible !important;
@@ -145,7 +138,7 @@ body[data-page="home"] .nav-hamburger {
   margin-left: 0 !important;
 }
 
-@media (min-width: 861px) {
+@media (min-width: 1025px) {
   body[data-page="home"] .masthead-nav,
   body[data-page="home"] .masthead-actions {
     display: flex !important;
@@ -156,7 +149,7 @@ body[data-page="home"] .nav-hamburger {
   }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1024px) {
   body[data-page="home"] .masthead-nav,
   body[data-page="home"] .masthead-actions {
     display: none !important;

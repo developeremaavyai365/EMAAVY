@@ -215,7 +215,7 @@
   font-weight: 600 !important;
   letter-spacing: -0.03em !important;
   line-height: 1.15 !important;
-  color: #0f172a !important;
+  color: #4a658b !important;
   margin: 0 !important;
   max-width: none !important;
 }
@@ -291,7 +291,7 @@
 
 .hub-single-card-highlights strong {
   display: block;
-  color: #0f172a !important;
+  color: #4a658b !important;
   font-weight: 600 !important;
   font-size: 0.78rem !important;
   margin-bottom: 0.15rem;
@@ -348,7 +348,7 @@
   padding: 0.55rem 0.7rem;
   font-size: 0.78rem;
   font-weight: 600;
-  color: #0f172a;
+  color: #4a658b;
   background: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
@@ -594,7 +594,7 @@
   --section-ice: #18345d;
   --section-bolt: #4a658b;
   --section-grad: linear-gradient(135deg, #4a658b 0%, #18345d 100%);
-  --section-text: #0f172a;
+  --section-text: #18345d;
   --section-muted: #475569;
   --section-dim: #64748b;
   --section-border: #e2e8f0;

@@ -18,7 +18,7 @@
   --brand-light: #4a658b;
   --brand-dark: #18345d;
   --brand-grad: linear-gradient(135deg, #4a658b 0%, #18345d 100%);
-  --text-primary: #0f172a;
+  --text-primary: #18345d;
   --text-secondary: #475569;
   --text-body: #334155;
   --border-brand: rgba(74, 101, 139, 0.15);
@@ -94,14 +94,6 @@ body:not([data-page="home"]) .btn-outline:hover {
   color: var(--brand-dark);
 }
 
-body:not([data-page="home"]) .btn-nav-demo {
-  background: var(--brand-grad) !important;
-}
-
-body:not([data-page="home"]) .btn-nav-demo:hover {
-  background: var(--brand-dark) !important;
-}
-
 /* ─── Cards & stats ─── */
 body:not([data-page="home"]) .glow-card {
   border-color: var(--border-brand);
@@ -134,56 +126,14 @@ body:not([data-page="home"]) .feature-list li::before {
   color: var(--brand-light);
 }
 
-/* ─── Footer ─── */
-body:not([data-page="home"]) .site-footer {
+/* ─── Footer (legacy light footer only — premium footer keeps dark gradient) ─── */
+body:not([data-page="home"]) .site-footer:not(.site-footer--premium) {
   background: var(--surface-muted);
   border-top: 1px solid var(--border);
 }
 
 body:not([data-page="home"]) .footer-links a:hover {
   color: var(--brand-light);
-}
-
-/* ─── Nav (masthead + legacy site-nav) ─── */
-body:not([data-page="home"]) .site-nav a.active,
-body:not([data-page="home"]) .site-nav .nav-dropdown-trigger.active {
-  color: var(--brand-dark) !important;
-  background: var(--surface-accent) !important;
-}
-
-body:not([data-page="home"]) .site-nav a:hover,
-body:not([data-page="home"]) .site-nav .nav-integrations-link:hover,
-body:not([data-page="home"]) .site-nav .nav-dropdown-caret:hover {
-  color: var(--text-primary) !important;
-  background: #f1f5f9 !important;
-}
-
-body:not([data-page="home"]) .nav-dropdown-caret:hover {
-  color: var(--brand-light);
-}
-
-body:not([data-page="home"]) .site-nav .nav-dropdown-split > a.active + .nav-dropdown-caret,
-body:not([data-page="home"]) .site-nav .nav-dropdown.open .nav-dropdown-split > a {
-  color: var(--brand-dark) !important;
-  background: var(--surface-accent) !important;
-}
-
-body:not([data-page="home"]) .masthead .dropdown-section a:hover,
-body:not([data-page="home"]) .masthead .dropdown-link-grid a:hover {
-  color: var(--brand-light) !important;
-  background: var(--surface-accent) !important;
-}
-
-body:not([data-page="home"]) .mobile-nav-drawer a:hover,
-body:not([data-page="home"]) .mobile-nav-drawer a.active {
-  color: var(--brand-dark);
-  background: var(--surface-accent);
-}
-
-body:not([data-page="home"]) .masthead .nav-dropdown-menu-kicker {
-  background: var(--surface-muted);
-  border-color: var(--border);
-  color: var(--dim);
 }
 
 /* ─── Home-style sections reused on subpages ─── */

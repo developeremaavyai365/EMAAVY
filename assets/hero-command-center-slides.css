@@ -1,0 +1,921 @@
+/* Hero Command Center — capability presentation slides */
+
+.hcc-orbit-layer {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center center;
+}
+
+.hcc-stage.is-presenting .hcc-orbit-layer {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.hcc-presentation {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(6px);
+  background: linear-gradient(165deg, #f8fafc 0%, #f1f5f9 48%, #eef2f7 100%);
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.35s;
+}
+
+.hcc-stage.is-presenting {
+  aspect-ratio: auto !important;
+  min-height: 400px !important;
+  max-height: min(78vh, 620px) !important;
+}
+
+.hcc-stage.is-presenting .hcc-status {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.hcc-stage.is-presenting .hcc-presentation {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  box-shadow: none;
+  isolation: isolate;
+}
+
+/* Slides hidden until presentation mode */
+.hcc-stage:not(.is-presenting) .hcc-slide {
+  display: none !important;
+}
+
+.hcc-pres-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.55rem 0.65rem 0.35rem;
+  flex-shrink: 0;
+}
+
+.hcc-pres-back,
+.hcc-pres-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  background: rgba(255, 255, 255, 0.94);
+  color: #475569;
+  font-size: 0.56rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 8px;
+  padding: 0.38rem 0.55rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.hcc-pres-back:hover,
+.hcc-pres-nav:hover,
+.hcc-pres-back:focus-visible,
+.hcc-pres-nav:focus-visible {
+  border-color: #4a658b;
+  color: #18345d;
+  background: #fff;
+  outline: none;
+}
+
+.hcc-pres-nav-group {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.hcc-pres-progress {
+  font-size: 0.54rem;
+  font-weight: 600;
+  color: #64748b;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hcc-pres-progress strong {
+  color: #4a658b;
+}
+
+.hcc-slides-viewport {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 200px;
+  overflow: hidden;
+  padding: 0 0.65rem 0.5rem;
+}
+
+.hcc-slide {
+  display: none;
+  flex-direction: column;
+  gap: 0.38rem;
+  height: 100%;
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding: 0.1rem 0.05rem 0.2rem;
+  animation: hcc-slide-in 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.hcc-stage.is-presenting .hcc-slide.is-active {
+  display: flex;
+}
+
+.hcc-stage.is-presenting .hcc-slide:not(.is-active) {
+  display: none !important;
+}
+
+@keyframes hcc-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hcc-slide-kicker {
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #4a658b;
+}
+
+.hcc-slide-headline {
+  margin: 0;
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(0.82rem, 2.2vw, 1.05rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #18345d !important;
+}
+
+.hcc-slide-desc {
+  margin: 0;
+  font-size: clamp(0.58rem, 1.5vw, 0.66rem);
+  line-height: 1.5;
+  color: #475569 !important;
+  max-width: 36em;
+}
+
+.hcc-slide-visual {
+  position: relative;
+  flex: 0 0 auto;
+  min-height: 4.75rem;
+  max-height: 6.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  background: linear-gradient(165deg, #ffffff 0%, #f8fafc 100%);
+  overflow: hidden;
+  padding: 0.5rem 0.55rem;
+}
+
+.hcc-slide-outcomes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.hcc-slide-outcome {
+  font-size: 0.52rem;
+  font-weight: 600;
+  color: #18345d;
+  background: rgba(74, 101, 139, 0.08);
+  border: 1px solid rgba(74, 101, 139, 0.14);
+  border-radius: 999px;
+  padding: 0.28rem 0.55rem;
+  line-height: 1.2;
+}
+
+.hcc-slide-usecases {
+  display: grid;
+  gap: 0.28rem;
+  flex-shrink: 0;
+}
+
+.hcc-slide-usecases-label {
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.hcc-slide-usecase-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.22rem;
+}
+
+.hcc-slide-usecase-list li {
+  font-size: 0.54rem;
+  line-height: 1.4;
+  color: #475569;
+  padding-left: 0.75rem;
+  position: relative;
+}
+
+.hcc-slide-usecase-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #4a658b;
+}
+
+/* ── Unique visuals per capability ── */
+
+/* AI Agents — conversation + reasoning */
+.hcc-vis--agents {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+  align-items: stretch;
+}
+
+.hcc-vis-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.hcc-vis-bubble {
+  font-size: 0.48rem;
+  line-height: 1.35;
+  padding: 0.32rem 0.45rem;
+  border-radius: 8px;
+  max-width: 92%;
+  color: #334155;
+}
+
+.hcc-vis-bubble--in {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  align-self: flex-start;
+}
+
+.hcc-vis-bubble--out {
+  background: linear-gradient(135deg, #4a658b, #18345d);
+  color: #fff;
+  align-self: flex-end;
+}
+
+.hcc-vis-reason {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  justify-content: center;
+}
+
+.hcc-vis-step {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.48rem;
+  color: #475569;
+}
+
+.hcc-vis-step i {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 6px;
+  background: #eef2f7;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: normal;
+  font-size: 0.44rem;
+  font-weight: 700;
+  color: #4a658b;
+  flex-shrink: 0;
+}
+
+.hcc-vis-step.is-live i {
+  background: #4a658b;
+  color: #fff;
+  animation: hcc-step-pulse 2s ease-in-out infinite;
+}
+
+@keyframes hcc-step-pulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+/* Telephony — routing tree */
+.hcc-vis--telephony {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 5rem;
+}
+
+.hcc-vis-route {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  width: 100%;
+}
+
+.hcc-vis-route-row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.hcc-vis-route-node {
+  font-size: 0.46rem;
+  font-weight: 600;
+  padding: 0.3rem 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  color: #334155;
+  white-space: nowrap;
+}
+
+.hcc-vis-route-node--hub {
+  background: linear-gradient(135deg, #4a658b, #18345d);
+  color: #fff;
+  border-color: transparent;
+}
+
+.hcc-vis-route-line {
+  width: 1px;
+  height: 0.5rem;
+  background: #cbd5e1;
+}
+
+.hcc-vis-route-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4a658b;
+  animation: hcc-route-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes hcc-route-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* WhatsApp — message thread */
+.hcc-vis--whatsapp {
+  display: flex;
+  flex-direction: column;
+  gap: 0.32rem;
+  background: linear-gradient(180deg, #ecfdf5 0%, #f8fafc 100%);
+}
+
+.hcc-vis-wa-header {
+  font-size: 0.46rem;
+  font-weight: 700;
+  color: #166534;
+  letter-spacing: 0.04em;
+}
+
+.hcc-vis-wa-msg {
+  font-size: 0.46rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 10px 10px 10px 2px;
+  background: #fff;
+  border: 1px solid #d1fae5;
+  color: #334155;
+  max-width: 85%;
+  align-self: flex-start;
+}
+
+.hcc-vis-wa-msg--brand {
+  align-self: flex-end;
+  border-radius: 10px 10px 2px 10px;
+  background: #dcf8c6;
+  border-color: #bbf7d0;
+}
+
+/* CRM — pipeline */
+.hcc-vis--crm {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.35rem;
+  align-items: end;
+  min-height: 4.5rem;
+}
+
+.hcc-vis-pipe-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.hcc-vis-pipe-label {
+  font-size: 0.42rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hcc-vis-pipe-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  width: 100%;
+}
+
+.hcc-vis-pipe-card {
+  height: 0.55rem;
+  border-radius: 4px;
+  background: #e2e8f0;
+  animation: hcc-pipe-move 3s ease-in-out infinite;
+}
+
+.hcc-vis-pipe-col:nth-child(2) .hcc-vis-pipe-card { background: #cbd5e1; }
+.hcc-vis-pipe-col:nth-child(3) .hcc-vis-pipe-card { background: #94a3b8; }
+.hcc-vis-pipe-col:nth-child(4) .hcc-vis-pipe-card {
+  background: linear-gradient(90deg, #4a658b, #18345d);
+}
+
+.hcc-vis-pipe-col:nth-child(1) .hcc-vis-pipe-card { animation-delay: 0s; }
+.hcc-vis-pipe-col:nth-child(2) .hcc-vis-pipe-card { animation-delay: 0.4s; }
+.hcc-vis-pipe-col:nth-child(3) .hcc-vis-pipe-card { animation-delay: 0.8s; }
+
+@keyframes hcc-pipe-move {
+  0%, 100% { opacity: 0.5; transform: translateX(0); }
+  50% { opacity: 1; transform: translateX(2px); }
+}
+
+/* Workflows — graph */
+.hcc-vis--workflows {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4.8rem;
+}
+
+.hcc-vis-flow {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.hcc-vis-flow-node {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.4rem;
+  font-weight: 700;
+  color: #4a658b;
+}
+
+.hcc-vis-flow-node.is-running {
+  border-color: #4a658b;
+  box-shadow: 0 0 0 3px rgba(74, 101, 139, 0.12);
+}
+
+.hcc-vis-flow-arrow {
+  width: 0.65rem;
+  height: 1px;
+  background: #cbd5e1;
+  position: relative;
+}
+
+.hcc-vis-flow-arrow::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -2px;
+  border: 3px solid transparent;
+  border-left-color: #94a3b8;
+}
+
+.hcc-vis-flow-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #4a658b;
+  animation: hcc-flow-travel 2s linear infinite;
+}
+
+@keyframes hcc-flow-travel {
+  0% { transform: translateX(0); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateX(2.5rem); opacity: 0; }
+}
+
+/* Campaigns — timeline */
+.hcc-vis--campaigns {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.hcc-vis-timeline {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding-top: 0.25rem;
+}
+
+.hcc-vis-tl-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  position: relative;
+}
+
+.hcc-vis-tl-step::before {
+  content: "";
+  position: absolute;
+  top: 0.35rem;
+  left: 50%;
+  right: -50%;
+  height: 1px;
+  background: #e2e8f0;
+  z-index: 0;
+}
+
+.hcc-vis-tl-step:last-child::before { display: none; }
+
+.hcc-vis-tl-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: #e2e8f0;
+  border: 2px solid #fff;
+  z-index: 1;
+}
+
+.hcc-vis-tl-step.is-done .hcc-vis-tl-dot { background: #4a658b; }
+.hcc-vis-tl-step.is-active .hcc-vis-tl-dot {
+  background: #18345d;
+  animation: hcc-tl-pulse 2s ease-in-out infinite;
+}
+
+@keyframes hcc-tl-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(24, 52, 93, 0.3); }
+  50% { box-shadow: 0 0 0 4px rgba(24, 52, 93, 0); }
+}
+
+.hcc-vis-tl-label {
+  font-size: 0.4rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* Integrations — hub */
+.hcc-vis--integrations {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4.8rem;
+}
+
+.hcc-vis-hub {
+  position: relative;
+  width: 100%;
+  height: 4.5rem;
+}
+
+.hcc-vis-hub-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4a658b, #18345d);
+  color: #fff;
+  font-size: 0.38rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.hcc-vis-hub-spoke {
+  position: absolute;
+  font-size: 0.4rem;
+  font-weight: 600;
+  color: #475569;
+  padding: 0.22rem 0.4rem;
+  border-radius: 6px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+}
+
+.hcc-vis-hub-spoke:nth-child(2) { left: 8%; top: 20%; }
+.hcc-vis-hub-spoke:nth-child(3) { right: 8%; top: 15%; }
+.hcc-vis-hub-spoke:nth-child(4) { left: 5%; bottom: 18%; }
+.hcc-vis-hub-spoke:nth-child(5) { right: 5%; bottom: 20%; }
+
+/* Analytics — charts */
+.hcc-vis--analytics {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 0.45rem;
+  align-items: end;
+}
+
+.hcc-vis-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.28rem;
+  height: 3.2rem;
+  padding-bottom: 0.15rem;
+}
+
+.hcc-vis-bar {
+  flex: 1;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(180deg, #4a658b, #18345d);
+  opacity: 0.55;
+  animation: hcc-bar-grow 2.5s ease-in-out infinite alternate;
+}
+
+.hcc-vis-bar:nth-child(1) { height: 45%; animation-delay: 0s; }
+.hcc-vis-bar:nth-child(2) { height: 70%; animation-delay: 0.2s; opacity: 0.7; }
+.hcc-vis-bar:nth-child(3) { height: 55%; animation-delay: 0.4s; }
+.hcc-vis-bar:nth-child(4) { height: 90%; animation-delay: 0.6s; opacity: 1; }
+.hcc-vis-bar:nth-child(5) { height: 65%; animation-delay: 0.8s; }
+
+@keyframes hcc-bar-grow {
+  0% { transform: scaleY(0.92); }
+  100% { transform: scaleY(1); }
+}
+
+.hcc-vis-kpis {
+  display: grid;
+  gap: 0.28rem;
+}
+
+.hcc-vis-kpi {
+  font-size: 0.46rem;
+  color: #475569;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.35rem;
+}
+
+.hcc-vis-kpi strong {
+  color: #18345d;
+  font-weight: 700;
+}
+
+.hcc-vis-kpi-trend {
+  color: #4a658b;
+  font-size: 0.42rem;
+}
+
+/* Knowledge Base */
+.hcc-vis--knowledge {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 0.4rem;
+}
+
+.hcc-vis-docs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+}
+
+.hcc-vis-doc {
+  height: 0.65rem;
+  border-radius: 4px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hcc-vis-doc::before {
+  content: "";
+  position: absolute;
+  left: 0.3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30%;
+  height: 2px;
+  background: #cbd5e1;
+  border-radius: 1px;
+}
+
+.hcc-vis-doc.is-indexed {
+  border-color: rgba(74, 101, 139, 0.35);
+  background: rgba(74, 101, 139, 0.06);
+}
+
+.hcc-vis-search {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  justify-content: center;
+}
+
+.hcc-vis-search-bar {
+  font-size: 0.46rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  color: #64748b;
+}
+
+.hcc-vis-search-hit {
+  font-size: 0.44rem;
+  color: #4a658b;
+  font-weight: 600;
+}
+
+/* Automation */
+.hcc-vis--automation {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  justify-content: center;
+}
+
+.hcc-vis-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.46rem;
+  color: #475569;
+}
+
+.hcc-vis-trigger-tag {
+  padding: 0.22rem 0.45rem;
+  border-radius: 6px;
+  background: #fef3c7;
+  border: 1px solid #fde68a;
+  color: #92400e;
+  font-weight: 600;
+  font-size: 0.42rem;
+}
+
+.hcc-vis-auto-chain {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.hcc-vis-auto-block {
+  font-size: 0.42rem;
+  font-weight: 600;
+  padding: 0.28rem 0.45rem;
+  border-radius: 6px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+.hcc-vis-auto-block.is-firing {
+  border-color: #4a658b;
+  background: rgba(74, 101, 139, 0.08);
+}
+
+/* Customer Support */
+.hcc-vis--support {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+}
+
+.hcc-vis-ticket {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.35rem;
+  align-items: center;
+  padding: 0.32rem 0.45rem;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  font-size: 0.44rem;
+}
+
+.hcc-vis-ticket-pri {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4a658b;
+}
+
+.hcc-vis-ticket.is-resolved .hcc-vis-ticket-pri { background: #22c55e; }
+
+.hcc-vis-ticket-status {
+  font-size: 0.4rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* Sales Operations */
+.hcc-vis--sales {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+}
+
+.hcc-vis-funnel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  align-items: center;
+}
+
+.hcc-vis-funnel-stage {
+  height: 0.55rem;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #4a658b, #18345d);
+  opacity: 0.85;
+}
+
+.hcc-vis-funnel-stage:nth-child(1) { width: 100%; }
+.hcc-vis-funnel-stage:nth-child(2) { width: 78%; opacity: 0.7; }
+.hcc-vis-funnel-stage:nth-child(3) { width: 55%; opacity: 0.55; }
+.hcc-vis-funnel-stage:nth-child(4) { width: 35%; opacity: 0.9; }
+
+.hcc-vis-sales-metrics {
+  display: grid;
+  gap: 0.3rem;
+  align-content: center;
+}
+
+.hcc-vis-sales-metric {
+  font-size: 0.44rem;
+  color: #475569;
+}
+
+.hcc-vis-sales-metric strong {
+  display: block;
+  font-size: 0.72rem;
+  color: #18345d;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+@media (max-width: 640px) {
+  .hcc-slide {
+    gap: 0.35rem;
+    padding: 0.05rem 0 0.15rem;
+  }
+
+  .hcc-slide-visual { min-height: 4.2rem; padding: 0.45rem; }
+  .hcc-vis--agents { grid-template-columns: 1fr; }
+  .hcc-vis--crm { grid-template-columns: repeat(2, 1fr); }
+  .hcc-vis--analytics { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hcc-orbit-layer,
+  .hcc-presentation,
+  .hcc-slide,
+  .hcc-vis-step.is-live i,
+  .hcc-vis-route-pulse,
+  .hcc-vis-pipe-card,
+  .hcc-vis-flow-dot,
+  .hcc-vis-tl-step.is-active .hcc-vis-tl-dot,
+  .hcc-vis-bar {
+    animation: none !important;
+    transition-duration: 0.15s !important;
+  }
+}

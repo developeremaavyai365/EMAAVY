@@ -1,0 +1,23 @@
+# EMAAVY API Documentation Index
+
+## Authentication
+Authorization: Bearer <EMAAVY_API_KEY>
+Docs: /pages/api-docs/api-authentication.html
+
+## Agents
+POST /v1/agents — create agent
+GET /v1/agents/{id} — retrieve agent
+Docs: /pages/api-docs/using-agents-apis.html
+
+## Calls
+POST /v1/calls — place outbound call
+GET /v1/calls/{id} — transcript & scores
+Docs: /pages/api-docs/making-phone-calls-apis.html
+
+## Knowledgebases
+POST /v1/knowledgebases — create corpus
+Docs: /pages/api-docs/knowledgebases-apis.html
+
+## Telephony
+Providers: twilio, plivo
+Docs: /pages/product/twilio-voice-integrations.html

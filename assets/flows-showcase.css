@@ -1,36 +1,15 @@
 /* ─── Conversational flows showcase (landing §01) ─── */
 #features.hub-zone--flows {
-  --flow-bg: #0a0e14;
-  --flow-panel: #121820;
-  --flow-card: #161f2e;
-  --flow-border: #2a3548;
-  --flow-text: #f1f5f9;
-  --flow-muted: #8b9cb3;
-  --flow-blue: #5b9cf5;
-  --flow-green: #3ecf8e;
-  --flow-red: #f87171;
-  --flow-purple: #a78bfa;
-  padding-bottom: clamp(3rem, 6vw, 5rem) !important;
+  padding-bottom: clamp(2.5rem, 5vw, 4rem) !important;
 }
 
 #features.hub-zone--flows .hub-zone-header {
   margin-bottom: 1rem;
 }
 
-.flows-showcase {
-  position: relative;
-  z-index: 1;
-  max-width: 1180px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.4fr);
-  gap: clamp(1.25rem, 3vw, 2.25rem);
-  align-items: start;
-}
 
-.flows-showcase-copy {
-  padding-top: 0.2rem;
-}
+
+
 
 .flows-showcase-eyebrow {
   display: inline-flex;
@@ -64,7 +43,7 @@
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1.12;
-  color: #0f172a;
+  color: #18345d;
   margin: 0 0 0.7rem;
 }
 
@@ -536,9 +515,6 @@
 }
 
 @media (max-width: 1024px) {
-  .flows-showcase {
-    grid-template-columns: 1fr;
-  }
   .flows-device-body {
     grid-template-columns: 1fr;
   }
@@ -550,7 +526,8 @@
 
 @media (max-width: 640px) {
   .flows-canvas {
-    min-width: 480px;
+    min-width: 0;
+    width: 100%;
   }
   .flows-showcase-actions {
     flex-direction: column;

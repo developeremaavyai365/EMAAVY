@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Function &amp; Tool Calling — EMAAVY</title>
+  <meta name="description" content="Secure mid-call tool execution for CRM, calendars, payments, and custom webhooks." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Function &amp; Tool Calling — EMAAVY" />
+  <meta property="og:description" content="Secure mid-call tool execution for CRM, calendars, payments, and custom webhooks." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/navbar-tokens.css" />
+  <link rel="stylesheet" href="../../assets/nav.css" />
+  <link rel="stylesheet" href="../../assets/masthead-flex.css" />
+  <link rel="stylesheet" href="../../assets/navbar-typography.css" />
+  <link rel="stylesheet" href="../../assets/emaavy-type-tokens.css" />
+  <link rel="stylesheet" href="../../assets/site.css" />
+  <link rel="stylesheet" href="../../assets/emaavy-theme.css" />
+  <link rel="stylesheet" href="../../assets/responsive-system.css" />
+  <link rel="stylesheet" href="../../assets/section-heading.css" />
+  <link rel="stylesheet" href="../../assets/brand-logo.css" />
+  <link rel="stylesheet" href="../../assets/footer-premium.css" />
+  <link rel="stylesheet" href="../../assets/footer-page.css" />
+  <link rel="icon" href="../../assets/brand/emaavy-logo.svg" type="image/svg+xml" />
+</head>
+<body data-base="../../" data-route="footer-function-tool-calling">
+  <div id="site-nav-root"></div>
+  <main class="page-main footer-doc-page">
+    <section class="page-hero telephony-hero footer-doc-hero">
+      <div class="container">
+        <span class="page-kicker">Product Features</span>
+        <h1>Function &amp; Tool Calling</h1>
+        <p class="telephony-hero-lead">Define OpenAI-compatible function schemas that agents invoke mid-call — CRM lookups, payment links, calendar bookings — executed in EMAAVY's audited sandbox with sub-250ms p95.</p>
+      </div>
+    </section>
+    <section id="sandbox" class="page-section">
+      <div class="container">
+        <article class="capability-block footer-doc-block">
+          <div class="capability-block-inner">
+            <div class="capability-meta">
+              <span class="capability-num">01</span>
+              <span class="capability-tag">Execution</span>
+            </div>
+            <div class="capability-content">
+              <h2>Secure tool runtime</h2>
+              <p>Tools never run on the LLM provider's infrastructure. EMAAVY validates JSON arguments against your schema, executes HTTP webhooks or native integrations (Salesforce, HubSpot, Cal.com), and injects results back into the conversational context before the next TTS chunk synthesizes.</p><p>Failed tools trigger graceful verbal fallbacks — agents apologize, retry once, or offer human handoff based on your policy.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section id="patterns" class="page-section alt">
+      <div class="container">
+        <article class="capability-block footer-doc-block">
+          <div class="capability-block-inner">
+            <div class="capability-meta">
+              <span class="capability-num">02</span>
+              <span class="capability-tag">Patterns</span>
+            </div>
+            <div class="capability-content">
+              <h2>Common production tools</h2>
+              <p>Teams ship these tool bundles on day one:</p>
+              <ul class="footer-feature-list"><li><code>crm.lookup_contact</code> — hydrate caller context from Salesforce or HubSpot</li><li><code>calendar.book_slot</code> — real-time Cal.com availability check and booking</li><li><code>payments.send_link</code> — Razorpay/Stripe payment link over SMS post-call</li><li><code>kb.search</code> — vector retrieval against attached knowledgebases</li></ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="page-section">
+      <div class="container">
+        <h2 class="footer-related-head">Related documentation</h2>
+        <div class="footer-related-row"><a href="../../pages/api-docs/using-agents-apis.html" class="footer-related-pill">Using Agents APIs</a><a href="../../pages/product/voice-agent-integrations-ecosystem.html" class="footer-related-pill">Voice Agent Integrations Ecosystem</a></div>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer-root"></div>
+  <script src="../../assets/routes.js"></script>
+  <script src="../../assets/components.js"></script>
+  <script src="../../assets/nav.js"></script>
+</body>
+</html>

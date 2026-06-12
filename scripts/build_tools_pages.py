@@ -1,19 +1,15 @@
 #!/usr/bin/env python3
 """Generate Tools & Workflow hub + per-tool integration pages."""
 import re
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from integration_logos import apply_logos_all
+from integration_pages_common import ensure_uses, render_hub, render_partner
 
 ROOT = Path(__file__).resolve().parents[1]
 INT = ROOT / "pages" / "integrations"
-
-HEAD_COMMON = """  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../assets/nav.css" />
-  <link rel="stylesheet" href="../../assets/masthead-flex.css" />
-  <link rel="stylesheet" href="../../assets/site.css" />
-  <link rel="stylesheet" href="../../assets/emaavy-theme.css" />
-"""
 
 TOOLS = [
     {
@@ -22,7 +18,6 @@ TOOLS = [
         "short": "Webhooks",
         "region": "Custom events · Any stack",
         "tag": "Events",
-        "featured": True,
         "route": "integration-webhooks",
         "logo": '<span class="brand-mark">WH</span>',
         "logo_sm": '<span class="brand-mark">WH</span>',
@@ -348,295 +343,92 @@ TOOLS = [
     },
 ]
 
+USE_EXTRAS = [
+    ("Lead qualification", "Sync scores and dispositions to CRM during live calls."),
+    ("Automated follow-ups", "Trigger messaging and tasks the moment calls end."),
+    ("Multi-agent operations", "Standardize automations while scaling agent programs."),
+]
 
-def tool_nav(current: str) -> str:
-    links = []
+HUB_CFG = {
+    "route": "integration-tools",
+    "title": "Tools & Workflow — EMAAVY",
+    "meta": "CRM updates, calendar bookings, WhatsApp follow-ups, and custom webhooks — all fired from live EMAAVY call intelligence with zero manual entry.",
+    "og_title": "Tools & Workflow — EMAAVY",
+    "og_description": "Connect Salesforce, HubSpot, Cal.com, Google Calendar, WhatsApp, Slack, and webhooks to EMAAVY voice programs.",
+    "breadcrumb": "Tools & Workflow",
+    "kicker": "Action layer · Tools & Workflow",
+    "h1": "Every call triggers the right action — instantly",
+    "lead": "CRM updates, calendar bookings, WhatsApp follow-ups, and custom webhooks — all fired from what was actually said on the call. EMAAVY turns conversation intelligence into follow-through with zero manual entry.",
+    "stats": [("7", "Connected tools"), ("Zero", "Manual entry"), ("Real-time", "Automation")],
+    "anchor_jumps": [
+        ("action-layer", "How EMAAVY automates"),
+        ("providers", "Connected tools"),
+        ("automation", "Post-call flow"),
+    ],
+    "layer_id": "action-layer",
+    "layer_num": "Layer 05",
+    "layer_tag": "EMAAVY · Tools & Workflow",
+    "layer_h2": "How EMAAVY automates follow-through",
+    "layer_lead": "Conversation intelligence becomes operational motion the moment a call ends — or mid-call when compliance and escalation rules require it.",
+    "pills": [
+        ("CRM sync", "Salesforce and HubSpot updated from live dispositions."),
+        ("Scheduling", "Cal.com and Google Calendar bookings during calls."),
+        ("Messaging", "WhatsApp confirmations and links after hang-up."),
+        ("Custom logic", "Webhooks with full transcript and score payloads."),
+    ],
+    "partners_id": "providers",
+    "partners_h2": "Connected tools",
+    "partners_desc": "Seven integrations today — each with a dedicated page on what the tool does, how EMAAVY triggers it, and how to roll out.",
+    "flow_id": "automation",
+    "flow_h2": "What fires when a call ends",
+    "flow_desc": "The default post-call automation path on EMAAVY — mix and match tools per campaign.",
+    "flow_steps": [
+        ("Call completes", "EMAAVY finalizes transcript, scores, and metadata."),
+        ("Trigger matched", "Rules map intent and keywords to actions."),
+        ("CRM updated", "Records, tasks, and deals sync automatically."),
+        ("Meeting booked", "Calendar events created with invites."),
+        ("Follow-up sent", "WhatsApp, Slack, or webhook payloads delivered."),
+    ],
+    "cta_h2": "Connect Tools & Workflow to EMAAVY",
+    "cta_desc": "See live CRM sync, scheduling, and webhook automation in a tailored demo.",
+}
+
+HUB_FILE = "tools.html"
+HUB_LABEL = "All tools"
+HUB_BREADCRUMB = "Tools & Workflow"
+HUB_CTA = "Tools overview"
+
+
+def prepare():
     for t in TOOLS:
-        cls = ' class="is-current"' if t["slug"] == current else ""
-        links.append(f'<a href="{t["slug"]}.html"{cls}>{t["short"]}</a>')
-    links.append('<a href="tools.html">All tools</a>')
-    return "\n          ".join(links)
+        t.pop("featured", None)
+        ensure_uses(t, USE_EXTRAS)
+    apply_logos_all(TOOLS)
 
 
-def render_partner(t: dict) -> str:
-    stats = "".join(
-        f'<div class="tools-partner-stat"><b>{a}</b><span>{b}</span></div>'
-        for a, b in t["stats"]
+def write_partner(t: dict) -> str:
+    route = t.get("route", f"integration-{t['slug']}")
+    return render_partner(
+        t,
+        partners=TOOLS,
+        route=route,
+        segment_kicker=f"Tools & Workflow · {t['tag']}",
+        hub_file=HUB_FILE,
+        hub_label=HUB_LABEL,
+        hub_breadcrumb=HUB_BREADCRUMB,
+        hub_cta_label=HUB_CTA,
+        nav_label_key="short",
+        connect_name_key="name",
+        explore_title="Explore other tools",
+        explore_desc="Mix CRM, scheduling, messaging, and webhooks per campaign — EMAAVY keeps automations consistent.",
+        nav_aria="Workflow tools",
+        overview_fit="your operations stack",
+        cta_desc="Book a walkthrough — we will map triggers, CRM fields, and live automation on a sample call.",
+        aside_note="Integrated with EMAAVY voice agents, campaigns, and post-call automation.",
+        segment_type="tools",
+        hub_label_key="short",
     )
-    about = "".join(f"<p>{para}</p>" for para in t["about"])
-    benefits = "".join(
-        f'<li><div><strong>{h}</strong><span>{d}</span></div></li>'
-        for h, d in t["emaavy"]
-    )
-    features = "".join(
-        f'<article class="tools-feature-card"><h3>{h}</h3><p>{d}</p></article>'
-        for h, d in t["features"]
-    )
-    uses = "".join(
-        f'<article class="tools-use-card"><h3>{h}</h3><p>{d}</p></article>'
-        for h, d in t["uses"]
-    )
-    setup = "".join(
-        f'<li><div><strong>{h}</strong><p>{d}</p></div></li>'
-        for h, d in t["setup"]
-    )
 
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{t['title']}</title>
-  <meta name="description" content="{t['meta']}" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="{t['title']}" />
-  <meta property="og:description" content="{t['meta']}" />
-  <meta property="og:type" content="website" />
-{HEAD_COMMON}
-  <link rel="stylesheet" href="../../assets/tools-partner.css" />
-</head>
-<body data-base="../../" data-route="{t['route']}">
-  <div id="site-nav-root"></div>
-  <main class="page-main tools-partner-page">
-    <section class="tools-partner-hero">
-      <div class="container tools-partner-hero-grid">
-        <div class="tools-partner-hero-copy">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true"> / </span>
-            <a href="../../index.html#integrations">Integrations</a>
-            <span aria-hidden="true"> / </span>
-            <a href="tools.html">Tools &amp; Workflow</a>
-            <span aria-hidden="true"> / </span>
-            <span>{t['short']}</span>
-          </nav>
-          <span class="tools-partner-kicker">Tools &amp; Workflow · {t['tag']}</span>
-          <h1>{t['h1']}</h1>
-          <p class="tools-partner-lead">{t['lead']}</p>
-          <div class="tools-partner-stats">{stats}</div>
-          <div class="tools-partner-hero-actions">
-            <a href="../../book-demo.html" class="btn-primary">Connect {t['short']}</a>
-            <a href="tools.html" class="btn-outline">All tools</a>
-          </div>
-        </div>
-        <aside class="tools-partner-hero-card" aria-label="{t['name']} overview">
-          <div class="tools-partner-hero-logo">{t['logo']}</div>
-          <span class="tools-partner-hero-region">{t['region']}</span>
-          <p>Triggered from EMAAVY — on call end or mid-call when your rules require action.</p>
-        </aside>
-      </div>
-    </section>
-
-    <section class="tools-partner-section">
-      <div class="container">
-        <header class="tools-partner-section-head">
-          <h2>What {t['short']} does</h2>
-          <p>How this tool fits into your post-call and in-call automation stack.</p>
-        </header>
-        <div class="tools-partner-prose">{about}</div>
-      </div>
-    </section>
-
-    <section class="tools-partner-section alt">
-      <div class="container tools-partner-split">
-        <header class="tools-partner-section-head">
-          <h2>How EMAAVY uses {t['short']}</h2>
-          <p>Conversation intelligence becomes operational motion — without manual entry.</p>
-        </header>
-        <ul class="tools-partner-benefits">{benefits}</ul>
-      </div>
-    </section>
-
-    <section class="tools-partner-section">
-      <div class="container">
-        <header class="tools-partner-section-head">
-          <h2>Key capabilities</h2>
-          <p>What teams configure when {t['short']} is wired to EMAAVY programs.</p>
-        </header>
-        <div class="tools-feature-grid">{features}</div>
-      </div>
-    </section>
-
-    <section class="tools-partner-section alt">
-      <div class="container">
-        <header class="tools-partner-section-head">
-          <h2>Ideal use cases</h2>
-          <p>Where {t['short']} and EMAAVY deliver the strongest combined outcomes.</p>
-        </header>
-        <div class="tools-use-grid">{uses}</div>
-      </div>
-    </section>
-
-    <section class="tools-partner-section">
-      <div class="container">
-        <header class="tools-partner-section-head">
-          <h2>Getting connected</h2>
-          <p>From credentials to production automations on EMAAVY.</p>
-        </header>
-        <ol class="tools-setup-steps">{setup}</ol>
-      </div>
-    </section>
-
-    <section class="tools-partner-section alt">
-      <div class="container">
-        <header class="tools-partner-section-head">
-          <h2>Explore other tools</h2>
-          <p>Combine CRM, scheduling, messaging, Slack, and webhooks — one EMAAVY action layer.</p>
-        </header>
-        <nav class="tools-partner-nav-strip" aria-label="Tools and workflow partners">
-          {tool_nav(t['slug'])}
-        </nav>
-      </div>
-    </section>
-
-    <section class="tools-partner-cta">
-      <div class="container">
-        <h2>Ready to connect {t['short']}?</h2>
-        <p>Book a walkthrough — map triggers, field sync, and live post-call automation on a real call.</p>
-        <div class="cta-row">
-          <a href="../../book-demo.html" class="btn-primary">Book a demo</a>
-          <a href="tools.html" class="btn-outline">Tools overview</a>
-        </div>
-      </div>
-    </section>
-  </main>
-  <div id="site-footer-root"></div>
-  <script src="../../assets/routes.js"></script>
-  <script src="../../assets/components.js"></script>
-  <script src="../../assets/nav.js"></script>
-</body>
-</html>
-"""
-
-
-def card_html(t: dict) -> str:
-    points = "".join(f"<li>{x}</li>" for x in t["hub_points"])
-    featured = " tools-model-card--native" if t.get("featured") else ""
-    cta = "Explore integration →" if not t.get("featured") else "View full integration →"
-    badge = f'<span class="tools-model-badge">{t["hub_badge"]}</span>'
-    return f"""          <a href="{t['slug']}.html" id="{t['slug']}" class="tools-model-card{featured}">
-            <div class="tools-model-card-top">
-              <div class="tools-model-card-logo">{t['logo_sm']}</div>
-              {badge}
-            </div>
-            <h3>{t['name']}</h3>
-            <p class="tools-model-card-desc">{t['hub_desc']}</p>
-            <ul class="tools-model-card-points">{points}</ul>
-            <span class="tools-model-card-cta">{cta}</span>
-          </a>"""
-
-
-def render_hub() -> str:
-    cards = "\n".join(card_html(t) for t in TOOLS)
-    jumps = " ".join(f'<a href="#{t["slug"]}">{t["short"]}</a>' for t in TOOLS)
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tools &amp; Workflow — EMAAVY</title>
-  <meta name="description" content="CRM updates, calendar bookings, WhatsApp follow-ups, and custom webhooks — all fired from live EMAAVY call intelligence with zero manual entry." />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Tools &amp; Workflow — EMAAVY" />
-  <meta property="og:description" content="Connect Salesforce, HubSpot, Cal.com, Google Calendar, WhatsApp, Slack, and webhooks to EMAAVY voice programs." />
-  <meta property="og:type" content="website" />
-{HEAD_COMMON}
-  <link rel="stylesheet" href="../../assets/tools-hub.css" />
-</head>
-<body data-base="../../" data-route="integration-tools">
-  <div id="site-nav-root"></div>
-  <main class="page-main tools-page">
-    <section class="page-hero telephony-hero">
-      <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../../index.html">Home</a>
-          <span aria-hidden="true"> / </span>
-          <a href="../../index.html#integrations">Integrations</a>
-          <span aria-hidden="true"> / </span>
-          <span>Tools &amp; Workflow</span>
-        </nav>
-        <span class="page-kicker">Action layer · Tools &amp; Workflow</span>
-        <h1>Every call triggers the right action — instantly</h1>
-        <p class="telephony-hero-lead">CRM updates, calendar bookings, WhatsApp follow-ups, and custom webhooks — all fired from what was actually said on the call. EMAAVY turns conversation intelligence into follow-through with zero manual entry.</p>
-        <div class="stat-row telephony-hero-stats">
-          <div class="stat-box"><b>7</b><span>Connected tools</span></div>
-          <div class="stat-box"><b>Zero</b><span>Manual entry</span></div>
-          <div class="stat-box"><b>Real-time</b><span>Automation</span></div>
-        </div>
-        <div class="capabilities-jump telephony-jump">
-          <a href="#action-layer">How EMAAVY automates</a>
-          <a href="#providers">Connected tools</a>
-          <a href="#automation">Post-call flow</a>
-          {jumps}
-        </div>
-      </div>
-    </section>
-
-    <section id="action-layer" class="tools-hub-action">
-      <div class="container">
-        <article class="tools-hub-action-card">
-          <div class="tools-hub-action-meta">
-            <span class="tools-hub-action-num">Layer 05</span>
-            <span class="tools-hub-action-tag">EMAAVY · Tools &amp; Workflow</span>
-            <h2>How EMAAVY automates follow-through</h2>
-            <p class="tools-hub-action-lead">Conversation intelligence becomes operational motion the moment a call ends — or mid-call when compliance and escalation rules require it.</p>
-          </div>
-          <div class="tools-hub-pill-grid">
-            <div class="tools-hub-pill"><strong>CRM sync</strong><span>Salesforce and HubSpot updated from live dispositions.</span></div>
-            <div class="tools-hub-pill"><strong>Scheduling</strong><span>Cal.com and Google Calendar bookings during calls.</span></div>
-            <div class="tools-hub-pill"><strong>Messaging</strong><span>WhatsApp confirmations and links after hang-up.</span></div>
-            <div class="tools-hub-pill"><strong>Custom logic</strong><span>Webhooks with full transcript and score payloads.</span></div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="providers" class="tools-hub-partners page-section alt">
-      <div class="container">
-        <header class="tools-hub-partners-head">
-          <h2>Connected tools</h2>
-          <p>Seven integrations today — each with a dedicated page on what the tool does, how EMAAVY triggers it, and how to roll out.</p>
-        </header>
-        <div class="tools-model-grid">
-{cards}
-        </div>
-      </div>
-    </section>
-
-    <section id="automation" class="tools-hub-flow">
-      <div class="container">
-        <header class="tools-hub-flow-head">
-          <h2>What fires when a call ends</h2>
-          <p>The default post-call automation path on EMAAVY — mix and match tools per campaign.</p>
-        </header>
-        <div class="tools-flow-track">
-          <article class="tools-flow-step"><strong>Call completes</strong><p>EMAAVY finalizes transcript, scores, and metadata.</p></article>
-          <article class="tools-flow-step"><strong>Trigger matched</strong><p>Rules map intent and keywords to actions.</p></article>
-          <article class="tools-flow-step"><strong>CRM updated</strong><p>Records, tasks, and deals sync automatically.</p></article>
-          <article class="tools-flow-step"><strong>Meeting booked</strong><p>Calendar events created with invites.</p></article>
-          <article class="tools-flow-step"><strong>Follow-up sent</strong><p>WhatsApp, Slack, or webhook payloads delivered.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="tools-hub-cta">
-      <div class="container">
-        <h2>Connect Tools &amp; Workflow to EMAAVY</h2>
-        <p>See live CRM sync, scheduling, and webhook automation in a tailored demo.</p>
-        <div class="cta-row">
-          <a href="../../book-demo.html" class="btn-primary">Book a demo</a>
-          <a href="index.html" class="btn-outline">All integrations</a>
-        </div>
-      </div>
-    </section>
-  </main>
-  <div id="site-footer-root"></div>
-  <script src="../../assets/routes.js"></script>
-  <script src="../../assets/components.js"></script>
-  <script src="../../assets/nav.js"></script>
-</body>
-</html>
-"""
 
 
 def update_routes():
@@ -644,8 +436,9 @@ def update_routes():
     text = path.read_text(encoding="utf-8")
     lines = ["      { id: 'tools', label: 'Tools layer', path: 'pages/integrations/tools.html' },"]
     for t in TOOLS:
+        label = t["name"]
         lines.append(
-            f"      {{ id: '{t['slug']}', label: '{t['name']}', path: 'pages/integrations/{t['slug']}.html' }},"
+            f"      {{ id: '{t['slug']}', label: '{label}', path: 'pages/integrations/{t['slug']}.html' }},"
         )
     block = "    tools: [\n" + "\n".join(lines) + "\n    ],"
     text = re.sub(r"    tools: \[.*?\],", block, text, count=1, flags=re.DOTALL)
@@ -653,12 +446,15 @@ def update_routes():
 
 
 def main():
+    prepare()
     INT.mkdir(parents=True, exist_ok=True)
-    (INT / "tools.html").write_text(render_hub(), encoding="utf-8")
+    (INT / "tools.html").write_text(
+        render_hub(HUB_CFG, TOOLS, jump_label_key="short", hub_tile_label_key="short"), encoding="utf-8"
+    )
     for t in TOOLS:
-        (INT / f"{t['slug']}.html").write_text(render_partner(t), encoding="utf-8")
+        (INT / f"{t['slug']}.html").write_text(write_partner(t), encoding="utf-8")
     update_routes()
-    print(f"OK: Tools hub + {len(TOOLS)} tool pages, routes.js updated")
+    print(f"OK: tools.html + {len(TOOLS)} partner pages, routes.js updated")
 
 
 if __name__ == "__main__":

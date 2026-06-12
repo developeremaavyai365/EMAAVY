@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Warehouse by Mudita">
+  <rect width="48" height="48" rx="12" fill="#f1f5f9"/>
+  <path d="M12 32V20l12-8 12 8v12" stroke="#18345d" stroke-width="2" fill="none" stroke-linejoin="round"/>
+  <path d="M18 32v-6h12v6" stroke="#4a658b" stroke-width="2" fill="none"/>
+  <path d="M22 24h4M24 22v4" stroke="#4a658b" stroke-width="1.6" stroke-linecap="round"/>
+</svg>

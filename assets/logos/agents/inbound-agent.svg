@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Inbound Agent">
+  <rect width="48" height="48" rx="12" fill="#f1f5f9"/>
+  <path d="M32 24H16M20 18l-6 6 6 6" stroke="#18345d" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="34" cy="24" r="4" stroke="#4a658b" stroke-width="2" fill="none"/>
+</svg>

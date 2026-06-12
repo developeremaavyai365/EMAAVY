@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta property="og:image" content="../../assets/brand/emaavy-logo.png" />
+
+  <link rel="icon" href="../../assets/brand/emaavy-logo.svg" type="image/svg+xml" />
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Exotel — EMAAVY</title>
@@ -12,12 +16,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../assets/nav.css" />
+  <link rel="stylesheet" href="../../assets/navbar-tokens.css" />
+<link rel="stylesheet" href="../../assets/nav.css" />
   <link rel="stylesheet" href="../../assets/masthead-flex.css" />
-  <link rel="stylesheet" href="../../assets/site.css" />
+<link rel="stylesheet" href="../../assets/navbar-typography.css" />
+
+    <link rel="stylesheet" href="../../assets/emaavy-type-tokens.css" />
+<link rel="stylesheet" href="../../assets/site.css" />
+  <link rel="stylesheet" href="../../assets/footer-premium.css" />
   <link rel="stylesheet" href="../../assets/emaavy-theme.css" />
+  <link rel="stylesheet" href="../../assets/responsive-system.css" />
 
   <link rel="stylesheet" href="../../assets/telephony-partner.css" />
+  <link rel="stylesheet" href="../../assets/integration-logo-3d.css" />
+  <link rel="stylesheet" href="../../assets/section-heading.css" />
+<link rel="stylesheet" href="../../assets/brand-logo.css" />
 </head>
 <body data-base="../../" data-route="integration-telephony-exotel">
   <div id="site-nav-root"></div>
@@ -25,16 +38,7 @@
     <section class="tel-partner-hero">
       <div class="container tel-partner-hero-grid">
         <div class="tel-partner-hero-copy">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true"> / </span>
-            <a href="../../index.html#integrations">Integrations</a>
-            <span aria-hidden="true"> / </span>
-            <a href="telephony.html">Telephony</a>
-            <span aria-hidden="true"> / </span>
-            <span>Exotel</span>
-          </nav>
-          <span class="tel-partner-kicker">Telephony · India · APAC</span>
+<span class="tel-partner-kicker">Telephony · India · APAC</span>
           <h1>Exotel</h1>
           <p class="tel-partner-lead">Exotel is India's leading cloud telephony platform for virtual numbers, IVR, and call analytics — now connected to EMAAVY's multilingual AI agent layer for regulated domestic programs.</p>
           <div class="tel-partner-stats"><div class="tel-partner-stat"><b>India</b><span>Primary market</span></div><div class="tel-partner-stat"><b>IVR + API</b><span>Stack</span></div><div class="tel-partner-stat"><b>TRAI</b><span>Aligned ops</span></div></div>
@@ -43,80 +47,129 @@
             <a href="telephony.html" class="btn-outline">All carriers</a>
           </div>
         </div>
-        <aside class="tel-partner-hero-card" aria-label="Exotel overview">
-          <div class="tel-partner-hero-logo"><img src="../../assets/logos/exotel.png" alt="" width="52" height="52" loading="lazy" /></div>
+        <aside class="tel-partner-hero-card int-logo-hero-wrap" aria-label="Exotel logo">
+          <div class="int-logo-hero-panel"><img class="int-logo-img int-logo-img--lg int-logo-img--neutral" src="../../assets/logos/integrations/exotel.svg" alt="Exotel" width="64" height="64" loading="lazy" decoding="async" /></div>
           <span class="tel-partner-hero-region">India · APAC</span>
-          <p>Integrated with EMAAVY voice agents, campaigns, and live call intelligence.</p>
         </aside>
       </div>
     </section>
 
-    <section class="tel-partner-section">
+    <section id="overview" class="tel-partner-section">
       <div class="container">
         <header class="tel-partner-section-head">
-          <h2>What Exotel does</h2>
-          <p>Understanding the carrier helps you choose the right voice path for each campaign.</p>
+          <h2>Overview</h2>
+          <p>What Exotel provides and how it fits into your voice stack.</p>
         </header>
         <div class="tel-partner-prose"><p>Exotel provides virtual numbers, click-to-call, IVR studio, and call tracking APIs used by thousands of Indian enterprises. Compliance, domestic routing, and familiar ops tooling make it the default for India-first voice.</p><p>EMAAVY preserves Exotel call flows while replacing or augmenting human agents with AI — sentiment, intent, and dispositions still sync to CRM in real time.</p></div>
       </div>
     </section>
 
-    <section class="tel-partner-section alt">
-      <div class="container tel-partner-split">
-        <header class="tel-partner-section-head">
-          <h2>How EMAAVY uses Exotel</h2>
-          <p>One integration layer — your agents, analytics, and CRM sync stay consistent regardless of carrier.</p>
-        </header>
-        <ul class="tel-partner-benefits"><li><div><strong>Domestic outbound</strong><span>High-volume Hindi and English campaigns with local caller ID.</span></div></li><li><div><strong>IVR + AI</strong><span>Exotel IVR can hand off to EMAAVY agents on intent match.</span></div></li><li><div><strong>Call tracking</strong><span>Marketing attribution plus conversational intelligence in one view.</span></div></li><li><div><strong>Compliance</strong><span>Recording and DND-aware dialing governed by EMAAVY policies.</span></div></li></ul>
-      </div>
-    </section>
-
-    <section class="tel-partner-section">
+    <section id="capabilities" class="tel-partner-section alt">
       <div class="container">
         <header class="tel-partner-section-head">
           <h2>Key capabilities</h2>
-          <p>What teams typically configure when Exotel powers EMAAVY voice programs.</p>
+          <p>Core features teams configure when Exotel powers EMAAVY programs.</p>
         </header>
-        <div class="tel-feature-grid"><article class="tel-feature-card"><h3>Virtual numbers</h3><p>Landline and mobile numbers across India.</p></article><article class="tel-feature-card"><h3>IVR designer</h3><p>Visual flows before AI agent engagement.</p></article><article class="tel-feature-card"><h3>Call analytics</h3><p>Duration, status, and agent performance metrics.</p></article><article class="tel-feature-card"><h3>API dialer</h3><p>Programmatic outbound for sales and support.</p></article><article class="tel-feature-card"><h3>Call recording</h3><p>On-demand and always-on recording modes.</p></article><article class="tel-feature-card"><h3>CRM integrations</h3><p>Native connectors plus EMAAVY webhook enrichment.</p></article></div>
+        <div class="tel-feature-grid"><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">VN</span><h3>Virtual numbers</h3><p>Landline and mobile numbers across India.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">ID</span><h3>IVR designer</h3><p>Visual flows before AI agent engagement.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">CA</span><h3>Call analytics</h3><p>Duration, status, and agent performance metrics.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">AD</span><h3>API dialer</h3><p>Programmatic outbound for sales and support.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">CR</span><h3>Call recording</h3><p>On-demand and always-on recording modes.</p></article><article class="tel-feature-card"><span class="tel-cap-icon" aria-hidden="true">CI</span><h3>CRM integrations</h3><p>Native connectors plus EMAAVY webhook enrichment.</p></article></div>
       </div>
     </section>
 
-    <section class="tel-partner-section alt">
+    <section id="use-cases" class="tel-partner-section">
       <div class="container">
         <header class="tel-partner-section-head">
-          <h2>Ideal use cases</h2>
-          <p>Where Exotel and EMAAVY deliver the strongest combined outcomes.</p>
+          <h2>Business use cases</h2>
+          <p>Real-world applications for Exotel with EMAAVY agents and campaigns.</p>
         </header>
-        <div class="tel-use-grid"><article class="tel-use-card"><h3>Indian BPOs</h3><p>QA automation on Exotel-backed call centers.</p></article><article class="tel-use-card"><h3>D2C brands</h3><p>Order confirmation and NPS calls at scale.</p></article><article class="tel-use-card"><h3>Fintech</h3><p>KYC reminders and collections with regional languages.</p></article></div>
+        <div class="tel-use-grid"><article class="tel-use-card"><h3>Customer support</h3><p>QA automation on Exotel-backed call centers.</p></article><article class="tel-use-card"><h3>Outbound campaigns</h3><p>Order confirmation and NPS calls at scale.</p></article><article class="tel-use-card"><h3>Lead qualification</h3><p>KYC reminders and pre-sales screening in regional languages.</p></article><article class="tel-use-card"><h3>Appointment booking</h3><p>Healthcare and service scheduling on domestic numbers.</p></article><article class="tel-use-card"><h3>Automated follow-ups</h3><p>Collections and payment reminders with DND-aware dialing.</p></article><article class="tel-use-card"><h3>Multi-agent operations</h3><p>Hindi, English, and regional agents on shared Exotel routes.</p></article></div>
+      </div>
+    </section>
+
+    <section id="integration-workflow" class="tel-partner-section alt">
+      <div class="container">
+        <header class="tel-partner-section-head">
+          <h2>Integration workflow</h2>
+          <p>How Exotel connects through EMAAVY — from live events to automated outcomes.</p>
+        </header>
+        <div class="tel-workflow-viz__track"><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">01</span><h3>Call connects</h3><p>Inbound or outbound session starts on your numbers.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">02</span><h3>EMAAVY routes</h3><p>Platform selects carrier, media path, and agent profile.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">03</span><h3>Provider handles</h3><p>Telephony partner delivers PSTN, SIP, or CPaaS voice.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">04</span><h3>Audio streams</h3><p>Live media feeds STT and reasoning pipelines.</p></article><article class="tel-workflow-viz__step"><span class="tel-workflow-viz__icon" aria-hidden="true">05</span><h3>Agent engages</h3><p>AI agent speaks and acts on real-time intelligence.</p></article></div>
+      </div>
+    </section>
+
+    <section id="setup-process" class="tel-partner-section">
+      <div class="container">
+        <header class="tel-partner-section-head">
+          <h2>Setup process</h2>
+          <p>Connection steps to go from credentials to production traffic with Exotel.</p>
+        </header>
+        <div class="tel-setup-grid"><article class="tel-setup-step"><span class="tel-setup-label">Link Exotel account</span><p>API key and subdomain in EMAAVY settings.</p></article><article class="tel-setup-step"><span class="tel-setup-label">Map ExoPhones</span><p>Assign virtual numbers to campaigns.</p></article><article class="tel-setup-step"><span class="tel-setup-label">Configure passthru</span><p>EMAAVY registers voice URLs on your Exotel applet.</p></article><article class="tel-setup-step"><span class="tel-setup-label">Pilot in Hindi</span><p>Test one language variant before full rollout.</p></article></div>
+      </div>
+    </section>
+
+    <section id="business-benefits" class="tel-partner-section alt">
+      <div class="container tel-partner-split">
+        <header class="tel-partner-section-head">
+          <h2>Business benefits</h2>
+          <p>Efficiency, automation, scalability, and customer experience gains from connecting Exotel to EMAAVY.</p>
+        </header>
+        <ul class="tel-partner-benefits"><li><div><span class="tel-why-title">Domestic outbound</span><span class="tel-why-desc">High-volume Hindi and English campaigns with local caller ID.</span></div></li><li><div><span class="tel-why-title">IVR + AI</span><span class="tel-why-desc">Exotel IVR can hand off to EMAAVY agents on intent match.</span></div></li><li><div><span class="tel-why-title">Call tracking</span><span class="tel-why-desc">Marketing attribution plus conversational intelligence in one view.</span></div></li><li><div><span class="tel-why-title">Compliance</span><span class="tel-why-desc">Recording and DND-aware dialing governed by EMAAVY policies.</span></div></li></ul>
       </div>
     </section>
 
     <section class="tel-partner-section">
-      <div class="container">
-        <header class="tel-partner-section-head">
-          <h2>Getting connected</h2>
-          <p>A typical rollout path from credentials to production traffic.</p>
-        </header>
-        <ol class="tel-setup-steps"><li><div><strong>Link Exotel account</strong><p>API key and subdomain in EMAAVY settings.</p></div></li><li><div><strong>Map ExoPhones</strong><p>Assign virtual numbers to campaigns.</p></div></li><li><div><strong>Configure passthru</strong><p>EMAAVY registers voice URLs on your Exotel applet.</p></div></li><li><div><strong>Pilot in Hindi</strong><p>Test one language variant before full rollout.</p></div></li></ol>
-      </div>
-    </section>
-
-    <section class="tel-partner-section alt">
       <div class="container">
         <header class="tel-partner-section-head">
           <h2>Explore other carriers</h2>
           <p>EMAAVY unifies every partner below — mix carriers by region or campaign without rebuilding agents.</p>
         </header>
-        <nav class="tel-partner-nav-strip" aria-label="Telephony partners">
-          <a href="vobiz.html">Vobiz</a>
-          <a href="twilio.html">Twilio</a>
-          <a href="plivo.html">Plivo</a>
-          <a href="vonage.html">Vonage</a>
-          <a href="exotel.html" class="is-current">Exotel</a>
-          <a href="knowlarity.html">Knowlarity</a>
-          <a href="telnyx.html">Telnyx</a>
-          <a href="bandwidth.html">Bandwidth</a>
-          <a href="telephony.html">All telephony</a>
+        <nav class="int-logo-ecosystem int-logo-ecosystem--compact" aria-label="Telephony partners">
+          <a href="vobiz.html" id="vobiz" class="int-logo-tile int-logo-tile--compact" aria-label="Vobiz integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/vobiz.svg" alt="Vobiz" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Vobiz</span>
+              <span class="int-logo-tile__category">Global CPaaS</span>
+            </div>
+          </a>
+          <a href="twilio.html" id="twilio" class="int-logo-tile int-logo-tile--compact" aria-label="Twilio integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/twilio.svg" alt="Twilio" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Twilio</span>
+              <span class="int-logo-tile__category">Global CPaaS</span>
+            </div>
+          </a>
+          <a href="plivo.html" id="plivo" class="int-logo-tile int-logo-tile--compact" aria-label="Plivo integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--light" src="../../assets/logos/integrations/plivo.svg" alt="Plivo" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Plivo</span>
+              <span class="int-logo-tile__category">Global CPaaS</span>
+            </div>
+          </a>
+          <a href="vonage.html" id="vonage" class="int-logo-tile int-logo-tile--compact" aria-label="Vonage integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--light" src="../../assets/logos/integrations/vonage.svg" alt="Vonage" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Vonage</span>
+              <span class="int-logo-tile__category">Global CPaaS</span>
+            </div>
+          </a>
+          <a href="knowlarity.html" id="knowlarity" class="int-logo-tile int-logo-tile--compact" aria-label="Knowlarity integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/knowlarity.svg" alt="Knowlarity" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Knowlarity</span>
+              <span class="int-logo-tile__category">India · APAC</span>
+            </div>
+          </a>
+          <a href="telnyx.html" id="telnyx" class="int-logo-tile int-logo-tile--compact" aria-label="Telnyx integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/telnyx.svg" alt="Telnyx" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Telnyx</span>
+              <span class="int-logo-tile__category">Private network</span>
+            </div>
+          </a>
+          <a href="bandwidth.html" id="bandwidth" class="int-logo-tile int-logo-tile--compact" aria-label="Bandwidth integration">
+            <div class="int-logo-tile__logo"><img class="int-logo-img int-logo-img--neutral" src="../../assets/logos/integrations/bandwidth.svg" alt="Bandwidth" width="40" height="40" loading="lazy" decoding="async" /></div>
+            <div class="int-logo-tile__meta">
+              <span class="int-logo-tile__name">Bandwidth</span>
+              <span class="int-logo-tile__category">Direct carrier</span>
+            </div>
+          </a>
         </nav>
       </div>
     </section>

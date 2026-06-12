@@ -450,13 +450,6 @@ def module_page(slug, m):
   <main class="page-main int-category-page">
     <section class="page-hero telephony-hero">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../../emaavy_white_blue%20(2).html">Home</a>
-          <span aria-hidden="true"> / </span>
-          <a href="../../emaavy_white_blue%20(2).html#bento">Intelligence matrix</a>
-          <span aria-hidden="true"> / </span>
-          <span>{m['title']}</span>
-        </nav>
         <span class="page-kicker">{m['kicker']}</span>
         <h1>{m['title']}</h1>
         <p class="telephony-hero-lead">{m['hero_lead']}</p>
@@ -561,11 +554,6 @@ def hub_html():
   <main class="page-main int-category-page">
     <section class="page-hero telephony-hero">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../../emaavy_white_blue%20(2).html">Home</a>
-          <span aria-hidden="true"> / </span>
-          <span>Intelligence matrix</span>
-        </nav>
         <span class="page-kicker">Analytics engine</span>
         <h1>Your call intelligence command center</h1>
         <p class="telephony-hero-lead">Every metric, every insight — decoded in real time. From live transcripts to intent scoring, operator leaderboards, and compliance flags — explore each module on its own page.</p>

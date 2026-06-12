@@ -1,19 +1,15 @@
 #!/usr/bin/env python3
 """Generate LLM hub + per-model integration pages."""
 import re
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from integration_logos import apply_logos_all
+from integration_pages_common import ensure_uses, render_hub, render_partner
 
 ROOT = Path(__file__).resolve().parents[1]
 INT = ROOT / "pages" / "integrations"
-
-HEAD_COMMON = """  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@300,400,500,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../assets/nav.css" />
-  <link rel="stylesheet" href="../../assets/masthead-flex.css" />
-  <link rel="stylesheet" href="../../assets/site.css" />
-  <link rel="stylesheet" href="../../assets/emaavy-theme.css" />
-"""
 
 MODELS = [
     {
@@ -22,7 +18,6 @@ MODELS = [
         "short": "OpenAI",
         "region": "Flagship reasoning",
         "tag": "Flagship",
-        "featured": True,
         "logo": '<img src="https://cdn.worldvectorlogo.com/logos/openai-2.svg" alt="" width="52" height="52" loading="lazy" />',
         "logo_sm": '<img src="https://cdn.worldvectorlogo.com/logos/openai-2.svg" alt="" width="32" height="32" loading="lazy" />',
         "title": "OpenAI GPT — EMAAVY",
@@ -249,302 +244,97 @@ MODELS = [
     },
 ]
 
+USE_EXTRAS = [
+    ("Lead qualification", "Score and disposition prospects during live conversations."),
+    ("Automated follow-ups", "Post-call nurture with model-backed personalization."),
+    ("Multi-agent operations", "Standardize routing while scaling AI agent programs."),
+]
 
-def model_nav(current: str) -> str:
-    links = []
+HUB_CFG = {
+    "route": "integration-llms",
+    "title": "LLMs — EMAAVY",
+    "meta": "EMAAVY routes flagship reasoning, real-time inference, and multilingual models per agent, per intent, or mid-call — without losing context.",
+    "og_title": "LLMs — EMAAVY",
+    "og_description": "Connect GPT, Claude, Gemini, Qwen, and Grok to EMAAVY voice agents with per-call orchestration.",
+    "breadcrumb": "LLMs",
+    "kicker": "Reasoning layer · LLMs",
+    "h1": "The reasoning engine behind every conversation",
+    "lead": "EMAAVY routes flagship reasoning, real-time inference, and multilingual models per agent, per intent, or mid-call — without losing context. Engineering sets defaults once; operations swaps models by campaign without rebuilding agents.",
+    "stats": [("5", "Model families"), ("128K+", "Max context"), ("Per-turn", "Routing")],
+    "anchor_jumps": [
+        ("reasoning-layer", "How EMAAVY orchestrates"),
+        ("models", "Model partners"),
+        ("orchestration", "Orchestration flow"),
+    ],
+    "layer_id": "reasoning-layer",
+    "layer_num": "Layer 02",
+    "layer_tag": "EMAAVY · LLMs",
+    "layer_h2": "How EMAAVY orchestrates LLMs",
+    "layer_lead": "One conversation layer, many models. Pick flagship reasoning for closes, flash models for intent, and regional models for Hinglish — all on the same agent definitions.",
+    "pills": [
+        ("Per-agent routing", "Assign GPT, Claude, Gemini, Qwen, or Grok per workflow."),
+        ("Mid-call switching", "Escalate to a heavier model when complexity spikes."),
+        ("Structured extraction", "JSON dispositions and scores from live transcripts."),
+        ("Cost control", "Flash for classification; flagship models for closing."),
+    ],
+    "partners_id": "models",
+    "partners_h2": "Model partners",
+    "partners_desc": "Five families integrated today — each with a dedicated page on capabilities, EMAAVY orchestration, and rollout steps.",
+    "flow_id": "orchestration",
+    "flow_h2": "Live orchestration flow",
+    "flow_desc": "How every conversational turn moves through EMAAVY — regardless of which LLM you select.",
+    "flow_steps": [
+        ("Transcript in", "Live speech becomes text in the reasoning pipeline."),
+        ("Model selected", "EMAAVY picks the model for intent, language, and SLA."),
+        ("Intent scored", "Buyer signals update on every turn."),
+        ("Data extracted", "Structured fields map to CRM and campaigns."),
+        ("Agent speaks", "TTS delivers the model-backed reply."),
+    ],
+    "cta_h2": "Connect LLMs to EMAAVY",
+    "cta_desc": "See live model routing, extraction, and agent handoff in a tailored demo.",
+}
+
+HUB_FILE = "llms.html"
+HUB_LABEL = "All models"
+HUB_BREADCRUMB = "LLMs"
+HUB_CTA = "LLM overview"
+
+
+def prepare():
     for m in MODELS:
-        cls = ' class="is-current"' if m["slug"] == current else ""
-        links.append(f'<a href="{m["slug"]}.html"{cls}>{m["short"]}</a>')
-    links.append('<a href="llms.html">All LLMs</a>')
-    return "\n          ".join(links)
+        m.pop("featured", None)
+        ensure_uses(m, USE_EXTRAS)
+    apply_logos_all(MODELS)
 
 
-def render_partner(m: dict) -> str:
-    stats = "".join(
-        f'<div class="llm-partner-stat"><b>{a}</b><span>{b}</span></div>'
-        for a, b in m["stats"]
+def write_partner(m: dict) -> str:
+    route = m.get("route", f"integration-{m['slug']}")
+    return render_partner(
+        m,
+        partners=MODELS,
+        route=route,
+        segment_kicker=f"LLMs · {m['tag']}",
+        hub_file=HUB_FILE,
+        hub_label=HUB_LABEL,
+        hub_breadcrumb=HUB_BREADCRUMB,
+        hub_cta_label=HUB_CTA,
+        nav_label_key="short",
+        connect_name_key="short",
+        explore_title="Explore other models",
+        explore_desc="Mix providers by campaign — EMAAVY keeps transcripts, scoring, and CRM sync consistent.",
+        nav_aria="LLM partners",
+        overview_fit="your reasoning layer",
+        cta_desc="Book a walkthrough — we will map model routing, extraction schemas, and a live agent demo.",
+        segment_type="llm",
+        hub_label_key="short",
     )
-    about = "".join(f"<p>{para}</p>" for para in m["about"])
-    benefits = "".join(
-        f'<li><div><strong>{t}</strong><span>{d}</span></div></li>'
-        for t, d in m["emaavy"]
-    )
-    features = "".join(
-        f'<article class="llm-feature-card"><h3>{t}</h3><p>{d}</p></article>'
-        for t, d in m["features"]
-    )
-    uses = "".join(
-        f'<article class="llm-use-card"><h3>{t}</h3><p>{d}</p></article>'
-        for t, d in m["uses"]
-    )
-    setup = "".join(
-        f'<li><div><strong>{t}</strong><p>{d}</p></div></li>'
-        for t, d in m["setup"]
-    )
-    route = f"integration-{m['slug']}"
 
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{m['title']}</title>
-  <meta name="description" content="{m['meta']}" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="{m['title']}" />
-  <meta property="og:description" content="{m['meta']}" />
-  <meta property="og:type" content="website" />
-{HEAD_COMMON}
-  <link rel="stylesheet" href="../../assets/llm-partner.css" />
-</head>
-<body data-base="../../" data-route="{route}">
-  <div id="site-nav-root"></div>
-  <main class="page-main llm-partner-page">
-    <section class="llm-partner-hero">
-      <div class="container llm-partner-hero-grid">
-        <div class="llm-partner-hero-copy">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="../../index.html">Home</a>
-            <span aria-hidden="true"> / </span>
-            <a href="../../index.html#integrations">Integrations</a>
-            <span aria-hidden="true"> / </span>
-            <a href="llms.html">LLMs</a>
-            <span aria-hidden="true"> / </span>
-            <span>{m['short']}</span>
-          </nav>
-          <span class="llm-partner-kicker">LLMs · {m['tag']}</span>
-          <h1>{m['h1']}</h1>
-          <p class="llm-partner-lead">{m['lead']}</p>
-          <div class="llm-partner-stats">{stats}</div>
-          <div class="llm-partner-hero-actions">
-            <a href="../../book-demo.html" class="btn-primary">Connect {m['short']}</a>
-            <a href="llms.html" class="btn-outline">All models</a>
-          </div>
-        </div>
-        <aside class="llm-partner-hero-card" aria-label="{m['name']} overview">
-          <div class="llm-partner-hero-logo">{m['logo']}</div>
-          <span class="llm-partner-hero-region">{m['region']}</span>
-          <p>Powered through EMAAVY — per-agent routing, mid-call escalation, and live CRM extraction.</p>
-        </aside>
-      </div>
-    </section>
-
-    <section class="llm-partner-section">
-      <div class="container">
-        <header class="llm-partner-section-head">
-          <h2>What {m['short']} is built for</h2>
-          <p>Choosing the right model family shapes conversion, compliance, and cost on every call.</p>
-        </header>
-        <div class="llm-partner-prose">{about}</div>
-      </div>
-    </section>
-
-    <section class="llm-partner-section alt">
-      <div class="container llm-partner-split">
-        <header class="llm-partner-section-head">
-          <h2>How EMAAVY uses {m['short']}</h2>
-          <p>One orchestration layer — swap models by agent, campaign, or intent without rebuilding voice infrastructure.</p>
-        </header>
-        <ul class="llm-partner-benefits">{benefits}</ul>
-      </div>
-    </section>
-
-    <section class="llm-partner-section">
-      <div class="container">
-        <header class="llm-partner-section-head">
-          <h2>Key capabilities</h2>
-          <p>What teams enable when {m['short']} drives EMAAVY voice agents.</p>
-        </header>
-        <div class="llm-feature-grid">{features}</div>
-      </div>
-    </section>
-
-    <section class="llm-partner-section alt">
-      <div class="container">
-        <header class="llm-partner-section-head">
-          <h2>Ideal use cases</h2>
-          <p>Where {m['short']} and EMAAVY deliver the strongest combined outcomes.</p>
-        </header>
-        <div class="llm-use-grid">{uses}</div>
-      </div>
-    </section>
-
-    <section class="llm-partner-section">
-      <div class="container">
-        <header class="llm-partner-section-head">
-          <h2>Getting connected</h2>
-          <p>From API credentials to production traffic on EMAAVY.</p>
-        </header>
-        <ol class="llm-setup-steps">{setup}</ol>
-      </div>
-    </section>
-
-    <section class="llm-partner-section alt">
-      <div class="container">
-        <header class="llm-partner-section-head">
-          <h2>Explore other models</h2>
-          <p>Mix providers by campaign — EMAAVY keeps transcripts, scoring, and CRM sync consistent.</p>
-        </header>
-        <nav class="llm-partner-nav-strip" aria-label="LLM partners">
-          {model_nav(m['slug'])}
-        </nav>
-      </div>
-    </section>
-
-    <section class="llm-partner-cta">
-      <div class="container">
-        <h2>Ready to connect {m['short']}?</h2>
-        <p>Book a walkthrough — we will map model routing, extraction schemas, and a live agent demo.</p>
-        <div class="cta-row">
-          <a href="../../book-demo.html" class="btn-primary">Book a demo</a>
-          <a href="llms.html" class="btn-outline">LLM overview</a>
-        </div>
-      </div>
-    </section>
-  </main>
-  <div id="site-footer-root"></div>
-  <script src="../../assets/routes.js"></script>
-  <script src="../../assets/components.js"></script>
-  <script src="../../assets/nav.js"></script>
-</body>
-</html>
-"""
-
-
-def card_html(m: dict) -> str:
-    points = "".join(f"<li>{x}</li>" for x in m["hub_points"])
-    featured = " llm-model-card--native" if m.get("featured") else ""
-    cta = "Explore integration →" if not m.get("featured") else "View full integration →"
-    badge = f'<span class="llm-model-badge">{m["hub_badge"]}</span>'
-    return f"""          <a href="{m['slug']}.html" id="{m['slug']}" class="llm-model-card{featured}">
-            <div class="llm-model-card-top">
-              <div class="llm-model-card-logo">{m['logo_sm']}</div>
-              {badge}
-            </div>
-            <h3>{m['name']}</h3>
-            <p class="llm-model-card-desc">{m['hub_desc']}</p>
-            <ul class="llm-model-card-points">{points}</ul>
-            <span class="llm-model-card-cta">{cta}</span>
-          </a>"""
-
-
-def render_hub() -> str:
-    cards = "\n".join(card_html(m) for m in MODELS)
-    jumps = " ".join(f'<a href="#{m["slug"]}">{m["short"]}</a>' for m in MODELS)
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LLMs — EMAAVY</title>
-  <meta name="description" content="EMAAVY routes flagship reasoning, real-time inference, and multilingual models per agent, per intent, or mid-call — without losing context." />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="LLMs — EMAAVY" />
-  <meta property="og:description" content="Connect GPT, Claude, Gemini, Qwen, and Grok to EMAAVY voice agents with per-call orchestration." />
-  <meta property="og:type" content="website" />
-{HEAD_COMMON}
-  <link rel="stylesheet" href="../../assets/llm-hub.css" />
-</head>
-<body data-base="../../" data-route="integration-llms">
-  <div id="site-nav-root"></div>
-  <main class="page-main llm-page">
-    <section class="page-hero telephony-hero">
-      <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../../index.html">Home</a>
-          <span aria-hidden="true"> / </span>
-          <a href="../../index.html#integrations">Integrations</a>
-          <span aria-hidden="true"> / </span>
-          <span>LLMs</span>
-        </nav>
-        <span class="page-kicker">Reasoning layer · LLMs</span>
-        <h1>The reasoning engine behind every conversation</h1>
-        <p class="telephony-hero-lead">EMAAVY routes flagship reasoning, real-time inference, and multilingual models per agent, per intent, or mid-call — without losing context. Engineering sets defaults once; operations swaps models by campaign without rebuilding agents.</p>
-        <div class="stat-row telephony-hero-stats">
-          <div class="stat-box"><b>5</b><span>Model families</span></div>
-          <div class="stat-box"><b>128K+</b><span>Max context</span></div>
-          <div class="stat-box"><b>Per-turn</b><span>Routing</span></div>
-        </div>
-        <div class="capabilities-jump telephony-jump">
-          <a href="#reasoning-layer">How EMAAVY orchestrates</a>
-          <a href="#models">Model partners</a>
-          <a href="#orchestration">Orchestration flow</a>
-          {jumps}
-        </div>
-      </div>
-    </section>
-
-    <section id="reasoning-layer" class="llm-hub-reasoning">
-      <div class="container">
-        <article class="llm-hub-reasoning-card">
-          <div class="llm-hub-reasoning-meta">
-            <span class="llm-hub-reasoning-num">Layer 02</span>
-            <span class="llm-hub-reasoning-tag">EMAAVY · LLMs</span>
-            <h2>How EMAAVY orchestrates LLMs</h2>
-            <p class="llm-hub-reasoning-lead">One conversation layer, many models. Pick flagship reasoning for closes, flash models for intent, and regional models for Hinglish — all on the same agent definitions.</p>
-          </div>
-          <div class="llm-hub-pill-grid">
-            <div class="llm-hub-pill"><strong>Per-agent routing</strong><span>Assign GPT, Claude, Gemini, Qwen, or Grok per workflow.</span></div>
-            <div class="llm-hub-pill"><strong>Mid-call switching</strong><span>Escalate to a heavier model when complexity spikes.</span></div>
-            <div class="llm-hub-pill"><strong>Structured extraction</strong><span>JSON dispositions and scores from live transcripts.</span></div>
-            <div class="llm-hub-pill"><strong>Cost control</strong><span>Flash for classification; flagship models for closing.</span></div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="models" class="llm-hub-models page-section alt">
-      <div class="container">
-        <header class="llm-hub-models-head">
-          <h2>Model partners</h2>
-          <p>Five families integrated today — each with a dedicated page on capabilities, EMAAVY orchestration, and rollout steps.</p>
-        </header>
-        <div class="llm-model-grid">
-{cards}
-        </div>
-      </div>
-    </section>
-
-    <section id="orchestration" class="llm-hub-flow">
-      <div class="container">
-        <header class="llm-hub-flow-head">
-          <h2>Live orchestration flow</h2>
-          <p>How every conversational turn moves through EMAAVY — regardless of which LLM you select.</p>
-        </header>
-        <div class="llm-flow-track">
-          <article class="llm-flow-step"><strong>Transcript in</strong><p>Live speech becomes text in the reasoning pipeline.</p></article>
-          <article class="llm-flow-step"><strong>Model selected</strong><p>EMAAVY picks the model for intent, language, and SLA.</p></article>
-          <article class="llm-flow-step"><strong>Intent scored</strong><p>Buyer signals update on every turn.</p></article>
-          <article class="llm-flow-step"><strong>Data extracted</strong><p>Structured fields map to CRM and campaigns.</p></article>
-          <article class="llm-flow-step"><strong>Agent speaks</strong><p>TTS delivers the model-backed reply.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="llm-hub-cta">
-      <div class="container">
-        <h2>Connect LLMs to EMAAVY</h2>
-        <p>See live model routing, extraction, and agent handoff in a tailored demo.</p>
-        <div class="cta-row">
-          <a href="../../book-demo.html" class="btn-primary">Book a demo</a>
-          <a href="index.html" class="btn-outline">All integrations</a>
-        </div>
-      </div>
-    </section>
-  </main>
-  <div id="site-footer-root"></div>
-  <script src="../../assets/routes.js"></script>
-  <script src="../../assets/components.js"></script>
-  <script src="../../assets/nav.js"></script>
-</body>
-</html>
-"""
 
 
 def update_routes():
     path = ROOT / "assets" / "routes.js"
     text = path.read_text(encoding="utf-8")
-    lines = ["      { id: 'llms', label: 'LLM layer', path: 'pages/integrations/llms.html' },"]
+    lines = ["      { id: 'llm', label: 'LLM layer', path: 'pages/integrations/llms.html' },"]
     for m in MODELS:
         label = m["name"]
         lines.append(
@@ -556,12 +346,15 @@ def update_routes():
 
 
 def main():
+    prepare()
     INT.mkdir(parents=True, exist_ok=True)
-    (INT / "llms.html").write_text(render_hub(), encoding="utf-8")
+    (INT / "llms.html").write_text(
+        render_hub(HUB_CFG, MODELS, jump_label_key="short", hub_tile_label_key="short"), encoding="utf-8"
+    )
     for m in MODELS:
-        (INT / f"{m['slug']}.html").write_text(render_partner(m), encoding="utf-8")
+        (INT / f"{m['slug']}.html").write_text(write_partner(m), encoding="utf-8")
     update_routes()
-    print(f"OK: LLM hub + {len(MODELS)} model pages, routes.js updated")
+    print(f"OK: llms.html + {len(MODELS)} partner pages, routes.js updated")
 
 
 if __name__ == "__main__":

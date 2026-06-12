@@ -73,15 +73,16 @@
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.04em;
-  color: #0f172a;
+  color: #18345d;
   margin: 0 0 1.1rem;
 }
 .cta-listen-copy h2 .cta-gradient-line {
   display: block;
-  background: linear-gradient(120deg, #4A658B 0%, #18345D 55%, #2563eb 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #18345d;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: currentColor;
+  background-clip: unset;
 }
 .cta-listen-lead {
   font-size: clamp(1rem, 1.6vw, 1.12rem);
@@ -319,7 +320,7 @@
 .cta-layer-name {
   font-size: 0.68rem;
   font-weight: 600;
-  color: #0f172a;
+  color: #4a658b;
   letter-spacing: 0.01em;
   white-space: nowrap;
 }

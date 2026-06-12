@@ -355,13 +355,6 @@ def study_page(slug, s):
   <main class="page-main int-category-page">
     <section class="page-hero telephony-hero">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../../emaavy_white_blue%20(2).html">Home</a>
-          <span aria-hidden="true"> / </span>
-          <a href="../../emaavy_white_blue%20(2).html#case-studies">Case Studies</a>
-          <span aria-hidden="true"> / </span>
-          <span>{s['title']}</span>
-        </nav>
         <span class="page-kicker">{s['kicker']}</span>
         <h1>{s['short']}</h1>
         <p class="telephony-hero-lead">{s['hero_lead']}</p>
@@ -482,11 +475,6 @@ def hub_html():
   <main class="page-main">
     <section class="page-hero telephony-hero">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../emaavy_white_blue%20(2).html">Home</a>
-          <span aria-hidden="true"> / </span>
-          <span>Case Studies</span>
-        </nav>
         <span class="page-kicker">Client Success</span>
         <h1>What we've built for our clients</h1>
         <p class="telephony-hero-lead">Real results from real campaigns — each story has a dedicated page with challenge, implementation, and measured outcomes.</p>

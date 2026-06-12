@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 32" role="img" aria-label="Qwen">
+  <rect width="120" height="32" fill="none"/>
+  <rect x="4" y="6" width="20" height="20" rx="5" fill="#615EFF"/>
+  <text x="10" y="20" font-family="system-ui,Arial,sans-serif" font-size="11" font-weight="800" fill="#fff">QW</text>
+  <text x="32" y="21" font-family="system-ui,Arial,sans-serif" font-size="15" font-weight="700" fill="#615EFF">Qwen</text>
+</svg>

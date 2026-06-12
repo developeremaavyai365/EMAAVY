@@ -1,0 +1,379 @@
+/**
+ * EMAAVY — site-wide typography enforcement.
+ * Load last in <head> (after page-specific CSS).
+ * Headings: Clash Display · Body: General Sans · EMAAVY color palette.
+ */
+
+/* ─── Base document ─── */
+body {
+  font-family: var(--emaavy-font-body) !important;
+  font-size: var(--emaavy-body-size) !important;
+  font-weight: var(--emaavy-body-weight) !important;
+  line-height: var(--emaavy-body-line) !important;
+  color: var(--emaavy-body-color) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.page-main,
+.page-main p,
+.page-main li,
+.telephony-page,
+.int-logo-page {
+  font-family: var(--emaavy-font-body);
+  color: var(--emaavy-body-color);
+}
+
+/* ─── Kickers ─── */
+.section-kicker,
+.page-kicker,
+.bento-label,
+.tel-partner-kicker,
+.capability-tag,
+.showcase-kicker,
+.agents-showcase-eyebrow,
+.campaigns-showcase-eyebrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  font-family: var(--emaavy-font-body) !important;
+  font-size: var(--emaavy-kicker-size) !important;
+  font-weight: var(--emaavy-kicker-weight) !important;
+  letter-spacing: var(--emaavy-kicker-tracking) !important;
+  text-transform: uppercase !important;
+  color: var(--emaavy-kicker-color) !important;
+  background: var(--emaavy-kicker-bg) !important;
+  border: 1px solid var(--emaavy-kicker-border) !important;
+  border-radius: 6px !important;
+  padding: 0.35rem 0.85rem !important;
+  margin-bottom: 0.85rem !important;
+  box-shadow: none !important;
+}
+
+.section-kicker::before,
+.page-kicker::before,
+.bento-label::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* ─── H1 — page / directory heroes (pricing reference) ─── */
+.int-dir-hero h1,
+.telephony-page .telephony-hero h1,
+.telephony-page .page-hero.telephony-hero h1,
+.tel-partner-hero h1,
+.page-hero h1,
+.page-main > section:first-of-type h1,
+.capabilities-page .page-hero h1,
+.pricing-page .int-dir-hero h1 {
+  font-family: var(--emaavy-font-display) !important;
+  font-size: var(--emaavy-h1-size) !important;
+  font-weight: var(--emaavy-h1-weight) !important;
+  letter-spacing: var(--emaavy-h1-tracking) !important;
+  line-height: var(--emaavy-h1-line) !important;
+  color: var(--emaavy-h1-color) !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: currentColor !important;
+  background: none !important;
+  margin-top: 0 !important;
+  margin-bottom: 0.65rem !important;
+}
+
+/* ─── H2 — section titles ─── */
+.hiw-head h2,
+.features-head h2,
+.hub-clear-intro-title,
+.int-category-head h2,
+.tel-hub-partners-head h2,
+.tel-hub-flow-head h2,
+.tel-hub-cta h2,
+.tel-partner-section-head h2,
+.tel-partner-cta h2,
+.pricing-head h2,
+.cs-study-section-head h2,
+.section-title,
+.page-section h2,
+.page-main h2:not(.pack-name):not(.hero-title) {
+  font-family: var(--emaavy-font-display) !important;
+  font-size: var(--emaavy-h2-size) !important;
+  font-weight: var(--emaavy-h2-weight) !important;
+  letter-spacing: var(--emaavy-h2-tracking) !important;
+  line-height: var(--emaavy-h2-line) !important;
+  color: var(--emaavy-h2-color) !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: currentColor !important;
+  background: none !important;
+}
+
+.hiw-head h2,
+.features-head h2,
+.hub-clear-intro-title,
+.int-category-head h2,
+.tel-hub-partners-head h2,
+.tel-hub-flow-head h2,
+.tel-partner-section-head h2 {
+  margin-bottom: 0.5rem !important;
+}
+
+/* ─── H3 / H4 in content ─── */
+.page-main h3,
+.telephony-page h3,
+.int-category-block h3,
+.glow-card h3,
+.pack-name,
+.tel-partner-section h3 {
+  font-family: var(--emaavy-font-display) !important;
+  font-size: var(--emaavy-h3-size) !important;
+  font-weight: var(--emaavy-h3-weight) !important;
+  color: var(--emaavy-h3-color) !important;
+  line-height: 1.25 !important;
+}
+
+.page-main h4,
+.telephony-page h4 {
+  font-family: var(--emaavy-font-body) !important;
+  font-size: var(--emaavy-h4-size) !important;
+  font-weight: var(--emaavy-h4-weight) !important;
+  color: var(--emaavy-h4-color) !important;
+}
+
+/* Accent spans in titles — same weight, no gradient */
+.pricing-hero-accent,
+.int-dir-hero h1 em,
+.int-dir-hero h1 span,
+.telephony-hero h1 em,
+.page-hero h1 em,
+.page-hero h1 span.pricing-hero-accent {
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  font-size: inherit !important;
+  color: var(--emaavy-h1-color) !important;
+  background: none !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+/* ─── Lead / hero description (pricing subtext style) ─── */
+.int-dir-hero-lead,
+.telephony-hero-lead,
+.tel-partner-lead,
+.page-hero .section-desc,
+.page-hero p:not(.breadcrumb):not(.hero-tagline):not(.hero-pitch),
+.hiw-head p,
+.features-head p,
+.hub-clear-intro-lead,
+.tel-partner-section-head p,
+.tel-hub-partners-head p,
+.tel-hub-flow-head p,
+.pricing-head > p,
+.int-category-head + p,
+.page-hero > .container > p,
+.int-dir-hero > .container > p:not(.breadcrumb) {
+  font-family: var(--emaavy-font-body) !important;
+  font-size: var(--emaavy-lead-size) !important;
+  font-weight: var(--emaavy-lead-weight) !important;
+  line-height: var(--emaavy-lead-line) !important;
+  color: var(--emaavy-lead-color) !important;
+  max-width: var(--emaavy-lead-max);
+}
+
+.hiw-head p,
+.features-head p,
+.hub-clear-intro-lead {
+  max-width: var(--section-lead-max) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ─── Standard body copy in main content ─── */
+.page-main p,
+.telephony-page p,
+.int-category-block p,
+.page-section p,
+.tel-partner-section p,
+.glow-card p,
+.pack-tagline,
+.faq-answer-body p,
+.capability-lead {
+  font-family: var(--emaavy-font-body) !important;
+  font-size: var(--emaavy-body-size) !important;
+  font-weight: var(--emaavy-body-weight) !important;
+  line-height: var(--emaavy-body-line) !important;
+  color: var(--emaavy-body-color) !important;
+}
+
+/* Muted / secondary inline */
+.page-main .muted,
+.pack-features .muted,
+.telephony-page .tel-soft,
+small,
+.caption {
+  color: var(--emaavy-lead-color) !important;
+  font-weight: var(--emaavy-body-weight) !important;
+}
+
+/* Brand accent text (links in prose, not nav) */
+.page-main a:not(.btn-nav-login):not(.btn-nav-demo):not(.masthead-cta):not(.pack-cta):not(.hub-btn-primary):not(.hub-btn-secondary):not(.btn-primary):not(.btn-outline),
+.telephony-page a:not(.int-logo-tile):not(.int-category-pill):not(.tel-partner-cta a) {
+  color: var(--emaavy-accent-text);
+}
+
+.page-main a:hover,
+.telephony-page a:hover {
+  color: var(--emaavy-accent-deep);
+}
+
+/* ─── Landing page section headings (home) ─── */
+body[data-page="home"] .hiw-head h2,
+body[data-page="home"] .features-head h2,
+body[data-page="home"] .hub-clear-intro-title,
+body[data-page="home"] #how-it-works h2,
+body[data-page="home"] #features h2,
+body[data-page="home"] #integrations .int-category-head h2,
+body[data-page="home"] .section-kicker,
+body[data-page="home"] .bento-label {
+  font-family: var(--emaavy-font-display) !important;
+}
+
+body[data-page="home"] .hiw-head p,
+body[data-page="home"] .features-head p,
+body[data-page="home"] .hub-clear-intro-lead {
+  font-size: var(--emaavy-lead-size) !important;
+  font-weight: var(--emaavy-lead-weight) !important;
+  line-height: var(--emaavy-lead-line) !important;
+  color: var(--emaavy-lead-color) !important;
+}
+
+/* ─── Neutralize conflicting hub/partner title overrides ─── */
+.telephony-hero h1,
+.int-dir-hero h1,
+.tel-partner-hero h1 {
+  font-weight: var(--emaavy-h1-weight) !important;
+}
+
+.telephony-hero-lead,
+.int-dir-hero-lead,
+.tel-partner-lead {
+  font-weight: var(--emaavy-lead-weight) !important;
+  color: var(--emaavy-lead-color) !important;
+}
+
+.tel-hub-partners-head h2,
+.tel-hub-flow-head h2,
+.tel-partner-section-head h2,
+.int-category-head h2 {
+  font-weight: var(--emaavy-h2-weight) !important;
+}
+
+/* Card / pack titles — solid brand blue, no effects */
+.pack-name,
+.price-card h3 {
+  font-family: var(--emaavy-font-display) !important;
+  font-weight: 600 !important;
+  color: var(--emaavy-h3-color) !important;
+  -webkit-text-fill-color: currentColor !important;
+  background: none !important;
+  text-shadow: none !important;
+}
+
+/* ─── Global headings — logo blue, clean, no effects ─── */
+.page-main h1,
+.page-main h2,
+.page-main h3,
+.page-main h4,
+.shell h1:not(.hero-brand-letter):not(.hero-title),
+.shell h2,
+.shell h3,
+.shell h4,
+.telephony-page h1,
+.telephony-page h2,
+.telephony-page h3,
+.telephony-page h4,
+.tel-hub-voice-card h2,
+.page-hero h1,
+.auth-page h1,
+.auth-page h2,
+.demo-page h1,
+.demo-page h2 {
+  text-shadow: none !important;
+  box-shadow: none !important;
+  background: none !important;
+  background-image: none !important;
+  -webkit-text-fill-color: currentColor !important;
+  -webkit-text-stroke: 0 !important;
+  text-stroke: 0 !important;
+  filter: none !important;
+}
+
+.page-main h1,
+.shell .page-main h1,
+.telephony-page h1 {
+  color: var(--emaavy-h1-color) !important;
+}
+
+.page-main h2,
+.shell h2,
+.telephony-page h2,
+.tel-hub-voice-card h2 {
+  color: var(--emaavy-h2-color) !important;
+}
+
+.page-main h3,
+.telephony-page h3 {
+  color: var(--emaavy-h3-color) !important;
+}
+
+.page-main h4,
+.telephony-page h4 {
+  color: var(--emaavy-h4-color) !important;
+}
+
+/* Landing hero headline — owned by index.html inline hero styles (not global type) */
+
+body[data-page="home"] .hiw-head h2,
+body[data-page="home"] .features-head h2,
+body[data-page="home"] .hub-clear-intro-title,
+body[data-page="home"] #how-it-works h2,
+body[data-page="home"] #features h2,
+body[data-page="home"] #agents h2,
+body[data-page="home"] #campaigns h2,
+body[data-page="home"] #case-studies h2,
+body[data-page="home"] #journey h2,
+body[data-page="home"] #faq h2,
+body[data-page="home"] #book-demo h2 {
+  color: var(--emaavy-h2-color) !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: currentColor !important;
+  background: none !important;
+}
+
+/* Home promo panels — solid logo blue, no gradient */
+body[data-page="home"] .integrations-promo h3,
+body[data-page="home"] .agents-promo h3,
+body[data-page="home"] .cs-promo h3,
+body[data-page="home"] .imx-promo h3,
+body[data-page="home"] .faq-promo h3,
+body[data-page="home"] .clc-promo h3,
+body[data-page="home"] .integrations-promo-panel-head h4,
+body[data-page="home"] .agents-promo-panel-head h4,
+body[data-page="home"] .cs-promo-panel-head h4,
+body[data-page="home"] .imx-promo-panel-head h4,
+body[data-page="home"] .faq-promo-panel-head h4,
+body[data-page="home"] .clc-promo-panel-head h4,
+body[data-page="home"] .demo-form h3 {
+  font-family: var(--emaavy-font-display) !important;
+  color: var(--emaavy-h3-color) !important;
+  text-shadow: none !important;
+  -webkit-text-fill-color: currentColor !important;
+  background: none !important;
+  background-image: none !important;
+}
+
+body[data-page="home"] .integrations-promo-highlights strong,
+body[data-page="home"] .agents-promo-highlights strong,
+body[data-page="home"] .cs-promo-highlights strong,
+body[data-page="home"] .imx-promo-highlights strong,
+body[data-page="home"] .faq-promo-highlights strong,
+body[data-page="home"] .clc-promo-highlights strong {
+  color: var(--emaavy-h3-color) !important;
+}

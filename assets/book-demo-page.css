@@ -21,9 +21,8 @@
   overflow: visible;
 }
 
-.demo-page #site-footer-root .site-footer {
+.demo-page #site-footer-root .site-footer--premium {
   margin-top: 0;
-  border-top: 1px solid #e2e8f0;
 }
 
 .demo-shell {
@@ -102,35 +101,6 @@
   position: relative;
   z-index: 2;
   max-width: 520px;
-}
-
-.demo-showcase-logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-  text-decoration: none;
-  color: #fff;
-}
-
-.demo-showcase-logo img {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.12);
-  padding: 4px;
-}
-
-.demo-showcase-logo span {
-  font-family: 'Clash Display', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-.demo-showcase-logo em {
-  font-style: normal;
-  opacity: 0.75;
 }
 
 .demo-showcase h1 {
@@ -302,7 +272,7 @@
 .demo-panel-head h2 {
   font-family: 'Clash Display', sans-serif;
   font-size: clamp(1.5rem, 3vw, 1.85rem);
-  color: #0f172a;
+  color: #18345d;
   letter-spacing: -0.03em;
   margin-bottom: 0.4rem;
 }

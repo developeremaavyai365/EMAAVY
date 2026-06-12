@@ -1,4 +1,4 @@
-/* Shared EMAAVY navigation */
+/* Shared EMAAVY navigation — typography from navbar-tokens.css */
 :root {
   --nav-offset: 88px;
 }
@@ -106,50 +106,59 @@ body:has(.masthead) [id="book-demo"] {
 }
 
 .site-nav a,
+.site-nav .nav-dropdown-split > a,
 .site-nav .nav-dropdown-trigger,
 .site-nav .nav-integrations-link,
-.site-nav .nav-dropdown-caret {
-  font-size: 0.76rem;
-  font-weight: 500;
-  color: #475569;
+.site-nav .nav-dropdown-caret,
+.masthead-nav .nav-dropdown-split > a {
+  font-family: var(--navbar-font-family);
+  font-size: var(--navbar-font-size);
+  font-weight: var(--navbar-font-weight);
+  line-height: var(--navbar-line-height);
+  letter-spacing: var(--navbar-letter-spacing);
+  color: var(--navbar-text-color);
   text-decoration: none;
-  padding: 0.45rem 0.75rem;
-  border-radius: 6px;
+  padding: var(--navbar-link-padding-y) var(--navbar-link-padding-x);
+  border-radius: var(--navbar-border-radius);
   border: none;
   background: none;
   cursor: pointer;
-  font-family: inherit;
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
   flex-shrink: 0;
-  letter-spacing: 0.02em;
-  transition: color 0.2s, background 0.2s;
+  transition: var(--navbar-transition);
   white-space: nowrap;
 }
 
 .site-nav .nav-dropdown { flex-shrink: 0; white-space: nowrap; }
 
 .site-nav a:hover,
+.site-nav .nav-dropdown-split > a:hover,
 .site-nav .nav-dropdown-trigger:hover,
 .site-nav .nav-integrations-link:hover,
-.site-nav .nav-dropdown-caret:hover {
-  color: #0f172a;
-  background: #f1f5f9;
+.site-nav .nav-dropdown-caret:hover,
+.masthead-nav .nav-dropdown-split > a:hover {
+  color: var(--navbar-hover-color);
+  background: var(--navbar-hover-bg);
   box-shadow: none;
 }
 
 .site-nav a.active:hover,
 .site-nav .nav-dropdown-trigger.active:hover {
-  color: #0f172a !important;
-  background: #f1f5f9 !important;
+  color: var(--navbar-hover-color) !important;
+  background: var(--navbar-hover-bg) !important;
   box-shadow: none !important;
 }
 
 .site-nav a.active,
-.site-nav .nav-dropdown-trigger.active {
-  color: #18345d !important;
-  background: #f0f4f8 !important;
+.site-nav .nav-dropdown-split > a.active,
+.site-nav .nav-dropdown-trigger.active,
+.masthead-nav .nav-dropdown-split > a.active {
+  color: var(--navbar-active-color) !important;
+  background: var(--navbar-active-bg) !important;
+  font-weight: var(--navbar-font-weight) !important;
+  text-decoration: none !important;
   box-shadow: none !important;
   transform: none;
 }
@@ -250,8 +259,9 @@ body:has(.masthead) [id="book-demo"] {
 }
 
 .site-nav .dropdown-section-title {
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-family: var(--navbar-font-family);
+  font-size: var(--navbar-dropdown-title-size);
+  font-weight: var(--navbar-dropdown-title-weight);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #64748b;
@@ -260,9 +270,10 @@ body:has(.masthead) [id="book-demo"] {
 
 .site-nav .dropdown-section a {
   display: block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #334155 !important;
+  font-family: var(--navbar-font-family);
+  font-size: var(--navbar-dropdown-link-size);
+  font-weight: var(--navbar-dropdown-link-weight);
+  color: var(--navbar-dropdown-link-color) !important;
   padding: 0.35rem 0.5rem;
   border-radius: 8px;
   background: transparent !important;
@@ -271,8 +282,8 @@ body:has(.masthead) [id="book-demo"] {
 }
 
 .site-nav .dropdown-section a:hover {
-  color: #4a658b !important;
-  background: #f0f4f8 !important;
+  color: var(--navbar-active-color) !important;
+  background: var(--navbar-active-bg) !important;
 }
 
 /* ─── Masthead (landing + all subpages): same dropdown behavior as .site-nav ─── */
@@ -366,8 +377,9 @@ body:has(.masthead) [id="book-demo"] {
 .masthead .dropdown-section-wide { grid-column: 1 / -1; }
 
 .masthead .dropdown-section-title {
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-family: var(--navbar-font-family);
+  font-size: var(--navbar-dropdown-title-size);
+  font-weight: var(--navbar-dropdown-title-weight);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #64748b;
@@ -377,9 +389,10 @@ body:has(.masthead) [id="book-demo"] {
 .masthead .dropdown-section a,
 .masthead .dropdown-link-grid a {
   display: block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #334155 !important;
+  font-family: var(--navbar-font-family);
+  font-size: var(--navbar-dropdown-link-size);
+  font-weight: var(--navbar-dropdown-link-weight);
+  color: var(--navbar-dropdown-link-color) !important;
   padding: 0.35rem 0.5rem;
   border-radius: 8px;
   background: transparent !important;
@@ -393,8 +406,8 @@ body:has(.masthead) [id="book-demo"] {
 
 .masthead .dropdown-section a:hover,
 .masthead .dropdown-link-grid a:hover {
-  color: #18345d !important;
-  background: #f0f4f8 !important;
+  color: var(--navbar-active-color) !important;
+  background: var(--navbar-active-bg) !important;
 }
 
 .masthead .nav-dropdown-menu.mega-agents {
@@ -423,8 +436,9 @@ body:has(.masthead) [id="book-demo"] {
 
 .masthead .nav-dropdown-menu-kicker {
   display: inline-block;
+  font-family: var(--navbar-font-family);
   font-size: 0.65rem;
-  font-weight: 700;
+  font-weight: var(--navbar-font-weight);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #4a658b;
@@ -452,39 +466,45 @@ body:has(.masthead) [id="book-demo"] {
 }
 
 .btn-nav-login {
-  padding: 0.45rem 1rem;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  font-weight: 500;
-  font-size: 0.78rem;
-  color: #475569;
-  background: #fff;
+  padding: var(--navbar-link-padding-y) 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--navbar-border-radius);
+  font-family: var(--navbar-font-family);
+  font-weight: var(--navbar-cta-font-weight);
+  font-size: var(--navbar-cta-font-size);
+  line-height: var(--navbar-line-height);
+  letter-spacing: var(--navbar-letter-spacing);
+  color: var(--navbar-text-color);
+  background: transparent;
   text-decoration: none;
-  transition: color 0.2s, background 0.2s, border-color 0.2s;
+  transition: var(--navbar-transition);
 }
 
 .btn-nav-login:hover {
-  border-color: #cbd5e1;
-  color: #0f172a;
+  border-color: #e2e8f0;
+  color: var(--navbar-hover-color);
   background: #f8fafc;
   box-shadow: none;
 }
 
 .btn-nav-demo {
-  padding: 0.45rem 1.1rem;
+  padding: var(--navbar-link-padding-y) 1.1rem;
   border: none;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 0.78rem;
-  color: #fff;
-  background: linear-gradient(135deg, #4a658b 0%, #18345d 100%);
+  border-radius: var(--navbar-border-radius);
+  font-family: var(--navbar-font-family);
+  font-weight: var(--navbar-cta-font-weight);
+  font-size: var(--navbar-cta-font-size);
+  line-height: var(--navbar-line-height);
+  letter-spacing: var(--navbar-letter-spacing);
+  color: var(--navbar-cta-demo-color);
+  background: var(--navbar-cta-demo-bg);
   text-decoration: none;
   box-shadow: none;
-  transition: background 0.2s;
+  transition: var(--navbar-transition);
 }
 
 .btn-nav-demo:hover {
-  background: #18345d;
+  background: var(--navbar-cta-demo-bg-hover);
   box-shadow: none;
 }
 
@@ -554,34 +574,38 @@ body:has(.masthead) [id="book-demo"] {
 .mobile-nav-drawer .mobile-nav-label {
   display: block;
   padding: 0.85rem 1rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #1e293b;
+  font-family: var(--navbar-font-family);
+  font-size: var(--navbar-mobile-font-size);
+  font-weight: var(--navbar-mobile-font-weight);
+  line-height: 1.35;
+  letter-spacing: var(--navbar-letter-spacing);
+  color: var(--navbar-text-color);
   text-decoration: none;
   border-radius: 12px;
-  transition: background 0.2s, color 0.2s;
+  transition: var(--navbar-transition);
   margin-bottom: 0.25rem;
 }
 
 .mobile-nav-drawer a:hover,
 .mobile-nav-drawer a.active {
-  background: #f0f4f8;
-  color: #18345d;
+  background: var(--navbar-active-bg);
+  color: var(--navbar-active-color);
+  font-weight: var(--navbar-mobile-font-weight);
 }
 
 .mobile-nav-drawer .mobile-nav-label {
-  font-size: 0.68rem;
+  font-size: var(--navbar-mobile-label-size);
+  font-weight: var(--navbar-mobile-label-weight);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #64748b;
   padding-top: 1rem;
-  font-weight: 700;
 }
 
 .mobile-nav-drawer .mobile-sub a {
-  font-size: 0.85rem;
+  font-size: var(--navbar-mobile-font-size);
   padding-left: 1.5rem;
-  font-weight: 500;
+  font-weight: var(--navbar-mobile-font-weight);
 }
 
 .mobile-nav-actions {

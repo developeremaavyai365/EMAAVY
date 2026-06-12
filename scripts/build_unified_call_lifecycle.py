@@ -447,13 +447,6 @@ def step_page(slug, s):
   <main class="page-main int-category-page">
     <section class="page-hero telephony-hero">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../../emaavy_white_blue%20(2).html">Home</a>
-          <span aria-hidden="true"> / </span>
-          <a href="../../emaavy_white_blue%20(2).html#journey">Call lifecycle</a>
-          <span aria-hidden="true"> / </span>
-          <span>{s['title']}</span>
-        </nav>
         <span class="page-kicker">{s['kicker']}</span>
         <h1>{s['short_title']}</h1>
         <p class="telephony-hero-lead">{s['hero_lead']}</p>
@@ -567,11 +560,6 @@ def hub_html():
   <main class="page-main int-category-page">
     <section class="page-hero telephony-hero">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../../emaavy_white_blue%20(2).html">Home</a>
-          <span aria-hidden="true"> / </span>
-          <span>Call lifecycle</span>
-        </nav>
         <span class="page-kicker">End-to-end flow</span>
         <h1>The call journey — step by step</h1>
         <p class="telephony-hero-lead">From ring to learn — every stage is captured, scored, and turned into action automatically. Explore each step for full detail on what EMAAVY does and why it matters.</p>
